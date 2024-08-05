@@ -1,0 +1,8 @@
+**/build/**
+**/dist/**
+**/coverage/**
+
+# Generated SCSS directories and files
+
+
+# packages/components
