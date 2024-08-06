@@ -27,25 +27,62 @@ Obs.: Utilize a extensão [Nx Console](https://marketplace.visualstudio.com/item
 
 ```
 | [diretório libs]
-\---ui
-    |   ... [Arquivos default Nx libs]
-    |
-    +---.storybook
-    |       main.ts
-    |       preview.ts
-    |       tsconfig.json
-    |
-    \---src
-        |   index.ts
-        |   test-setup.ts
-        |
-        \---lib
-            +---component
-            |   \---button
-            |           button.component.{css,html,spec,stories,ts}
-            |    \--- ... [Demais componentes aqui]
-            \---scss
-            | [global styles]
+ui
+|   ... [Arquivos default Nx libs]
+├── storybook
+│   ├── preview.js
+│   ├── main.js
+│   └── tsconfig.json
+├── src
+│   ├── lib
+│   │   ├── component
+│   │   │   ├── button
+│   │   │   │   ├── button.component.html
+│   │   │   │   ├── button.component.scss
+│   │   │   │   ├── button.component.spec.ts
+│   │   │   │   ├── button.component.ts
+│   │   │   │   ├── button.component.stories.ts
+│   │   │   │   └── button_variants
+│   │   │   │       ├── button-default.scss
+│   │   │   │       ├── button-filled.scss
+│   │   │   │       ├── button-outlined.scss
+│   │   │   │       ├── button-flat.scss
+│   │   │   │       ├── button-table-filled.scss
+│   │   │   │       ├── button-table-outlined.scss
+│   │   │   │       └── button-table-flat.scss
+│   │   │   ├── other-component
+│   │   │   │   └── ...
+│   │   │   ├── other-component
+│   │   │   │   └── ...
+│   │   │   ├── other-component
+│   │   │   │   └── ...
+│   │   ├── styles
+│   │   │   ├── core
+│   │   │   │   ├── _functions.scss
+│   │   │   │   └── _mixins.scss
+│   │   │   ├── global
+│   │   │   │   ├── _typography.scss
+│   │   │   │   ├── _functions.scss
+│   │   │   │   ├── _mixins.scss
+│   │   │   │   ├── _breakpoint.scss
+│   │   │   │   ├── _normalize.scss
+│   │   │   │   ├── _overrides.scss
+│   │   │   │   └── _styles.scss
+│   │   │   ├── themes
+│   │   │   │   ├── bs2
+│   │   │   │   │   ├── _default.scss
+│   │   │   │   │   └── ...
+│   ├── assets
+│   │   ├── themes
+│   │   │   ├── bs2
+│   │   │   │   ├── images
+│   │   │   │   │   ├── logo.svg
+│   │   │   │   │   └── ...
+│   │   │   │   ├── fonts
+│   │   │   │   │   ├── file-fonts.woff
+│   │   │   │   │   └── file-fonts.wttf
+│   │   │   │   └── ...
+├── tsconfig.json
 ```
 
 ### Documentação dos Componentes
