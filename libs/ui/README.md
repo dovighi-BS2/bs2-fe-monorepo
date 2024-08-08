@@ -42,7 +42,7 @@ ui
 │   │   │   │   ├── button.component.spec.ts
 │   │   │   │   ├── button.component.ts
 │   │   │   │   ├── button.component.stories.ts
-│   │   │   │   └── button_variants
+│   │   │   │   └── button-variants
 │   │   │   │       ├── button-default.scss
 │   │   │   │       ├── button-filled.scss
 │   │   │   │       ├── button-outlined.scss
@@ -57,9 +57,6 @@ ui
 │   │   │   ├── other-component
 │   │   │   │   └── ...
 │   │   ├── styles
-│   │   │   ├── core
-│   │   │   │   ├── _functions.scss
-│   │   │   │   └── _mixins.scss
 │   │   │   ├── global
 │   │   │   │   ├── _typography.scss
 │   │   │   │   ├── _functions.scss
@@ -72,7 +69,18 @@ ui
 │   │   │   │   ├── bs2
 │   │   │   │   │   ├── _default.scss
 │   │   │   │   │   └── ...
+│   │   │   │   └── [other-theme]
+│   │   │   │       ├── _default.scss
+│   │   │   │       └── ...
 │   ├── assets
+│   │   ├── core
+│   │   │   ├── images
+│   │   │   │   ├── flags-currency
+│   │   │   │   │   └── ...
+│   │   │   │   ├── flags-square
+│   │   │   │   │   └── ...
+│   │   │   │   ├── [images-business] // A imagem que não ser substituida quando houver a troca de thema deve ser incluida em Core
+│   │   │   │   │   └── ...
 │   │   ├── themes
 │   │   │   ├── bs2
 │   │   │   │   ├── images
@@ -81,10 +89,33 @@ ui
 │   │   │   │   ├── fonts
 │   │   │   │   │   ├── file-fonts.woff
 │   │   │   │   │   └── file-fonts.wttf
-│   │   │   │   └── ...
+│   │   │   │   └── [other-theme]
+│   │   │   │           ├── _default.scss
+│   │   │   │           └── ...
 ├── tsconfig.json
 ```
 
 ### Documentação dos Componentes
 
 [Link Nx Compodoc](https://nx.dev/recipes/storybook/angular-storybook-compodoc)
+
+### Importação de estilos
+
+Hoje existe uma unica pré configuração de caminho para importação de estilo, que fica em:
+`libs/ui/src/lib/styles/global`. Ao usar `@import "styles";` por exemplo, ele esta importando
+o arquivo `libs/ui/src/lib/styles/global/_styles.scss` que contém todas as importações basicas do sistema.
+
+#### Adicionando uma nova configuração de estilo
+ 
+Para adicionar uma nova configuração, basta ir no arquivo `libs/ui/src/project.json` e procurar por 2 
+props `build | build-storybook`, cada uma contém uma prop `options` que por sua vez possui um array de 
+`stylePreprocessorOptions`, agora basta adicionar seu path dentro desse array. Por exemplo:
+
+```
+"stylePreprocessorOptions": {
+    "includePaths": [
+        "libs/ui/src/lib/styles/global",
+        "libs/ui/src/lib/styles/seu-path-exemplo"
+    ]
+}
+```
