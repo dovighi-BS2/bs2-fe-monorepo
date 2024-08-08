@@ -4,7 +4,5 @@
     "nx affected:test",
     "nx format:write --uncommited"
   ],
-  "**/*.scss": [
-    "nx format:write --uncommited"
-  ]
+  "**/*.scss": ["nx format:write --uncommited"]
 }

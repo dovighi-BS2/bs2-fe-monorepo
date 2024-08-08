@@ -10,7 +10,10 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/ui/ng-package.json"
+        "project": "libs/ui/ng-package.json",
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/src/lib/styles/global"]
+        }
       },
       "configurations": {
         "production": {
@@ -55,7 +58,10 @@
         "configDir": "libs/ui/.storybook",
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
-        "compodocArgs": ["-e", "json", "-d", "libs/ui"]
+        "compodocArgs": ["-e", "json", "-d", "libs/ui"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/src/lib/styles/global"]
+        }
       },
       "configurations": {
         "ci": {

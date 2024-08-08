@@ -1,0 +1,77 @@
+$themes: (
+  // PRIMARY
+  'primary': #1226aa,
+  'primary_text1_bg2': #090e29,
+  'primary_emphasis': #ff3366,
+  'primary_text2_bg1': #fafafa,
+  'primary_white': #ffffff,
+
+  // VARIATIONS
+  'secondary_v1': #e7e9f7,
+  'secondary_v2': #d0d4ee,
+  'secondary_v3': #a0a8dd,
+  'secondary_v4': #717dcc,
+  'secondary_v5': #4151bb,
+  'secondary_v6': #0e1e88,
+  'secondary_v7': #0b1766,
+  'secondary_v8': #070f44,
+  'secondary_v9': #040822,
+
+  // NEUTRAL
+  'neutral_v0': #f5f5f5,
+  'neutral_v1': #eaeaea,
+  'neutral_v2': #bfbfbf,
+  'neutral_v3': #949494,
+  'neutral_v4': #696969,
+  'neutral_v5': #545454,
+  'neutral_v6': #222222,
+
+  // FEEDBACK
+  'error': #f22b29,
+  'error_tint': #fff2eb,
+  'success': #04a777,
+  'success_tint': #eaf8ee,
+  'attention': #f49d37,
+  'attention_tint': #fff7e7
+);
+
+// PRIMARY
+$primary: map-get($themes, primary);
+$primary_text1_bg2: map-get($themes, primary_text1_bg2);
+$primary_emphasis: map-get($themes, primary_emphasis);
+$primary_text2_bg1: map-get($themes, primary_text2_bg1);
+$primary_white: map-get($themes, primary_white);
+
+// VARIATIONS
+$secondary_v1: map-get($themes, secondary_v1);
+$secondary_v2: map-get($themes, secondary_v2);
+$secondary_v3: map-get($themes, secondary_v3);
+$secondary_v4: map-get($themes, secondary_v4);
+$secondary_v5: map-get($themes, secondary_v5);
+$secondary_v6: map-get($themes, secondary_v6);
+$secondary_v7: map-get($themes, secondary_v7);
+$secondary_v8: map-get($themes, secondary_v8);
+$secondary_v9: map-get($themes, secondary_v9);
+
+// NEUTRAL
+$neutral_v0: map-get($themes, neutral_v0);
+$neutral_v1: map-get($themes, neutral_v1);
+$neutral_v2: map-get($themes, neutral_v2);
+$neutral_v3: map-get($themes, neutral_v3);
+$neutral_v4: map-get($themes, neutral_v4);
+$neutral_v5: map-get($themes, neutral_v5);
+$neutral_v6: map-get($themes, neutral_v6);
+
+// FEEDBACK
+$error: map-get($themes, error);
+$error_tint: map-get($themes, error_tint);
+$success: map-get($themes, success);
+$success_tint: map-get($themes, success_tint);
+$attention: map-get($themes, attention);
+$attention_tint: map-get($themes, attention_tint);
+
+:root {
+  @each $key, $value in $themes {
+    --#{$key}: #{$value};
+  }
+}
