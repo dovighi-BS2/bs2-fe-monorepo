@@ -18,13 +18,13 @@ $themes: (
   'secondary_v9': #040822,
 
   // NEUTRAL
-  'neutral_v0': #f5f5f5,
-  'neutral_v1': #eaeaea,
-  'neutral_v2': #bfbfbf,
-  'neutral_v3': #949494,
-  'neutral_v4': #696969,
-  'neutral_v5': #545454,
-  'neutral_v6': #222222,
+  'neutral_n0': #f5f5f5,
+  'neutral_n1': #eaeaea,
+  'neutral_n2': #bfbfbf,
+  'neutral_n3': #949494,
+  'neutral_n4': #696969,
+  'neutral_n5': #545454,
+  'neutral_n6': #222222,
 
   // FEEDBACK
   'error': #f22b29,
@@ -54,13 +54,13 @@ $secondary_v8: map-get($themes, secondary_v8);
 $secondary_v9: map-get($themes, secondary_v9);
 
 // NEUTRAL
-$neutral_v0: map-get($themes, neutral_v0);
-$neutral_v1: map-get($themes, neutral_v1);
-$neutral_v2: map-get($themes, neutral_v2);
-$neutral_v3: map-get($themes, neutral_v3);
-$neutral_v4: map-get($themes, neutral_v4);
-$neutral_v5: map-get($themes, neutral_v5);
-$neutral_v6: map-get($themes, neutral_v6);
+$neutral_n0: map-get($themes, neutral_n0);
+$neutral_n1: map-get($themes, neutral_n1);
+$neutral_n2: map-get($themes, neutral_n2);
+$neutral_n3: map-get($themes, neutral_n3);
+$neutral_n4: map-get($themes, neutral_n4);
+$neutral_n5: map-get($themes, neutral_n5);
+$neutral_n6: map-get($themes, neutral_n6);
 
 // FEEDBACK
 $error: map-get($themes, error);

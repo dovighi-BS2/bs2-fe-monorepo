@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,5 +13,17 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {}
+export class ButtonComponent {
+  @Input() type = 'type';
+  @Input() design: 'filled' | 'outlined' | 'flat' = 'filled';
+  @Input() disabled = false;
+  @Input() tabindex = 0;
+  @Input() id = '';
+  @Input() testId = '';
+  @Input() class = '';
+  @Input() ariaLabel = '';
+
+  @Output() clicked = new EventEmitter<any>();
+}

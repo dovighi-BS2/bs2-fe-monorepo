@@ -58,19 +58,22 @@ ui
 │   │   │   │   └── ...
 │   │   ├── styles
 │   │   │   ├── global
-│   │   │   │   ├── _typography.scss
+│   │   │   │   ├── _breakpoint.scss
 │   │   │   │   ├── _functions.scss
 │   │   │   │   ├── _mixins.scss
-│   │   │   │   ├── _breakpoint.scss
 │   │   │   │   ├── _normalize.scss
 │   │   │   │   ├── _overrides.scss
 │   │   │   │   └── _styles.scss
+│   │   │   │   ├── _typography.scss
+│   │   │   │   ├── _variables.scss
 │   │   │   ├── themes
 │   │   │   │   ├── bs2
 │   │   │   │   │   ├── _default.scss
+│   │   │   │   │   ├── _variables.scss
 │   │   │   │   │   └── ...
 │   │   │   │   └── [other-theme]
 │   │   │   │       ├── _default.scss
+│   │   │   │       ├── _variables.scss
 │   │   │   │       └── ...
 │   ├── assets
 │   │   ├── core

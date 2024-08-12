@@ -1,13 +1,12 @@
 @import 'styles';
+@import './button-variants/button-default.scss';
+@import './button-variants/button-filled.scss';
+@import './button-variants/button-outlined.scss';
+@import './button-variants/button-flat.scss';
+@import './button-variants/button-table.scss';
 
-.button-primary {
-  top: 20px;
-  left: 20px;
-  height: 45px;
-  padding: 16px 12px;
-  background: $primary;
-  border-radius: 4px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  color: #fafafa;
-}
+@include button-default('.button');
+@include button-filled('.button.filled');
+@include button-outlined('.button.outlined');
+@include button-flat('.button.flat');
+@include button-table('table .button, .table .button, .button.table');
