@@ -106,9 +106,9 @@ Hoje existe uma unica pré configuração de caminho para importação de estilo
 o arquivo `libs/ui/src/lib/styles/global/_styles.scss` que contém todas as importações basicas do sistema.
 
 #### Adicionando uma nova configuração de estilo
- 
-Para adicionar uma nova configuração, basta ir no arquivo `libs/ui/src/project.json` e procurar por 2 
-props `build | build-storybook`, cada uma contém uma prop `options` que por sua vez possui um array de 
+
+Para adicionar uma nova configuração, basta ir no arquivo `libs/ui/src/project.json` e procurar por 2
+props `build | build-storybook`, cada uma contém uma prop `options` que por sua vez possui um array de
 `stylePreprocessorOptions`, agora basta adicionar seu path dentro desse array. Por exemplo:
 
 ```
