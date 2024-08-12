@@ -1,0 +1,132 @@
+@import './variables';
+
+@mixin bs2-typography {
+  #{if(&, '&', 'body')} {
+    font-family: $font_family_primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: 'Poppins';
+  }
+
+  @each $size in (1, 2, 3, 4, 5, 6) {
+    h#{$size},
+    .h#{$size} {
+      font-family: $font_family_primary;
+    }
+  }
+  p {
+    font-family: $font_family_primary;
+  }
+  a {
+    font-family: $font_family_primary;
+  }
+
+  b {
+    font-family: $font_family_primary;
+  }
+
+  strong {
+    font-family: $font_family_primary;
+  }
+
+  i {
+    font-family: $font_family_primary;
+  }
+
+  em {
+    font-family: $font_family_primary;
+  }
+
+  span {
+    font-family: $font_family_primary;
+  }
+
+  code {
+    font-family: $font_family_primary;
+  }
+
+  li {
+    font-family: $font_family_primary;
+  }
+
+  dt {
+    font-family: $font_family_primary;
+  }
+
+  dd {
+    font-family: $font_family_primary;
+  }
+
+  blockquote {
+    font-family: $font_family_primary;
+  }
+
+  q {
+    font-family: $font_family_primary;
+  }
+
+  pre {
+    font-family: $font_family_primary;
+  }
+
+  mark {
+    font-family: $font_family_primary;
+  }
+
+  ins {
+    font-family: $font_family_primary;
+  }
+
+  del {
+    font-family: $font_family_primary;
+  }
+
+  sup {
+    font-family: $font_family_primary;
+  }
+
+  sub {
+    font-family: $font_family_primary;
+  }
+
+  small {
+    font-family: $font_family_primary;
+  }
+  label {
+    font-family: $font_family_primary;
+  }
+  button {
+    font-family: $font_family_primary;
+  }
+  input {
+    font-family: $font_family_primary;
+  }
+
+  :-webkit-input-placeholder {
+    font-family: $font_family_primary;
+  }
+
+  ::-ms-input-placeholder {
+    font-family: $font_family_primary;
+  }
+
+  ::-moz-placeholder {
+    font-family: $font_family_primary;
+  }
+
+  ::-moz-placeholder {
+    font-family: $font_family_primary;
+  }
+}
