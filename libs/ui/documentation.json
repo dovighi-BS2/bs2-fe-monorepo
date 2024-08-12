@@ -1,180 +1,180 @@
 {
-    "pipes": [],
-    "interfaces": [],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [],
-    "directives": [],
-    "components": [],
-    "modules": [],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "button",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "(args: any, text: string = 'button') =>\n  `<lib-button \n      type='${args?.type}'\n      design='${args?.design}'\n      theme='${args?.theme}'\n      [disabled]='${args?.disabled}'\n      [tabindex]='${args?.tabindex}'\n      id='${args?.id}'\n      testId='${args?.testId}'\n      class='${args?.class}'\n      ariaLabel='${args?.ariaLabel}'\n  >\n    ${text}\n  </lib-button>`"
-            },
-            {
-                "name": "config",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/.storybook/main.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StorybookConfig",
-                "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-            },
-            {
-                "name": "Heading",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  args: {\n    design: 'filled'\n  },\n  argTypes: {\n    type: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'button' },\n    },\n    design: {\n      options: ['filled', 'outlined', 'flat'],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 'filled' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    tabindex: {\n      options: [0, -1],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 0 },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: {\n        summary: '',\n        detail:\n          'Caso não houver [testId] será usado o [id] como valor para [testId].',\n      },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n  },\n  render: (args: any) => ({\n    template: button(args),\n  }),\n}"
-            }
-        ],
-        "functions": [],
-        "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            }
-        ],
-        "enumerations": [],
-        "groupedVariables": {
-            "libs/ui/src/lib/component/button/button.component.stories.ts": [
-                {
-                    "name": "button",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "(args: any, text: string = 'button') =>\n  `<lib-button \n      type='${args?.type}'\n      design='${args?.design}'\n      theme='${args?.theme}'\n      [disabled]='${args?.disabled}'\n      [tabindex]='${args?.tabindex}'\n      id='${args?.id}'\n      testId='${args?.testId}'\n      class='${args?.class}'\n      ariaLabel='${args?.ariaLabel}'\n  >\n    ${text}\n  </lib-button>`"
-                },
-                {
-                    "name": "Heading",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  args: {\n    design: 'filled'\n  },\n  argTypes: {\n    type: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'button' },\n    },\n    design: {\n      options: ['filled', 'outlined', 'flat'],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 'filled' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    tabindex: {\n      options: [0, -1],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 0 },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: {\n        summary: '',\n        detail:\n          'Caso não houver [testId] será usado o [id] como valor para [testId].',\n      },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n  },\n  render: (args: any) => ({\n    template: button(args),\n  }),\n}"
-                }
-            ],
-            "libs/ui/.storybook/main.ts": [
-                {
-                    "name": "config",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/.storybook/main.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "StorybookConfig",
-                    "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-                }
-            ]
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [],
+  "modules": [],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "button",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "(args: any, text: string = 'button') =>\n  `<lib-button \n      type='${args?.type}'\n      design='${args?.design}'\n      theme='${args?.theme}'\n      [disabled]='${args?.disabled}'\n      [tabindex]='${args?.tabindex}'\n      id='${args?.id}'\n      testId='${args?.testId}'\n      class='${args?.class}'\n      ariaLabel='${args?.ariaLabel}'\n  >\n    ${text}\n  </lib-button>`"
+      },
+      {
+        "name": "config",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/.storybook/main.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "StorybookConfig",
+        "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+      },
+      {
+        "name": "Heading",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ButtonComponent>",
+        "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  args: {\n    design: 'filled'\n  },\n  argTypes: {\n    type: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'button' },\n    },\n    design: {\n      options: ['filled', 'outlined', 'flat'],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 'filled' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    tabindex: {\n      options: [0, -1],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 0 },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: {\n        summary: '',\n        detail:\n          'Caso não houver [testId] será usado o [id] como valor para [testId].',\n      },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n  },\n  render: (args: any) => ({\n    template: button(args),\n  }),\n}"
+      }
+    ],
+    "functions": [],
+    "typealiases": [
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ButtonComponent>",
+        "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      }
+    ],
+    "enumerations": [],
+    "groupedVariables": {
+      "libs/ui/src/lib/component/button/button.component.stories.ts": [
+        {
+          "name": "button",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "(args: any, text: string = 'button') =>\n  `<lib-button \n      type='${args?.type}'\n      design='${args?.design}'\n      theme='${args?.theme}'\n      [disabled]='${args?.disabled}'\n      [tabindex]='${args?.tabindex}'\n      id='${args?.id}'\n      testId='${args?.testId}'\n      class='${args?.class}'\n      ariaLabel='${args?.ariaLabel}'\n  >\n    ${text}\n  </lib-button>`"
         },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {
-            "libs/ui/src/lib/component/button/button.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ]
+        {
+          "name": "Heading",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ButtonComponent>",
+          "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n  args: {\n    design: 'filled'\n  },\n  argTypes: {\n    type: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'button' },\n    },\n    design: {\n      options: ['filled', 'outlined', 'flat'],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 'filled' },\n    },\n    disabled: {\n      options: [true, false],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    tabindex: {\n      options: [0, -1],\n      control: { type: 'inline-radio' },\n      description: 'opcional',\n      defaultValue: { summary: 0 },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: {\n        summary: '',\n        detail:\n          'Caso não houver [testId] será usado o [id] como valor para [testId].',\n      },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'recomendado',\n      defaultValue: { summary: '' },\n    },\n  },\n  render: (args: any) => ({\n    template: button(args),\n  }),\n}"
         }
+      ],
+      "libs/ui/.storybook/main.ts": [
+        {
+          "name": "config",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/.storybook/main.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "StorybookConfig",
+          "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+        }
+      ]
     },
-    "routes": [],
-    "coverage": {
-        "count": 0,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "libs/ui/.storybook/main.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "config",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "button",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Heading",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            }
-        ]
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {
+      "libs/ui/src/lib/component/button/button.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ButtonComponent>",
+          "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ]
     }
+  },
+  "routes": [],
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "libs/ui/.storybook/main.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "config",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "button",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Heading",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
 }
