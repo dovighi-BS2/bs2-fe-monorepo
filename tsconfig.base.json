@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"]
-    }
+    },
+    "strict": true
   },
   "exclude": ["node_modules", "tmp"]
 }

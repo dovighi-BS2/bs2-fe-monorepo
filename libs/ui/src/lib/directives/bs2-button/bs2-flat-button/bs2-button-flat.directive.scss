@@ -1,25 +1,22 @@
-@mixin button-outlined($selector) {
+@mixin bs2-button-flat($selector) {
   #{$selector} {
     &.primary {
       background-color: transparent;
-      border-color: $primary;
+      border-color: transparent;
       color: $primary;
 
       &.hover,
       &:hover {
-        border-color: $secondary_v5;
         background-color: $secondary_v1;
       }
       &.focus,
       &.active,
       &:focus,
       &:active {
-        border-color: $secondary_v5;
         background-color: $secondary_v2;
       }
       &.disabled,
-      &[disabled] {
-        border-color: $neutral_n1;
+      &[disabled='true'] {
         background-color: $primary_white;
         color: $neutral_n3;
       }

@@ -1,4 +1,4 @@
-@mixin button-default($selector) {
+@mixin bs2-button-default($selector) {
   #{$selector} {
     min-height: 36px;
     padding: 4px 12px;

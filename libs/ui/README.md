@@ -35,21 +35,19 @@ ui
 │   └── tsconfig.json
 ├── src
 │   ├── lib
+│   │   ├── directives
+│   │   │   ├── bs2-button
+│   │   │   │   ├── bs2-filled-button
+│   │   │   │   │   ├── bs2-filled-button.directive.ts
+│   │   │   │   │   ├── bs2-filled-button.directive.spec.ts
+│   │   │   │   │   └── bs2-filled-button.directive.scss
+│   │   │   │   │── [other-button-types]
+│   │   │   │   │── ...
+│   │   │   │   │── bs2-button.directive.scss
+│   │   │   │   └── bs2-button.directive.stories.ts
 │   │   ├── component
 │   │   │   ├── button
-│   │   │   │   ├── button.component.html
-│   │   │   │   ├── button.component.scss
-│   │   │   │   ├── button.component.spec.ts
-│   │   │   │   ├── button.component.ts
-│   │   │   │   ├── button.component.stories.ts
-│   │   │   │   └── button-variants
-│   │   │   │       ├── button-default.scss
-│   │   │   │       ├── button-filled.scss
-│   │   │   │       ├── button-outlined.scss
-│   │   │   │       ├── button-flat.scss
-│   │   │   │       ├── button-table-filled.scss
-│   │   │   │       ├── button-table-outlined.scss
-│   │   │   │       └── button-table-flat.scss
+│   │   │   │   └── ...
 │   │   │   ├── other-component
 │   │   │   │   └── ...
 │   │   │   ├── other-component
@@ -58,6 +56,7 @@ ui
 │   │   │   │   └── ...
 │   │   ├── styles
 │   │   │   ├── global
+│   │   │   │   ├── _directives.scss
 │   │   │   │   ├── _breakpoint.scss
 │   │   │   │   ├── _functions.scss
 │   │   │   │   ├── _mixins.scss
@@ -68,11 +67,11 @@ ui
 │   │   │   │   ├── _variables.scss
 │   │   │   ├── themes
 │   │   │   │   ├── bs2
-│   │   │   │   │   ├── _default.scss
+│   │   │   │   │   ├── _colors.scss
 │   │   │   │   │   ├── _variables.scss
 │   │   │   │   │   └── ...
 │   │   │   │   └── [other-theme]
-│   │   │   │       ├── _default.scss
+│   │   │   │       ├── _colors.scss
 │   │   │   │       ├── _variables.scss
 │   │   │   │       └── ...
 │   ├── assets
