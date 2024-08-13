@@ -1,0 +1,28 @@
+@mixin bs2-button-filled($selector) {
+  #{$selector} {
+    &.primary {
+      background-color: $primary;
+      border-color: $primary;
+      color: $primary_white;
+
+      &.hover,
+      &:hover {
+        border-color: $secondary_v5;
+        background-color: $secondary_v5;
+      }
+      &.focus,
+      &.active,
+      &:focus,
+      &:active {
+        border-color: $secondary_v6;
+        background-color: $secondary_v6;
+      }
+      &.disabled,
+      &[disabled='true'] {
+        border-color: $neutral_n1;
+        background-color: $neutral_n1;
+        color: $neutral_n3;
+      }
+    }
+  }
+}

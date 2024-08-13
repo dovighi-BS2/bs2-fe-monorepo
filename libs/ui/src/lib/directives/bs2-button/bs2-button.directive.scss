@@ -1,0 +1,13 @@
+@import './bs2-button-variants/bs2-button-default.directive.scss';
+@import './bs2-button-variants/bs2-button-table.directive.scss';
+@import './bs2-filled-button/bs2-button-filled.directive.scss';
+@import './bs2-outlined-button/bs2-button-outlined.directive.scss';
+@import './bs2-flat-button/bs2-button-flat.directive.scss';
+
+@include bs2-button-default('.bs2_button');
+@include bs2-button-filled('.bs2_button.filled');
+@include bs2-button-outlined('.bs2_button.outlined');
+@include bs2-button-flat('.bs2_button.flat');
+@include bs2-button-table(
+  'table .bs2_button, .table .bs2_button, .bs2_button.table'
+);

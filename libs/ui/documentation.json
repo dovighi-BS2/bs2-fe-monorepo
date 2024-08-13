@@ -1,180 +1,274 @@
 {
-    "pipes": [],
-    "interfaces": [],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [],
-    "directives": [],
-    "components": [],
-    "modules": [],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "config",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/.storybook/main.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StorybookConfig",
-                "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-            },
-            {
-                "name": "Heading",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
-            }
-        ],
-        "functions": [],
-        "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            }
-        ],
-        "enumerations": [],
-        "groupedVariables": {
-            "libs/ui/.storybook/main.ts": [
-                {
-                    "name": "config",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/.storybook/main.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "StorybookConfig",
-                    "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-                }
-            ],
-            "libs/ui/src/lib/component/button/button.component.stories.ts": [
-                {
-                    "name": "Heading",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/button works!/gi)).toBeTruthy();\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                }
-            ]
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [
+    {
+      "name": "MockBs2ButtonComponent",
+      "id": "component-MockBs2ButtonComponent-d9f8c49a61aa682d4d3e9936177d80f524e3367f828d129ac888456eecb4cec2934fad4ab274b835ebade5e139a45845168cff74f9380a497b9a0f3a39bfa125",
+      "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "mock-bs2-button",
+      "styleUrls": [],
+      "styles": [],
+      "template": "",
+      "templateUrl": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [
+        {
+          "name": "ariaLabel",
+          "defaultValue": "'button'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 14,
+          "type": "string",
+          "decorators": []
         },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {
-            "libs/ui/src/lib/component/button/button.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ]
+        {
+          "name": "tabindex",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 15,
+          "type": "number",
+          "decorators": []
         }
-    },
-    "routes": [],
-    "coverage": {
-        "count": 0,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "libs/ui/.storybook/main.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "config",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Heading",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/src/lib/component/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            }
-        ]
+      ],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\r\nimport { Bs2FilledButtonDirective } from './bs2-filled-button/bs2-filled-button.directive';\r\nimport { Bs2OutlinedButtonDirective } from './bs2-outlined-button/bs2-outlined-button.directive';\r\nimport { Bs2FlatButtonDirective } from './bs2-flat-button/bs2-flat-button.directive';\r\nimport { within } from '@storybook/testing-library';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'mock-bs2-button',\r\n  template: ``,\r\n  standalone: true,\r\n})\r\nclass MockBs2ButtonComponent {\r\n  @Input() ariaLabel: string = 'button';\r\n  @Input() tabindex: number = 0;\r\n}\r\n\r\nconst meta: Meta<MockBs2ButtonComponent> = {\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n};\r\nexport default meta;\r\ntype Story = StoryObj<MockBs2ButtonComponent>;\r\n\r\nexport const Filled: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Outlined: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Flat: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\n// export const Default: Story = {\r\n//   play: async ({ canvasElement }) => {\r\n//     const canvas = within(canvasElement);\r\n//     expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\r\n//   },\r\n// };\r\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": []
     }
+  ],
+  "modules": [],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "config",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/.storybook/main.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "StorybookConfig",
+        "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+      },
+      {
+        "name": "Filled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+      },
+      {
+        "name": "Flat",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<MockBs2ButtonComponent>",
+        "defaultValue": "{\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "Outlined",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+      }
+    ],
+    "functions": [],
+    "typealiases": [
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<MockBs2ButtonComponent>",
+        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      }
+    ],
+    "enumerations": [],
+    "groupedVariables": {
+      "libs/ui/.storybook/main.ts": [
+        {
+          "name": "config",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/.storybook/main.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "StorybookConfig",
+          "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+        }
+      ],
+      "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts": [
+        {
+          "name": "Filled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        },
+        {
+          "name": "Flat",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<MockBs2ButtonComponent>",
+          "defaultValue": "{\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
+        },
+        {
+          "name": "Outlined",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        }
+      ]
+    },
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {
+      "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<MockBs2ButtonComponent>",
+          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ]
+    }
+  },
+  "routes": [],
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "libs/ui/.storybook/main.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "config",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "MockBs2ButtonComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Filled",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Flat",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Outlined",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
 }

@@ -1,0 +1,25 @@
+@mixin bs2-button-flat($selector) {
+  #{$selector} {
+    &.primary {
+      background-color: transparent;
+      border-color: transparent;
+      color: $primary;
+
+      &.hover,
+      &:hover {
+        background-color: $secondary_v1;
+      }
+      &.focus,
+      &.active,
+      &:focus,
+      &:active {
+        background-color: $secondary_v2;
+      }
+      &.disabled,
+      &[disabled='true'] {
+        background-color: $primary_white;
+        color: $neutral_n3;
+      }
+    }
+  }
+}

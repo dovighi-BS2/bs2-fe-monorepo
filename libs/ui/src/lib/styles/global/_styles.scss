@@ -1,10 +1,11 @@
 @use './typography' as typography;
+@import './variables';
 @import './normalize';
 @import './breakpoints';
 @import './mixins';
 @import './functions';
-@import './../themes/bs2/default';
 @import './variables';
+@import './directives';
 @include typography.bs2-typography();
 
 :root {
