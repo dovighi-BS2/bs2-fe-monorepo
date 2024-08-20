@@ -1,0 +1,20 @@
+<div class="bs2_text_input {{ class }} {{ hasErrors ? 'error' : '' }}">
+  <span class="bs2_text_input__helper" *ngIf="helperText">{{
+    helperText
+  }}</span>
+  <div class="bs2_text_input__wrapper">
+    <div class="bs2_text_input__icon left" *ngIf="leftIcon"></div>
+    <div class="bs2_text_input__icon right" *ngIf="rightIcon"></div>
+    <input
+      class="bs2_text_input__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [name]="name"
+    />
+  </div>
+  <label *ngIf="label" [for]="id" class="bs2_text_input__label">{{
+    label
+  }}</label>
+</div>

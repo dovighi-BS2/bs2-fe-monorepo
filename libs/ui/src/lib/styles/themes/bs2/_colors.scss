@@ -69,9 +69,3 @@ $success: map-get($themes, success);
 $success_tint: map-get($themes, success_tint);
 $attention: map-get($themes, attention);
 $attention_tint: map-get($themes, attention_tint);
-
-:root {
-  @each $key, $value in $themes {
-    --#{$key}: #{$value};
-  }
-}

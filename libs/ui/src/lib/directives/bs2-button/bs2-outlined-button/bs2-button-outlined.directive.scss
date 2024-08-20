@@ -2,26 +2,26 @@
   #{$selector} {
     &.primary {
       background-color: transparent;
-      border-color: $primary;
-      color: $primary;
+      border-color: var(--primary);
+      color: var(--primary);
 
       &.hover,
       &:hover {
-        border-color: $secondary_v5;
-        background-color: $secondary_v1;
+        border-color: var(--secondary_v5);
+        background-color: var(--secondary_v1);
       }
       &.focus,
       &.active,
       &:focus,
       &:active {
-        border-color: $secondary_v5;
-        background-color: $secondary_v2;
+        border-color: var(--secondary_v5);
+        background-color: var(--secondary_v2);
       }
       &.disabled,
       &[disabled='true'] {
-        border-color: $neutral_n1;
-        background-color: $primary_white;
-        color: $neutral_n3;
+        border-color: var(--neutral_n1);
+        background-color: var(--primary_white);
+        color: var(--neutral_n3);
       }
     }
   }

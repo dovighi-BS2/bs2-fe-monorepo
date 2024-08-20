@@ -11,6 +11,7 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/ui/ng-package.json",
+        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/styles/global"]
         }
@@ -63,6 +64,7 @@
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
         "compodocArgs": ["-e", "json", "-d", "libs/ui"],
+        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/styles/global"]
         }

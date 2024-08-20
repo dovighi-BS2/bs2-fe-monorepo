@@ -2,7 +2,6 @@
 
 Esta biblioteca foi gerada com [Nx](https://nx.dev).
 
-
 ## Governança para construção dos componentes
 
 A construção dos componentes devem ser baseadas apenas em HTML e SCSS. Inicialmente,
