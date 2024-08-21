@@ -1,7 +1,51 @@
-<div class="bs2_text_input {{ class }} {{ hasErrors ? 'error' : '' }}">
-  <span class="bs2_text_input__helper" *ngIf="helperText">{{
+<!-- VERSÃO COM REACTIVEFORMS -->
+<div
+  *ngIf="!!form"
+  [attr.data-test]="testId"
+  class="bs2_text_input {{ class }} {{
+    getErrors || errorText ? 'error' : ''
+  }} {{ state }}"
+  [formGroup]="form"
+>
+  <span class="bs2_text_input__helper" *ngIf="!!helperText">{{
     helperText
   }}</span>
+  <span class="bs2_text_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="bs2_text_input__wrapper">
+    <div class="bs2_text_input__icon left" *ngIf="leftIcon"></div>
+    <div class="bs2_text_input__icon right" *ngIf="rightIcon"></div>
+    <input
+      class="bs2_text_input__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [name]="name"
+      [formControlName]="name"
+    />
+  </div>
+  <label *ngIf="label" [for]="id" class="bs2_text_input__label">{{
+    label
+  }}</label>
+</div>
+<!-- VERSÃO SEM REACTIVEFORMS -->
+<div
+  *ngIf="!form"
+  [attr.data-test]="testId"
+  class="bs2_text_input {{ class }} {{
+    getErrors || errorText ? 'error' : ''
+  }} {{ state }}"
+>
+  <span class="bs2_text_input__helper" *ngIf="!!helperText">{{
+    helperText
+  }}</span>
+  <span class="bs2_text_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
   <div class="bs2_text_input__wrapper">
     <div class="bs2_text_input__icon left" *ngIf="leftIcon"></div>
     <div class="bs2_text_input__icon right" *ngIf="rightIcon"></div>

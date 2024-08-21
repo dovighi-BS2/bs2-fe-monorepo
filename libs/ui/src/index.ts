@@ -5,3 +5,6 @@ export * from './lib/directives/bs2-button/bs2-flat-button/bs2-flat-button.direc
 
 // Components
 export * from './lib/components/bs2-text-input/bs2-text-input.component';
+
+// Validators
+export * from './lib/validators/bs2-main.validator';

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,14 +11,25 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Bs2TextInputComponent {
+  @Input() state?:
+    | 'default'
+    | 'hovered'
+    | 'focused'
+    | 'error'
+    | 'filled'
+    | 'disabled';
+
+  @Input() form?: any;
   @Input() type = 'text';
   @Input() id = '';
+  @Input() testId = '';
   @Input() name = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
   @Input() rightIcon = '';
   @Input() helperText = '';
+  @Input() errorText = '';
   @Input() placeholder = '';
   @Input() readOnly = false;
 
@@ -31,10 +37,11 @@ export class Bs2TextInputComponent {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  get hasErrors(): boolean {
-    return false;
-    // if (!this.form) return false;
-    // const control = this.form?.get(this.name);
-    // return Object.keys(control?.errors || {}).length > 0;
+  get getErrors(): string {
+    if (!this.form || !this.form.get(this.name)) return '';
+    const control = this.form?.get(this.name);
+    return Object.values(control?.errors || {})
+      .map((error) => error)
+      .join('');
   }
 }

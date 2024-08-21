@@ -51,10 +51,8 @@
 
     &.left {
       order: 1;
-      margin-right: calc(
-        (var(--bs2_text_field__icon_width) + var(--bs2_text_field__field_gap)) *
-          -1
-      );
+      margin-right: calc((var(--bs2_text_field__icon_width)) * -1);
+      translate: var(--bs2_text_field__field_gap) 0px;
 
       ~ .bs2_text_input__field {
         padding-left: calc(
@@ -79,6 +77,7 @@
     }
   }
   &__field {
+    width: 100%;
     order: 2;
     min-height: var(--bs2_text_field__field_height);
     outline: none;
@@ -104,13 +103,13 @@
 
   // Theming
   &:has(&__field:hover),
-  &.hover {
+  &.hovered {
     --bs2_text_field__label_color: var(--neutral_n5);
     --bs2_text_field__field_border_color: var(--neutral_n3);
   }
 
   &:has(&__field:focus),
-  &.focus {
+  &.focused {
     --bs2_text_field__label_color: var(--primary);
     --bs2_text_field__field_border_color: var(--primary);
   }
