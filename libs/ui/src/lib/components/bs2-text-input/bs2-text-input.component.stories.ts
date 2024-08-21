@@ -74,6 +74,21 @@ const meta: Meta<Bs2TextInputComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
+    ariaLabel: {
+      control: { type: 'text' },
+      description: 'opcional',
+      defaultValue: { summary: '(vazio)' },
+    },
+    ariaRequired: {
+      control: { type: 'boolean' },
+      description: 'opcional',
+      defaultValue: { summary: 'false' },
+    },
+    ariaInvalid: {
+      control: { type: 'boolean' },
+      description: 'opcional',
+      defaultValue: { summary: 'false' },
+    },
   },
 };
 export default meta;
@@ -94,6 +109,9 @@ export const Default: Story = {
     errorText: '',
     placeholder: 'Ex: joao.da.silva@gmail.com',
     readOnly: false,
+    ariaLabel: '',
+    ariaRequired: false,
+    ariaInvalid: false,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

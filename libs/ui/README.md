@@ -61,6 +61,11 @@ ui
 │   │   │   │   └── ...
 │   │   │   ├── other-component
 │   │   │   │   └── ...
+│   │   ├── validators
+│   │   │   ├── bs2-main.validator.ts
+│   │   │   ├── bs2-date.validator.ts
+│   │   │   ├── bs2-user.validator.ts
+│   │   │   ├── ...
 │   │   ├── styles
 │   │   │   ├── global
 │   │   │   │   ├── _directives.scss

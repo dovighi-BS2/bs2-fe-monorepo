@@ -25,6 +25,9 @@
       [readOnly]="readOnly"
       [name]="name"
       [formControlName]="name"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
     />
   </div>
   <label *ngIf="label" [for]="id" class="bs2_text_input__label">{{
