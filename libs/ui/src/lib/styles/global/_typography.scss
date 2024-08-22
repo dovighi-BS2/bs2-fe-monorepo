@@ -1,6 +1,6 @@
 @import './variables';
 
-@mixin bs2-typography {
+@mixin typography {
   #{if(&, '&', 'body')} {
     font-family: $font_family_primary;
   }

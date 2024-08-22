@@ -1,4 +1,4 @@
-// export const bs2LenthValidators = {
+// export const lenthValidators = {
 
 // 	static customMinLength(value: any, message?: string) {
 // 		const v = (control: AbstractControl): ValidationErrors => {

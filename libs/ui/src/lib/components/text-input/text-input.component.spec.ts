@@ -1,29 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Bs2TextInputComponent } from './bs2-text-input.component';
+import { TextInputComponent } from './text-input.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { bs2Validators } from './../../validators/bs2-main.validator';
-import { Bs2ValidatorMessages } from '../../validators/bs2-messages.validator';
+import { CustomValidators } from '../../validators';
+import { CustomValidatorMessages } from '../../validators/messages.validator';
 
-describe('Bs2TextInputComponent', () => {
-  const testId = 'bs2_text_input__test_id';
+describe('TextInputComponent', () => {
+  const testId = 'text_input__test_id';
 
-  let component: Bs2TextInputComponent;
-  let fixture: ComponentFixture<Bs2TextInputComponent>;
+  let component: TextInputComponent;
+  let fixture: ComponentFixture<TextInputComponent>;
 
   const get = (selector: string) =>
     fixture.debugElement.query(By.css(selector))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Bs2TextInputComponent, ReactiveFormsModule],
+      imports: [TextInputComponent, ReactiveFormsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Bs2TextInputComponent);
+    fixture = TestBed.createComponent(TextInputComponent);
 
     component = fixture.componentInstance;
     component.form = new FormGroup({
-      email: new FormControl('', [bs2Validators.required]),
+      email: new FormControl('', [CustomValidators.required]),
     });
     component.testId = testId;
     component.name = 'email';
@@ -53,7 +53,7 @@ describe('Bs2TextInputComponent', () => {
     field.blur();
     fixture.detectChanges();
     let main = get(`[data-test='${testId}']`);
-    let feedback = get(`[data-test='${testId}'] .bs2_text_input__feedback`);
+    let feedback = get(`[data-test='${testId}'] .text_input__feedback`);
     expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
@@ -62,9 +62,9 @@ describe('Bs2TextInputComponent', () => {
     field.blur();
     fixture.detectChanges();
     main = get(`[data-test='${testId}']`);
-    feedback = get(`[data-test='${testId}'] .bs2_text_input__feedback`);
+    feedback = get(`[data-test='${testId}'] .text_input__feedback`);
     expect(feedback.textContent.trim()).toBe(
-      Bs2ValidatorMessages.required.trim()
+      CustomValidatorMessages.required.trim()
     );
     expect(!!main.classList.contains('error')).toBe(true);
   });
@@ -73,13 +73,13 @@ describe('Bs2TextInputComponent', () => {
     component.form.get('email').setValue('teste');
     component.helperText = 'teste';
     fixture.detectChanges();
-    let helper = get(`[data-test='${testId}'] .bs2_text_input__helper`);
+    let helper = get(`[data-test='${testId}'] .text_input__helper`);
     expect(helper.textContent.trim()).toBe('teste');
 
     component.form.get('email').setValue('');
     component.helperText = '';
     fixture.detectChanges();
-    helper = get(`[data-test='${testId}'] .bs2_text_input__helper`);
+    helper = get(`[data-test='${testId}'] .text_input__helper`);
     expect(helper).toBeFalsy();
   });
 });

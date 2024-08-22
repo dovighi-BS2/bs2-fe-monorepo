@@ -1,4 +1,4 @@
-// export const bs2UserValidators = {
+// export const userValidators = {
 
 //     static passwordRules(control: AbstractControl) {
 // 		const password: string = control.value;

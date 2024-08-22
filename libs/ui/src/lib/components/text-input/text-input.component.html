@@ -1,0 +1,59 @@
+<!-- VERSÃO COM REACTIVEFORMS -->
+<div
+  *ngIf="!!form"
+  [attr.data-test]="testId"
+  class="text_input {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
+    state
+  }}"
+  [formGroup]="form"
+>
+  <span class="text_input__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <span class="text_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="text_input__wrapper">
+    <div class="text_input__icon left" *ngIf="leftIcon"></div>
+    <div class="text_input__icon right" *ngIf="rightIcon"></div>
+    <input
+      class="text_input__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [name]="name"
+      [formControlName]="name"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    />
+  </div>
+  <label *ngIf="label" [for]="id" class="text_input__label">{{ label }}</label>
+</div>
+<!-- VERSÃO SEM REACTIVEFORMS -->
+<div
+  *ngIf="!form"
+  [attr.data-test]="testId"
+  class="text_input {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
+    state
+  }}"
+>
+  <span class="text_input__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <span class="text_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="text_input__wrapper">
+    <div class="text_input__icon left" *ngIf="leftIcon"></div>
+    <div class="text_input__icon right" *ngIf="rightIcon"></div>
+    <input
+      class="text_input__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [name]="name"
+    />
+  </div>
+  <label *ngIf="label" [for]="id" class="text_input__label">{{ label }}</label>
+</div>

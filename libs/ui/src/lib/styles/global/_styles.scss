@@ -5,7 +5,7 @@
 @import './mixins';
 @import './functions';
 @import './directives';
-@include typography.bs2-typography();
+@include typography.typography();
 
 :root {
   @each $key, $value in $themes {

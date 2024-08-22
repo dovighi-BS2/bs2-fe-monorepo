@@ -1,4 +1,4 @@
-@mixin bs2-button-table($selector) {
+@mixin button-table($selector) {
   #{$selector} {
     min-height: 28px;
   }

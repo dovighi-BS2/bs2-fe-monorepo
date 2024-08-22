@@ -1,4 +1,4 @@
-@mixin bs2-button-filled($selector) {
+@mixin button-filled($selector) {
   #{$selector} {
     &.primary {
       background-color: var(--primary);

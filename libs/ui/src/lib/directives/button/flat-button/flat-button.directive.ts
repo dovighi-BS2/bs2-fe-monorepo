@@ -1,17 +1,17 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[bs2-filled-button]',
+  selector: '[flat-button]',
   standalone: true,
 })
-export class Bs2FilledButtonDirective implements OnInit {
+export class FlatButtonDirective implements OnInit {
   @Input('aria-label') ariaLabel = '';
   @Input('aria-disabled') ariaDisabled = '';
   @Input() tabindex = 0;
 
   constructor(public el: ElementRef) {
-    this.el.nativeElement.classList.add('bs2_button');
-    this.el.nativeElement.classList.add('filled');
+    this.el.nativeElement.classList.add('button');
+    this.el.nativeElement.classList.add('flat');
     this.el.nativeElement.classList.add('primary');
   }
 

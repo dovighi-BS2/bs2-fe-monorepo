@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'bs2-text-input',
+  selector: 'text-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './bs2-text-input.component.html',
-  styleUrl: './bs2-text-input.component.scss',
+  templateUrl: './text-input.component.html',
+  styleUrl: './text-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Bs2TextInputComponent {
+export class TextInputComponent {
   @Input() state?:
     | 'default'
     | 'hovered'

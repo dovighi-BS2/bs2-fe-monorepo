@@ -42,17 +42,25 @@ ui
 │   └── tsconfig.json
 ├── src
 │   ├── lib
+│   │   ├── base
+│   │   │   ├── components
+│   │   │   │   ├── input
+│   │   │   │   │   ├── input.base.component.ts
+│   │   │   │   │   ├── ...
+│   │   │   │   ├── ...
+│   │   │   ├── directives
+│   │   │   │   ├── ...
 │   │   ├── directives
-│   │   │   ├── bs2-button
-│   │   │   │   ├── bs2-filled-button
-│   │   │   │   │   ├── bs2-filled-button.directive.ts
-│   │   │   │   │   ├── bs2-filled-button.directive.spec.ts
-│   │   │   │   │   └── bs2-filled-button.directive.scss
+│   │   │   ├── button
+│   │   │   │   ├── filled-button
+│   │   │   │   │   ├── filled-button.directive.ts
+│   │   │   │   │   ├── filled-button.directive.spec.ts
+│   │   │   │   │   └── filled-button.directive.scss
 │   │   │   │   │── [other-button-types]
 │   │   │   │   │── ...
-│   │   │   │   │── bs2-button.directive.scss
-│   │   │   │   └── bs2-button.directive.stories.ts
-│   │   ├── component
+│   │   │   │   │── button.directive.scss
+│   │   │   │   └── button.directive.stories.ts
+│   │   ├── components
 │   │   │   ├── button
 │   │   │   │   └── ...
 │   │   │   ├── other-component
@@ -62,9 +70,9 @@ ui
 │   │   │   ├── other-component
 │   │   │   │   └── ...
 │   │   ├── validators
-│   │   │   ├── bs2-main.validator.ts
-│   │   │   ├── bs2-date.validator.ts
-│   │   │   ├── bs2-user.validator.ts
+│   │   │   ├── main.validator.ts
+│   │   │   ├── date.validator.ts
+│   │   │   ├── user.validator.ts
 │   │   │   ├── ...
 │   │   ├── styles
 │   │   │   ├── global

@@ -1,4 +1,4 @@
-// export const bs2MiscValidators = {
+// export const miscValidators = {
 
 // 	// OTHERS VALIDATORS
 // 	static requireMatch(control: AbstractControl) {
@@ -161,7 +161,7 @@
 
 // 			if (!!value && typeof value === 'string') {
 // 				if (!pattern.test(value)) {
-// 					return { 'bs2Pattern': { 'message': message } };
+// 					return { 'pattern': { 'message': message } };
 // 				}
 // 			}
 

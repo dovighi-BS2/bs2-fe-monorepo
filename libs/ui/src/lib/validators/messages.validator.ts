@@ -1,3 +1,3 @@
-export enum Bs2ValidatorMessages {
+export enum CustomValidatorMessages {
   required = 'Preenchimento obrigatório.',
 }

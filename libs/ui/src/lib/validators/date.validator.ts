@@ -1,4 +1,4 @@
-// export const bs2DateValidators = {
+// export const dateValidators = {
 //   // DATE VALIDATORS
 //   validDate: (control: UntypedFormControl): ValidationErrors => {
 //     if (control.value && control.value != '') {

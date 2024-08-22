@@ -1,4 +1,4 @@
-// export const bs2TranformValidators = {
+// export const tranformValidators = {
 
 // 	static hasLowerCase(control: AbstractControl) {
 // 		const value: string = control.value;

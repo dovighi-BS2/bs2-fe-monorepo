@@ -1,12 +1,12 @@
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2TextInputComponent } from './bs2-text-input.component';
+import { type Meta, type StoryObj } from '@storybook/angular';
+import { TextInputComponent } from './text-input.component';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
-const meta: Meta<Bs2TextInputComponent> = {
-  component: Bs2TextInputComponent,
-  title: 'Bs2TextInputComponent',
+const meta: Meta<TextInputComponent> = {
+  component: TextInputComponent,
+  title: 'TextInputComponent',
   argTypes: {
     state: {
       control: 'select',
@@ -92,7 +92,7 @@ const meta: Meta<Bs2TextInputComponent> = {
   },
 };
 export default meta;
-type Story = StoryObj<Bs2TextInputComponent>;
+type Story = StoryObj<TextInputComponent>;
 
 export const Default: Story = {
   args: {
@@ -115,6 +115,6 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/bs2-text-input works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();
   },
 };
