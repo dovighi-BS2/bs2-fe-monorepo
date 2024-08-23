@@ -3,12 +3,14 @@
 Esta biblioteca foi gerada com [Nx](https://nx.dev).
 
 
-## Governança para construção dos componentes
+## Diretrizes operacionais para construção do Design System
 
-A construção dos componentes devem ser baseadas apenas em HTML e SCSS. Inicialmente,
+Para ajudar a garantir a consistência e a qualidade no desenvolvimento a construção dos componentes devem ser baseadas apenas em HTML e SCSS. Inicialmente,
 o nosso design system foi construido sobre o material design components 2. Portanto,
-A integridade deve ser mantida mesmo se o framework obrigar a usar material design components 3 futuramente. Contudo, podemos utilizar, se necessário, o
-([CDK (components development kit) ](https://material.angular.io/cdk/categories)) em casos onde a complexidade e a abrangência de recursos são necessárias.
+A integridade deve ser mantida mesmo se o framework (angular material) obrigar a usar material design components 3 futuramente.
+Contudo, podemos utilizar, se necessário, 
+o ([CDK (components development kit) ](https://material.angular.io/cdk/categories))
+em casos onde a complexidade e a abrangência de recursos são necessárias.
 
 ## Storybook
 
