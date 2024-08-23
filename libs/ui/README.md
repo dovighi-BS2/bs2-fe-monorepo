@@ -2,12 +2,15 @@
 
 Esta biblioteca foi gerada com [Nx](https://nx.dev).
 
-## Governança para construção dos componentes
 
-A construção dos componentes devem ser baseadas apenas em HTML e SCSS. Inicialmente,
+## Diretrizes operacionais para construção do Design System
+
+Para ajudar a garantir a consistência e a qualidade no desenvolvimento a construção dos componentes devem ser baseadas apenas em HTML e SCSS. Inicialmente,
 o nosso design system foi construido sobre o material design components 2. Portanto,
-A integridade deve ser mantida mesmo se o framework obrigar a usar material design components 3 futuramente. Contudo, podemos utilizar, se necessário, o
-([CDK (components development kit) ](https://material.angular.io/cdk/categories)) em casos onde a complexidade e a abrangência de recursos são necessárias.
+A integridade deve ser mantida mesmo se o framework (angular material) obrigar a usar material design components 3 futuramente.
+Contudo, podemos utilizar, se necessário, 
+o ([CDK (components development kit) ](https://material.angular.io/cdk/categories))
+em casos onde a complexidade e a abrangência de recursos são necessárias.
 
 ## Storybook
 
@@ -42,25 +45,17 @@ ui
 │   └── tsconfig.json
 ├── src
 │   ├── lib
-│   │   ├── base
-│   │   │   ├── components
-│   │   │   │   ├── input
-│   │   │   │   │   ├── input.base.component.ts
-│   │   │   │   │   ├── ...
-│   │   │   │   ├── ...
-│   │   │   ├── directives
-│   │   │   │   ├── ...
 │   │   ├── directives
-│   │   │   ├── button
-│   │   │   │   ├── filled-button
-│   │   │   │   │   ├── filled-button.directive.ts
-│   │   │   │   │   ├── filled-button.directive.spec.ts
-│   │   │   │   │   └── filled-button.directive.scss
+│   │   │   ├── bs2-button
+│   │   │   │   ├── bs2-filled-button
+│   │   │   │   │   ├── bs2-filled-button.directive.ts
+│   │   │   │   │   ├── bs2-filled-button.directive.spec.ts
+│   │   │   │   │   └── bs2-filled-button.directive.scss
 │   │   │   │   │── [other-button-types]
 │   │   │   │   │── ...
-│   │   │   │   │── button.directive.scss
-│   │   │   │   └── button.directive.stories.ts
-│   │   ├── components
+│   │   │   │   │── bs2-button.directive.scss
+│   │   │   │   └── bs2-button.directive.stories.ts
+│   │   ├── component
 │   │   │   ├── button
 │   │   │   │   └── ...
 │   │   │   ├── other-component
@@ -69,11 +64,6 @@ ui
 │   │   │   │   └── ...
 │   │   │   ├── other-component
 │   │   │   │   └── ...
-│   │   ├── validators
-│   │   │   ├── main.validator.ts
-│   │   │   ├── date.validator.ts
-│   │   │   ├── user.validator.ts
-│   │   │   ├── ...
 │   │   ├── styles
 │   │   │   ├── global
 │   │   │   │   ├── _directives.scss
