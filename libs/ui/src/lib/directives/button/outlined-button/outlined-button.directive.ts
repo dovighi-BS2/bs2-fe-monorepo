@@ -1,16 +1,16 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[bs2-outlined-button]',
+  selector: '[outlined-button]',
   standalone: true,
 })
-export class Bs2OutlinedButtonDirective implements OnInit {
+export class OutlinedButtonDirective implements OnInit {
   @Input('aria-label') ariaLabel = '';
   @Input('aria-disabled') ariaDisabled = '';
   @Input() tabindex = 0;
 
   constructor(public el: ElementRef) {
-    this.el.nativeElement.classList.add('bs2_button');
+    this.el.nativeElement.classList.add('button');
     this.el.nativeElement.classList.add('outlined');
     this.el.nativeElement.classList.add('primary');
   }

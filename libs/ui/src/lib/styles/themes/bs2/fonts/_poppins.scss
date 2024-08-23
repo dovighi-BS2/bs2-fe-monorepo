@@ -1,15 +1,17 @@
+$path: './../../../../../';
+
 @font-face {
   font-family: 'Poppins';
   font-weight: normal;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Regular.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Regular.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Regular.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Regular.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Regular.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Regular.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Regular.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Regular.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Regular.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Regular.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -17,14 +19,14 @@
   font-family: 'Poppins';
   font-weight: bold;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Bold.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Bold.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Bold.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Bold.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Bold.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Bold.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Bold.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Bold.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Bold.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Bold.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -32,14 +34,14 @@
   font-family: 'Poppins';
   font-weight: 100;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Thin.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Thin.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Thin.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Thin.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Thin.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Thin.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Thin.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Thin.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Thin.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Thin.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -47,14 +49,14 @@
   font-family: 'Poppins';
   font-weight: 200;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLight.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -62,14 +64,14 @@
   font-family: 'Poppins';
   font-weight: 300;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Light.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Light.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Light.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Light.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Light.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Light.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Light.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Light.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Light.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Light.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -77,14 +79,14 @@
   font-family: 'Poppins';
   font-weight: 500;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Medium.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Medium.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Medium.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Medium.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Medium.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Medium.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Medium.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Medium.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Medium.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Medium.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -92,14 +94,14 @@
   font-family: 'Poppins';
   font-weight: 600;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBold.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -108,14 +110,14 @@
   font-family: 'Poppins';
   font-weight: 800;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBold.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -123,14 +125,14 @@
   font-family: 'Poppins';
   font-weight: 900;
   font-style: normal;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Black.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Black.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Black.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Black.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Black.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Black.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Black.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Black.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Black.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Black.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -139,14 +141,14 @@
   font-family: 'Poppins';
   font-weight: normal;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Italic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Italic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Italic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Italic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Italic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Italic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Italic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Italic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-Italic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-Italic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -155,14 +157,14 @@
   font-family: 'Poppins';
   font-weight: bold;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BoldItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -170,14 +172,14 @@
   font-family: 'Poppins';
   font-weight: 100;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ThinItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -185,14 +187,14 @@
   font-family: 'Poppins';
   font-weight: 200;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraLightItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -200,14 +202,14 @@
   font-family: 'Poppins';
   font-weight: 300;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-LightItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -215,14 +217,14 @@
   font-family: 'Poppins';
   font-weight: 600;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-SemiBoldItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -230,14 +232,14 @@
   font-family: 'Poppins';
   font-weight: 800;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-ExtraBoldItalic.ttf')
       format('truetype');
   font-display: swap;
 }
@@ -245,14 +247,14 @@
   font-family: 'Poppins';
   font-weight: 900;
   font-style: italic;
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.eot');
-  src: url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.eot?#iefix')
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.eot');
+  src: url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.eot?#iefix')
       format('embedded-opentype'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.woff2')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.woff2')
       format('woff2'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.woff')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.woff')
       format('woff'),
-    url('/libs/ui/src/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.ttf')
+    url('#{$path}/assets/themes/bs2/fonts/Poppins/Poppins-BlackItalic.ttf')
       format('truetype');
   font-display: swap;
 }

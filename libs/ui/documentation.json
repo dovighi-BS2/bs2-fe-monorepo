@@ -8,15 +8,15 @@
   "directives": [],
   "components": [
     {
-      "name": "MockBs2ButtonComponent",
-      "id": "component-MockBs2ButtonComponent-d9f8c49a61aa682d4d3e9936177d80f524e3367f828d129ac888456eecb4cec2934fad4ab274b835ebade5e139a45845168cff74f9380a497b9a0f3a39bfa125",
-      "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+      "name": "MockButtonComponent",
+      "id": "component-MockButtonComponent-2760782de5a53f08b1572cf4ada1c55aa4d24e65078688a30685f034ce274ba28a0c25c192fe95d25f6fb094605c003a58c4365d2c1a31e620d6342061147396",
+      "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
       "encapsulation": [],
       "entryComponents": [],
       "inputs": [],
       "outputs": [],
       "providers": [],
-      "selector": "mock-bs2-button",
+      "selector": "button-mock",
       "styleUrls": [],
       "styles": [],
       "template": "",
@@ -55,7 +55,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\r\nimport { Bs2FilledButtonDirective } from './bs2-filled-button/bs2-filled-button.directive';\r\nimport { Bs2OutlinedButtonDirective } from './bs2-outlined-button/bs2-outlined-button.directive';\r\nimport { Bs2FlatButtonDirective } from './bs2-flat-button/bs2-flat-button.directive';\r\nimport { within } from '@storybook/testing-library';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'mock-bs2-button',\r\n  template: ``,\r\n  standalone: true,\r\n})\r\nclass MockBs2ButtonComponent {\r\n  @Input() ariaLabel: string = 'button';\r\n  @Input() tabindex: number = 0;\r\n}\r\n\r\nconst meta: Meta<MockBs2ButtonComponent> = {\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n};\r\nexport default meta;\r\ntype Story = StoryObj<MockBs2ButtonComponent>;\r\n\r\nexport const Filled: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Outlined: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Flat: Story = {\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\n// export const Default: Story = {\r\n//   play: async ({ canvasElement }) => {\r\n//     const canvas = within(canvasElement);\r\n//     expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\r\n//   },\r\n// };\r\n",
+      "sourceCode": "import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { FilledButtonDirective } from './filled-button/filled-button.directive';\nimport { OutlinedButtonDirective } from './outlined-button/outlined-button.directive';\nimport { FlatButtonDirective } from './flat-button/flat-button.directive';\nimport { within } from '@storybook/testing-library';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'button-mock',\n  template: ``,\n  standalone: true,\n})\nclass MockButtonComponent {\n  @Input() ariaLabel = 'button';\n  @Input() tabindex = 0;\n}\n\nconst meta: Meta<MockButtonComponent> = {\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<MockButtonComponent>;\n\nexport const Filled: Story = {\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Outlined: Story = {\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Flat: Story = {\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Default: Story = {\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n};\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
@@ -76,44 +76,74 @@
         "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
       },
       {
-        "name": "Filled",
+        "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+      },
+      {
+        "name": "Filled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
       },
       {
         "name": "Flat",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        "defaultValue": "{\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
       },
       {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<MockBs2ButtonComponent>",
-        "defaultValue": "{\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
+        "type": "Meta<MockButtonComponent>",
+        "defaultValue": "{\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<TextInputComponent>",
+        "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
       },
       {
         "name": "Outlined",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
       }
     ],
     "functions": [],
@@ -122,8 +152,19 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<MockBs2ButtonComponent>",
-        "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "rawtype": "StoryObj<MockButtonComponent>",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<TextInputComponent>",
+        "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -144,59 +185,104 @@
           "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
         }
       ],
-      "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts": [
+      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n}"
+        },
         {
           "name": "Filled",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
         },
         {
           "name": "Flat",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "Meta<MockBs2ButtonComponent>",
-          "defaultValue": "{\r\n  component: MockBs2ButtonComponent,\r\n  title: 'Directives/Bs2Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    Bs2FilledButtonDirective,\r\n    Bs2OutlinedButtonDirective,\r\n    Bs2FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2ButtonComponent,\r\n        Bs2FilledButtonDirective,\r\n        Bs2OutlinedButtonDirective,\r\n        Bs2FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      defaultValue: 'button',\r\n      control: { type: 'text' }\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
+          "type": "Meta<MockButtonComponent>",
+          "defaultValue": "{\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n}"
         },
         {
           "name": "Outlined",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button bs2-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
+        }
+      ],
+      "libs/ui/src/lib/components/text-input/text-input.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<TextInputComponent>",
+          "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         }
       ]
     },
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
-      "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts": [
+      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<MockBs2ButtonComponent>",
-          "file": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+          "rawtype": "StoryObj<MockButtonComponent>",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "libs/ui/src/lib/components/text-input/text-input.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<TextInputComponent>",
+          "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -221,36 +307,17 @@
         "status": "low"
       },
       {
-        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
-        "type": "component",
-        "linktype": "component",
-        "name": "MockBs2ButtonComponent",
-        "coveragePercent": 0,
-        "coverageCount": "0/3",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "filePath": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Filled",
+        "name": "Default",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
       },
       {
-        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Flat",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "filePath": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -260,7 +327,56 @@
         "status": "low"
       },
       {
-        "filePath": "libs/ui/src/lib/directives/bs2-button/bs2-button.directive.stories.ts",
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "MockButtonComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Filled",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Flat",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
