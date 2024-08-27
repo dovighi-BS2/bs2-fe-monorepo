@@ -19,6 +19,7 @@
         "libs/bs2-plugins/bs2-design-system/src/index.ts"
       ],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
+      "@bs2-fe-monorepo/ui/ui-icon": ["libs/ui/ui-icon/src/index.ts"]
     },
     "strict": true
   },
