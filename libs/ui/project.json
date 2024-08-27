@@ -10,7 +10,11 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/ui/ng-package.json"
+        "project": "libs/ui/ng-package.json",
+        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/src/lib/styles/global"]
+        }
       },
       "configurations": {
         "production": {
@@ -39,7 +43,11 @@
         "configDir": "libs/ui/.storybook",
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
-        "compodocArgs": ["-e", "json", "-d", "libs/ui"]
+        "compodocArgs": ["-e", "json", "-d", "libs/ui"],
+        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/src/lib/styles/global"]
+        }
       },
       "configurations": {
         "ci": {
@@ -55,7 +63,11 @@
         "configDir": "libs/ui/.storybook",
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
-        "compodocArgs": ["-e", "json", "-d", "libs/ui"]
+        "compodocArgs": ["-e", "json", "-d", "libs/ui"],
+        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui/src/lib/styles/global"]
+        }
       },
       "configurations": {
         "ci": {

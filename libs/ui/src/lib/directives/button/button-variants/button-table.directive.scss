@@ -1,0 +1,5 @@
+@mixin button-table($selector) {
+  #{$selector} {
+    min-height: 28px;
+  }
+}

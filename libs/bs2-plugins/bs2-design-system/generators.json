@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "bs2-entry-point": {
+      "factory": "./src/generators/bs2-entry-point/generator",
+      "schema": "./src/generators/bs2-entry-point/schema.json",
+      "description": "bs2-entry-point generator"
+    },
+    "bs2-convert-to-project": {
+      "factory": "./src/generators/bs2-convert-to-project/generator",
+      "schema": "./src/generators/bs2-convert-to-project/schema.json",
+      "description": "bs2-convert-to-project generator"
+    }
+  }
+}

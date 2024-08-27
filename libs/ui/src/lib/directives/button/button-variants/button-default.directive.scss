@@ -1,0 +1,36 @@
+@mixin button-default($selector) {
+  #{$selector} {
+    min-height: 36px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &__icon {
+      width: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.left {
+        margin-right: 4px;
+      }
+      &.right {
+        margin-left: 12px;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+    &:hover {
+      transition: 0.5s;
+    }
+  }
+}

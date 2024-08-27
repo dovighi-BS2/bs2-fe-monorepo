@@ -61,6 +61,11 @@
         "{projectRoot}/.storybook/**/*",
         "{projectRoot}/tsconfig.storybook.json"
       ]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "plugins": [
@@ -92,7 +97,7 @@
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
-      "style": "css"
+      "style": "scss"
     }
   },
   "nxCloudAccessToken": "ODU5ZGU2NTYtOTk4Ni00ODVjLWI0NzQtMThmODM3YjI5NWYzfHJlYWQtd3JpdGU="

@@ -2,9 +2,8 @@
   "{apps,libs}/**/{src,modules}/**/*.{js,ts,jsx,tsx,html}": [
     "nx affected:lint --fix=true --uncommitted",
     "nx affected:test",
-    "nx format:write --uncommited"
+    "nx format:write --uncommited",
+    "git add ."
   ],
-  "**/*.scss": [
-    "nx format:write --uncommited"
-  ]
+  "**/*.scss": ["nx format:write --uncommited", "git add ."]
 }
