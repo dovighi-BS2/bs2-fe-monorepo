@@ -19,8 +19,22 @@
         "libs/bs2-plugins/bs2-design-system/src/index.ts"
       ],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
-    },
-    "strict": true
+      "@bs2-fe-monorepo/ui/directives/button/filled-button": [
+        "libs/ui/directives/button/filled-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/button/flat-button": [
+        "libs/ui/directives/button/flat-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/button/outlined-button": [
+        "libs/ui/directives/button/outlined-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/components/select-input": [
+        "libs/ui/components/select-input/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/components/text-input": [
+        "libs/ui/components/text-input/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

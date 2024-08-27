@@ -1,0 +1,99 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CdkListboxModule } from '@angular/cdk/listbox';
+import { SelectInputOption } from './select-input.interface';
+
+@Component({
+  selector: 'select-input',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, CdkListboxModule],
+  templateUrl: './select-input.component.html',
+  styleUrl: './select-input.component.scss',
+})
+export class SelectInputComponent {
+  @Input() state?:
+    | 'default'
+    | 'hovered'
+    | 'focused'
+    | 'error'
+    | 'filled'
+    | 'disabled';
+
+  @Input() form?: any;
+  @Input() opened = false;
+  @Input() multiple = false;
+  @Input() type = 'text';
+  @Input() id = '';
+  @Input() testId = '';
+  @Input() name = '';
+  @Input() label = '';
+  @Input() class = '';
+  @Input() leftIcon = '';
+  @Input() rightIcon = 'arrow-down';
+  @Input() helperText = '';
+  @Input() errorText = '';
+  @Input() placeholder = '';
+  @Input() readOnly = false;
+  @Input() selecteds: SelectInputOption[] = [];
+  @Input() options: SelectInputOption[] = [
+    { value: 'Categoria 1', text: 'Categoria 1' },
+    { value: 'Categoria 2', text: 'Categoria 2' },
+    { value: 'Categoria 3', text: 'Categoria 3' },
+    { value: 'Categoria 4', text: 'Categoria 4' },
+    { value: 'Categoria 5', text: 'Categoria 5' },
+  ];
+
+  @Input() ariaLabel = '';
+  @Input() ariaRequired = false;
+  @Input() ariaInvalid = false;
+
+  get getErrors(): string {
+    if (!this.form || !this.form.get(this.name)) return '';
+    const control = this.form?.get(this.name);
+    return Object.values(control?.errors || {})
+      .map((error) => error)
+      .join('');
+  }
+
+  selectOption(option: SelectInputOption) {
+    if (!this.multiple) {
+      this.selecteds = [option];
+    } else {
+      const alreadyIn = (this.selecteds || []).find(
+        (item) => item.value === option.value
+      );
+      alreadyIn ? this.removeSelected(option) : this.addSelected(option);
+    }
+  }
+
+  addSelected(option: SelectInputOption) {
+    this.selecteds.push(option);
+  }
+
+  removeSelected(option: SelectInputOption) {
+    this.selecteds = (this.selecteds || []).filter(
+      (item) => item.value !== option.value
+    );
+  }
+
+  selectByEnter(el: any, option: SelectInputOption) {
+    this.selectOption(option);
+  }
+
+  selectByClick(option: SelectInputOption) {
+    this.selectOption(option);
+  }
+
+  isSelected(option: SelectInputOption) {
+    return (this.selecteds || []).find((item) => item.value === option.value);
+  }
+
+  getSelected() {
+    const selecteds = (this.selecteds || [])
+      .map((item) => item.text)
+      .join(', ');
+
+    return selecteds || this.placeholder;
+  }
+}
