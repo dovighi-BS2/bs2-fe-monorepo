@@ -10,7 +10,16 @@ o nosso design system foi construido sobre o material design components 2. Porta
 A integridade deve ser mantida mesmo se o framework (angular material) obrigar a usar material design components 3 futuramente.
 Contudo, podemos utilizar, se necessário, 
 o ([CDK (components development kit) ](https://material.angular.io/cdk/categories))
-em casos onde a complexidade e a abrangência de recursos são necessárias.
+em casos onde a complexidade e a abrangência de recursos são necessárias. Todo componente , diretiva , etc precisam ser entrypoints
+dentro do design system para evitar performance bottlenecks e trabalharmos com o NX de forma eficiente.
+
+
+#### Para criar um novo entrypoint execute o nosso comando abaixo.
+
+Execute `npx nx g bs2-entry-point` para criar o entrypoint;
+
+TL;DR se escrever apenas o nome do entrypoint ele criará na raiz do diretorio UI se quiser algo mais especifico dentro de alguma pasta
+existente ou não especifique o caminho! (i.e.,  components/meu-entrypoint)
 
 ## Storybook
 
