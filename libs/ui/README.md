@@ -19,7 +19,7 @@ dentro do design system para evitar performance bottlenecks e trabalharmos com o
 Execute `npx nx g bs2-entry-point` para criar o entrypoint;
 
 TL;DR se escrever apenas o nome do entrypoint ele criará na raiz do diretorio UI se quiser algo mais especifico dentro de alguma pasta
-existente ou não especifique o caminho! (i.e.,  components/meu-entrypoint)
+existente ou não, especifique o caminho! (i.e.,  components/meu-entrypoint)
 
 ## Storybook
 
