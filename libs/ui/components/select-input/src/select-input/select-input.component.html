@@ -2,13 +2,14 @@
 <!-- VERSÃO SEM REACTIVEFORMS -->
 <div
   *ngIf="!form"
+  [attr.id]="id"
   [attr.data-test]="testId"
   class="
-    select_input 
-    {{ class }} 
-    {{ state }} 
-    {{ opened ? 'opened' : '' }}
-    {{ getErrors || errorText ? 'error' : '' }} 
+    select_input
+    {{ class }}
+    {{ state }}
+    {{ readOnly ? 'disabled' : '' }}
+    {{ getErrors || errorText ? 'error' : '' }}
   "
 >
   <span class="select_input__helper" *ngIf="!!helperText">{{
@@ -22,13 +23,21 @@
     <div class="select_input__icon left" *ngIf="leftIcon"></div>
     <div class="select_input__icon right" *ngIf="rightIcon"></div>
     <div
+      #selectInputField
       class="select_input__field"
-      tabindex="-1"
-      [attr.aria-expanded]="opened"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
     >
       <span class="select_input__selected">{{ getSelected() }}</span>
     </div>
-    <div class="select_input__option" tabindex="0" role="listbox" cdkListbox>
+    <div
+      class="select_input__option"
+      #selectInputOption
+      [tabindex]="0"
+      role="listbox"
+      cdkListbox
+    >
       <div
         *ngFor="let option of options"
         class="select_input__option_item {{

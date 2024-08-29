@@ -3,6 +3,15 @@ import { SelectInputComponent } from './select-input.component';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { SelectInputOption } from './select-input.interface';
+
+const options: SelectInputOption[] = [
+  { value: 1, text: 'Categoria 1' },
+  { value: 2, text: 'Categoria 2' },
+  { value: 3, text: 'Categoria 3' },
+  { value: 4, text: 'Categoria 4' },
+  { value: 5, text: 'Categoria 5' },
+];
 
 const meta: Meta<SelectInputComponent> = {
   component: SelectInputComponent,
@@ -14,10 +23,10 @@ const meta: Meta<SelectInputComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    type: {
-      control: { type: 'text' },
-      description: 'obrigatório',
-      defaultValue: { summary: 'text' },
+    multiple: {
+      control: { type: 'boolean' },
+      description: 'opcional',
+      defaultValue: { summary: 'false' },
     },
     id: {
       control: { type: 'text' },
@@ -97,7 +106,7 @@ type Story = StoryObj<SelectInputComponent>;
 export const Default: Story = {
   args: {
     state: 'default',
-    type: 'text',
+    multiple: false,
     id: 'categories',
     testId: 'categories',
     name: 'categories',
@@ -109,6 +118,8 @@ export const Default: Story = {
     errorText: '',
     placeholder: 'Selecione uma opção',
     readOnly: false,
+    selecteds: [],
+    options,
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,

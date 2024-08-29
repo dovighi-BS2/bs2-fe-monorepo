@@ -1,8 +1,16 @@
-import { Component, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { SelectInputOption } from './select-input.interface';
+import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'select-input',
@@ -11,7 +19,10 @@ import { SelectInputOption } from './select-input.interface';
   templateUrl: './select-input.component.html',
   styleUrl: './select-input.component.scss',
 })
-export class SelectInputComponent {
+export class SelectInputComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('selectInputField') selectInputField!: ElementRef;
+  @ViewChild('selectInputOption') selectInputOption!: ElementRef;
+
   @Input() state?:
     | 'default'
     | 'hovered'
@@ -21,9 +32,7 @@ export class SelectInputComponent {
     | 'disabled';
 
   @Input() form?: any;
-  @Input() opened = false;
-  @Input() multiple = false;
-  @Input() type = 'text';
+  @Input() multiple = true;
   @Input() id = '';
   @Input() testId = '';
   @Input() name = '';
@@ -47,6 +56,19 @@ export class SelectInputComponent {
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
+
+  private selectInputFieldSub: Subscription = new Subscription();
+
+  ngAfterViewInit(): void {
+    this.selectInputFieldSub = fromEvent(
+      this.selectInputField?.nativeElement,
+      'click'
+    ).subscribe(() => this.selectInputOption?.nativeElement.focus());
+  }
+
+  ngOnDestroy(): void {
+    this.selectInputFieldSub.unsubscribe();
+  }
 
   get getErrors(): string {
     if (!this.form || !this.form.get(this.name)) return '';
@@ -90,10 +112,12 @@ export class SelectInputComponent {
   }
 
   getSelected() {
-    const selecteds = (this.selecteds || [])
-      .map((item) => item.text)
-      .join(', ');
+    const selecteds = (this.selecteds || []).map((item) => item.text);
 
-    return selecteds || this.placeholder;
+    if (selecteds.length > 1) {
+      return `${selecteds[selecteds.length - 1]} (+${selecteds.length - 1})`;
+    }
+
+    return selecteds.length ? selecteds[0] : this.placeholder;
   }
 }

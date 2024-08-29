@@ -160,7 +160,7 @@
   }
 
   // Variações
-  &:focus-within &__option,
+  &:not(.disabled):focus-within &__option,
   &.opened &__option {
     opacity: 1;
     visibility: visible;
