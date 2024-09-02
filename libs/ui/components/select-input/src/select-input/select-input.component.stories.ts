@@ -83,6 +83,16 @@ const meta: Meta<SelectInputComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
+    selecteds: {
+      control: { type: 'string' },
+      description: 'Este campo será vinculado com o [control] do ReactiveForms',
+      defaultValue: { summary: '[control] initial value' },
+    },
+    options: {
+      control: { type: 'string' },
+      description: 'Este campo será vinculado com o [control] do ReactiveForms',
+      defaultValue: { summary: 'SelectInputOption[]' },
+    },
     ariaLabel: {
       control: { type: 'text' },
       description: 'opcional',
