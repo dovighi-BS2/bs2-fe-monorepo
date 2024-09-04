@@ -16,7 +16,12 @@
 .select_input {
   display: flex;
   flex-direction: column-reverse;
+  position: relative;
+  z-index: 1;
 
+  &__hidden_field {
+    display: none;
+  }
   &__helper {
     font-size: 10px;
     font-weight: 400;

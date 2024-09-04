@@ -4,6 +4,7 @@ import {
   ElementRef,
   Input,
   OnDestroy,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,7 +20,7 @@ import { fromEvent, Subscription } from 'rxjs';
   templateUrl: './select-input.component.html',
   styleUrl: './select-input.component.scss',
 })
-export class SelectInputComponent implements AfterViewInit, OnDestroy {
+export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('selectInputField') selectInputField!: ElementRef;
   @ViewChild('selectInputOption') selectInputOption!: ElementRef;
 
@@ -32,7 +33,7 @@ export class SelectInputComponent implements AfterViewInit, OnDestroy {
     | 'disabled';
 
   @Input() form?: any;
-  @Input() multiple = true;
+  @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
   @Input() name = '';
@@ -42,16 +43,10 @@ export class SelectInputComponent implements AfterViewInit, OnDestroy {
   @Input() rightIcon = 'arrow-down';
   @Input() helperText = '';
   @Input() errorText = '';
-  @Input() placeholder = '';
+  @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
   @Input() selecteds: SelectInputOption[] = [];
-  @Input() options: SelectInputOption[] = [
-    { value: 'Categoria 1', text: 'Categoria 1' },
-    { value: 'Categoria 2', text: 'Categoria 2' },
-    { value: 'Categoria 3', text: 'Categoria 3' },
-    { value: 'Categoria 4', text: 'Categoria 4' },
-    { value: 'Categoria 5', text: 'Categoria 5' },
-  ];
+  @Input() options: SelectInputOption[] = [];
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -59,6 +54,9 @@ export class SelectInputComponent implements AfterViewInit, OnDestroy {
 
   private selectInputFieldSub: Subscription = new Subscription();
 
+  ngOnInit(): void {
+    this.options[0] && this.selectOption(this.options[0]);
+  }
   ngAfterViewInit(): void {
     this.selectInputFieldSub = fromEvent(
       this.selectInputField?.nativeElement,
@@ -70,23 +68,19 @@ export class SelectInputComponent implements AfterViewInit, OnDestroy {
     this.selectInputFieldSub.unsubscribe();
   }
 
-  get getErrors(): string {
-    if (!this.form || !this.form.get(this.name)) return '';
-    const control = this.form?.get(this.name);
-    return Object.values(control?.errors || {})
-      .map((error) => error)
-      .join('');
-  }
-
   selectOption(option: SelectInputOption) {
+    if (this.readOnly) return;
+
+    const alreadyIn = (this.selecteds || []).find(
+      (item) => item.value === option.value
+    );
+
     if (!this.multiple) {
-      this.selecteds = [option];
+      this.selecteds = alreadyIn ? [] : [option];
     } else {
-      const alreadyIn = (this.selecteds || []).find(
-        (item) => item.value === option.value
-      );
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
     }
+    this.form && this.form.get(this.name)?.setValue(this.selecteds);
   }
 
   addSelected(option: SelectInputOption) {
@@ -119,5 +113,13 @@ export class SelectInputComponent implements AfterViewInit, OnDestroy {
     }
 
     return selecteds.length ? selecteds[0] : this.placeholder;
+  }
+
+  get getErrors(): string {
+    if (!this.form || !this.form.get(this.name)) return '';
+    const control = this.form?.get(this.name);
+    return Object.values(control?.errors || {})
+      .map((error) => error)
+      .join('');
   }
 }
