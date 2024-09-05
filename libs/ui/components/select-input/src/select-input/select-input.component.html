@@ -1,0 +1,124 @@
+<!-- VERSÃO COM REACTIVEFORMS -->
+<div
+  *ngIf="!!form"
+  [attr.id]="id"
+  [attr.data-test]="testId"
+  [formGroup]="form"
+  class="
+    select_input
+    {{ class }}
+    {{ state }}
+    {{ readOnly ? 'disabled' : '' }}
+    {{ getErrors || errorText ? 'error' : '' }}
+  "
+>
+  <select
+    [multiple]="multiple"
+    class="select_input__hidden_field"
+    [formControlName]="name"
+  >
+    <option *ngFor="let option of options">{{ option.text }}</option>
+  </select>
+  <span class="select_input__helper" *ngIf="!!helperText">{{
+    helperText
+  }}</span>
+  <span class="select_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="select_input__wrapper">
+    <div class="select_input__icon left" *ngIf="leftIcon"></div>
+    <div class="select_input__icon right" *ngIf="rightIcon"></div>
+    <div
+      #selectInputField
+      class="select_input__field"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    >
+      <span class="select_input__selected">{{ getSelected() }}</span>
+    </div>
+    <div
+      class="select_input__option"
+      #selectInputOption
+      [tabindex]="0"
+      role="listbox"
+      cdkListbox
+    >
+      <div
+        *ngFor="let option of options"
+        class="select_input__option_item {{
+          isSelected(option) ? 'selected' : ''
+        }}"
+        role="option"
+        [cdkOption]="option.value"
+        (keyup.enter)="selectByEnter($event, option)"
+        (click)="selectByClick(option)"
+      >
+        <span class="select_input__option_checkbox"></span>
+        {{ option.text }}
+      </div>
+    </div>
+  </div>
+  <label *ngIf="label" [for]="id" class="select_input__label">{{
+    label
+  }}</label>
+</div>
+<!-- VERSÃO SEM REACTIVEFORMS -->
+<div
+  *ngIf="!form"
+  [attr.id]="id"
+  [attr.data-test]="testId"
+  class="
+    select_input
+    {{ class }}
+    {{ state }}
+    {{ readOnly ? 'disabled' : '' }}
+    {{ getErrors || errorText ? 'error' : '' }}
+  "
+>
+  <span class="select_input__helper" *ngIf="!!helperText">{{
+    helperText
+  }}</span>
+  <span class="select_input__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="select_input__wrapper">
+    <div class="select_input__icon left" *ngIf="leftIcon"></div>
+    <div class="select_input__icon right" *ngIf="rightIcon"></div>
+    <div
+      #selectInputField
+      class="select_input__field"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    >
+      <span class="select_input__selected">{{ getSelected() }}</span>
+    </div>
+    <div
+      class="select_input__option"
+      #selectInputOption
+      [tabindex]="0"
+      role="listbox"
+      cdkListbox
+    >
+      <div
+        *ngFor="let option of options"
+        class="select_input__option_item {{
+          isSelected(option) ? 'selected' : ''
+        }}"
+        role="option"
+        [cdkOption]="option.value"
+        (keyup.enter)="selectByEnter($event, option)"
+        (click)="selectByClick(option)"
+      >
+        <span class="select_input__option_checkbox"></span>
+        {{ option.text }}
+      </div>
+    </div>
+  </div>
+  <label *ngIf="label" [for]="id" class="select_input__label">{{
+    label
+  }}</label>
+</div>

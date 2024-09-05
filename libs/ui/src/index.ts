@@ -1,10 +1,5 @@
-// Directives
-export * from './lib/directives/button/filled-button/filled-button.directive';
-export * from './lib/directives/button/outlined-button/outlined-button.directive';
-export * from './lib/directives/button/flat-button/flat-button.directive';
-
-// Components
-export * from './lib/components/text-input/text-input.component';
-
-// Validators
+// // Validators
 export * from './lib/validators/index';
+export * from './lib/validators/messages.validator';
+
+// export const greeting = 'Hello World!';

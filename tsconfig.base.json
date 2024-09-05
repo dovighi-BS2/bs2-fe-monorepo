@@ -19,10 +19,24 @@
         "libs/bs2-plugins/bs2-design-system/src/index.ts"
       ],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
-      "@bs2-fe-monorepo/ui/token-field": ["libs/ui/token-field/src/index.ts"],
-      "@bs2-fe-monorepo/ui/ui-icon": ["libs/ui/ui-icon/src/index.ts"]
-    },
-    "strict": true
+      "@bs2-fe-monorepo/ui/components/token-field": ["libs/ui/components/token-field/src/index.ts"],
+      "@bs2-fe-monorepo/ui/ui-icon": ["libs/ui/ui-icon/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/select-input": [
+        "libs/ui/components/select-input/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/components/text-input": [
+        "libs/ui/components/text-input/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/button/filled-button": [
+        "libs/ui/directives/button/filled-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/button/flat-button": [
+        "libs/ui/directives/button/flat-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/button/outlined-button": [
+        "libs/ui/directives/button/outlined-button/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

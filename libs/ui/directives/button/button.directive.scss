@@ -1,8 +1,8 @@
 @import './button-variants/button-default.directive.scss';
 @import './button-variants/button-table.directive.scss';
-@import './filled-button/button-filled.directive.scss';
-@import './outlined-button/button-outlined.directive.scss';
-@import './flat-button/button-flat.directive.scss';
+@import './filled-button/src/filled-button/button-filled.directive.scss';
+@import './outlined-button/src/outlined-button/button-outlined.directive.scss';
+@import './flat-button/src/flat-button/button-flat.directive.scss';
 
 @include button-default('.button');
 @include button-filled('.button.filled');

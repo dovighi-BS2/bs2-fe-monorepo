@@ -33,22 +33,22 @@ export class TokenFieldComponent {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  inputToken(event: any, index: number) {
-    const target = event.currentTarget;
+  inputToken(event: Event, index: number) {
+    const target = event.target as HTMLInputElement;
     if (target.value && (index + 1) % this.tokenInputField.length) {
       this.tokenInputField.toArray()[index + 1].nativeElement.focus();
     }
   }
-  keyDownToken(event: any, index: number) {
-    const target = event.currentTarget;
+  keyDownToken(event: KeyboardEvent, index: number) {
+    const target = event.currentTarget as HTMLInputElement;
     if (!target.value && event.key === 'Backspace' && index) {
       this.tokenInputField.toArray()[index - 1].nativeElement.focus();
     }
   }
-  pasteToken(event: any) {
-    console.log(typeof event);
-    const value = event.clipboardData.getData('text');
-    const pin = value.replace(/\s|-/g, '');
+  pasteToken(event: ClipboardEvent) {
+    const value = event.clipboardData?.getData('text');
+    const pin = value ? value.replace(/\s|-/g, '') : '';
+    console.log(value)
     const chars = [...pin];
     this.tokenInputField.forEach(
       (e, i) => (e.nativeElement.value = chars[i] ?? '')

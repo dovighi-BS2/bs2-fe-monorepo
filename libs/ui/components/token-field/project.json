@@ -2,7 +2,7 @@
   "name": "ui/token-field",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/ui/token-field/src",
+  "sourceRoot": "libs/ui/components/token-field/src",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
