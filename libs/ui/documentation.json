@@ -9,7 +9,7 @@
   "components": [
     {
       "name": "MockButtonComponent",
-      "id": "component-MockButtonComponent-2760782de5a53f08b1572cf4ada1c55aa4d24e65078688a30685f034ce274ba28a0c25c192fe95d25f6fb094605c003a58c4365d2c1a31e620d6342061147396",
+      "id": "component-MockButtonComponent-f4e89aca855664fc06296f701e7b5b4e18afcc436e9de665dc6a2776d761abf8bbbbcbc569504b9916238701eea48ab10f86fa76f21b740b75ab1705212fab0c",
       "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -55,7 +55,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { FilledButtonDirective } from './filled-button/filled-button.directive';\nimport { OutlinedButtonDirective } from './outlined-button/outlined-button.directive';\nimport { FlatButtonDirective } from './flat-button/flat-button.directive';\nimport { within } from '@storybook/testing-library';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'button-mock',\n  template: ``,\n  standalone: true,\n})\nclass MockButtonComponent {\n  @Input() ariaLabel = 'button';\n  @Input() tabindex = 0;\n}\n\nconst meta: Meta<MockButtonComponent> = {\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<MockButtonComponent>;\n\nexport const Filled: Story = {\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Outlined: Story = {\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Flat: Story = {\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n};\n\nexport const Default: Story = {\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n};\n",
+      "sourceCode": "import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\r\nimport { FilledButtonDirective } from './filled-button/filled-button.directive';\r\nimport { OutlinedButtonDirective } from './outlined-button/outlined-button.directive';\r\nimport { FlatButtonDirective } from './flat-button/flat-button.directive';\r\nimport { within } from '@storybook/testing-library';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'button-mock',\r\n  template: ``,\r\n  standalone: true,\r\n})\r\nclass MockButtonComponent {\r\n  @Input() ariaLabel = 'button';\r\n  @Input() tabindex = 0;\r\n}\r\n\r\nconst meta: Meta<MockButtonComponent> = {\r\n  component: MockButtonComponent,\r\n  title: 'Directives/Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FilledButtonDirective,\r\n    OutlinedButtonDirective,\r\n    FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockButtonComponent,\r\n        FilledButtonDirective,\r\n        OutlinedButtonDirective,\r\n        FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n};\r\nexport default meta;\r\ntype Story = StoryObj<MockButtonComponent>;\r\n\r\nexport const Filled: Story = {\r\n  render: (args) => ({\r\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Outlined: Story = {\r\n  render: (args) => ({\r\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Flat: Story = {\r\n  render: (args) => ({\r\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n};\r\n\r\nexport const Default: Story = {\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\r\n  },\r\n};\r\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
@@ -73,17 +73,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "StorybookConfig",
-        "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n}"
+        "defaultValue": "{\r\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\r\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\r\n  framework: {\r\n    name: '@storybook/angular',\r\n    options: {},\r\n  },\r\n  docs: {\r\n    autodocs: true,\r\n    defaultName: 'Docs',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -93,7 +83,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\r\n  },\r\n}"
       },
       {
         "name": "Filled",
@@ -103,7 +103,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
       },
       {
         "name": "Flat",
@@ -113,17 +113,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<MockButtonComponent>",
-        "defaultValue": "{\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
       },
       {
         "name": "meta",
@@ -133,7 +123,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<TextInputComponent>",
-        "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+        "defaultValue": "{\r\n  component: TextInputComponent,\r\n  title: 'TextInputComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<MockButtonComponent>",
+        "defaultValue": "{\r\n  component: MockButtonComponent,\r\n  title: 'Directives/Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FilledButtonDirective,\r\n    OutlinedButtonDirective,\r\n    FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockButtonComponent,\r\n        FilledButtonDirective,\r\n        OutlinedButtonDirective,\r\n        FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "Outlined",
@@ -143,7 +143,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
       }
     ],
     "functions": [],
@@ -152,8 +152,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<MockButtonComponent>",
-        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+        "rawtype": "StoryObj<TextInputComponent>",
+        "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -163,8 +163,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<TextInputComponent>",
-        "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+        "rawtype": "StoryObj<MockButtonComponent>",
+        "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -182,59 +182,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "StorybookConfig",
-          "defaultValue": "{\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
-        }
-      ],
-      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\n  },\n}"
-        },
-        {
-          "name": "Filled",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
-        },
-        {
-          "name": "Flat",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<MockButtonComponent>",
-          "defaultValue": "{\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockButtonComponent,\n        FilledButtonDirective,\n        OutlinedButtonDirective,\n        FlatButtonDirective,\n      ],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n}"
-        },
-        {
-          "name": "Outlined",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
+          "defaultValue": "{\r\n  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\r\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\r\n  framework: {\r\n    name: '@storybook/angular',\r\n    options: {},\r\n  },\r\n  docs: {\r\n    autodocs: true,\r\n    defaultName: 'Docs',\r\n  },\r\n}"
         }
       ],
       "libs/ui/src/lib/components/text-input/text-input.component.stories.ts": [
@@ -246,7 +194,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -256,26 +204,65 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<TextInputComponent>",
-          "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+          "defaultValue": "{\r\n  component: TextInputComponent,\r\n  title: 'TextInputComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+        }
+      ],
+      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        },
+        {
+          "name": "Filled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        },
+        {
+          "name": "Flat",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<MockButtonComponent>",
+          "defaultValue": "{\r\n  component: MockButtonComponent,\r\n  title: 'Directives/Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FilledButtonDirective,\r\n    OutlinedButtonDirective,\r\n    FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockButtonComponent,\r\n        FilledButtonDirective,\r\n        OutlinedButtonDirective,\r\n        FlatButtonDirective,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
+        },
+        {
+          "name": "Outlined",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
         }
       ]
     },
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
-      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<MockButtonComponent>",
-          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
       "libs/ui/src/lib/components/text-input/text-input.component.stories.ts": [
         {
           "name": "Story",
@@ -283,6 +270,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<TextInputComponent>",
           "file": "libs/ui/src/lib/components/text-input/text-input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "libs/ui/src/lib/directives/button/button.directive.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<MockButtonComponent>",
+          "file": "libs/ui/src/lib/directives/button/button.directive.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
