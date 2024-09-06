@@ -77,6 +77,9 @@
     {{ getErrors || errorText ? 'error' : '' }}
   "
 >
+  <select [multiple]="multiple" class="select_input__hidden_field">
+    <option *ngFor="let option of options">{{ option.text }}</option>
+  </select>
   <span class="select_input__helper" *ngIf="!!helperText">{{
     helperText
   }}</span>

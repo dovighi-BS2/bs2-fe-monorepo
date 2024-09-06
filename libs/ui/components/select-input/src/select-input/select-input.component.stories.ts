@@ -70,13 +70,14 @@ const meta: Meta<SelectInputComponent> = {
     },
     errorText: {
       control: { type: 'text' },
-      description: 'opcional',
+      description:
+        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
       defaultValue: { summary: '(vazio)' },
     },
     placeholder: {
       control: { type: 'text' },
       description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
+      defaultValue: { summary: 'Selecione uma opção' },
     },
     readOnly: {
       control: { type: 'boolean' },
@@ -90,7 +91,7 @@ const meta: Meta<SelectInputComponent> = {
     },
     options: {
       control: { type: 'string' },
-      description: 'Este campo será vinculado com o [control] do ReactiveForms',
+      description: 'obrigatório',
       defaultValue: { summary: 'SelectInputOption[]' },
     },
     ariaLabel: {
@@ -116,7 +117,7 @@ type Story = StoryObj<SelectInputComponent>;
 export const Default: Story = {
   args: {
     state: 'default',
-    multiple: false,
+    multiple: true,
     id: 'categories',
     testId: 'categories',
     name: 'categories',
@@ -128,7 +129,7 @@ export const Default: Story = {
     errorText: '',
     placeholder: 'Selecione uma opção',
     readOnly: false,
-    selecteds: [],
+    selecteds: [options[1], options[2]],
     options,
     ariaLabel: '',
     ariaRequired: false,
