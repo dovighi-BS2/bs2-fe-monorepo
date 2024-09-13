@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TextInputComponent } from './text-input.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CustomValidators } from '../../validators';
-import { CustomValidatorMessages } from '../../validators/messages.validator';
+import { CustomValidators } from '@bs2-fe-monorepo/ui';
+import { CustomValidatorMessages } from '@bs2-fe-monorepo/ui';
 
 describe('TextInputComponent', () => {
   const testId = 'text_input__test_id';
