@@ -3,9 +3,11 @@ import { SelectInputComponent } from './select-input.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
-// import { CustomValidatorMessages } from '@bs2-fe-monorepo/ui';
 import { SelectInputOption } from './select-input.interface';
-import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui';
+import {
+  CustomValidatorMessages,
+  CustomValidators,
+} from '@bs2-fe-monorepo/ui/validators';
 
 describe('SelectInputComponent', () => {
   const testId = 'select_input__test_id';

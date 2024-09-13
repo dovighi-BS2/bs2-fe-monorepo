@@ -11,4 +11,10 @@ export const CustomValidators = {
 
     return null;
   },
+  numeric: (control: AbstractControl): ValidationErrors | null => {
+    if (String(control.value).trim().length <= 0 || isNaN(control.value))
+      return { required: CustomValidatorMessages.numeric };
+
+    return null;
+  },
 };
