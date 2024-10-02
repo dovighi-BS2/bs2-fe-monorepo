@@ -47,6 +47,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() readOnly = false;
   @Input() selecteds: SelectInputOption[] = [];
   @Input() options: SelectInputOption[] = [];
+  @Input() hideCheckbox = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -110,13 +111,14 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getSelected() {
-    const selecteds = (this.selecteds || []).map((item) => item.text);
-
-    if (selecteds.length > 1) {
+    if (this.selecteds.length > 1) {
+      const selecteds = (this.selecteds || []).map((item) => item.text);
       return `${selecteds[selecteds.length - 1]} (+${selecteds.length - 1})`;
     }
 
-    return selecteds.length ? selecteds[0] : this.placeholder;
+    return this.selecteds.length
+      ? `${this.selecteds[0].image} ${this.selecteds[0].text}`
+      : this.placeholder;
   }
 
   get getErrors(): string {

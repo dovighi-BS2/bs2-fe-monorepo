@@ -10,7 +10,10 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -18,7 +21,12 @@
       "@bs2-fe-monorepo/bs2-design-system": [
         "libs/bs2-plugins/bs2-design-system/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
+      "@bs2-fe-monorepo/ui": [
+        "libs/ui/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/components/input-currency": [
+        "libs/ui/components/input-currency/src/index.ts"
+      ],
       "@bs2-fe-monorepo/ui/components/select-input": [
         "libs/ui/components/select-input/src/index.ts"
       ],
@@ -40,5 +48,8 @@
       "@bs2-fe-monorepo/ui/validators": ["libs/ui/validators/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
