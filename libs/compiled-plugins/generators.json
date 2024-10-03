@@ -5,5 +5,12 @@
       "schema": "./src/generators/init/schema.json",
       "description": "init generator"
     }
+  },
+  "schematics": {
+		"ng-add": {
+			"factory": "./src/generators/init/compat",
+			"schema": "./src/generators/init/schema.json",
+			"description": "Init the design system inner workings"
+		}
   }
 }

@@ -6,6 +6,16 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "publish":{
+      "executor": "nx:run-commands",
+			"options": {
+				"commands": [
+					"nx build ui",
+					"nx build compiled-plugins"
+				],
+				"parallel": false
+			}
+    },
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],

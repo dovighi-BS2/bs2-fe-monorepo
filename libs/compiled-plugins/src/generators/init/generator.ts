@@ -1,22 +1,45 @@
 import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  Tree,
+	addDependenciesToPackageJson,
+	formatFiles,
+	installPackagesTask,
+	logger,
+	readJson,
+	updateJson,
+	type Tree,
 } from '@nx/devkit';
-import * as path from 'path';
-import { InitGeneratorSchema } from './schema';
 
-export async function initGenerator(tree: Tree, options: InitGeneratorSchema) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
-  await formatFiles(tree);
+export async function initDesignSystemGenerator(tree: Tree) {
+	logger.log('Inicializando o design-system...');
+
+	const packageJson = readJson(tree, 'package.json');
+
+	const version =
+		packageJson['dependencies']?.['@bs2/design-system'] ||
+		'latest';
+
+	addDependenciesToPackageJson(tree, { "@bs2/design-system": version }, {});
+
+	logger.info('Modificando o tsconfig para evitar erros de types');
+	const tsConfigPath = tree.exists('tsconfig.base.json')
+		? 'tsconfig.base.json'
+		: 'tsconfig.json';
+
+	updateJson(tree, tsConfigPath, (json) => {
+		if (
+			!('skipLibCheck' in json.compilerOptions) ||
+			json.compilerOptions?.skipLibCheck === false
+		) {
+			json.compilerOptions.skipLibCheck = true;
+		}
+
+		return json;
+	});
+
+	await formatFiles(tree);
+
+	return () => {
+		installPackagesTask(tree);
+	};
 }
 
-export default initGenerator;
+export default initDesignSystemGenerator;
