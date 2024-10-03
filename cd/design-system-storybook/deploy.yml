@@ -1,6 +1,6 @@
 app:
     #{ambiente}#:
-        alias: bs2-frontend-designsystem-storybook
+        alias: bs2-frontend-design-system-storybook
         registry: #{registry}#
         img: bs2.frontend.designsystem.storybook
         # custom_port: 80

@@ -20,7 +20,7 @@ stages:
       k8sTarget: 'k8sOpen'
       applications: # Aplicações
         frontenddesignsystemstorybook: # App1 # Só letras - NÃO PODE CARACTER ESPECIAL - NÃO PODE REPETIR
-          deployYaml: 'deploy.yml' # Localizado dentro do diretório "cd" do repositorio
-          dockerFile: 'Dockerfile' # Localizado na raiz do repositorio
+          deployYaml: './design-system-storybook/deploy.yml' # Localizado dentro do diretório "cd" do repositorio
+          dockerFile: 'Dockerfile.design-system-storybook' # Localizado na raiz do repositorio
           dockerImageName: bs2.frontend.designsystem.storybook
           variableGroupNames: ['bs2-frontend-design-system-storybook-dsv']
