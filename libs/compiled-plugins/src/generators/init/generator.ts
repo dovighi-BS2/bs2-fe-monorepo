@@ -9,7 +9,7 @@ import {
 } from '@nx/devkit';
 
 export async function initDesignSystemGenerator(tree: Tree) {
-	logger.log('Inicializando o design-system...');
+	logger.log('Inicializando o design-system no projeto...');
 
 	const packageJson = readJson(tree, 'package.json');
 
