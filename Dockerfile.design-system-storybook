@@ -3,7 +3,7 @@ FROM ${DTR_URL}/bs2.image.node:v20.8.1-alpine AS build-env
 # FROM node:20.8.1-alpine AS build-env
 
 WORKDIR /fe-monorepo-build
-COPY ../../.. .
+COPY . .
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm cache clean --force
