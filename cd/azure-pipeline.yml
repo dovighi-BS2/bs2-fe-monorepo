@@ -17,6 +17,7 @@ resources:
 stages:
   - template: templates/stages/pipeline-frontend.yaml@templates # Template reference
     parameters:
+      k8sTarget: "k8sOpen"
       applications: # Aplicações
         frontenddesignsystemstorybook: # App1 # Só letras - NÃO PODE CARACTER ESPECIAL - NÃO PODE REPETIR
           deployYaml: 'design-system-storybook/deploy.yml' # Localizado dentro do diretório "cd" do repositorio
