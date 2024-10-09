@@ -25,7 +25,7 @@ FROM ${DTR_URL}/bs2.frontend.images:nginx-nonprivileged
 USER root
 
 WORKDIR /fe-monorepo-build
-COPY --from=build-env /fe-monorepo-build/dist/storybook/ui/* ./
+COPY --from=build-env /fe-monorepo-build/dist/storybook/ui/ .
 
 RUN mkdir /docker-app
 RUN chmod 777 -R /docker-app
