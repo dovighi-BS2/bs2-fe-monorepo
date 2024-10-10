@@ -11,9 +11,10 @@
 			"options": {
 				"commands": [
 					"nx build ui",
-					"nx build compiled-plugins"
+					"nx build compiled-plugins",
+          "cd dist/libs/ui && npm publish"
 				],
-				"parallel": false
+				"parallel": false 
 			}
     },
     "build": {
@@ -50,9 +51,9 @@
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
         "compodocArgs": ["-e", "json", "-d", "libs/ui"],
-        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
+        "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/ui/src/lib/styles/global"]
+          "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
         }
       },
       "configurations": {
@@ -70,9 +71,9 @@
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
         "compodocArgs": ["-e", "json", "-d", "libs/ui"],
-        "styles": ["libs/ui/src/lib/styles/global/_styles.scss"],
+        "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/ui/src/lib/styles/global"]
+          "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
         }
       },
       "configurations": {
