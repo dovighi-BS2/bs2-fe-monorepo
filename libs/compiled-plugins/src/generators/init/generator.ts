@@ -19,11 +19,34 @@ export async function initDesignSystemGenerator(tree: Tree) {
 
 	addDependenciesToPackageJson(tree, { "@bs2/design-system": version }, {});
 
-	await formatFiles(tree);
+	logger.log('Adicionando style no angular json...');
 
-	return () => {
+	updateJson(tree, 'angular.json', (json)=>{
+
+		const projectName = readJson(tree, 'package.json')['name'];
+
+		const project = json.projects[projectName]
+
+		if (project && project.architect && project.architect.build) {
+	
+			const styles = project.architect.build.options.styles || [];
+	
+			const stylePath = '@bs2/design-system/styles/_styles.scss'
+	
+			project.architect.build.options.styles = [...styles, stylePath];
+		}
+
+		return json
+	
+	})
+
+	await formatFiles(tree);
+	
+	return(()=> {
+
 		installPackagesTask(tree);
-	};
+	
+	});
 }
 
 export default initDesignSystemGenerator;
