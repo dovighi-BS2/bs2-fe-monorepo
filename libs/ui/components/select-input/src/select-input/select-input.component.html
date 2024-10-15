@@ -55,8 +55,11 @@
         (keyup.enter)="selectByEnter($event, option)"
         (click)="selectByClick(option)"
       >
-        <span class="select_input__option_checkbox"></span>
-        {{ option.text }}
+        <span
+          class="select_input__option_checkbox"
+          *ngIf="!hideCheckbox"
+        ></span>
+        {{ option?.image }} {{ option.text }}
       </div>
     </div>
   </div>
@@ -116,8 +119,11 @@
         (keyup.enter)="selectByEnter($event, option)"
         (click)="selectByClick(option)"
       >
-        <span class="select_input__option_checkbox"></span>
-        {{ option.text }}
+        <span
+          class="select_input__option_checkbox"
+          *ngIf="!hideCheckbox"
+        ></span>
+        {{ option?.image }} {{ option.text }}
       </div>
     </div>
   </div>

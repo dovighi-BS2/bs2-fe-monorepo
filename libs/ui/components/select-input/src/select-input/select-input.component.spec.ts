@@ -12,10 +12,10 @@ import {
 describe('SelectInputComponent', () => {
   const testId = 'select_input__test_id';
   const options: SelectInputOption[] = [
-    { value: 'Categoria 1', text: 'Categoria 1' },
-    { value: 'Categoria 2', text: 'Categoria 2' },
+    { value: 'Categoria 1', text: 'Categoria 1', image: '123' },
+    { value: 'Categoria 2', text: 'Categoria 2', image: '123' },
     { value: 'Categoria 3', text: 'Categoria 3' },
-    { value: 'Categoria 4', text: 'Categoria 4' },
+    { value: 'Categoria 4', text: 'Categoria 4', image: '123' },
     { value: 'Categoria 5', text: 'Categoria 5' },
   ];
 
@@ -52,7 +52,10 @@ describe('SelectInputComponent', () => {
     fixture.detectChanges();
 
     let selected = get(`[data-test='${testId}'] .select_input__selected`);
-    expect(selected.textContent.trim()).toBe(options[0].text);
+    const selectedContent = options[0].image
+      ? `${options[0]?.image} ${options[0].text}`
+      : options[0].text;
+    expect(selected.textContent.trim()).toBe(selectedContent);
 
     component.selecteds = [];
     fixture.detectChanges();
@@ -83,7 +86,10 @@ describe('SelectInputComponent', () => {
     fixture.detectChanges();
 
     const selected = get(`[data-test='${testId}'] .select_input__selected`);
-    expect(selected.textContent.trim()).toBe(options[1].text);
+    const selectedContent = options[1].image
+      ? `${options[1]?.image} ${options[1].text}`
+      : options[1].text;
+    expect(selected.textContent.trim()).toBe(selectedContent);
   });
 
   it('should display correct value when [multiple="true"]', () => {
