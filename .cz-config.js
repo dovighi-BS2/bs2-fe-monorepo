@@ -37,7 +37,7 @@ module.exports = {
   allowTicketNumber: true,
   isTicketNumberRequired: false,
   ticketNumberPrefix: '#',
-  ticketNumberRegExp: '\\d{1,5}',
+  ticketNumberRegExp: '\\d{1,10}',
   // override the messages, defaults are as follows
   messages: {
     type: 'Selecione o tipo de mudança do seu commit:',
