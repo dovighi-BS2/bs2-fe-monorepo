@@ -43,6 +43,9 @@
       "options": {
         "jestConfig": "libs/local-plugins/bs2-design-system/jest.config.ts"
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
     }
   }
 }
