@@ -89,16 +89,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    id: 'categories',\r\n    testId: 'categories',\r\n    name: 'categories',\r\n    label: 'Categorias',\r\n    class: 'custom_class',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -149,16 +139,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<InputCurrencyComponent>",
-                "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description:\r\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'string' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'string' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -174,16 +154,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<SelectInputComponent>",
                 "defaultValue": "{\r\n  component: SelectInputComponent,\r\n  title: 'SelectInputComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description:\r\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'string' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'string' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "options",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "SelectInputOption[]",
-                "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1', image: '123' },\r\n  { value: 2, text: 'Categoria 2', image: '123' },\r\n  { value: 3, text: 'Categoria 3', image: '123' },\r\n  { value: 4, text: 'Categoria 4', image: '123' },\r\n  { value: 5, text: 'Categoria 5', image: '123' },\r\n]"
             },
             {
                 "name": "options",
@@ -214,17 +184,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<MockButtonComponent>",
                 "file": "libs/ui/directives/button/button.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<InputCurrencyComponent>",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -319,38 +278,6 @@
                     "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
                 }
             ],
-            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    id: 'categories',\r\n    testId: 'categories',\r\n    name: 'categories',\r\n    label: 'Categorias',\r\n    class: 'custom_class',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<InputCurrencyComponent>",
-                    "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description:\r\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'string' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'string' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "options",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "SelectInputOption[]",
-                    "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1', image: '123' },\r\n  { value: 2, text: 'Categoria 2', image: '123' },\r\n  { value: 3, text: 'Categoria 3', image: '123' },\r\n  { value: 4, text: 'Categoria 4', image: '123' },\r\n  { value: 5, text: 'Categoria 5', image: '123' },\r\n]"
-                }
-            ],
             "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
                 {
                     "name": "Default",
@@ -422,19 +349,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InputCurrencyComponent>",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
                 {
                     "name": "Story",
@@ -479,36 +393,6 @@
                 "status": "low"
             },
             {
-                "filePath": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "options",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "libs/ui/components/select-input/src/select-input/select-input.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -550,26 +434,6 @@
             },
             {
                 "filePath": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

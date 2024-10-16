@@ -1,0 +1,1 @@
+export { default as initDesignSystemGenerator } from './generators/init/generator';

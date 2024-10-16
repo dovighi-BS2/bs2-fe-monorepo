@@ -1,4 +1,4 @@
-@import './variables';
+@use './fonts/poppins' as *;
 
 @mixin typography {
   #{if(&, '&', 'body')} {
