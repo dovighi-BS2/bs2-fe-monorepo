@@ -44,4 +44,8 @@
       --token_field__field_text_color: var(--neutral_n2);
     }
   }
+
+  &.error {
+    --token_field__field_border_color: var(--error);
+  }
 }

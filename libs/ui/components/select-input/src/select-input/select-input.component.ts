@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { SelectInputOption } from './select-input.interface';
 import { fromEvent, Subscription } from 'rxjs';
@@ -32,7 +32,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
     | 'filled'
     | 'disabled';
 
-  @Input() form?: any;
+  @Input() form?: FormGroup;
   @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
@@ -55,7 +55,11 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   private selectInputFieldSub: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.options[0] && this.selectOption(this.options[0]);
+    if (this.options[0] && this.selecteds.length <= 0)
+      this.selectOption(this.options[0]);
+
+    if (this.selecteds.length > 0)
+      this.form && this.form.get(this.name)?.setValue(this.selecteds);
   }
   ngAfterViewInit(): void {
     this.selectInputFieldSub = fromEvent(

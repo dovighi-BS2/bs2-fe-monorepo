@@ -1,1 +1,1 @@
-export const greeting = 'Hello World!';
+export * from './token-field/token-field.component';

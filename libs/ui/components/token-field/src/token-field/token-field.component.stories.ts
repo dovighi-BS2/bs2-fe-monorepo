@@ -10,7 +10,8 @@ const meta: Meta<TokenFieldComponent> = {
   argTypes: {
     state: {
       control: 'select',
-      options: ['default', 'hovered', 'focused', 'disabled'],
+
+      options: ['default', 'hovered', 'focused', 'disabled', 'error'],
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
