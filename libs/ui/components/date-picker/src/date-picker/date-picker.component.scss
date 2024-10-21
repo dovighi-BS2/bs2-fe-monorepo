@@ -1,5 +1,6 @@
 :host {
   --date_picker__primary: var(--primary);
+  --date_picker__field_height: 48px;
   --date_picker__field_gap: 16px;
   --date_picker__field_height: 48px;
   --date_picker__field_border_color: var(--neutral_n1);
@@ -15,6 +16,8 @@
 .date_picker {
   display: flex;
   flex-direction: column-reverse;
+  position: relative;
+  z-index: 1;
 
   &__helper {
     font-size: 10px;
@@ -93,15 +96,65 @@
       font-weight: 400;
     }
   }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--date_picker__label_color);
+  }
+
+  // Theming
+  &:has(&__field:hover),
+  &.hovered {
+    --date_picker__label_color: var(--neutral_n5);
+    --date_picker__field_border_color: var(--neutral_n3);
+  }
+
+  &:has(&__field:focus),
+  &.focused {
+    --date_picker__label_color: var(--primary);
+    --date_picker__field_border_color: var(--primary);
+  }
+
+  &.error {
+    --date_picker__label_color: var(--error);
+    --date_picker__field_border_color: var(--error);
+    --date_picker__icon_color: var(--error);
+    --date_picker__feedback_text_color: var(--error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]) &:has(&__field[readonly='true']),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    --date_picker__label_color: var(--neutral_n5);
+    --date_picker__field_border_color: var(--neutral_n2);
+    --date_picker__field_bg_color: var(--neutral_n0);
+    --date_picker__field_text_color: var(--neutral_n3);
+    --date_picker__icon_color: var(--neutral_n3);
+  }
+
+  // CALENDÁRIO
   &__calendar {
+    // position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.5s;
     width: 304px;
-    height: 250px;
+    height: 255px;
     // box-sizing: border-box;
-    position: relative;
     border-radius: 2px;
     padding: 16px 16px;
     border: 2px solid var(--date_picker__primary);
     box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.35);
+    background-color: var(--primary_white);
   }
   &__top {
     display: flex;
@@ -206,56 +259,36 @@
     justify-content: center;
     font-size: 14px;
     font-weight: 400;
+    border: 1px solid transparent;
+    border-radius: 50px;
     color: var(--date_picker__field_text_color);
+    transition: 0.5s;
     cursor: pointer;
 
     &.previous_month,
     &.next_month {
       color: var(--neutral_n2);
     }
+    &:hover {
+      background-color: #d0d4ee;
+    }
+    &.current {
+      border-color: 1px solid var(--date_picker__primary);
+    }
     &.active {
-      border-radius: 50px;
-      border: 1px solid var(--primary);
+      background-color: var(--date_picker__primary);
+      color: var(--primary_white);
+    }
+    &.disabled {
+      color: #bfbfbf;
     }
   }
-  &__label {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--date_picker__label_color);
-  }
-
-  // Theming
-  &:has(&__field:hover),
-  &.hovered {
-    --date_picker__label_color: var(--neutral_n5);
-    --date_picker__field_border_color: var(--neutral_n3);
-  }
-
-  &:has(&__field:focus),
-  &.focused {
-    --date_picker__label_color: var(--primary);
-    --date_picker__field_border_color: var(--primary);
-  }
-
-  &.error {
-    --date_picker__label_color: var(--error);
-    --date_picker__field_border_color: var(--error);
-    --date_picker__icon_color: var(--error);
-    --date_picker__feedback_text_color: var(--error);
-  }
-
-  &:has(&__field:not(:empty)),
-  &.filled {
-  }
-
-  &:has(&__field[readonly]) &:has(&__field[readonly='true']),
-  &:has(&__field[disabled='true']),
-  &.disabled,
-  &.readonly {
-    --date_picker__label_color: var(--neutral_n5);
-    --date_picker__field_border_color: var(--neutral_n2);
-    --date_picker__field_bg_color: var(--neutral_n0);
-    --date_picker__field_text_color: var(--neutral_n3);
-    --date_picker__icon_color: var(--neutral_n3);
+  &:not(.disabled):focus-within &__calendar,
+  &.opened &__calendar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+    top: var(--date_picker__field_height);
+    transition: 0.5s;
   }
 }

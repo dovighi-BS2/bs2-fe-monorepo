@@ -89,11 +89,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+                "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Default",
@@ -129,11 +129,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+                "defaultValue": "{\n  args: {\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Filled",
@@ -169,11 +169,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<InputCurrencyComponent>",
-                "defaultValue": "{\n  component: InputCurrencyComponent,\n  title: 'InputCurrencyComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description:\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'string' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'string' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'SelectInputOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
+                "type": "Meta<TextInputComponent>",
+                "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -209,21 +209,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "options",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "SelectInputOption[]",
-                "defaultValue": "[\n  { value: 1, text: 'BRL', image: '123' },\n  { value: 2, text: 'USD', image: '123' },\n  { value: 3, text: 'EUR', image: '123' },\n  { value: 4, text: 'GBP', image: '123' },\n  { value: 5, text: 'CAD', image: '123' },\n  { value: 6, text: 'AUD', image: '123' },\n  { value: 7, text: 'CNY', image: '123' },\n  { value: 8, text: 'AED', image: '123' },\n]"
+                "type": "Meta<InputCurrencyComponent>",
+                "defaultValue": "{\n  component: InputCurrencyComponent,\n  title: 'InputCurrencyComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description:\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'string' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'string' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'SelectInputOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
             },
             {
                 "name": "options",
@@ -234,6 +224,16 @@
                 "deprecationMessage": "",
                 "type": "SelectInputOption[]",
                 "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
+            },
+            {
+                "name": "options",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "SelectInputOption[]",
+                "defaultValue": "[\n  { value: 1, text: 'BRL', image: '123' },\n  { value: 2, text: 'USD', image: '123' },\n  { value: 3, text: 'EUR', image: '123' },\n  { value: 4, text: 'GBP', image: '123' },\n  { value: 5, text: 'CAD', image: '123' },\n  { value: 6, text: 'AUD', image: '123' },\n  { value: 7, text: 'CNY', image: '123' },\n  { value: 8, text: 'AED', image: '123' },\n]"
             },
             {
                 "name": "Outlined",
@@ -263,8 +263,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputCurrencyComponent>",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "rawtype": "StoryObj<TextInputComponent>",
+                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -307,8 +307,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TextInputComponent>",
-                "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                "rawtype": "StoryObj<InputCurrencyComponent>",
+                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -381,36 +381,26 @@
                     "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
                 }
             ],
-            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+            "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<InputCurrencyComponent>",
-                    "defaultValue": "{\n  component: InputCurrencyComponent,\n  title: 'InputCurrencyComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description:\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'string' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'string' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'SelectInputOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
-                },
-                {
-                    "name": "options",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "SelectInputOption[]",
-                    "defaultValue": "[\n  { value: 1, text: 'BRL', image: '123' },\n  { value: 2, text: 'USD', image: '123' },\n  { value: 3, text: 'EUR', image: '123' },\n  { value: 4, text: 'GBP', image: '123' },\n  { value: 5, text: 'CAD', image: '123' },\n  { value: 6, text: 'AUD', image: '123' },\n  { value: 7, text: 'CNY', image: '123' },\n  { value: 8, text: 'AED', image: '123' },\n]"
+                    "type": "Meta<TextInputComponent>",
+                    "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
@@ -489,26 +479,36 @@
                     "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
                 }
             ],
-            "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
+            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\n  component: TextInputComponent,\n  title: 'TextInputComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                    "type": "Meta<InputCurrencyComponent>",
+                    "defaultValue": "{\n  component: InputCurrencyComponent,\n  title: 'InputCurrencyComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description:\n        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'string' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'string' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'SelectInputOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
+                },
+                {
+                    "name": "options",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SelectInputOption[]",
+                    "defaultValue": "[\n  { value: 1, text: 'BRL', image: '123' },\n  { value: 2, text: 'USD', image: '123' },\n  { value: 3, text: 'EUR', image: '123' },\n  { value: 4, text: 'GBP', image: '123' },\n  { value: 5, text: 'CAD', image: '123' },\n  { value: 6, text: 'AUD', image: '123' },\n  { value: 7, text: 'CNY', image: '123' },\n  { value: 8, text: 'AED', image: '123' },\n]"
                 }
             ]
         },
@@ -528,13 +528,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+            "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<InputCurrencyComponent>",
-                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "rawtype": "StoryObj<TextInputComponent>",
+                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -580,13 +580,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
+            "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TextInputComponent>",
-                    "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                    "rawtype": "StoryObj<InputCurrencyComponent>",
+                    "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

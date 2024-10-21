@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DatePicker } from './date-picker.interface';
+import { PickerType } from './date-picker.enum';
 
 @Component({
   selector: 'date-picker',
@@ -16,7 +18,8 @@ export class DatePickerComponent implements OnInit {
     | 'focused'
     | 'error'
     | 'filled'
-    | 'disabled';
+    | 'disabled'
+    | 'opened';
 
   @Input() form?: FormGroup;
   @Input() type = 'text';
@@ -36,37 +39,105 @@ export class DatePickerComponent implements OnInit {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  public selectedYear = 2024;
-  public selectedMonth = 10;
+  public selectedYear = new Date().getFullYear();
+  public selectedMonth = new Date().getMonth() + 1;
+  public currentDay = new Date().getDate();
+  public selectedDay = new Date().getDate();
+  public selectedDate = new Date();
 
   public activePickerType = 'day';
 
   public calendarYears: number[] = [];
-  public calendarMonths = {
-    1: 'Jan',
-    2: 'Fev',
-    3: 'Mar',
-    4: 'Abr',
-    5: 'Mai',
-    6: 'Jun',
-    7: 'Jul',
-    8: 'Ago',
-    9: 'Set',
-    10: 'Out',
-    11: 'Nov',
-    12: 'Dez',
-  };
+  public calendarMonths: DatePicker['months'] = [
+    { number: 1, abbr: 'Jan', fullName: 'Janeiro' },
+    { number: 2, abbr: 'Fev', fullName: 'Fevereiro' },
+    { number: 3, abbr: 'Mar', fullName: 'Março' },
+    { number: 4, abbr: 'Abr', fullName: 'Abril' },
+    { number: 5, abbr: 'Mai', fullName: 'Maio' },
+    { number: 6, abbr: 'Jun', fullName: 'Junho' },
+    { number: 7, abbr: 'Jul', fullName: 'Julho' },
+    { number: 8, abbr: 'Ago', fullName: 'Agosto' },
+    { number: 9, abbr: 'Set', fullName: 'Setembro' },
+    { number: 10, abbr: 'Out', fullName: 'Outubro' },
+    { number: 11, abbr: 'Nov', fullName: 'Novembro' },
+    { number: 12, abbr: 'Dez', fullName: 'Dezembro' },
+  ];
   public calendarPreviousMonth: Date[] = [];
   public calendarMonth: Date[] = [];
   public calendarNextMonth: Date[] = [];
+
+  public dayPicker = {
+    goToYearPicker: () => {
+      this.activePickerType = 'year';
+      this.fillCalendarYears();
+    },
+    getSelectedMonthName: () => {
+      return this.calendarMonths.find((m) => m.number === this.selectedMonth);
+    },
+    selectDate: (date: Date) => {
+      this.selectedDate = date;
+      this.selectedDay = date.getDate();
+    },
+    nextMonth: () => {
+      if (this.selectedMonth >= 12)
+        (this.selectedMonth = 0), this.selectedYear++;
+      this.increaseCalendar(PickerType.DAY);
+    },
+    previousMonth: () => {
+      if (this.selectedMonth <= 1)
+        (this.selectedMonth = 13), this.selectedYear--;
+      this.decreaseCalendar(PickerType.DAY);
+    },
+  };
+
+  public monthPicker = {
+    goToDayPicker: () => {
+      this.activePickerType = 'day';
+      this.fillCalendar();
+    },
+    selectMonth: (month: number) => {
+      this.activePickerType = 'day';
+      this.selectedMonth = month;
+      this.fillCalendar();
+    },
+    nextYear: () => {
+      this.increaseCalendar(PickerType.MONTH);
+    },
+    previousYear: () => {
+      this.decreaseCalendar(PickerType.MONTH);
+    },
+  };
+  public yearPicker = {
+    selectYear: (year: number) => {
+      this.activePickerType = 'month';
+      this.selectedYear = year;
+      this.fillCalendar();
+    },
+    nextYears: () => {
+      if (this.selectedYear >= 2100) this.selectedYear = 1900;
+      this.increaseCalendar(PickerType.YEAR);
+    },
+    previousYears: () => {
+      if (this.selectedYear <= 1900) this.selectedYear = 2100;
+      return this.decreaseCalendar(PickerType.YEAR);
+    },
+    getFirstAndLastYear: () => {
+      const firstYear = this.calendarYears[0];
+      const lastYear = this.calendarYears[this.calendarYears.length - 1];
+      return `${firstYear} - ${lastYear}`;
+    },
+  };
 
   ngOnInit(): void {
     this.fillCalendar();
   }
 
   getMonthDays(year: number, month: number) {
+    const _year = month === 12 ? year + 1 : year;
+    const _month = month === 12 ? 1 : month;
+
     const nextMonth = new Date(
-      `${year}-${String(month).padStart(2, '0')}-01T03:00:00.000Z`
+      `${_year}-${String(_month).padStart(2, '0')}-01T03:00:00.000Z`
     );
     const lastDayOfMonth = new Date(nextMonth).setDate(nextMonth.getDate() - 1);
     const lastDayOfMonthNumber = new Date(lastDayOfMonth).getDate();
@@ -120,6 +191,7 @@ export class DatePickerComponent implements OnInit {
   }
 
   fillCalendar() {
+    console.log(this.selectedYear, this.selectedMonth);
     const monthDays = this.getMonthDays(this.selectedYear, this.selectedMonth);
     const previousMonthRemainingDays = this.getPreviousMonthRemainingDays(
       monthDays[0]
@@ -134,107 +206,25 @@ export class DatePickerComponent implements OnInit {
     this.calendarNextMonth = nextMonthRemainingDays;
   }
 
-  goToYearPicker() {
-    this.activePickerType = 'year';
-    this.fillCalendarYears();
-  }
-
-  goToDayPicker() {
-    this.activePickerType = 'day';
-    this.fillCalendar();
-  }
-
-  selectYear(year: number) {
-    this.activePickerType = 'month';
-    this.selectedYear = year;
-  }
-
-  selectMonth(month: number) {
-    this.activePickerType = 'day';
-    this.selectedMonth = month;
-  }
-
-  nextYears() {
-    if (this.selectedYear >= 2100) {
-      this.selectedYear = 1900;
-      this.selectedYear += 28;
-      this.fillCalendarYears();
-      return;
+  increaseCalendar(pickerType: PickerType): void {
+    switch (pickerType) {
+      case PickerType.DAY:
+        return this.selectedMonth++, this.fillCalendar();
+      case PickerType.MONTH:
+        return this.selectedYear++, this.fillCalendar();
+      case PickerType.YEAR:
+        return (this.selectedYear += 28), this.fillCalendarYears();
     }
-
-    this.selectedYear += 28;
-    this.fillCalendarYears();
   }
-
-  previousYears() {
-    if (this.selectedYear <= 1900) {
-      this.selectedYear = 2100;
-      this.selectedYear -= 28;
-      this.fillCalendarYears();
-      return;
+  decreaseCalendar(type: PickerType): void {
+    switch (type) {
+      case PickerType.DAY:
+        return this.selectedMonth--, this.fillCalendar();
+      case PickerType.MONTH:
+        return this.selectedYear--, this.fillCalendar();
+      case PickerType.YEAR:
+        return (this.selectedYear -= 28), this.fillCalendarYears();
     }
-
-    this.selectedYear -= 28;
-    this.fillCalendarYears();
-  }
-
-  nextMonth() {
-    if (this.selectedMonth >= 12) {
-      this.selectedMonth = 1;
-      this.selectedYear++;
-      this.fillCalendar();
-      return;
-    }
-
-    this.selectedMonth++;
-    this.fillCalendar();
-  }
-
-  previousMonth() {
-    if (this.selectedMonth <= 1) {
-      this.selectedMonth = 12;
-      this.selectedYear--;
-      this.fillCalendar();
-      return;
-    }
-
-    this.selectedMonth--;
-    this.fillCalendar();
-  }
-
-  nextYear() {
-    if (this.selectedYear >= 12) {
-      this.selectedYear++;
-      this.fillCalendar();
-      return;
-    }
-
-    this.selectedYear++;
-    this.fillCalendar();
-  }
-
-  previousYear() {
-    if (this.selectedYear <= 1) {
-      this.selectedYear--;
-      this.fillCalendar();
-      return;
-    }
-
-    this.selectedYear--;
-    this.fillCalendar();
-  }
-
-  getSelectedMonthName() {
-    return this.calendarMonths[
-      this.selectedMonth as keyof typeof this.calendarMonths
-    ];
-  }
-
-  get getMonths() {
-    return Object.entries(this.calendarMonths || {}).map((m) => ({
-      key: Number(m[0]),
-      name: m[1],
-    }));
   }
 
   get getErrors(): string {
