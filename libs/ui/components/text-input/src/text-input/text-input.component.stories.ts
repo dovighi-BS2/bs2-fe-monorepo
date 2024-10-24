@@ -1,8 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { TextInputComponent } from './text-input.component';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from '@storybook/test';
+import { expect } from '@storybook/test';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const meta: Meta<TextInputComponent> = {
   component: TextInputComponent,
@@ -94,6 +96,15 @@ const meta: Meta<TextInputComponent> = {
 export default meta;
 type Story = StoryObj<TextInputComponent>;
 
+const form: FormGroup = new FormGroup({
+  email: new FormControl('', [
+    CustomValidators.required,
+    CustomValidators.numeric,
+  ]),
+});
+
+// delete form['controls']['email']['_parent'];
+
 export const Default: Story = {
   args: {
     state: 'default',
@@ -113,6 +124,46 @@ export const Default: Story = {
     ariaRequired: false,
     ariaInvalid: false,
   },
+  render: (args: TextInputComponent) => ({
+    props: {
+      ...args,
+      form: form,
+      template: `
+            <text-input
+              form='${args.form}'
+              id='${args.id}'
+              testId='${args.testId}'
+              name='${args.name}'
+              label='${args.label}'
+              class='${args.class}'
+              leftIcon='${args.leftIcon}'
+              rightIcon='${args.rightIcon}'
+              helperText='${args.helperText}'
+              errorText='${args.errorText}'
+              placeholder='${args.placeholder}'
+            />
+            `,
+    },
+  }),
+  // render: (args) => {
+  //   return {
+  //     template: `
+  //       <text-input
+  //         form='${form}'
+  //         id='${args.id}'
+  //         testId='${args.testId}'
+  //         name='${args.name}'
+  //         label='${args.label}'
+  //         class='${args.class}'
+  //         leftIcon='${args.leftIcon}'
+  //         rightIcon='${args.rightIcon}'
+  //         helperText='${args.helperText}'
+  //         errorText='${args.errorText}'
+  //         placeholder='${args.placeholder}'
+  //       />
+  //       `
+  //     }
+  // },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();

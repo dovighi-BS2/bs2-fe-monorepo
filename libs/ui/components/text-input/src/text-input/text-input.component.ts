@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'text-input',
@@ -19,7 +19,7 @@ export class TextInputComponent {
     | 'filled'
     | 'disabled';
 
-  @Input() form?: any;
+  @Input() form?: FormGroup;
   @Input() type = 'text';
   @Input() id = '';
   @Input() testId = '';
@@ -38,8 +38,8 @@ export class TextInputComponent {
   @Input() ariaInvalid = false;
 
   get getErrors(): string {
-    if (!this.form || !this.form.get(this.name)) return '';
     const control = this.form?.get(this.name);
+    if (!control || control.untouched) return '';
     return Object.values(control?.errors || {})
       .map((error) => error)
       .join('');

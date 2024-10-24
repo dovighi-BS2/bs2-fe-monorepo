@@ -3,7 +3,8 @@
   [attr.data-test]="testId"
   class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
     state
-  }} opened"
+  }}"
+  #datePickerRef
 >
   <span class="date_picker__helper" *ngIf="!!helperText">{{ helperText }}</span>
   <span class="date_picker__feedback" *ngIf="!!getErrors || !!errorText">
@@ -67,9 +68,12 @@
           >{{ d | date : 'dd' }}</span
         >
         <span
-          class="date_picker__day_item current_month {{
-            d.getDate() === currentDay ? 'current' : ''
-          }} {{ d.getDate() === selectedDay ? 'active' : '' }}"
+          class="
+            date_picker__day_item current_month
+            {{ dayPicker.isToday(d) ? 'current' : '' }}
+            {{ d.getDate() === selectedDay ? 'active' : '' }}
+            {{ !isDaySelectable(d) ? 'disabled' : '' }}
+          "
           *ngFor="let d of calendarMonth"
           (click)="dayPicker.selectDate(d)"
           >{{ d | date : 'dd' }}</span
@@ -111,9 +115,10 @@
     <div class="date_picker__body">
       <div class="date_picker__month">
         <span
-          class="date_picker__month_item {{
-            month.number === selectedMonth ? 'active' : ''
-          }}"
+          class="date_picker__month_item
+          {{ month.number === selectedMonth ? 'active' : '' }}
+          {{ !isMonthSelectable(month.number) ? 'disabled' : '' }}
+          "
           (click)="monthPicker.selectMonth(month.number)"
           *ngFor="let month of calendarMonths"
         >
@@ -132,7 +137,7 @@
   >
     <div class="date_picker__top">
       <div class="date_picker__top_left">
-        <span class="date_picker__title">
+        <span class="date_picker__title" (click)="yearPicker.goToDayPicker()">
           {{ yearPicker.getFirstAndLastYear() }}
         </span>
       </div>
@@ -151,9 +156,11 @@
     <div class="date_picker__body">
       <div class="date_picker__year">
         <span
-          class="date_picker__year_item {{
-            year === selectedYear ? 'active' : ''
-          }}"
+          class="
+            date_picker__year_item
+            {{ year === selectedYear ? 'active' : '' }}
+            {{ !isYearSelectable(year) ? 'disabled' : '' }}
+            "
           *ngFor="let year of calendarYears"
           (click)="yearPicker.selectYear(year)"
         >

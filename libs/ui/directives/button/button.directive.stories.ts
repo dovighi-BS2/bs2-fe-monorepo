@@ -2,7 +2,7 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';
 import { OutlinedButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/outlined-button';
 import { FlatButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/flat-button';
-import { within } from '@storybook/testing-library';
+import { within } from '@storybook/test';
 import { Component, Input } from '@angular/core';
 
 @Component({

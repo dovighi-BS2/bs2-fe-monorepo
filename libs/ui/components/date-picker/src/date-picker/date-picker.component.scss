@@ -2,7 +2,6 @@
   --date_picker__primary: var(--primary);
   --date_picker__field_height: 48px;
   --date_picker__field_gap: 16px;
-  --date_picker__field_height: 48px;
   --date_picker__field_border_color: var(--neutral_n1);
   --date_picker__field_bg_color: transparent;
   --date_picker__field_text_color: var(--primary_text1_bg2);
@@ -113,6 +112,10 @@
   &.focused {
     --date_picker__label_color: var(--primary);
     --date_picker__field_border_color: var(--primary);
+
+    .date_picker__calendar {
+      border: 2px solid var(--date_picker__primary);
+    }
   }
 
   &.error {
@@ -139,7 +142,14 @@
 
   // CALENDÁRIO
   &__calendar {
-    // position: absolute;
+    // Valores do figma
+    // width: 304px;
+    // height: 344px;
+
+    // Valores que ficaram bons de fato
+    width: 237px;
+    height: 309px;
+    position: absolute;
     top: 0px;
     left: 0px;
     z-index: 2;
@@ -147,12 +157,8 @@
     visibility: hidden;
     pointer-events: none;
     transition: 0.5s;
-    width: 304px;
-    height: 255px;
-    // box-sizing: border-box;
     border-radius: 2px;
     padding: 16px 16px;
-    border: 2px solid var(--date_picker__primary);
     box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.35);
     background-color: var(--primary_white);
   }
@@ -240,7 +246,7 @@
   &__year {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 30.4px);
     row-gap: 8px;
     column-gap: 4px;
     place-items: center;
@@ -283,7 +289,7 @@
       color: #bfbfbf;
     }
   }
-  &:not(.disabled):focus-within &__calendar,
+  // &:not(.disabled):focus-within &__calendar,
   &.opened &__calendar {
     opacity: 1;
     visibility: visible;
