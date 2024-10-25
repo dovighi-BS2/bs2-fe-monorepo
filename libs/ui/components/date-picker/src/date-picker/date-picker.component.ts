@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePicker } from './date-picker.interface';
 import { PickerType } from './date-picker.enum';
-import { delay, fromEvent, Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'date-picker',
@@ -31,7 +31,6 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     | 'opened';
 
   @Input() form?: FormGroup;
-  @Input() type = 'text';
   @Input() id = '';
   @Input() testId = '';
   @Input() name = '';
@@ -80,31 +79,6 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   public outsideClickSub: Subscription = new Subscription();
 
   public dayPicker = {
-    isToday: (date: Date) => {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, '0');
-      const day = String(today.getDate()).padStart(2, '0');
-
-      const _year = date.getFullYear();
-      const _month = String(date.getMonth() + 1).padStart(2, '0');
-      const _day = String(date.getDate()).padStart(2, '0');
-
-      return `${year}-${month}-${day}` === `${_year}-${_month}-${_day}`;
-    },
-    goToYearPicker: () => {
-      this.activePickerType = 'year';
-      this.fillCalendarYears();
-    },
-    getSelectedMonthName: () => {
-      return this.calendarMonths.find((m) => m.number === this.selectedMonth);
-    },
-    selectDate: (date: Date) => {
-      if (!this.isDaySelectable(date)) return;
-      this.selectedDate = date;
-      this.selectedDay = date.getDate();
-      this.state = undefined;
-    },
     nextMonth: () => {
       if (this.selectedMonth >= 12)
         (this.selectedMonth = 0), this.selectedYear++;
@@ -115,9 +89,32 @@ export class DatePickerComponent implements OnInit, OnDestroy {
         (this.selectedMonth = 13), this.selectedYear--;
       this.decreaseCalendar(PickerType.DAY);
     },
+    goToYearPicker: () => {
+      this.activePickerType = 'year';
+      this.fillCalendarYears();
+    },
+    selectDate: (date: Date) => {
+      if (!this.isDaySelectable(date)) return;
+      this.selectedDate = date;
+      this.selectedDay = date.getDate();
+      this.state = undefined;
+      this.form?.get(this.name)?.valueChanges;
+      this.form
+        ?.get(this.name)
+        ?.setValue(this.getFormatedDate(this.selectedDate));
+    },
+    isToday: (date: Date) => {
+      const today = this.getFormatedDate(new Date());
+      return `${this.getFormatedDate(date)}` === `${today}`;
+    },
+    getSelectedMonthName: () => {
+      return this.calendarMonths.find((m) => m.number === this.selectedMonth);
+    },
   };
 
   public monthPicker = {
+    nextYear: () => this.increaseCalendar(PickerType.MONTH),
+    previousYear: () => this.decreaseCalendar(PickerType.MONTH),
     goToDayPicker: () => {
       this.activePickerType = 'day';
       this.fillCalendar();
@@ -128,20 +125,8 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.selectedMonth = month;
       this.fillCalendar();
     },
-    nextYear: () => {
-      this.increaseCalendar(PickerType.MONTH);
-    },
-    previousYear: () => {
-      this.decreaseCalendar(PickerType.MONTH);
-    },
   };
   public yearPicker = {
-    selectYear: (year: number) => {
-      if (!this.isYearSelectable(year)) return;
-      this.activePickerType = 'month';
-      this.selectedYear = year;
-      this.fillCalendar();
-    },
     nextYears: () => {
       if (this.selectedYear >= this.max.getFullYear())
         this.selectedYear = this.min.getFullYear();
@@ -152,14 +137,20 @@ export class DatePickerComponent implements OnInit, OnDestroy {
         this.selectedYear = this.max.getFullYear();
       return this.decreaseCalendar(PickerType.YEAR);
     },
+    goToDayPicker: () => {
+      this.activePickerType = 'day';
+      this.fillCalendar();
+    },
+    selectYear: (year: number) => {
+      if (!this.isYearSelectable(year)) return;
+      this.activePickerType = 'month';
+      this.selectedYear = year;
+      this.fillCalendar();
+    },
     getFirstAndLastYear: () => {
       const firstYear = this.calendarYears[0];
       const lastYear = this.calendarYears[this.calendarYears.length - 1];
       return `${firstYear} - ${lastYear}`;
-    },
-    goToDayPicker: () => {
-      this.activePickerType = 'day';
-      this.fillCalendar();
     },
   };
 
@@ -167,7 +158,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     this.fillCalendar();
 
     this.outsideClickSub = fromEvent(document, 'click').subscribe((event) => {
-      if (!this.datePickerRef.nativeElement.contains(event.target)) {
+      if (!this.datePickerRef?.nativeElement.contains(event.target)) {
         this.state = undefined;
       }
     });
@@ -181,21 +172,18 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     const _year = month === 12 ? year + 1 : year;
     const _month = month === 12 ? 1 : month;
 
-    const nextMonth = new Date(
-      `${_year}-${String(_month).padStart(2, '0')}-01T03:00:00.000Z`
-    );
+    const nextMonth = this.newDate(_year, _month + 1, 1);
     const lastDayOfMonth = new Date(nextMonth).setDate(nextMonth.getDate() - 1);
     const lastDayOfMonthNumber = new Date(lastDayOfMonth).getDate();
     const monthArray = Array(lastDayOfMonthNumber).fill(0);
-    return monthArray.map(
-      (_, n) =>
-        new Date(
-          `${year}-${String(month).padStart(2, '0')}-${String(n + 1).padStart(
-            2,
-            '0'
-          )}T03:00:00.000Z`
-        )
-    );
+    console.log({
+      _year,
+      _month,
+      nextMonth,
+      lastDayOfMonth,
+      lastDayOfMonthNumber,
+    });
+    return monthArray.map((_, n) => this.newDate(year, month, n + 1));
   }
 
   getPreviousMonthRemainingDays(firstMonthDay: Date) {
@@ -278,16 +266,25 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     );
   }
   isMonthSelectable(month: number) {
-    const date = new Date(
-      `${this.selectedYear}-${String(month).padStart(2, '0')}-01T03:00:00.000Z`
-    ).valueOf();
+    const date = this.newDate(this.selectedYear, month, 1).valueOf();
     return date >= this.min.valueOf() && date <= this.max.valueOf();
   }
   isYearSelectable(year: number) {
-    const date = new Date(`${year}-01-01T03:00:00.000Z`).valueOf();
+    const date = this.newDate(year, 1, 1).valueOf();
     return date >= this.min.valueOf() && date <= this.max.valueOf();
   }
+  getFormatedDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
 
+    return `${day}/${month}/${year}`;
+  }
+  newDate(year: number, month: number, day: number) {
+    const _month = String(month).padStart(2, '0');
+    const _day = String(day).padStart(2, '0');
+    return new Date(`${year}-${_month}-${_day}T03:00:00.000Z`);
+  }
   get getErrors(): string {
     if (!this.form || !this.form.get(this.name)) return '';
     const control = this.form?.get(this.name);

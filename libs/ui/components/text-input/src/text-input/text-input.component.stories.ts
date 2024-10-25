@@ -145,25 +145,6 @@ export const Default: Story = {
             `,
     },
   }),
-  // render: (args) => {
-  //   return {
-  //     template: `
-  //       <text-input
-  //         form='${form}'
-  //         id='${args.id}'
-  //         testId='${args.testId}'
-  //         name='${args.name}'
-  //         label='${args.label}'
-  //         class='${args.class}'
-  //         leftIcon='${args.leftIcon}'
-  //         rightIcon='${args.rightIcon}'
-  //         helperText='${args.helperText}'
-  //         errorText='${args.errorText}'
-  //         placeholder='${args.placeholder}'
-  //       />
-  //       `
-  //     }
-  // },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();

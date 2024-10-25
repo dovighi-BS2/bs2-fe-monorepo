@@ -1,9 +1,10 @@
 <div
-  *ngIf="!form"
+  *ngIf="!!form"
   [attr.data-test]="testId"
   class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
     state
   }}"
+  [formGroup]="form"
   #datePickerRef
 >
   <span class="date_picker__helper" *ngIf="!!helperText">{{ helperText }}</span>
@@ -17,10 +18,10 @@
     <input
       class="date_picker__field"
       [id]="id"
-      [type]="type"
       [placeholder]="placeholder"
       [readOnly]="readOnly"
       [name]="name"
+      [formControlName]="name"
       (click)="state = 'opened'"
     />
     <div class="date_picker__calendar">

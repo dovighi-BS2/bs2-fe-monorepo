@@ -114,7 +114,7 @@
     --date_picker__field_border_color: var(--primary);
 
     .date_picker__calendar {
-      border: 2px solid var(--date_picker__primary);
+      border-color: var(--date_picker__primary);
     }
   }
 
@@ -159,6 +159,7 @@
     transition: 0.5s;
     border-radius: 2px;
     padding: 16px 16px;
+    border: 2px solid transparent;
     box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.35);
     background-color: var(--primary_white);
   }
