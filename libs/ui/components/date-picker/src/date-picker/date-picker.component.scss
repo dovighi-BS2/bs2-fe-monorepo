@@ -58,21 +58,15 @@
       translate: var(--date_picker__field_gap) 0px;
 
       ~ .date_picker__field {
-        padding-left: calc(
-          var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px
-        );
+        padding-left: calc(var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px);
       }
     }
     &.right {
       order: 3;
-      margin-left: calc(
-        (var(--date_picker__icon_width) + var(--date_picker__field_gap)) * -1
-      );
+      margin-left: calc((var(--date_picker__icon_width) + var(--date_picker__field_gap)) * -1);
 
       ~ .date_picker__field {
-        padding-right: calc(
-          var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px
-        );
+        padding-right: calc(var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px);
       }
     }
   }

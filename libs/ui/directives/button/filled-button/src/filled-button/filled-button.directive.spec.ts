@@ -5,9 +5,7 @@ import { By } from '@angular/platform-browser';
 
 @Component({
   selector: 'button-mock',
-  template: `<button filled-button aria-label="button" tabindex="0">
-    filled button
-  </button>`,
+  template: `<button filled-button aria-label="button" tabindex="0">filled button</button>`,
   standalone: true,
 })
 class MockButtonComponent {}

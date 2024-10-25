@@ -1,10 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup } from '@angular/forms';
-import {
-  SelectInputComponent,
-  SelectInputOption,
-} from '@bs2-fe-monorepo/ui/components/select-input';
+import { SelectInputComponent, SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 
 @Component({
   selector: 'input-currency',
@@ -14,13 +11,7 @@ import {
   styleUrl: './input-currency.component.scss',
 })
 export class InputCurrencyComponent {
-  @Input() state?:
-    | 'default'
-    | 'hovered'
-    | 'focused'
-    | 'error'
-    | 'filled'
-    | 'disabled';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() form?: FormGroup;
   @Input() multiple = false;

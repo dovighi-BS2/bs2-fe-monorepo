@@ -43,9 +43,7 @@ export class TokenFieldComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if (this.form) {
       for (let index = 0; index < this.qtdInputs; index++) {
-        this.forms.push(
-          this.fb.group({ [index]: [null, CustomValidators.numeric] })
-        );
+        this.forms.push(this.fb.group({ [index]: [null, CustomValidators.numeric] }));
       }
     }
   }
@@ -72,14 +70,8 @@ export class TokenFieldComponent implements AfterViewInit {
     const value = event.clipboardData?.getData('text');
     const pin = value ? value.replace(/\s|-/g, '') : '';
     const chars = [...pin];
-    this.tokenInputField.forEach(
-      (e, i) => (e.nativeElement.value = chars[i] ?? '')
-    );
-    this.tokenInputField
-      .toArray()
-      [
-        Math.min(this.tokenInputField.length, pin.length) - 1
-      ].nativeElement.focus();
+    this.tokenInputField.forEach((e, i) => (e.nativeElement.value = chars[i] ?? ''));
+    this.tokenInputField.toArray()[Math.min(this.tokenInputField.length, pin.length) - 1].nativeElement.focus();
     this.returnValue();
   }
   returnValue() {

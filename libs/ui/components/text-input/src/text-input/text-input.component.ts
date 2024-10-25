@@ -11,13 +11,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent {
-  @Input() state?:
-    | 'default'
-    | 'hovered'
-    | 'focused'
-    | 'error'
-    | 'filled'
-    | 'disabled';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() form?: FormGroup;
   @Input() type = 'text';

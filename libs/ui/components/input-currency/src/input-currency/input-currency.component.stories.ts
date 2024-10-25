@@ -73,8 +73,7 @@ const meta: Meta<InputCurrencyComponent> = {
     },
     errorText: {
       control: { type: 'text' },
-      description:
-        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
+      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
       defaultValue: { summary: '(vazio)' },
     },
     placeholder: {

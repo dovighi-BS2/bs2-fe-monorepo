@@ -1,9 +1,7 @@
 <div
   *ngIf="!!form"
   [attr.data-test]="testId"
-  class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
-    state
-  }}"
+  class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
   [formGroup]="form"
   #datePickerRef
 >
@@ -34,11 +32,7 @@
 </div>
 
 <ng-template #dayPickerCalendar>
-  <div
-    class="date_picker__day_picker {{
-      activePickerType === 'day' ? 'active' : ''
-    }}"
-  >
+  <div class="date_picker__day_picker {{ activePickerType === 'day' ? 'active' : '' }}">
     <div class="date_picker__top">
       <div class="date_picker__top_left">
         <span class="date_picker__title" (click)="dayPicker.goToYearPicker()">
@@ -46,9 +40,7 @@
         </span>
       </div>
       <div class="date_picker__top_right">
-        <span class="date_picker__previous" (click)="dayPicker.previousMonth()">
-          <
-        </span>
+        <span class="date_picker__previous" (click)="dayPicker.previousMonth()"> < </span>
         <span class="date_picker__next" (click)="dayPicker.nextMonth()">></span>
       </div>
     </div>
@@ -63,11 +55,9 @@
         <span class="date_picker__weekday_item saturday">S</span>
       </div>
       <div class="date_picker__day">
-        <span
-          class="date_picker__day_item previous_month"
-          *ngFor="let d of calendarPreviousMonth"
-          >{{ d | date : 'dd' }}</span
-        >
+        <span class="date_picker__day_item previous_month" *ngFor="let d of calendarPreviousMonth">{{
+          d | date : 'dd'
+        }}</span>
         <span
           class="
             date_picker__day_item current_month
@@ -79,22 +69,14 @@
           (click)="dayPicker.selectDate(d)"
           >{{ d | date : 'dd' }}</span
         >
-        <span
-          class="date_picker__day_item next_month"
-          *ngFor="let d of calendarNextMonth"
-          >{{ d | date : 'dd' }}</span
-        >
+        <span class="date_picker__day_item next_month" *ngFor="let d of calendarNextMonth">{{ d | date : 'dd' }}</span>
       </div>
     </div>
   </div>
 </ng-template>
 
 <ng-template #monthPickerCalendar>
-  <div
-    class="date_picker__month_picker  {{
-      activePickerType === 'month' ? 'active' : ''
-    }}"
-  >
+  <div class="date_picker__month_picker  {{ activePickerType === 'month' ? 'active' : '' }}">
     <div class="date_picker__top">
       <div class="date_picker__top_left">
         <span class="date_picker__title" (click)="monthPicker.goToDayPicker()">
@@ -102,15 +84,8 @@
         </span>
       </div>
       <div class="date_picker__top_right">
-        <span
-          class="date_picker__previous"
-          (click)="monthPicker.previousYear()"
-        >
-          <
-        </span>
-        <span class="date_picker__next" (click)="monthPicker.nextYear()"
-          >></span
-        >
+        <span class="date_picker__previous" (click)="monthPicker.previousYear()"> < </span>
+        <span class="date_picker__next" (click)="monthPicker.nextYear()">></span>
       </div>
     </div>
     <div class="date_picker__body">
@@ -131,11 +106,7 @@
 </ng-template>
 
 <ng-template #yearPickerCalendar>
-  <div
-    class="date_picker__year_picker  {{
-      activePickerType === 'year' ? 'active' : ''
-    }}"
-  >
+  <div class="date_picker__year_picker  {{ activePickerType === 'year' ? 'active' : '' }}">
     <div class="date_picker__top">
       <div class="date_picker__top_left">
         <span class="date_picker__title" (click)="yearPicker.goToDayPicker()">
@@ -143,15 +114,8 @@
         </span>
       </div>
       <div class="date_picker__top_right">
-        <span
-          class="date_picker__previous"
-          (click)="yearPicker.previousYears()"
-        >
-          <
-        </span>
-        <span class="date_picker__next" (click)="yearPicker.nextYears()"
-          >></span
-        >
+        <span class="date_picker__previous" (click)="yearPicker.previousYears()"> < </span>
+        <span class="date_picker__next" (click)="yearPicker.nextYears()">></span>
       </div>
     </div>
     <div class="date_picker__body">

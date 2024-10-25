@@ -5,9 +5,7 @@ import { By } from '@angular/platform-browser';
 
 @Component({
   selector: 'button-mock',
-  template: `<button outlined-button aria-label="button" tabindex="0">
-    outlined button
-  </button>`,
+  template: `<button outlined-button aria-label="button" tabindex="0">outlined button</button>`,
   standalone: true,
 })
 class MockButtonComponent {}
@@ -23,17 +21,13 @@ describe('OutlinedButtonDirective', () => {
   });
 
   it('should create an instance', () => {
-    const button = fixture.debugElement.query(
-      By.css('button[outlined-button]')
-    );
+    const button = fixture.debugElement.query(By.css('button[outlined-button]'));
     const directive = new OutlinedButtonDirective(button);
     expect(directive).toBeTruthy();
   });
 
   it('should have .button.outlined.primary classes', () => {
-    const button = fixture.debugElement.query(
-      By.css('button[outlined-button]')
-    );
+    const button = fixture.debugElement.query(By.css('button[outlined-button]'));
     new OutlinedButtonDirective(button);
     const classes = Object.values(button.nativeElement.classList);
 
@@ -43,9 +37,7 @@ describe('OutlinedButtonDirective', () => {
   });
 
   it('should change inner text', () => {
-    const button = fixture.debugElement.query(
-      By.css('button[outlined-button]')
-    );
+    const button = fixture.debugElement.query(By.css('button[outlined-button]'));
     new OutlinedButtonDirective(button);
     expect(button.nativeElement.textContent).toContain('outlined button');
   });

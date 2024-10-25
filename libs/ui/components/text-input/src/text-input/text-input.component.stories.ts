@@ -97,10 +97,7 @@ export default meta;
 type Story = StoryObj<TextInputComponent>;
 
 const form: FormGroup = new FormGroup({
-  email: new FormControl('', [
-    CustomValidators.required,
-    CustomValidators.numeric,
-  ]),
+  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),
 });
 
 // delete form['controls']['email']['_parent'];

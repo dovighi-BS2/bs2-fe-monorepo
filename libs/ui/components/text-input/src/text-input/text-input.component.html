@@ -1,9 +1,7 @@
 <div
   *ngIf="!!form"
   [attr.data-test]="testId"
-  class="text_input {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{
-    state
-  }}"
+  class="text_input {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
   [formGroup]="form"
 >
   <span class="text_input__helper" *ngIf="!!helperText">{{ helperText }}</span>

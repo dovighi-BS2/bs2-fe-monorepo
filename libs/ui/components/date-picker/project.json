@@ -6,9 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}/components/date-picker"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/date-picker"],
       "options": {
         "jestConfig": "libs/ui/jest.config.ts"
       }

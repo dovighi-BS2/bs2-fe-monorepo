@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
@@ -24,13 +16,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('selectInputField') selectInputField!: ElementRef;
   @ViewChild('selectInputOption') selectInputOption!: ElementRef;
 
-  @Input() state?:
-    | 'default'
-    | 'hovered'
-    | 'focused'
-    | 'error'
-    | 'filled'
-    | 'disabled';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() form?: FormGroup;
   @Input() multiple = false;
@@ -56,17 +42,14 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   private selectInputFieldSub: Subscription = new Subscription();
 
   ngOnInit(): void {
-    if (this.options[0] && this.selecteds.length <= 0)
-      this.selectOption(this.options[0]);
+    if (this.options[0] && this.selecteds.length <= 0) this.selectOption(this.options[0]);
 
-    if (this.selecteds.length > 0)
-      this.form && this.form.get(this.name)?.setValue(this.selecteds);
+    if (this.selecteds.length > 0) this.form && this.form.get(this.name)?.setValue(this.selecteds);
   }
   ngAfterViewInit(): void {
-    this.selectInputFieldSub = fromEvent(
-      this.selectInputField?.nativeElement,
-      'click'
-    ).subscribe(() => this.selectInputOption?.nativeElement.focus());
+    this.selectInputFieldSub = fromEvent(this.selectInputField?.nativeElement, 'click').subscribe(() =>
+      this.selectInputOption?.nativeElement.focus()
+    );
   }
 
   ngOnDestroy(): void {
@@ -76,9 +59,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   selectOption(option: SelectInputOption) {
     if (this.readOnly) return;
 
-    const alreadyIn = (this.selecteds || []).find(
-      (item) => item.value === option.value
-    );
+    const alreadyIn = (this.selecteds || []).find((item) => item.value === option.value);
 
     if (!this.multiple) {
       this.selecteds = alreadyIn ? [] : [option];
@@ -93,9 +74,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   removeSelected(option: SelectInputOption) {
-    this.selecteds = (this.selecteds || []).filter(
-      (item) => item.value !== option.value
-    );
+    this.selecteds = (this.selecteds || []).filter((item) => item.value !== option.value);
   }
 
   selectByEnter(el: any, option: SelectInputOption) {
@@ -116,9 +95,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
       return `${selecteds[selecteds.length - 1]} (+${selecteds.length - 1})`;
     }
 
-    return this.selecteds.length
-      ? `${this.selecteds[0].image} ${this.selecteds[0].text}`
-      : this.placeholder;
+    return this.selecteds.length ? `${this.selecteds[0].image} ${this.selecteds[0].text}` : this.placeholder;
   }
 
   get getErrors(): string {

@@ -11,8 +11,7 @@ describe('TextInputComponent', () => {
   let component: TextInputComponent;
   let fixture: ComponentFixture<TextInputComponent>;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(selector))?.nativeElement || undefined;
+  const get = (selector: string) => fixture.debugElement.query(By.css(selector))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
