@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePicker } from './date-picker.interface';
@@ -21,14 +14,7 @@ import { fromEvent, Subscription } from 'rxjs';
 })
 export class DatePickerComponent implements OnInit, OnDestroy {
   @ViewChild('datePickerRef') datePickerRef!: ElementRef;
-  @Input() state?:
-    | 'default'
-    | 'hovered'
-    | 'focused'
-    | 'error'
-    | 'filled'
-    | 'disabled'
-    | 'opened';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' | 'opened';
 
   @Input() form?: FormGroup;
   @Input() id = '';
@@ -80,13 +66,11 @@ export class DatePickerComponent implements OnInit, OnDestroy {
 
   public dayPicker = {
     nextMonth: () => {
-      if (this.selectedMonth >= 12)
-        (this.selectedMonth = 0), this.selectedYear++;
+      if (this.selectedMonth >= 12) (this.selectedMonth = 0), this.selectedYear++;
       this.increaseCalendar(PickerType.DAY);
     },
     previousMonth: () => {
-      if (this.selectedMonth <= 1)
-        (this.selectedMonth = 13), this.selectedYear--;
+      if (this.selectedMonth <= 1) (this.selectedMonth = 13), this.selectedYear--;
       this.decreaseCalendar(PickerType.DAY);
     },
     goToYearPicker: () => {
@@ -99,9 +83,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.selectedDay = date.getDate();
       this.state = undefined;
       this.form?.get(this.name)?.valueChanges;
-      this.form
-        ?.get(this.name)
-        ?.setValue(this.getFormatedDate(this.selectedDate));
+      this.form?.get(this.name)?.setValue(this.getFormatedDate(this.selectedDate));
     },
     isToday: (date: Date) => {
       const today = this.getFormatedDate(new Date());
@@ -128,13 +110,11 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   };
   public yearPicker = {
     nextYears: () => {
-      if (this.selectedYear >= this.max.getFullYear())
-        this.selectedYear = this.min.getFullYear();
+      if (this.selectedYear >= this.max.getFullYear()) this.selectedYear = this.min.getFullYear();
       this.increaseCalendar(PickerType.YEAR);
     },
     previousYears: () => {
-      if (this.selectedYear <= this.min.getFullYear())
-        this.selectedYear = this.max.getFullYear();
+      if (this.selectedYear <= this.min.getFullYear()) this.selectedYear = this.max.getFullYear();
       return this.decreaseCalendar(PickerType.YEAR);
     },
     goToDayPicker: () => {
@@ -191,30 +171,16 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     // const remainingPreviousDays = firstMonthDay.getDay();
 
     // Garante que sempre mostre previousMonth e nextMonth
-    const remainingPreviousDays = firstMonthDay.getDay()
-      ? firstMonthDay.getDay()
-      : 7;
+    const remainingPreviousDays = firstMonthDay.getDay() ? firstMonthDay.getDay() : 7;
 
     const monthArray = Array(remainingPreviousDays).fill(0);
-    return monthArray.map(
-      (_, n) =>
-        new Date(
-          new Date(firstMonthDay).setDate(
-            firstMonthDay.getDate() - remainingPreviousDays + n
-          )
-        )
-    );
+    return monthArray.map((_, n) => this.modDays(firstMonthDay, remainingPreviousDays + n, 'minus'));
   }
 
   getNextMonthRemainingDays(lastMonthDay: Date, currentCalendarDays: number) {
     const remainingNextDays = 42 - currentCalendarDays;
     const monthArray = Array(remainingNextDays).fill(0);
-    return monthArray.map(
-      (_, n) =>
-        new Date(
-          new Date(lastMonthDay).setDate(lastMonthDay.getDate() + (n + 1))
-        )
-    );
+    return monthArray.map((_, n) => this.modDays(lastMonthDay, n + 1));
   }
 
   fillCalendarYears() {
@@ -225,9 +191,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
 
   fillCalendar() {
     const monthDays = this.getMonthDays(this.selectedYear, this.selectedMonth);
-    const previousMonthRemainingDays = this.getPreviousMonthRemainingDays(
-      monthDays[0]
-    );
+    const previousMonthRemainingDays = this.getPreviousMonthRemainingDays(monthDays[0]);
     const nextMonthRemainingDays = this.getNextMonthRemainingDays(
       monthDays[monthDays.length - 1],
       previousMonthRemainingDays.length + monthDays.length
@@ -260,10 +224,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   }
 
   isDaySelectable(date: Date) {
-    return (
-      date.valueOf() >= this.min.valueOf() &&
-      date.valueOf() <= this.max.valueOf()
-    );
+    return date.valueOf() >= this.min.valueOf() && date.valueOf() <= this.max.valueOf();
   }
   isMonthSelectable(month: number) {
     const date = this.newDate(this.selectedYear, month, 1).valueOf();
@@ -284,6 +245,11 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     const _month = String(month).padStart(2, '0');
     const _day = String(day).padStart(2, '0');
     return new Date(`${year}-${_month}-${_day}T03:00:00.000Z`);
+  }
+  modDays(date: Date, days: number, operation: 'minus' | 'plus' = 'plus') {
+    if (operation === 'minus') return new Date(new Date(date).setDate(date.getDate() - days));
+    if (operation === 'plus') return new Date(new Date(date).setDate(date.getDate() + days));
+    return date;
   }
   get getErrors(): string {
     if (!this.form || !this.form.get(this.name)) return '';
