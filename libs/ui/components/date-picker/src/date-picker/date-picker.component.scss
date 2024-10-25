@@ -289,7 +289,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
-    top: var(--date_picker__field_height);
+    top: calc(var(--date_picker__field_height) + 20px);
     transition: 0.5s;
   }
 }

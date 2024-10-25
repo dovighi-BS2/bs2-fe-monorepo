@@ -77,17 +77,28 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.activePickerType = 'year';
       this.fillCalendarYears();
     },
-    selectDate: (date: Date) => {
+    selectDate: (date: Date, from: 'click' | 'input') => {
       if (!this.isDaySelectable(date)) return;
+
       this.selectedDate = date;
+
+      if (from === 'click')
+        if (this.control?.invalid) return this.control?.setValue(this.getFormatedDate(this.selectedDate));
+
+      if (from === 'input') if (this.control?.invalid) return;
+
       this.selectedDay = date.getDate();
+      this.selectedMonth = date.getMonth() + 1;
+      this.selectedYear = date.getFullYear();
       this.state = undefined;
-      this.form?.get(this.name)?.valueChanges;
-      this.form?.get(this.name)?.setValue(this.getFormatedDate(this.selectedDate));
+      this.control?.setValue(this.getFormatedDate(this.selectedDate));
+      this.fillCalendar();
     },
     isToday: (date: Date) => {
-      const today = this.getFormatedDate(new Date());
-      return `${this.getFormatedDate(date)}` === `${today}`;
+      return `${this.getFormatedDate(date)}` === `${this.getFormatedDate(new Date())}`;
+    },
+    canActiveDay: (date: Date) => {
+      return `${this.getFormatedDate(date)}` === `${this.getFormatedDate(this.selectedDate)}`;
     },
     getSelectedMonthName: () => {
       return this.calendarMonths.find((m) => m.number === this.selectedMonth);
@@ -148,6 +159,26 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     this.outsideClickSub.unsubscribe();
   }
 
+  handleInputChange() {
+    const maskedDate = this.getMaskedDate();
+    this.control?.setValue(maskedDate);
+
+    if (this.control?.value.length !== 10) return;
+
+    const d = maskedDate.split('/');
+    this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
+  }
+
+  getMaskedDate() {
+    const value = this.control?.value.replace(/\D/g, '').split('');
+    let date = '';
+    for (const [i, n] of value.entries()) {
+      if ([2, 4].includes(i)) date += '/';
+      date += n;
+    }
+    return date.substring(0, 10);
+  }
+
   getMonthDays(year: number, month: number) {
     const _year = month === 12 ? year + 1 : year;
     const _month = month === 12 ? 1 : month;
@@ -156,13 +187,6 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     const lastDayOfMonth = new Date(nextMonth).setDate(nextMonth.getDate() - 1);
     const lastDayOfMonthNumber = new Date(lastDayOfMonth).getDate();
     const monthArray = Array(lastDayOfMonthNumber).fill(0);
-    console.log({
-      _year,
-      _month,
-      nextMonth,
-      lastDayOfMonth,
-      lastDayOfMonthNumber,
-    });
     return monthArray.map((_, n) => this.newDate(year, month, n + 1));
   }
 
@@ -251,11 +275,12 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     if (operation === 'plus') return new Date(new Date(date).setDate(date.getDate() + days));
     return date;
   }
+  get control() {
+    return this.form?.get(this.name);
+  }
   get getErrors(): string {
-    if (!this.form || !this.form.get(this.name)) return '';
-    const control = this.form?.get(this.name);
-    return Object.values(control?.errors || {})
-      .map((error) => error)
-      .join('');
+    if (!this.form || !this.control || this.control.untouched) return '';
+    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    return errors[0];
   }
 }

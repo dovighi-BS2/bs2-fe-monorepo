@@ -1,3 +1,23 @@
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { CustomValidatorMessages } from './messages.validator';
+
+export const dateValidators = {
+  isValidDate: (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value || !control.value.trim().length) return { date: CustomValidatorMessages.date };
+    const v = control.value.split('/');
+    const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
+    const _year = Number(v[2]);
+    const _month = Number(v[1] - 1);
+    const _day = Number(v[0]);
+
+    // Caso o usuário digite 31/02/2024 por exemplo, o new Date entende como 02/03/2024
+    // Por isso é necessário comparar a veracidade das informações passadas
+    if (d.getFullYear() !== _year || d.getMonth() !== _month || d.getDate() !== _day)
+      return { date: CustomValidatorMessages.date };
+    return null;
+  },
+};
+
 // export const dateValidators = {
 //   // DATE VALIDATORS
 //   validDate: (control: UntypedFormControl): ValidationErrors => {

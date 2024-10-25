@@ -89,7 +89,7 @@ export default meta;
 type Story = StoryObj<DatePickerComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl('', [CustomValidators.required]),
+  birthday: new FormControl('', [CustomValidators.required, CustomValidators.isValidDate]),
 });
 
 export const Default: Story = {

@@ -1,5 +1,6 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CustomValidatorMessages } from './messages.validator';
+import { dateValidators } from './date.validator';
 
 export const CustomValidators = {
   required: (control: AbstractControl): ValidationErrors | null => {
@@ -16,4 +17,5 @@ export const CustomValidators = {
 
     return null;
   },
+  ...dateValidators,
 };

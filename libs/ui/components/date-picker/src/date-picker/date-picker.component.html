@@ -20,7 +20,9 @@
       [readOnly]="readOnly"
       [name]="name"
       [formControlName]="name"
+      autocomplete="off"
       (click)="state = 'opened'"
+      (keyup)="handleInputChange()"
     />
     <div class="date_picker__calendar">
       <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
@@ -62,11 +64,11 @@
           class="
             date_picker__day_item current_month
             {{ dayPicker.isToday(d) ? 'current' : '' }}
-            {{ d.getDate() === selectedDay ? 'active' : '' }}
+            {{ dayPicker.canActiveDay(d) ? 'active' : '' }}
             {{ !isDaySelectable(d) ? 'disabled' : '' }}
           "
           *ngFor="let d of calendarMonth"
-          (click)="dayPicker.selectDate(d)"
+          (click)="dayPicker.selectDate(d, 'click')"
           >{{ d | date : 'dd' }}</span
         >
         <span class="date_picker__day_item next_month" *ngFor="let d of calendarNextMonth">{{ d | date : 'dd' }}</span>
