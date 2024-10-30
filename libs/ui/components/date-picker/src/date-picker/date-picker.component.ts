@@ -34,7 +34,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   @Input() ariaInvalid = false;
 
   @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
-  @Input() max: Date = new Date('2100-02-07T03:00:00.000Z');
+  @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
   @Input() selectedDate = new Date();
 
   public selectedYear = this.selectedDate.getFullYear();
@@ -79,6 +79,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     },
     selectDate: (date: Date, from: 'click' | 'input') => {
       if (!this.isDaySelectable(date)) return;
+      this.state = undefined;
 
       this.selectedDate = date;
 
@@ -90,7 +91,6 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
       this.selectedYear = date.getFullYear();
-      this.state = undefined;
       this.control?.setValue(this.getFormatedDate(this.selectedDate));
       this.fillCalendar();
     },

@@ -21,7 +21,7 @@
       [name]="name"
       [formControlName]="name"
       autocomplete="off"
-      (click)="state = 'opened'"
+      (click)="state = 'opened'; activePickerType = 'day'"
       (keyup)="handleInputChange()"
     />
     <div class="date_picker__calendar">

@@ -7,6 +7,16 @@ const meta: Meta<DatePickerComponent> = {
   component: DatePickerComponent,
   title: 'DatePickerComponent',
   argTypes: {
+    min: {
+      control: 'text',
+      description: 'opcional',
+      defaultValue: { summary: "new Date('1900-01-01T03:00:00.000Z')" },
+    },
+    max: {
+      control: 'text',
+      description: 'opcional',
+      defaultValue: { summary: "new Date('2100-12-31T03:00:00.000Z')" },
+    },
     state: {
       control: 'select',
       options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
@@ -94,6 +104,8 @@ const form: FormGroup = new FormGroup({
 
 export const Default: Story = {
   args: {
+    min: new Date('1900-01-01T03:00:00.000Z'),
+    max: new Date('2100-12-31T03:00:00.000Z'),
     state: 'default',
     id: 'birthday',
     testId: 'birthday',

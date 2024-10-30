@@ -89,21 +89,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  render: (args: DatePickerComponent) => ({\n    props: {\n      ...args,\n      form: form,\n      template: `\n            <date-picker\n              form='${args.form}'\n              id='${args.id}'\n              testId='${args.testId}'\n              name='${args.name}'\n              label='${args.label}'\n              class='${args.class}'\n              leftIcon='${args.leftIcon}'\n              rightIcon='${args.rightIcon}'\n              helperText='${args.helperText}'\n              errorText='${args.errorText}'\n              placeholder='${args.placeholder}'\n            />\n            `,\n    },\n  }),\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Default",
@@ -119,11 +119,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\n  },\n}"
+                "defaultValue": "{\n  args: {\n    min: new Date('1900-01-1T03:00:00.000Z'),\n    max: new Date('2100-12-31T03:00:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  render: (args: DatePickerComponent) => ({\n    props: {\n      ...args,\n      form: form,\n      template: `\n            <date-picker\n              form='${args.form}'\n              id='${args.id}'\n              testId='${args.testId}'\n              name='${args.name}'\n              label='${args.label}'\n              class='${args.class}'\n              leftIcon='${args.leftIcon}'\n              rightIcon='${args.rightIcon}'\n              helperText='${args.helperText}'\n              errorText='${args.errorText}'\n              placeholder='${args.placeholder}'\n            />\n            `,\n    },\n  }),\n}"
             },
             {
                 "name": "Default",
@@ -189,21 +189,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DatePickerComponent>",
-                "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'DatePickerComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InputCurrencyComponent>",
                 "defaultValue": "{\n  component: InputCurrencyComponent,\n  title: 'InputCurrencyComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'SelectInputOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TokenFieldComponent>",
+                "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'TokenFieldComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -219,11 +219,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TokenFieldComponent>",
-                "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'TokenFieldComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                "type": "Meta<DatePickerComponent>",
+                "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'DatePickerComponent',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -283,8 +283,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DatePickerComponent>",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "rawtype": "StoryObj<InputCurrencyComponent>",
+                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -294,8 +294,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputCurrencyComponent>",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "rawtype": "StoryObj<TokenFieldComponent>",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -316,8 +316,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TokenFieldComponent>",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "rawtype": "StoryObj<DatePickerComponent>",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -401,38 +401,6 @@
                     "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  render: (args: DatePickerComponent) => ({\n    props: {\n      ...args,\n      form: form,\n      template: `\n            <date-picker\n              form='${args.form}'\n              id='${args.id}'\n              testId='${args.testId}'\n              name='${args.name}'\n              label='${args.label}'\n              class='${args.class}'\n              leftIcon='${args.leftIcon}'\n              rightIcon='${args.rightIcon}'\n              helperText='${args.helperText}'\n              errorText='${args.errorText}'\n              placeholder='${args.placeholder}'\n            />\n            `,\n    },\n  }),\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\n  birthday: new FormControl('', [CustomValidators.required, CustomValidators.isValidDate]),\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DatePickerComponent>",
-                    "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'DatePickerComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-                }
-            ],
             "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Default",
@@ -463,6 +431,28 @@
                     "deprecationMessage": "",
                     "type": "SelectInputOption[]",
                     "defaultValue": "[\n  { value: 1, text: 'BRL', image: '123' },\n  { value: 2, text: 'USD', image: '123' },\n  { value: 3, text: 'EUR', image: '123' },\n  { value: 4, text: 'GBP', image: '123' },\n  { value: 5, text: 'CAD', image: '123' },\n  { value: 6, text: 'AUD', image: '123' },\n  { value: 7, text: 'CNY', image: '123' },\n  { value: 8, text: 'AED', image: '123' },\n]"
+                }
+            ],
+            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TokenFieldComponent>",
+                    "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'TokenFieldComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/select-input/src/select-input/select-input.component.stories.ts": [
@@ -497,26 +487,36 @@
                     "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
                 }
             ],
-            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    min: new Date('1900-01-1T03:00:00.000Z'),\n    max: new Date('2100-12-31T03:00:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  render: (args: DatePickerComponent) => ({\n    props: {\n      ...args,\n      form: form,\n      template: `\n            <date-picker\n              form='${args.form}'\n              id='${args.id}'\n              testId='${args.testId}'\n              name='${args.name}'\n              label='${args.label}'\n              class='${args.class}'\n              leftIcon='${args.leftIcon}'\n              rightIcon='${args.rightIcon}'\n              helperText='${args.helperText}'\n              errorText='${args.errorText}'\n              placeholder='${args.placeholder}'\n            />\n            `,\n    },\n  }),\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\n  birthday: new FormControl('', [CustomValidators.required, CustomValidators.isValidDate]),\n})"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TokenFieldComponent>",
-                    "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'TokenFieldComponent',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                    "type": "Meta<DatePickerComponent>",
+                    "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'DatePickerComponent',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
@@ -568,19 +568,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DatePickerComponent>",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Story",
@@ -588,6 +575,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<InputCurrencyComponent>",
                     "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TokenFieldComponent>",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -607,13 +607,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TokenFieldComponent>",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "rawtype": "StoryObj<DatePickerComponent>",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
