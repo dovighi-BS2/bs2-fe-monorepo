@@ -1,10 +1,11 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePicker } from './date-picker.interface';
 import { PickerType } from './date-picker.enum';
-import { fromEvent, Subject, Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { TextInputComponent } from '@bs2-fe-monorepo/ui/components/text-input';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 @Component({
   selector: 'date-picker',
@@ -37,6 +38,10 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
   @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
   @Input() selectedDate = new Date();
+
+  private fb = inject(FormBuilder);
+
+  public formToUser = this.fb.group({ date: ['', [CustomValidators.isValidDateToUser]] });
 
   public selectedYear = this.selectedDate.getFullYear();
   public selectedMonth = this.selectedDate.getMonth() + 1;
@@ -85,14 +90,18 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.selectedDate = date;
 
       if (from === 'click')
-        if (this.control?.invalid) return this.control?.setValue(this.getFormatedDate(this.selectedDate));
+        if (this.controlToUser?.invalid) {
+          this.control?.setValue(this.selectedDate);
+          return this.controlToUser?.setValue(this.getFormatedDate(this.selectedDate));
+        }
 
-      if (from === 'input') if (this.control?.invalid) return;
+      if (from === 'input') if (this.controlToUser?.invalid) return;
 
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
       this.selectedYear = date.getFullYear();
-      this.control?.setValue(this.getFormatedDate(this.selectedDate));
+      this.control?.setValue(this.selectedDate);
+      this.controlToUser?.setValue(this.getFormatedDate(this.selectedDate));
       this.fillCalendar();
     },
     isToday: (date: Date) => {
@@ -154,7 +163,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     this.fillCalendar();
 
     if (this.control?.value) {
-      const d = this.control.value.split('/');
+      const d = this.controlToUser.value.split('/');
       this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
     }
 
@@ -171,15 +180,15 @@ export class DatePickerComponent implements OnInit, OnDestroy {
 
   handleInputChange() {
     const maskedDate = this.getMaskedDate();
-    this.control?.setValue(maskedDate);
+    this.controlToUser?.setValue(maskedDate);
 
-    if (this.control?.value.length !== 10) return;
+    if (this.controlToUser?.value.length !== 10) return;
     const d = maskedDate.split('/');
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
   }
 
   getMaskedDate() {
-    const value = this.control?.value.replace(/\D/g, '').split('');
+    const value = this.controlToUser?.value.replace(/\D/g, '').split('');
     let date = '';
     for (const [i, n] of value.entries()) {
       if ([2, 4].includes(i)) date += '/';
@@ -286,6 +295,9 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   }
   get control() {
     return this.form?.get(this.name);
+  }
+  get controlToUser() {
+    return this.formToUser?.get('date');
   }
   get getErrors(): string {
     if (!this.form || !this.control || this.control.untouched) return '';

@@ -5,6 +5,7 @@
   --text_field__field_bg_color: transparent;
   --text_field__field_text_color: var(--primary_text1_bg2);
   --text_field__field_placeholder_color: var(--primary_text1_bg2);
+  --text_field__field_border_width: 1px;
   --text_field__icon_width: 20px;
   --text_field__icon_color: var(--primary);
   --text_field__label_color: var(--neutral_n5);
@@ -77,7 +78,7 @@
     font-weight: 400;
     border-radius: 4px;
     padding: 5px var(--text_field__field_gap);
-    border: 1px solid var(--text_field__field_border_color);
+    border: var(--text_field__field_border_width) solid var(--text_field__field_border_color);
     background-color: var(--text_field__field_bg_color);
     color: var(--text_field__field_text_color);
 
@@ -95,17 +96,20 @@
   // Theming
   &:has(&__field:hover),
   &.hovered {
+    --text_field__field_border_width: 2px;
     --text_field__label_color: var(--neutral_n5);
     --text_field__field_border_color: var(--neutral_n3);
   }
 
   &:has(&__field:focus),
   &.focused {
+    --text_field__field_border_width: 2px;
     --text_field__label_color: var(--primary);
     --text_field__field_border_color: var(--primary);
   }
 
   &.error {
+    --text_field__field_border_width: 2px;
     --text_field__label_color: var(--error);
     --text_field__field_border_color: var(--error);
     --text_field__icon_color: var(--error);

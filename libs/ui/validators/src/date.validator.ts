@@ -3,9 +3,16 @@ import { CustomValidatorMessages } from './messages.validator';
 
 export const dateValidators = {
   isValidDate: (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value || !control.value.trim().length) return { date: CustomValidatorMessages.required };
+    if (!control.value) return { date: CustomValidatorMessages.required };
+    if (!(control.value instanceof Date)) return { date: CustomValidatorMessages.date };
+    return null;
+  },
+  isValidDateToUser: (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value || control.value.trim().length <= 0) return { date: CustomValidatorMessages.required };
     const v = control.value.split('/');
-    const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
+    // [T03:07:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913
+    // se buscar por [1914-01-01T03:00:00.000Z] ele retorna 1913-12-31
+    const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:07:00.000Z`);
     const _year = Number(v[2]);
     const _month = Number(v[1] - 1);
     const _day = Number(v[0]);

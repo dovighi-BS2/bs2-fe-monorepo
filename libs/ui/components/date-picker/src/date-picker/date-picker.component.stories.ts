@@ -99,7 +99,7 @@ export default meta;
 type Story = StoryObj<DatePickerComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl('25/10/2024', [CustomValidators.required, CustomValidators.isValidDate]),
+  birthday: new FormControl(null, [CustomValidators.isValidDate]),
 });
 
 delete form['controls']['birthday']['_parent'];
@@ -116,7 +116,7 @@ export const Default: Story = {
     label: 'Data de nascimento',
     class: 'custom_class',
     leftIcon: '',
-    rightIcon: '',
+    rightIcon: 'h',
     helperText: 'Digite sua data de aniversário',
     errorText: '',
     placeholder: 'Ex: 31/01/2024',

@@ -1,14 +1,17 @@
 <div
+  *ngIf="!!form"
+  [formGroup]="form"
   [attr.data-test]="testId"
   #datePickerRef
   class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
 >
   <text-input
-    [form]="form"
+    [form]="formToUser"
     [id]="id"
     [testId]="testId"
-    [name]="name"
+    name="date"
     [label]="label"
+    [leftIcon]="leftIcon"
     [rightIcon]="rightIcon"
     [helperText]="helperText"
     [placeholder]="placeholder"
@@ -21,6 +24,7 @@
     (clickEmitter)="dayPicker.open()"
     (keyup)="handleInputChange()"
   />
+  <input type="hidden" [formControlName]="name" />
   <div class="date_picker__calendar">
     <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
     <ng-container *ngTemplateOutlet="monthPickerCalendar"></ng-container>
