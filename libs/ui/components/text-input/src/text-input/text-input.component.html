@@ -22,6 +22,7 @@
       [placeholder]="placeholder"
       [readOnly]="readOnly"
       [name]="name"
+      [mask]="inputMask"
       [formControlName]="name"
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
@@ -53,6 +54,7 @@
       [placeholder]="placeholder"
       [readOnly]="readOnly"
       [name]="name"
+      [mask]="inputMask"
     />
   </div>
   <label *ngIf="label" [for]="id" class="text_input__label">{{ label }}</label>

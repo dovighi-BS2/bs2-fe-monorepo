@@ -61,6 +61,9 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.selecteds.length > 0)
       this.form && this.form.get(this.name)?.setValue(this.selecteds);
+
+    if (this.form && this.form.get(this.name)?.value.length > 0)
+      this.selecteds = this.form.get(this.name)?.value;
   }
   ngAfterViewInit(): void {
     this.selectInputFieldSub = fromEvent(

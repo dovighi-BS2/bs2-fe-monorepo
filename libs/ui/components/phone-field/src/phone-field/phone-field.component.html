@@ -1,0 +1,33 @@
+<div class="phone_field" *ngIf="!!form">
+  <input-currency
+    class="select_flag"
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [form]="inputForm"
+    [options]="options"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    name="ddi"
+    [hideCheckbox]="hideCheckbox"
+    [state]="state"
+    [multiple]="multiple"
+    [placeholder]="placeholder"
+  ></input-currency>
+
+  <text-input
+    formControlName="number"
+    [inputMask]="mask"
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [form]="form"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    [name]="name"
+    [state]="state"
+  ></text-input>
+  <!-- <input type="text" [mask]="mask"> -->
+</div>
