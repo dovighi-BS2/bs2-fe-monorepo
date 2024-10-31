@@ -99,11 +99,14 @@ export default meta;
 type Story = StoryObj<DatePickerComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl('', [CustomValidators.required, CustomValidators.isValidDate]),
+  birthday: new FormControl('25/10/2024', [CustomValidators.required, CustomValidators.isValidDate]),
 });
+
+delete form['controls']['birthday']['_parent'];
 
 export const Default: Story = {
   args: {
+    form: form,
     min: new Date('1900-01-01T03:00:00.000Z'),
     max: new Date('2100-12-31T03:00:00.000Z'),
     state: 'default',
@@ -122,25 +125,4 @@ export const Default: Story = {
     ariaRequired: false,
     ariaInvalid: false,
   },
-  render: (args: DatePickerComponent) => ({
-    props: {
-      ...args,
-      form: form,
-      template: `
-            <date-picker
-              form='${args.form}'
-              id='${args.id}'
-              testId='${args.testId}'
-              name='${args.name}'
-              label='${args.label}'
-              class='${args.class}'
-              leftIcon='${args.leftIcon}'
-              rightIcon='${args.rightIcon}'
-              helperText='${args.helperText}'
-              errorText='${args.errorText}'
-              placeholder='${args.placeholder}'
-            />
-            `,
-    },
-  }),
 };

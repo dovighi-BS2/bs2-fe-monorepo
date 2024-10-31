@@ -23,6 +23,10 @@
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
+      [autocomplete]="autocomplete"
+      (click)="clickEmitter.emit()"
+      (keyup)="keyupEmitter.emit()"
+      [mask]="mask"
     />
   </div>
   <label *ngIf="label" [for]="id" class="text_input__label">{{ label }}</label>

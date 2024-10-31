@@ -1,36 +1,31 @@
 <div
-  *ngIf="!!form"
   [attr.data-test]="testId"
-  class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
-  [formGroup]="form"
   #datePickerRef
+  class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
 >
-  <span class="date_picker__helper" *ngIf="!!helperText">{{ helperText }}</span>
-  <span class="date_picker__feedback" *ngIf="!!getErrors || !!errorText">
-    {{ getErrors }}
-    {{ errorText }}
-  </span>
-  <div class="date_picker__wrapper">
-    <div class="date_picker__icon left" *ngIf="leftIcon"></div>
-    <div class="date_picker__icon right" *ngIf="rightIcon"></div>
-    <input
-      class="date_picker__field"
-      [id]="id"
-      [placeholder]="placeholder"
-      [readOnly]="readOnly"
-      [name]="name"
-      [formControlName]="name"
-      autocomplete="off"
-      (click)="state = 'opened'; activePickerType = 'day'"
-      (keyup)="handleInputChange()"
-    />
-    <div class="date_picker__calendar">
-      <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
-      <ng-container *ngTemplateOutlet="monthPickerCalendar"></ng-container>
-      <ng-container *ngTemplateOutlet="yearPickerCalendar"></ng-container>
-    </div>
+  <text-input
+    [form]="form"
+    [id]="id"
+    [testId]="testId"
+    [name]="name"
+    [label]="label"
+    [rightIcon]="rightIcon"
+    [helperText]="helperText"
+    [placeholder]="placeholder"
+    [readOnly]="readOnly"
+    [ariaLabel]="ariaLabel"
+    [ariaRequired]="ariaRequired"
+    [ariaInvalid]="ariaInvalid"
+    autocomplete="off"
+    mask="00/00/0000"
+    (clickEmitter)="dayPicker.open()"
+    (keyup)="handleInputChange()"
+  />
+  <div class="date_picker__calendar">
+    <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
+    <ng-container *ngTemplateOutlet="monthPickerCalendar"></ng-container>
+    <ng-container *ngTemplateOutlet="yearPickerCalendar"></ng-container>
   </div>
-  <label *ngIf="label" [for]="id" class="date_picker__label">{{ label }}</label>
 </div>
 
 <ng-template #dayPickerCalendar>

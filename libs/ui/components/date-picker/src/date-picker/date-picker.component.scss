@@ -13,125 +13,13 @@
 }
 
 .date_picker {
-  display: flex;
-  flex-direction: column-reverse;
   position: relative;
-  z-index: 1;
-
-  &__helper {
-    font-size: 10px;
-    font-weight: 400;
-    margin-top: 4px;
-    color: var(--date_picker__label_color);
-
-    &:empty {
-      display: none;
-    }
-  }
-  &__feedback {
-    font-size: 10px;
-    font-weight: 400;
-    margin-top: 4px;
-    color: var(--date_picker__feedback_text_color);
-
-    &:empty {
-      display: none;
-    }
-  }
-  &__wrapper {
-    display: flex;
-  }
-  &__icon {
-    width: var(--date_picker__icon_width);
-    min-height: var(--date_picker__icon_width);
-    font-weight: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    background-color: rgba(255, 0, 0, 0.1);
-
-    &.left {
-      order: 1;
-      margin-right: calc((var(--date_picker__icon_width)) * -1);
-      translate: var(--date_picker__field_gap) 0px;
-
-      ~ .date_picker__field {
-        padding-left: calc(var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px);
-      }
-    }
-    &.right {
-      order: 3;
-      margin-left: calc((var(--date_picker__icon_width) + var(--date_picker__field_gap)) * -1);
-
-      ~ .date_picker__field {
-        padding-right: calc(var(--date_picker__icon_width) + var(--date_picker__field_gap) + 8px);
-      }
-    }
-  }
-  &__field {
-    width: 100%;
-    order: 2;
-    min-height: var(--date_picker__field_height);
-    outline: none;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 4px;
-    padding: 5px var(--date_picker__field_gap);
-    border: 1px solid var(--date_picker__field_border_color);
-    background-color: var(--date_picker__field_bg_color);
-    color: var(--date_picker__field_text_color);
-
-    &::placeholder {
-      font-size: 14px;
-      font-weight: 400;
-    }
-  }
-  &__label {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--date_picker__label_color);
-  }
-
-  // Theming
-  &:has(&__field:hover),
-  &.hovered {
-    --date_picker__label_color: var(--neutral_n5);
-    --date_picker__field_border_color: var(--neutral_n3);
-  }
 
   &:has(&__field:focus),
   &.focused {
-    --date_picker__label_color: var(--primary);
-    --date_picker__field_border_color: var(--primary);
-
     .date_picker__calendar {
       border-color: var(--date_picker__primary);
     }
-  }
-
-  &.error {
-    --date_picker__label_color: var(--error);
-    --date_picker__field_border_color: var(--error);
-    --date_picker__icon_color: var(--error);
-    --date_picker__feedback_text_color: var(--error);
-  }
-
-  &:has(&__field:not(:empty)),
-  &.filled {
-  }
-
-  &:has(&__field[readonly]) &:has(&__field[readonly='true']),
-  &:has(&__field[disabled='true']),
-  &.disabled,
-  &.readonly {
-    --date_picker__label_color: var(--neutral_n5);
-    --date_picker__field_border_color: var(--neutral_n2);
-    --date_picker__field_bg_color: var(--neutral_n0);
-    --date_picker__field_text_color: var(--neutral_n3);
-    --date_picker__icon_color: var(--neutral_n3);
   }
 
   // CALENDÁRIO

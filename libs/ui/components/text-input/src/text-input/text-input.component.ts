@@ -1,14 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'text-input',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideNgxMask({ validation: false })],
 })
 export class TextInputComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
@@ -25,17 +27,24 @@ export class TextInputComponent {
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = '';
+  @Input() autocomplete = '';
   @Input() readOnly = false;
+  @Input() mask = '';
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
+  @Output() clickEmitter = new EventEmitter();
+  @Output() keyupEmitter = new EventEmitter();
+
+  get control() {
+    return this.form?.get(this.name);
+  }
+
   get getErrors(): string {
-    const control = this.form?.get(this.name);
-    if (!control || control.untouched) return '';
-    return Object.values(control?.errors || {})
-      .map((error) => error)
-      .join('');
+    if (!this.form || !this.control || this.control.untouched) return '';
+    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    return errors[0];
   }
 }

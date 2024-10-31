@@ -3,7 +3,7 @@ import { CustomValidatorMessages } from './messages.validator';
 
 export const dateValidators = {
   isValidDate: (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value || !control.value.trim().length) return { date: CustomValidatorMessages.date };
+    if (!control.value || !control.value.trim().length) return { date: CustomValidatorMessages.required };
     const v = control.value.split('/');
     const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
     const _year = Number(v[2]);

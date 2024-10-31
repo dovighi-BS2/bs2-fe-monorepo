@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { TextInputComponent } from './text-input.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +34,7 @@ describe('TextInputComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should change input value', () => {
+  it('should change input value', fakeAsync(() => {
     component.form?.get('email')?.setValue('');
     fixture.detectChanges();
     let field = get(`[data-test='${testId}'] input`);
@@ -42,9 +42,10 @@ describe('TextInputComponent', () => {
 
     component.form?.get('email')?.setValue('teste');
     fixture.detectChanges();
+    tick(1);
     field = get(`[data-test='${testId}'] input`);
     expect(field.value).toBe('teste');
-  });
+  }));
 
   it('should display error message', () => {
     component.form?.get('email')?.setValue('teste');

@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { TextInputComponent } from './text-input.component';
 
-import { within } from '@storybook/test';
+import { fn, within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
@@ -100,10 +100,11 @@ const form: FormGroup = new FormGroup({
   email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),
 });
 
-// delete form['controls']['email']['_parent'];
+delete form['controls']['email']['_parent'];
 
 export const Default: Story = {
   args: {
+    form: form,
     state: 'default',
     type: 'text',
     id: 'email',
@@ -120,28 +121,8 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
+    clickEmitter: fn(),
   },
-  render: (args: TextInputComponent) => ({
-    props: {
-      ...args,
-      form: form,
-      template: `
-            <text-input
-              form='${args.form}'
-              id='${args.id}'
-              testId='${args.testId}'
-              name='${args.name}'
-              label='${args.label}'
-              class='${args.class}'
-              leftIcon='${args.leftIcon}'
-              rightIcon='${args.rightIcon}'
-              helperText='${args.helperText}'
-              errorText='${args.errorText}'
-              placeholder='${args.placeholder}'
-            />
-            `,
-    },
-  }),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();

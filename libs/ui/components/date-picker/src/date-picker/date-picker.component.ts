@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePicker } from './date-picker.interface';
 import { PickerType } from './date-picker.enum';
-import { fromEvent, Subscription } from 'rxjs';
+import { fromEvent, Subject, Subscription } from 'rxjs';
+import { TextInputComponent } from '@bs2-fe-monorepo/ui/components/text-input';
 
 @Component({
   selector: 'date-picker',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss',
 })
@@ -103,6 +104,10 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     getSelectedMonthName: () => {
       return this.calendarMonths.find((m) => m.number === this.selectedMonth);
     },
+    open: () => {
+      this.state = 'opened';
+      this.activePickerType = 'day';
+    },
   };
 
   public monthPicker = {
@@ -148,6 +153,11 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fillCalendar();
 
+    if (this.control?.value) {
+      const d = this.control.value.split('/');
+      this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
+    }
+
     this.outsideClickSub = fromEvent(document, 'click').subscribe((event) => {
       if (!this.datePickerRef?.nativeElement.contains(event.target)) {
         this.state = undefined;
@@ -164,7 +174,6 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     this.control?.setValue(maskedDate);
 
     if (this.control?.value.length !== 10) return;
-
     const d = maskedDate.split('/');
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
   }
