@@ -24,13 +24,9 @@
 
   // CALENDÁRIO
   &__calendar {
-    // Valores do figma
-    // width: 304px;
-    // height: 344px;
-
-    // Valores que ficaram bons de fato
-    width: 237px;
-    height: 309px;
+    width: 304px;
+    height: 344px;
+    box-sizing: border-box;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -129,9 +125,9 @@
   &__year {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 30.4px);
+    grid-template-rows: repeat(6, 32px);
     row-gap: 8px;
-    column-gap: 4px;
+    column-gap: 3.86px;
     place-items: center;
   }
   &__month,
