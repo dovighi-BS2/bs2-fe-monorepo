@@ -4,10 +4,7 @@ import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { SelectInputOption } from './select-input.interface';
-import {
-  CustomValidatorMessages,
-  CustomValidators,
-} from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 describe('SelectInputComponent', () => {
   const testId = 'select_input__test_id';
@@ -22,8 +19,7 @@ describe('SelectInputComponent', () => {
   let component: SelectInputComponent;
   let fixture: ComponentFixture<SelectInputComponent>;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(selector))?.nativeElement || undefined;
+  const get = (selector: string) => fixture.debugElement.query(By.css(selector))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -52,9 +48,7 @@ describe('SelectInputComponent', () => {
     fixture.detectChanges();
 
     let selected = get(`[data-test='${testId}'] .select_input__selected`);
-    const selectedContent = options[0].image
-      ? `${options[0]?.image} ${options[0].text}`
-      : options[0].text;
+    const selectedContent = options[0].image ? `${options[0]?.image} ${options[0].text}` : options[0].text;
     expect(selected.textContent.trim()).toBe(selectedContent);
 
     component.selecteds = [];
@@ -86,9 +80,7 @@ describe('SelectInputComponent', () => {
     fixture.detectChanges();
 
     const selected = get(`[data-test='${testId}'] .select_input__selected`);
-    const selectedContent = options[1].image
-      ? `${options[1]?.image} ${options[1].text}`
-      : options[1].text;
+    const selectedContent = options[1].image ? `${options[1]?.image} ${options[1].text}` : options[1].text;
     expect(selected.textContent.trim()).toBe(selectedContent);
   });
 
@@ -125,9 +117,7 @@ describe('SelectInputComponent', () => {
     fixture.detectChanges();
     main = get(`[data-test='${testId}']`);
     feedback = get(`[data-test='${testId}'] .select_input__feedback`);
-    expect(feedback.textContent.trim()).toBe(
-      CustomValidatorMessages.required.trim()
-    );
+    expect(feedback.textContent.trim()).toBe(CustomValidatorMessages.required.trim());
     expect(!!main.classList.contains('error')).toBe(true);
   });
 });

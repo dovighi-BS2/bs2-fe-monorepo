@@ -6,8 +6,7 @@ export const CustomValidators = {
     if (typeof control.value === 'object' && (control.value || []).length <= 0)
       return { required: CustomValidatorMessages.required };
 
-    if (String(control.value).trim().length <= 0)
-      return { required: CustomValidatorMessages.required };
+    if (String(control.value).trim().length <= 0) return { required: CustomValidatorMessages.required };
 
     return null;
   },

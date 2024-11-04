@@ -19,8 +19,7 @@
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: -2px 3px 6px 0px var(--token_field__field_shadow_color);
-    border: var(--token-field__field_border_width) solid
-      var(--token_field__field_border_color);
+    border: var(--token-field__field_border_width) solid var(--token_field__field_border_color);
     color: var(--token_field__field_text_color);
     font-weight: var(--token_field__field_text_weight);
     background-color: var(--token_field__field_bg_color);

@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { SelectInputComponent } from './select-input.component';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from '@storybook/test';
+import { expect } from '@storybook/test';
 import { SelectInputOption } from './select-input.interface';
 
 const options: SelectInputOption[] = [
@@ -70,8 +70,7 @@ const meta: Meta<SelectInputComponent> = {
     },
     errorText: {
       control: { type: 'text' },
-      description:
-        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
+      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
       defaultValue: { summary: '(vazio)' },
     },
     placeholder: {
@@ -85,12 +84,12 @@ const meta: Meta<SelectInputComponent> = {
       defaultValue: { summary: 'false' },
     },
     selecteds: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'Este campo será vinculado com o [control] do ReactiveForms',
       defaultValue: { summary: '[control] initial value' },
     },
     options: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'obrigatório',
       defaultValue: { summary: 'SelectInputOption[]' },
     },

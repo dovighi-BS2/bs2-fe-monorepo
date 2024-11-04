@@ -1,49 +1,23 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { InputCurrencyComponent } from '@bs2-fe-monorepo/ui/components/input-currency';
-import { IConfig, NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { flags } from './phone-field.component.enum';
 import { TextInputComponent } from '@bs2-fe-monorepo/ui/components/text-input';
-
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
 
 @Component({
   selector: 'phone-field',
   standalone: true,
-  imports: [
-    CommonModule,
-    InputCurrencyComponent,
-    TextInputComponent,
-    ReactiveFormsModule,
-    NgxMaskDirective,
-  ],
+  imports: [CommonModule, InputCurrencyComponent, TextInputComponent, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './phone-field.component.html',
   styleUrl: './phone-field.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideNgxMask(maskConfig)],
+  providers: [provideNgxMask({ validation: false })],
 })
 export class PhoneFieldComponent implements OnInit {
-  @Input() state?:
-    | 'default'
-    | 'hovered'
-    | 'focused'
-    | 'error'
-    | 'filled'
-    | 'disabled';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() form?: FormGroup;
   @Input() multiple = false;
@@ -71,14 +45,10 @@ export class PhoneFieldComponent implements OnInit {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  inputForm: any;
-
-  constructor(private fb: FormBuilder) {
-    this.inputForm = this.fb.group({
-      ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BRL' }]),
-      number: new FormControl(''),
-    });
-  }
+  public inputForm = new FormGroup({
+    ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BRL' }]),
+    number: new FormControl(''),
+  });
 
   ngOnInit(): void {
     this.inputForm.get('ddi')?.valueChanges.subscribe((a: any) => {
