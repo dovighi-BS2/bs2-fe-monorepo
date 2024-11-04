@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { PhoneFieldComponent } from './phone-field.component';
@@ -6,6 +6,7 @@ import { flags } from './phone-field.component.enum';
 import { within } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { provideNgxMask } from 'ngx-mask';
 
 const options: SelectInputOption[] = [
   { value: 1, text: flags.brl, image: 'BRL' },
@@ -17,6 +18,11 @@ const options: SelectInputOption[] = [
 const meta: Meta<PhoneFieldComponent> = {
   component: PhoneFieldComponent,
   title: 'PhoneFieldComponent',
+  decorators: [
+    moduleMetadata({
+      providers: [provideNgxMask({ validation: false })],
+    }),
+  ],
   argTypes: {
     state: {
       control: 'select',
@@ -120,10 +126,10 @@ export default meta;
 type Story = StoryObj<PhoneFieldComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl(null, [CustomValidators.required]),
+  flags: new FormControl(null, [CustomValidators.required]),
 });
 
-delete form['controls']['birthday']['_parent'];
+delete form['controls']['flags']['_parent'];
 
 export const Default: Story = {
   args: {
@@ -147,7 +153,6 @@ export const Default: Story = {
     ariaRequired: false,
     ariaInvalid: false,
     hideCheckbox: true,
-    mask: '',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

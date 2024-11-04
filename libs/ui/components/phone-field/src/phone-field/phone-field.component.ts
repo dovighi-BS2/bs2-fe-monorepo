@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { InputCurrencyComponent } from '@bs2-fe-monorepo/ui/components/input-currency';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
@@ -45,14 +45,10 @@ export class PhoneFieldComponent implements OnInit {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  inputForm: any;
-
-  constructor(private fb: FormBuilder) {
-    this.inputForm = this.fb.group({
-      ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BRL' }]),
-      number: new FormControl(''),
-    });
-  }
+  public inputForm = new FormGroup({
+    ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BRL' }]),
+    number: new FormControl(''),
+  });
 
   ngOnInit(): void {
     this.inputForm.get('ddi')?.valueChanges.subscribe((a: any) => {

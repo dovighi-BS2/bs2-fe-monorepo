@@ -17,16 +17,15 @@
   ></input-currency>
 
   <text-input
-    formControlName="number"
     [mask]="mask"
     [readOnly]="readOnly"
     [helperText]="helperText"
     [errorText]="errorText"
-    [form]="form"
+    [form]="inputForm"
     [id]="id"
     [testId]="testId"
     [label]="label"
-    [name]="name"
+    name="number"
     [state]="state"
   ></text-input>
   <!-- <input type="text" [mask]="mask"> -->
