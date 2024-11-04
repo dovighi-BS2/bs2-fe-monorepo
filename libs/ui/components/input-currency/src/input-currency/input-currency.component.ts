@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   SelectInputComponent,
   SelectInputOption,
@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'input-currency',
   standalone: true,
-  imports: [CommonModule, SelectInputComponent],
+  imports: [CommonModule, SelectInputComponent, ReactiveFormsModule],
   templateUrl: './input-currency.component.html',
   styleUrl: './input-currency.component.scss',
 })

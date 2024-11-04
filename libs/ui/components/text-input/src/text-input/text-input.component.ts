@@ -1,14 +1,31 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import {
+  IConfig,
+  NgxMaskDirective,
+  NgxMaskPipe,
+  provideNgxMask,
+} from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @Component({
   selector: 'text-input',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideNgxMask(maskConfig)],
 })
 export class TextInputComponent {
   @Input() state?:
@@ -32,6 +49,7 @@ export class TextInputComponent {
   @Input() errorText = '';
   @Input() placeholder = '';
   @Input() readOnly = false;
+  @Input() inputMask: any = '';
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
