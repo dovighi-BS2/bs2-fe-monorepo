@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from '@storybook/test';
+import { expect } from '@storybook/test';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { InputCurrencyComponent } from './input-currency.component';
 
@@ -73,8 +73,7 @@ const meta: Meta<InputCurrencyComponent> = {
     },
     errorText: {
       control: { type: 'text' },
-      description:
-        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
+      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
       defaultValue: { summary: '(vazio)' },
     },
     placeholder: {
@@ -88,12 +87,12 @@ const meta: Meta<InputCurrencyComponent> = {
       defaultValue: { summary: 'false' },
     },
     selecteds: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'Este campo será vinculado com o [control] do ReactiveForms',
       defaultValue: { summary: '[control] initial value' },
     },
     options: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'obrigatório',
       defaultValue: { summary: 'SelectInputOption[]' },
     },

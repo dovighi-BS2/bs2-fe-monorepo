@@ -63,21 +63,15 @@
       translate: var(--select_field__field_gap) 0px;
 
       ~ .select_input__field {
-        padding-left: calc(
-          var(--select_field__icon_width) + var(--select_field__field_gap) + 8px
-        );
+        padding-left: calc(var(--select_field__icon_width) + var(--select_field__field_gap) + 8px);
       }
     }
     &.right {
       order: 3;
-      margin-left: calc(
-        (var(--select_field__icon_width) + var(--select_field__field_gap)) * -1
-      );
+      margin-left: calc((var(--select_field__icon_width) + var(--select_field__field_gap)) * -1);
 
       ~ .select_input__field {
-        padding-right: calc(
-          var(--select_field__icon_width) + var(--select_field__field_gap) + 8px
-        );
+        padding-right: calc(var(--select_field__icon_width) + var(--select_field__field_gap) + 8px);
       }
     }
   }

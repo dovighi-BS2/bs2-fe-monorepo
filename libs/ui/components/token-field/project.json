@@ -6,9 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}/components/token-field"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/token-field"],
       "options": {
         "jestConfig": "libs/ui/jest.config.ts"
       }

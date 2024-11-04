@@ -1,17 +1,8 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  logger,
-  readProjectConfiguration,
-  Tree,
-} from '@nx/devkit';
+import { addProjectConfiguration, formatFiles, logger, readProjectConfiguration, Tree } from '@nx/devkit';
 
 import { Bs2ConvertToProjectGeneratorSchema } from './schema';
 
-export async function bs2ConvertToProjectGenerator(
-  tree: Tree,
-  options: Bs2ConvertToProjectGeneratorSchema
-) {
+export async function bs2ConvertToProjectGenerator(tree: Tree, options: Bs2ConvertToProjectGeneratorSchema) {
   const projectRoot = 'libs/ui/' + options.name;
 
   if (!tree.exists(projectRoot)) {
@@ -21,9 +12,7 @@ export async function bs2ConvertToProjectGenerator(
   const isProjectJsonExists = tree.exists(`${projectRoot}/project.json`);
 
   if (isProjectJsonExists) {
-    return logger.error(
-      `o entrypoint já é considerado um projeto no workspace!`
-    );
+    return logger.error(`o entrypoint já é considerado um projeto no workspace!`);
   }
 
   const projectConfiguration = readProjectConfiguration(tree, 'ui');

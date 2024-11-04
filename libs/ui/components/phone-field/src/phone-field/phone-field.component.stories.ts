@@ -1,10 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { PhoneFieldComponent } from './phone-field.component';
 import { flags } from './phone-field.component.enum';
+import { within } from '@storybook/test';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const options: SelectInputOption[] = [
   { value: 1, text: flags.brl, image: 'BRL' },
@@ -70,8 +71,7 @@ const meta: Meta<PhoneFieldComponent> = {
     },
     errorText: {
       control: { type: 'text' },
-      description:
-        'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
+      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
       defaultValue: { summary: '(vazio)' },
     },
     placeholder: {
@@ -85,12 +85,12 @@ const meta: Meta<PhoneFieldComponent> = {
       defaultValue: { summary: 'false' },
     },
     selecteds: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'Este campo será vinculado com o [control] do ReactiveForms',
       defaultValue: { summary: '[control] initial value' },
     },
     options: {
-      control: { type: 'string' },
+      control: { type: 'text' },
       description: 'obrigatório',
       defaultValue: { summary: 'SelectInputOption[]' },
     },
@@ -119,8 +119,15 @@ const meta: Meta<PhoneFieldComponent> = {
 export default meta;
 type Story = StoryObj<PhoneFieldComponent>;
 
+const form: FormGroup = new FormGroup({
+  birthday: new FormControl(null, [CustomValidators.required]),
+});
+
+delete form['controls']['birthday']['_parent'];
+
 export const Default: Story = {
   args: {
+    form: form,
     state: 'default',
     multiple: false,
     id: 'phone',

@@ -1,0 +1,47 @@
+# Build container
+FROM ${DTR_URL}/bs2.image.node:v20.8.1-alpine AS build-env
+# FROM node:20.8.1-alpine AS build-env
+
+WORKDIR /fe-monorepo-build
+COPY . .
+
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+RUN npm cache clean --force
+ 
+RUN npm config set strict-ssl false
+RUN npm --version
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+ 
+ 
+RUN npm install -g @angular/cli nx
+RUN npm install 
+
+RUN npx nx run ui:build-storybook
+
+# Execute container
+FROM ${DTR_URL}/bs2.frontend.images:nginx-nonprivileged
+# FROM nginx
+
+USER root
+
+WORKDIR /fe-monorepo-build
+COPY --from=build-env /fe-monorepo-build/dist/storybook/ui/ .
+
+RUN mkdir /docker-app
+RUN chmod 777 -R /docker-app
+COPY --from=build-env /fe-monorepo-build/docker-app/* /docker-app/
+
+RUN groupadd -r app && useradd -r -g app app
+
+RUN chown -R app:app /etc/nginx/
+RUN chmod 777 -R /etc/nginx/
+RUN chmod 777 -R /var/log/nginx/
+RUN apt-get update && apt-get install dos2unix
+RUN dos2unix /docker-app/init.sh
+RUN chmod +x /docker-app/init.sh
+
+EXPOSE 8080
+
+USER app
+
+ENTRYPOINT ["sh","/docker-app/init.sh"]
