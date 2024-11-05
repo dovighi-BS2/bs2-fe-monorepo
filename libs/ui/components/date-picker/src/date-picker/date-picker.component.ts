@@ -35,8 +35,8 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
-  @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
+  @Input() min: Date = new Date('1900-01-01T03:07:00.000Z');
+  @Input() max: Date = new Date('2100-12-31T03:07:00.000Z');
   @Input() selectedDate = new Date();
 
   private fb = inject(FormBuilder);
@@ -286,7 +286,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   newDate(year: number, month: number, day: number) {
     const _month = String(month).padStart(2, '0');
     const _day = String(day).padStart(2, '0');
-    return new Date(`${year}-${_month}-${_day}T03:00:00.000Z`);
+    return new Date(`${year}-${_month}-${_day}T03:07:00.000Z`);
   }
   modDays(date: Date, days: number, operation: 'minus' | 'plus' = 'plus') {
     if (operation === 'minus') return new Date(new Date(date).setDate(date.getDate() - days));
