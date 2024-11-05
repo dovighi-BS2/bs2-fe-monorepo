@@ -135,11 +135,11 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   };
   public yearPicker = {
     nextYears: () => {
-      if (this.selectedYear >= this.max.getFullYear()) this.selectedYear = this.min.getFullYear();
+      // if (this.selectedYear >= this.max.getFullYear()) this.selectedYear = this.min.getFullYear();
       this.increaseCalendar(PickerType.YEAR);
     },
     previousYears: () => {
-      if (this.selectedYear <= this.min.getFullYear()) this.selectedYear = this.max.getFullYear();
+      // if (this.selectedYear <= this.min.getFullYear()) this.selectedYear = this.max.getFullYear();
       return this.decreaseCalendar(PickerType.YEAR);
     },
     goToDayPicker: () => {

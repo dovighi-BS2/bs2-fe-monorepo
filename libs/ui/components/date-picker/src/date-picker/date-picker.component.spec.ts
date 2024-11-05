@@ -23,6 +23,9 @@ describe('DatePickerComponent', () => {
     component.form = new FormGroup({
       birthday: new FormControl('', [CustomValidators.required]),
     });
+    component.form = new FormGroup({
+      birthday: new FormControl('', [CustomValidators.required]),
+    });
     component.name = 'birthday';
     component.testId = testId;
     fixture.detectChanges();
@@ -32,7 +35,9 @@ describe('DatePickerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('[daypicker] should nextMonth', () => {
+  it('[daypicker] should execute nextMonth right', () => {
+    // Caso o mes atual seja dezembro, o próximo deve ser janeiro
+    // O ano deve ser incrementado em 1;
     component.selectedMonth = 9;
     component.selectedYear = 2024;
 
@@ -49,7 +54,10 @@ describe('DatePickerComponent', () => {
     }
   });
 
-  it('[daypicker] should previousMonth', () => {
+  it('[daypicker] should execute previousMonth right', () => {
+    // Caso o mes atual seja janiero, o próximo deve ser dezembro
+    // O ano deve ser decrementado em 1;
+
     component.selectedMonth = 3;
     component.selectedYear = 2025;
 
@@ -66,7 +74,9 @@ describe('DatePickerComponent', () => {
     }
   });
 
-  it('[daypicker] should goToYearPicker', () => {
+  it('[daypicker] should execute goToYearPicker right', () => {
+    // Abre o picker do dia do mês e oculta todos os outros
+
     component.monthPicker.goToDayPicker();
     fixture.detectChanges();
 
@@ -84,22 +94,47 @@ describe('DatePickerComponent', () => {
     expect(!!get(`.date_picker__year_picker.active`)).toBe(true);
   });
 
-  // it('[daypicker] should selectDate', () => {
-  //   expect(true).toBe(true);
-  // });
+  it('[daypicker] should execute selectDate right', () => {
+    const initSelectedDate = new Date(`2024-10-10T03:07:00.000Z`);
 
-  it('[daypicker] should isToday', () => {
+    const invalidDate = new Date(`2024-10-11T03:07:00.000Z`);
+    const validDate = new Date(`2024-10-10T03:07:00.000Z`);
+
+    component.min = new Date(`2024-10-01T03:07:00.000Z`);
+    component.max = new Date(`2024-10-10T03:07:00.000Z`);
+
+    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(invalidDate, 'input');
+    expect(component.selectedDate).toBe(initSelectedDate);
+
+    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(invalidDate, 'click');
+    expect(component.selectedDate).toBe(initSelectedDate);
+
+    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(validDate, 'input');
+    expect(component.selectedDate).toBe(validDate);
+
+    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(validDate, 'click');
+    expect(component.selectedDate).toBe(validDate);
+
+    expect(component.control.value).toBe(validDate);
+    expect(component.formToUser.get('date')?.value).toBe('10/10/2024');
+  });
+
+  it('[daypicker] should execute isToday right', () => {
     expect(component.dayPicker.isToday(new Date())).toBe(true);
     expect(component.dayPicker.isToday(new Date(`2024-10-31T03:07:00.000Z`))).toBe(false);
   });
 
-  it('[daypicker] should canActiveDay', () => {
+  it('[daypicker] should execute canActiveDay right', () => {
     component.selectedDate = new Date(`2024-10-31T03:07:00.000Z`);
     expect(component.dayPicker.canActiveDay(new Date(`2024-10-31T03:07:00.000Z`))).toBe(true);
     expect(component.dayPicker.canActiveDay(new Date(`2024-10-30T03:07:00.000Z`))).toBe(false);
   });
 
-  it('[daypicker] should getSelectedMonthName', () => {
+  it('[daypicker] should execute getSelectedMonthName right', () => {
     component.selectedMonth = 6;
     fixture.detectChanges();
     expect(component.dayPicker.getSelectedMonthName()?.fullName).toBe('Junho');
@@ -109,7 +144,7 @@ describe('DatePickerComponent', () => {
     expect(component.dayPicker.getSelectedMonthName()?.fullName).toBe(undefined);
   });
 
-  it('[daypicker] should open', () => {
+  it('[daypicker] should execute open right', () => {
     component.state = undefined;
     component.activePickerType = 'year';
     fixture.detectChanges();
@@ -122,91 +157,164 @@ describe('DatePickerComponent', () => {
     expect(!!get(`.date_picker__day_picker.active`)).toBe(true);
   });
 
-  // it('[monthpicker] nextYear', () => {
+  it('[monthpicker] should execute nextYear right', () => {
+    component.selectedYear = 2020;
+
+    const expectedYears = [2021, 2022, 2023, 2024];
+
+    for (const year of expectedYears) {
+      component.monthPicker.nextYear();
+      fixture.detectChanges();
+      expect(component.selectedYear).toBe(year);
+    }
+  });
+
+  it('[monthpicker] should execute previousYear right', () => {
+    component.selectedYear = 2024;
+
+    const expectedYears = [2023, 2022, 2021, 2020];
+
+    for (const year of expectedYears) {
+      component.monthPicker.previousYear();
+      fixture.detectChanges();
+      expect(component.selectedYear).toBe(year);
+    }
+  });
+
+  it('[monthpicker] should execute goToDayPicker right', () => {
+    // Abre o picker do mês e oculta todos os outros
+
+    component.dayPicker.goToYearPicker();
+    fixture.detectChanges();
+
+    expect(component.activePickerType).toBe('year');
+    expect(!!get(`.date_picker__day_picker.active`)).toBe(false);
+    expect(!!get(`.date_picker__month_picker.active`)).toBe(false);
+    expect(!!get(`.date_picker__year_picker.active`)).toBe(true);
+
+    component.monthPicker.goToDayPicker();
+    fixture.detectChanges();
+
+    expect(component.activePickerType).toBe('day');
+    expect(!!get(`.date_picker__day_picker.active`)).toBe(true);
+    expect(!!get(`.date_picker__month_picker.active`)).toBe(false);
+    expect(!!get(`.date_picker__year_picker.active`)).toBe(false);
+  });
+
+  it('[monthpicker] should execute selectMonth right', () => {
+    component.min = new Date(`2024-10-01T03:07:00.000Z`);
+    component.max = new Date(`2024-11-30T03:07:00.000Z`);
+
+    component.selectedYear = 2024;
+    component.selectedMonth = 10;
+    component.activePickerType = 'month';
+
+    component.monthPicker.selectMonth(9);
+    expect(component.activePickerType).toBe('month');
+    expect(component.selectedMonth).toBe(10);
+
+    component.monthPicker.selectMonth(12);
+    expect(component.activePickerType).toBe('month');
+    expect(component.selectedMonth).toBe(10);
+
+    component.monthPicker.selectMonth(11);
+    expect(component.activePickerType).toBe('day');
+    expect(component.selectedMonth).toBe(11);
+  });
+
+  it('[yearpicker] should execute nextYears right', () => {
+    // Calendário de anos incrementa de 28 em 28 anos.
+    // 28 anos é a quantidade de anos que coube no calendário de anos
+    // seguindo o tamanho proposto pela UX
+
+    component.min = new Date(`2024-10-01T03:07:00.000Z`);
+    component.max = new Date(`2026-10-01T03:07:00.000Z`);
+
+    component.selectedYear = 2025;
+    component.yearPicker.nextYears();
+    expect(component.selectedYear).toBe(2025 + 28);
+
+    component.yearPicker.nextYears();
+    expect(component.selectedYear).toBe(2025 + 28 + 28);
+  });
+
+  it('[yearpicker] should execute previousYears right', () => {
+    // Calendário de anos decrementa de 28 em 28 anos.
+    // 28 anos é a quantidade de anos que coube no calendário de anos
+    // seguindo o tamanho proposto pela UX
+
+    component.min = new Date(`2024-10-01T03:07:00.000Z`);
+    component.max = new Date(`2026-10-01T03:07:00.000Z`);
+
+    component.selectedYear = 2025;
+    component.yearPicker.previousYears();
+    expect(component.selectedYear).toBe(2025 - 28);
+
+    component.yearPicker.previousYears();
+    expect(component.selectedYear).toBe(2025 - 28 - 28);
+  });
+
+  // it('[yearpicker] should execute goToDayPicker right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[monthpicker] previousYear', () => {
+  // it('[yearpicker] should execute selectYear right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[monthpicker] goToDayPicker', () => {
+  // it('[yearpicker] should execute getFirstAndLastYear right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[monthpicker] selectMonth', () => {
+  // it('should execute getMonthDays right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[yearpicker] nextYears', () => {
+  // it('should execute getPreviousMonthRemainingDays right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[yearpicker] previousYears', () => {
+  // it('should execute getNextMonthRemainingDays right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[yearpicker] goToDayPicker', () => {
+  // it('should execute fillCalendarYears right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[yearpicker] selectYear', () => {
+  // it('should execute fillCalendar right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('[yearpicker] getFirstAndLastYear', () => {
+  // it('should execute increaseCalendar right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('getMonthDays', () => {
+  // it('should execute decreaseCalendar right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('getPreviousMonthRemainingDays', () => {
+  // it('should execute isDaySelectable right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('getNextMonthRemainingDays', () => {
+  // it('should execute isMonthSelectable right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('fillCalendarYears', () => {
+  // it('should execute isYearSelectable right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('fillCalendar', () => {
+  // it('should execute getFormatedDate right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('increaseCalendar', () => {
+  // it('should execute newDate right', () => {
   //   expect(true).toBe(true);
   // });
 
-  // it('decreaseCalendar', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('isDaySelectable', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('isMonthSelectable', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('isYearSelectable', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('getFormatedDate', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('newDate', () => {
-  //   expect(true).toBe(true);
-  // });
-
-  // it('modDays', () => {
+  // it('should execute modDays right', () => {
   //   expect(true).toBe(true);
   // });
 });
