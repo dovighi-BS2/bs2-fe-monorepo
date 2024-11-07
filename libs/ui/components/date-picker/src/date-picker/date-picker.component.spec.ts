@@ -5,6 +5,87 @@ import { By } from '@angular/platform-browser';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { PickerType } from './date-picker.enum';
 
+//
+const manualGetFullMonth = (year: number, month: number, days: number) => {
+  return Array(days)
+    .fill(0)
+    .map((_, n) => {
+      const date = `${year}-${String(month).padStart(2, '0')}-${String(n + 1).padStart(2, '0')}`;
+      return new Date(`${date}T03:07:00.000Z`).toISOString();
+    });
+};
+
+// current[0] year, current[1] month, current[2] maxDays
+// next[0] year, next[1] month, next[2] minDays, next[3] maxDays
+// prev[0] year, prev[1] month, prev[2] minDays, prev[3] maxDays
+const monthsToTest = [
+  { current: [2023, 6, 30], next: [2023, 7, 1, 8], prev: [2023, 5, 28, 31] },
+  { current: [2023, 7, 31], next: [2023, 8, 1, 5], prev: [2023, 6, 25, 30] },
+  { current: [2023, 8, 31], next: [2023, 9, 1, 9], prev: [2023, 7, 30, 31] },
+  { current: [2023, 9, 30], next: [2023, 10, 1, 7], prev: [2023, 8, 27, 31] },
+  { current: [2023, 10, 31], next: [2023, 11, 1, 4], prev: [2023, 9, 24, 30] },
+  { current: [2023, 11, 30], next: [2023, 12, 1, 9], prev: [2023, 10, 29, 31] },
+  { current: [2023, 12, 31], next: [2024, 1, 1, 6], prev: [2023, 11, 26, 30] },
+  { current: [2024, 1, 31], next: [2024, 2, 1, 10], prev: [2023, 12, 31, 31] },
+  { current: [2024, 2, 29], next: [2024, 3, 1, 9], prev: [2024, 1, 28, 31] },
+  { current: [2024, 3, 31], next: [2024, 4, 1, 6], prev: [2024, 2, 25, 29] },
+  { current: [2024, 4, 30], next: [2024, 5, 1, 11], prev: [2024, 3, 31, 31] },
+  { current: [2024, 5, 31], next: [2024, 6, 1, 8], prev: [2024, 4, 28, 30] },
+  { current: [2024, 6, 30], next: [2024, 7, 1, 6], prev: [2024, 5, 26, 31] },
+];
+
+//
+
+const manualGetNextMonth = (year: number, month: number, from: number, to: number) => {
+  return Array(to - from + 1)
+    .fill(0)
+    .map((_, n) => {
+      const date = `${year}-${String(month).padStart(2, '0')}-${String(from + n).padStart(2, '0')}`;
+      return new Date(`${date}T03:07:00.000Z`).toISOString();
+    });
+};
+
+const lastDaysOfMonths = [
+  [new Date(`2023-06-30T03:07:00.000Z`), 34],
+  [new Date(`2023-07-31T03:07:00.000Z`), 37],
+  [new Date(`2023-08-31T03:07:00.000Z`), 33],
+  [new Date(`2023-09-30T03:07:00.000Z`), 35],
+  [new Date(`2023-10-31T03:07:00.000Z`), 38],
+  [new Date(`2023-11-30T03:07:00.000Z`), 33],
+  [new Date(`2023-12-31T03:07:00.000Z`), 36],
+  [new Date(`2024-01-31T03:07:00.000Z`), 32],
+  [new Date(`2024-02-29T03:07:00.000Z`), 33],
+  [new Date(`2024-03-31T03:07:00.000Z`), 36],
+  [new Date(`2024-04-30T03:07:00.000Z`), 31],
+  [new Date(`2024-05-31T03:07:00.000Z`), 34],
+  [new Date(`2024-06-30T03:07:00.000Z`), 36],
+];
+
+const manualGetPreviousMonth = (year: number, month: number, from: number, to: number) => {
+  return Array(to - from + 1)
+    .fill(0)
+    .map((_, n) => {
+      const date = `${year}-${String(month).padStart(2, '0')}-${String(from + n).padStart(2, '0')}`;
+      return new Date(`${date}T03:07:00.000Z`).toISOString();
+    });
+};
+
+const firstDaysOfMonths = [
+  new Date(`2023-06-01T03:07:00.000Z`),
+  new Date(`2023-07-01T03:07:00.000Z`),
+  new Date(`2023-08-01T03:07:00.000Z`),
+  new Date(`2023-09-01T03:07:00.000Z`),
+  new Date(`2023-10-01T03:07:00.000Z`),
+  new Date(`2023-11-01T03:07:00.000Z`),
+  new Date(`2023-12-01T03:07:00.000Z`),
+  new Date(`2024-01-01T03:07:00.000Z`),
+  new Date(`2024-02-01T03:07:00.000Z`),
+  new Date(`2024-03-01T03:07:00.000Z`),
+  new Date(`2024-04-01T03:07:00.000Z`),
+  new Date(`2024-05-01T03:07:00.000Z`),
+  new Date(`2024-06-01T03:07:00.000Z`),
+];
+
 describe('DatePickerComponent', () => {
   const testId = 'date_picker__test_id';
 
@@ -305,53 +386,72 @@ describe('DatePickerComponent', () => {
   });
 
   it('should execute getMonthDays right', () => {
-    const manualGetFullMonth = (year: number, month: number, days: number) => {
-      return Array(days)
-        .fill(0)
-        .map((_, n) => {
-          const date = `${year}-${String(month).padStart(2, '0')}-${String(n + 1).padStart(2, '0')}`;
-          return new Date(`${date}T03:07:00.000Z`).toISOString();
-        });
-    };
-
-    const monthsToTest = [
-      [2024, 6, 30],
-      [2024, 7, 31],
-      [2024, 8, 31],
-      [2024, 9, 30],
-      [2024, 10, 31],
-      [2024, 11, 30],
-      [2024, 12, 31],
-      [2025, 1, 31],
-      [2025, 2, 28],
-      [2025, 3, 31],
-      [2025, 4, 30],
-      [2025, 5, 31],
-      [2025, 6, 30],
-    ];
-
     for (const toTest of monthsToTest) {
-      const month = component.getMonthDays(toTest[0], toTest[1]);
-      const manualMonth = manualGetFullMonth(toTest[0], toTest[1], toTest[2]);
-      for (let i = 0; i < toTest[2]; i++) expect(month[i].toISOString()).toBe(manualMonth[i]);
+      const month = component.getMonthDays(toTest.current[0], toTest.current[1]);
+      const manualMonth = manualGetFullMonth(toTest.current[0], toTest.current[1], toTest.current[2]);
+      for (let i = 0; i < manualMonth.length; i++) expect(month[i].toISOString()).toBe(manualMonth[i]);
     }
   });
 
-  // it('should execute getPreviousMonthRemainingDays right', () => {
-  //   expect(true).toBe(true);
-  // });
+  it('should execute getPreviousMonthRemainingDays right', () => {
+    for (const [index, toTest] of monthsToTest.entries()) {
+      const month = component.getPreviousMonthRemainingDays(firstDaysOfMonths[index]);
+      const manualMonth = manualGetPreviousMonth(toTest.prev[0], toTest.prev[1], toTest.prev[2], toTest.prev[3]);
+      for (let i = 0; i < manualMonth.length; i++) expect(month[i].toISOString()).toBe(manualMonth[i]);
+    }
+  });
 
-  // it('should execute getNextMonthRemainingDays right', () => {
-  //   expect(true).toBe(true);
-  // });
+  it('should execute getNextMonthRemainingDays right', () => {
+    for (const [index, toTest] of monthsToTest.entries()) {
+      const month = component.getNextMonthRemainingDays(
+        lastDaysOfMonths[index][0] as Date,
+        lastDaysOfMonths[index][1] as number
+      );
+      const manualMonth = manualGetNextMonth(toTest.next[0], toTest.next[1], toTest.next[2], toTest.next[3]);
+      for (let i = 0; i < manualMonth.length; i++) expect(month[i].toISOString()).toBe(manualMonth[i]);
+    }
+  });
 
-  // it('should execute fillCalendarYears right', () => {
-  //   expect(true).toBe(true);
-  // });
+  it('should execute fillCalendarYears right', () => {
+    component.selectedYear = 2024;
+    component.fillCalendarYears();
+    expect(component.calendarYears.length).toBe(28);
+    expect(component.calendarYears[0]).toBe(2011);
+    expect(component.calendarYears[component.calendarYears.length - 1]).toBe(2038);
 
-  // it('should execute fillCalendar right', () => {
-  //   expect(true).toBe(true);
-  // });
+    component.selectedYear = 2020;
+    component.fillCalendarYears();
+    expect(component.calendarYears.length).toBe(28);
+    expect(component.calendarYears[0]).toBe(2007);
+    expect(component.calendarYears[component.calendarYears.length - 1]).toBe(2034);
+  });
+
+  it('should execute fillCalendar right', () => {
+    for (const toTest of monthsToTest) {
+      component.selectedYear = toTest.current[0];
+      component.selectedMonth = toTest.current[1];
+
+      component.fillCalendar();
+
+      const manualPreviousMonth = manualGetPreviousMonth(
+        toTest.prev[0],
+        toTest.prev[1],
+        toTest.prev[2],
+        toTest.prev[3]
+      );
+      const manualCurrentMonth = manualGetFullMonth(toTest.current[0], toTest.current[1], toTest.current[2]);
+      const manualNextMonth = manualGetNextMonth(toTest.next[0], toTest.next[1], toTest.next[2], toTest.next[3]);
+
+      for (let i = 0; i < manualPreviousMonth.length; i++)
+        expect(component.calendarPreviousMonth[i].toISOString()).toBe(manualPreviousMonth[i]);
+
+      for (let i = 0; i < manualCurrentMonth.length; i++)
+        expect(component.calendarMonth[i].toISOString()).toBe(manualCurrentMonth[i]);
+
+      for (let i = 0; i < manualNextMonth.length; i++)
+        expect(component.calendarNextMonth[i].toISOString()).toBe(manualNextMonth[i]);
+    }
+  });
 
   it('should execute increaseCalendar right', () => {
     // Calendário de anos incrementa de 28 em 28 anos.

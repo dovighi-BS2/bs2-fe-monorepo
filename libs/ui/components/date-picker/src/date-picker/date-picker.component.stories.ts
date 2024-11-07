@@ -107,8 +107,8 @@ delete form['controls']['birthday']['_parent'];
 export const Default: Story = {
   args: {
     form: form,
-    min: new Date('1900-01-01T03:00:00.000Z'),
-    max: new Date('2100-12-31T03:00:00.000Z'),
+    min: new Date('1900-01-01T03:07:00.000Z'),
+    max: new Date('2100-12-31T03:07:00.000Z'),
     state: 'default',
     id: 'birthday',
     testId: 'birthday',

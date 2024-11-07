@@ -41,7 +41,9 @@ export class DatePickerComponent implements OnInit, OnDestroy {
 
   private fb = inject(FormBuilder);
 
-  public formToUser = this.fb.group({ date: ['', [CustomValidators.isValidDateToUser]] });
+  public formToUser = this.fb.group({
+    date: ['', [CustomValidators.isValidDateToUser, CustomValidators.isDateBetween(this.min, this.max)]],
+  });
 
   public selectedYear = this.selectedDate.getFullYear();
   public selectedMonth = this.selectedDate.getMonth() + 1;
@@ -84,7 +86,10 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.fillCalendarYears();
     },
     selectDate: (date: Date, from: 'click' | 'input') => {
-      if (!this.isDaySelectable(date)) return;
+      if (!this.isDaySelectable(date)) {
+        if (from === 'input') this.control.setValue(date);
+        return;
+      }
       this.state = undefined;
 
       this.selectedDate = date;
@@ -216,7 +221,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     const remainingPreviousDays = firstMonthDay.getDay() ? firstMonthDay.getDay() : 7;
 
     const monthArray = Array(remainingPreviousDays).fill(0);
-    return monthArray.map((_, n) => this.modDays(firstMonthDay, remainingPreviousDays + n, 'minus'));
+    return monthArray.map((_, n) => this.modDays(firstMonthDay, remainingPreviousDays - n, 'minus'));
   }
 
   getNextMonthRemainingDays(lastMonthDay: Date, currentCalendarDays: number) {
