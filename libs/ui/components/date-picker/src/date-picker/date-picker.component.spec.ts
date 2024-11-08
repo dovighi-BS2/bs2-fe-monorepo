@@ -177,32 +177,47 @@ describe('DatePickerComponent', () => {
   });
 
   it('[daypicker] should execute selectDate right', () => {
-    const initSelectedDate = new Date(`2024-10-10T03:07:00.000Z`);
+    const initSelectedDate = new Date(`2024-05-20T03:07:00.000Z`);
 
-    const invalidDate = new Date(`2024-10-11T03:07:00.000Z`);
-    const validDate = new Date(`2024-10-10T03:07:00.000Z`);
+    const invalidDate = new Date(`2024-11-15T03:07:00.000Z`);
+    const validDate = new Date(`2024-05-15T03:07:00.000Z`);
 
-    component.min = new Date(`2024-10-01T03:07:00.000Z`);
+    component.min = new Date(`2024-01-01T03:07:00.000Z`);
     component.max = new Date(`2024-10-10T03:07:00.000Z`);
 
-    component.selectedDate = initSelectedDate;
+    const expectDate = (date: Date, year: number, month: number, day: number) => {
+      expect(component.selectedDate).toStrictEqual(date);
+      expect(component.selectedYear).toBe(year);
+      expect(component.selectedMonth).toBe(month);
+      expect(component.selectedDay).toBe(day);
+    };
+
+    component.dayPicker.selectDate(initSelectedDate, 'click');
+    expectDate(initSelectedDate, 2024, 5, 20);
     component.dayPicker.selectDate(invalidDate, 'input');
-    expect(component.selectedDate).toBe(initSelectedDate);
+    expectDate(initSelectedDate, 2024, 5, 20);
+    expect(component.control.value).toBe(initSelectedDate);
 
-    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(initSelectedDate, 'click');
+    expectDate(initSelectedDate, 2024, 5, 20);
     component.dayPicker.selectDate(invalidDate, 'click');
-    expect(component.selectedDate).toBe(initSelectedDate);
+    expectDate(initSelectedDate, 2024, 5, 20);
 
-    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(initSelectedDate, 'click');
+    component.controlToUser.setValue('20/05/2024');
+    expectDate(initSelectedDate, 2024, 5, 20);
     component.dayPicker.selectDate(validDate, 'input');
-    expect(component.selectedDate).toBe(validDate);
+    expectDate(validDate, 2024, 5, 15);
 
-    component.selectedDate = initSelectedDate;
+    component.dayPicker.selectDate(initSelectedDate, 'click');
+    component.controlToUser.setValue('20/05/2024');
+    expectDate(initSelectedDate, 2024, 5, 20);
     component.dayPicker.selectDate(validDate, 'click');
-    expect(component.selectedDate).toBe(validDate);
+    expectDate(validDate, 2024, 5, 15);
 
+    component.controlToUser.setValue('15/05/2024');
     expect(component.control.value).toBe(validDate);
-    expect(component.formToUser.get('date')?.value).toBe('10/10/2024');
+    expect(component.controlToUser?.value).toBe('15/05/2024');
   });
 
   it('[daypicker] should execute isToday right', () => {
@@ -383,6 +398,34 @@ describe('DatePickerComponent', () => {
 
     component.calendarYears = [2021, 2022];
     expect(component.yearPicker.getFirstAndLastYear()).toBe(`2021 - 2022`);
+  });
+
+  it('should execute getMaskedDate right', () => {
+    component.controlToUser.setValue('30122024');
+    expect(component.getMaskedDate()).toBe('30/12/2024');
+
+    component.controlToUser.setValue('12122000');
+    expect(component.getMaskedDate()).toBe('12/12/2000');
+  });
+
+  it('should execute ngOnInit right', () => {
+    component.control.setValue(new Date('2024-10-15T03:07:00.000Z'));
+    component.controlToUser.setValue('15/10/2024');
+    component.ngOnInit();
+    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:07:00.000Z'));
+    expect(component.selectedYear).toBe(2024);
+    expect(component.selectedMonth).toBe(10);
+    expect(component.selectedDay).toBe(15);
+  });
+
+  it('should execute handleInputChange right', () => {
+    component.controlToUser.setValue('15102024');
+    component.handleInputChange();
+    expect(component.controlToUser.value).toBe('15/10/2024');
+    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:07:00.000Z'));
+    expect(component.selectedYear).toBe(2024);
+    expect(component.selectedMonth).toBe(10);
+    expect(component.selectedDay).toBe(15);
   });
 
   it('should execute getMonthDays right', () => {
