@@ -86,22 +86,15 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       this.fillCalendarYears();
     },
     selectDate: (date: Date, from: 'click' | 'input') => {
-      if (!this.isDaySelectable(date)) {
-        if (from === 'input') this.control.setValue(date);
+      if (!this.isDaySelectable(date)) return;
+
+      if (from === 'input' && this.controlToUser.invalid) {
+        this.state = undefined;
         return;
       }
+
       this.state = undefined;
-
       this.selectedDate = date;
-
-      if (from === 'click')
-        if (this.controlToUser?.invalid) {
-          this.control?.setValue(this.selectedDate);
-          return this.controlToUser?.setValue(this.getFormatedDate(this.selectedDate));
-        }
-
-      if (from === 'input') if (this.controlToUser?.invalid) return;
-
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
       this.selectedYear = date.getFullYear();
