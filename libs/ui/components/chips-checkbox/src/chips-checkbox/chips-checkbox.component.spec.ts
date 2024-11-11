@@ -53,72 +53,72 @@ describe('ChipsCheckboxComponent', () => {
 
     component.options = options2;
     component.transformOptionsToPattern();
-    expect(component.options).toStrictEqual(defaultOptions);
+    expect(component._options).toStrictEqual(defaultOptions);
 
     component.options = options1;
     component.transformOptionsToPattern();
-    expect(component.options).toStrictEqual(defaultOptions);
+    expect(component._options).toStrictEqual(defaultOptions);
   });
 
   it('[select] should execute right', () => {
-    component.options = [
+    component._options = [
       { label: 'item 01', disabled: false },
       { label: 'item 02', disabled: true },
       { label: 'item 03', disabled: false },
     ];
 
-    component.select(component.options[0]);
+    component.select(component._options[0]);
     expect(component.form.get('reasons')?.value.length).toBe(1);
 
-    component.select(component.options[1]);
+    component.select(component._options[1]);
     expect(component.form.get('reasons')?.value.length).toBe(1);
 
-    component.select(component.options[2]);
+    component.select(component._options[2]);
     expect(component.form.get('reasons')?.value.length).toBe(2);
 
-    component.select(component.options[2]);
+    component.select(component._options[2]);
     expect(component.form.get('reasons')?.value.length).toBe(1);
   });
 
   it('[add] should execute right', () => {
-    component.options = [
+    component._options = [
       { label: 'item 01', disabled: false },
       { label: 'item 02', disabled: true },
       { label: 'item 03', disabled: false },
     ];
 
-    component.select(component.options[0]);
+    component.select(component._options[0]);
     expect(component.form.get('reasons')?.value.length).toBe(1);
   });
 
   it('[remove] should execute right', () => {
-    component.options = [
+    component._options = [
       { label: 'item 01', disabled: false },
       { label: 'item 02', disabled: true },
       { label: 'item 03', disabled: false },
     ];
 
-    component.select(component.options[0]);
+    component.select(component._options[0]);
     expect(component.form.get('reasons')?.value.length).toBe(1);
 
-    component.select(component.options[0]);
+    component.select(component._options[0]);
     expect(component.form.get('reasons')?.value.length).toBe(0);
   });
 
   it('should isSelected', () => {
-    component.options = [
+    component._options = [
       { label: 'item 01', disabled: false },
       { label: 'item 02', disabled: true },
       { label: 'item 03', disabled: false },
     ];
 
-    component.select(component.options[0]);
-    expect(component.isSelected(component.options[0])).toBe(true);
-    expect(component.isSelected(component.options[2])).toBe(false);
+    component.select(component._options[0]);
+    expect(component.isSelected(component._options[0])).toBe(true);
+    expect(component.isSelected(component._options[2])).toBe(false);
 
-    component.select(component.options[2]);
-    expect(component.isSelected(component.options[2])).toBe(true);
-    component.select(component.options[2]);
-    expect(component.isSelected(component.options[2])).toBe(false);
+    component.select(component._options[2]);
+    expect(component.isSelected(component._options[2])).toBe(true);
+    component.select(component._options[2]);
+    expect(component.isSelected(component._options[2])).toBe(false);
   });
 });
