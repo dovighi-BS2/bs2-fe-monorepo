@@ -1,12 +1,15 @@
 <ul class="chip">
-  @for(item of options; track item) {
+  @for(item of _options; track item.label) {
   <li
+    tabindex="1"
     class="
       chip__item
       {{ item.disabled ? 'disabled' : '' }}
       {{ isSelected(item) ? 'selected' : '' }}
     "
     (click)="select(item)"
+    (keyup.enter)="select(item)"
+    (keyup.space)="select(item)"
   >
     {{ item.label }}
   </li>

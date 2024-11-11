@@ -16,15 +16,16 @@ export class ChipsCheckboxComponent implements OnInit {
   @Input() testId?: string = '';
 
   @Input() options: ChipCheckboxOption[] | string[] = [];
+  @Input() _options: ChipCheckboxOption[] = [];
 
   ngOnInit(): void {
     this.transformOptionsToPattern();
   }
 
   transformOptionsToPattern() {
-    this.options =
+    this._options =
       this.options.length > 0 && typeof this.options[0] !== 'string'
-        ? this.options
+        ? (this.options as ChipCheckboxOption[])
         : ((this.options || []).map((chip) => ({ label: chip, disabled: false })) as ChipCheckboxOption[]);
   }
 
