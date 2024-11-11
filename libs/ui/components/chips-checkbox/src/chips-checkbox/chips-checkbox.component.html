@@ -8,8 +8,8 @@
       {{ isSelected(item) ? 'selected' : '' }}
     "
     (click)="select(item)"
-    (keyup.enter)="select(item)"
-    (keyup.space)="select(item)"
+    (keydown.enter)="select(item, $event)"
+    (keydown.space)="select(item, $event)"
   >
     {{ item.label }}
   </li>

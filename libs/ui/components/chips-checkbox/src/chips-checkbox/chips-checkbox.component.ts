@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ChipCheckboxOption } from './chip-checkbox.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'chips-checkbox',
@@ -18,6 +19,8 @@ export class ChipsCheckboxComponent implements OnInit {
   @Input() options: ChipCheckboxOption[] | string[] = [];
   @Input() _options: ChipCheckboxOption[] = [];
 
+  private chipsSubs: Subscription[] = [];
+
   ngOnInit(): void {
     this.transformOptionsToPattern();
   }
@@ -29,7 +32,8 @@ export class ChipsCheckboxComponent implements OnInit {
         : ((this.options || []).map((chip) => ({ label: chip, disabled: false })) as ChipCheckboxOption[]);
   }
 
-  select(item: ChipCheckboxOption) {
+  select(item: ChipCheckboxOption, e?: Event) {
+    if ([' ', 'Enter'].includes((e as KeyboardEvent)?.key)) e.preventDefault();
     if (item.disabled) return;
     const alreadySelected = (this.control?.value || []).find((chip: string) => chip === item.label);
     alreadySelected ? this.remove(item) : this.add(item);
