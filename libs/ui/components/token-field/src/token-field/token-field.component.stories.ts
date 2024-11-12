@@ -6,7 +6,7 @@ import { expect } from '@storybook/test';
 
 const meta: Meta<TokenFieldComponent> = {
   component: TokenFieldComponent,
-  title: 'TokenFieldComponent',
+  title: 'Components/Token Field',
   argTypes: {
     state: {
       control: 'select',

@@ -17,7 +17,7 @@ const options: ChipCheckboxOption[] = Array(10)
 
 const meta: Meta<ChipsCheckboxComponent> = {
   component: ChipsCheckboxComponent,
-  title: 'ChipsCheckboxComponent',
+  title: 'Components/Chips Checkbox',
   argTypes: {
     options: {
       defaultValue: { summary: '[]' },

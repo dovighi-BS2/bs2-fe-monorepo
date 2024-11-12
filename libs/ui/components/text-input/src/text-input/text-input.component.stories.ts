@@ -8,7 +8,7 @@ import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const meta: Meta<TextInputComponent> = {
   component: TextInputComponent,
-  title: 'TextInputComponent',
+  title: 'Components/Text Input',
   argTypes: {
     state: {
       control: 'select',

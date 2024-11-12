@@ -15,7 +15,7 @@ const options: SelectInputOption[] = [
 
 const meta: Meta<SelectInputComponent> = {
   component: SelectInputComponent,
-  title: 'SelectInputComponent',
+  title: 'Components/Select Input',
   argTypes: {
     state: {
       control: 'select',
