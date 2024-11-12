@@ -9,7 +9,8 @@ export const dateValidators = {
   },
   isDateBetween: (min: Date, max: Date) => {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (!control.value || control.value.trim().length <= 0) return { isDateBetween: CustomValidatorMessages.required };
+      if (!control.value || control.value.trim().length <= 0)
+        return { isDateBetween: CustomValidatorMessages.required };
       if (control.value.trim().length !== 10) return { isDateBetween: CustomValidatorMessages.date };
 
       const v = control.value.split('/');
@@ -21,7 +22,8 @@ export const dateValidators = {
     };
   },
   isValidDateToUser: (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value || control.value.trim().length <= 0) return { isValidDateToUser: CustomValidatorMessages.required };
+    if (!control.value || control.value.trim().length <= 0)
+      return { isValidDateToUser: CustomValidatorMessages.required };
     if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
     const v = control.value.split('/');
     // [T03:07:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913

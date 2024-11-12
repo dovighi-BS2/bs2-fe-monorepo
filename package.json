@@ -11,6 +11,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "test-coverage": "nx test --coverage --html --watch",
     "commit": "git-cz",
     "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
