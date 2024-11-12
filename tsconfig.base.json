@@ -19,6 +19,7 @@
       "@bs2-fe-monorepo/bs2-design-system": ["libs/local-plugins/bs2-design-system/src/index.ts"],
       "@bs2-fe-monorepo/compiled-plugins": ["libs/compiled-plugins/src/index.ts"],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/chips-checkbox": ["libs/ui/components/chips-checkbox/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/date-picker": ["libs/ui/components/date-picker/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/input-currency": ["libs/ui/components/input-currency/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/select-input": ["libs/ui/components/select-input/src/index.ts"],

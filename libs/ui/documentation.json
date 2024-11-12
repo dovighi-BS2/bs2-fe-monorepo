@@ -99,11 +99,21 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'phone',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: '',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -124,6 +134,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    multiple: true,\r\n    id: 'categories',\r\n    testId: 'categories',\r\n    name: 'categories',\r\n    label: 'Categorias',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -169,6 +189,26 @@
         "name": "form",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "FormGroup",
+        "defaultValue": "new FormGroup({\r\n  flags: new FormControl(null, [CustomValidators.required]),\r\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "FormGroup",
+        "defaultValue": "new FormGroup({\r\n  reasons: new FormControl(null, [CustomValidators.required]),\r\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -199,11 +239,21 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<InputCurrencyComponent>",
-        "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+        "type": "Meta<PhoneFieldComponent>",
+        "defaultValue": "{\r\n  component: PhoneFieldComponent,\r\n  title: 'PhoneFieldComponent',\r\n  decorators: [\r\n    moduleMetadata({\r\n      providers: [provideNgxMask({ validation: false })],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ChipsCheckboxComponent>",
+        "defaultValue": "{\r\n  component: ChipsCheckboxComponent,\r\n  title: 'ChipsCheckboxComponent',\r\n  argTypes: {},\r\n}"
       },
       {
         "name": "meta",
@@ -229,6 +279,16 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<InputCurrencyComponent>",
+        "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -239,11 +299,11 @@
         "name": "options",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "SelectInputOption[]",
-        "defaultValue": "[\r\n  { value: 1, text: 'BRL', image: '123' },\r\n  { value: 2, text: 'USD', image: '123' },\r\n  { value: 3, text: 'EUR', image: '123' },\r\n  { value: 4, text: 'GBP', image: '123' },\r\n  { value: 5, text: 'CAD', image: '123' },\r\n  { value: 6, text: 'AUD', image: '123' },\r\n  { value: 7, text: 'CNY', image: '123' },\r\n  { value: 8, text: 'AED', image: '123' },\r\n]"
+        "defaultValue": "[\r\n  { value: 1, text: flags.brl, image: 'BRL' },\r\n  { value: 2, text: flags.usa, image: 'USA' },\r\n  { value: 2, text: flags.chn, image: 'CHN' },\r\n  { value: 2, text: flags.esp, image: 'ESP' },\r\n]"
       },
       {
         "name": "options",
@@ -254,6 +314,16 @@
         "deprecationMessage": "",
         "type": "SelectInputOption[]",
         "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1' },\r\n  { value: 2, text: 'Categoria 2' },\r\n  { value: 3, text: 'Categoria 3' },\r\n  { value: 4, text: 'Categoria 4' },\r\n  { value: 5, text: 'Categoria 5' },\r\n]"
+      },
+      {
+        "name": "options",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "SelectInputOption[]",
+        "defaultValue": "[\r\n  { value: 1, text: 'BRL', image: '123' },\r\n  { value: 2, text: 'USD', image: '123' },\r\n  { value: 3, text: 'EUR', image: '123' },\r\n  { value: 4, text: 'GBP', image: '123' },\r\n  { value: 5, text: 'CAD', image: '123' },\r\n  { value: 6, text: 'AUD', image: '123' },\r\n  { value: 7, text: 'CNY', image: '123' },\r\n  { value: 8, text: 'AED', image: '123' },\r\n]"
       },
       {
         "name": "Outlined",
@@ -294,8 +364,19 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<InputCurrencyComponent>",
-        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "rawtype": "StoryObj<PhoneFieldComponent>",
+        "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ChipsCheckboxComponent>",
+        "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -318,6 +399,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<SelectInputComponent>",
         "file": "libs/ui/components/select-input/src/select-input/select-input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<InputCurrencyComponent>",
+        "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -433,36 +525,78 @@
           "defaultValue": "{\r\n  component: DatePickerComponent,\r\n  title: 'DatePickerComponent',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
         }
       ],
-      "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+      "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts": [
         {
           "name": "Default",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'phone',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: '',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormGroup",
+          "defaultValue": "new FormGroup({\r\n  flags: new FormControl(null, [CustomValidators.required]),\r\n})"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "Meta<InputCurrencyComponent>",
-          "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+          "type": "Meta<PhoneFieldComponent>",
+          "defaultValue": "{\r\n  component: PhoneFieldComponent,\r\n  title: 'PhoneFieldComponent',\r\n  decorators: [\r\n    moduleMetadata({\r\n      providers: [provideNgxMask({ validation: false })],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "options",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "SelectInputOption[]",
-          "defaultValue": "[\r\n  { value: 1, text: 'BRL', image: '123' },\r\n  { value: 2, text: 'USD', image: '123' },\r\n  { value: 3, text: 'EUR', image: '123' },\r\n  { value: 4, text: 'GBP', image: '123' },\r\n  { value: 5, text: 'CAD', image: '123' },\r\n  { value: 6, text: 'AUD', image: '123' },\r\n  { value: 7, text: 'CNY', image: '123' },\r\n  { value: 8, text: 'AED', image: '123' },\r\n]"
+          "defaultValue": "[\r\n  { value: 1, text: flags.brl, image: 'BRL' },\r\n  { value: 2, text: flags.usa, image: 'USA' },\r\n  { value: 2, text: flags.chn, image: 'CHN' },\r\n  { value: 2, text: flags.esp, image: 'ESP' },\r\n]"
+        }
+      ],
+      "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n  },\r\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormGroup",
+          "defaultValue": "new FormGroup({\r\n  reasons: new FormControl(null, [CustomValidators.required]),\r\n})"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ChipsCheckboxComponent>",
+          "defaultValue": "{\r\n  component: ChipsCheckboxComponent,\r\n  title: 'ChipsCheckboxComponent',\r\n  argTypes: {},\r\n}"
         }
       ],
       "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
@@ -529,6 +663,38 @@
           "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1' },\r\n  { value: 2, text: 'Categoria 2' },\r\n  { value: 3, text: 'Categoria 3' },\r\n  { value: 4, text: 'Categoria 4' },\r\n  { value: 5, text: 'Categoria 5' },\r\n]"
         }
       ],
+      "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<InputCurrencyComponent>",
+          "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'InputCurrencyComponent',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+        },
+        {
+          "name": "options",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "SelectInputOption[]",
+          "defaultValue": "[\r\n  { value: 1, text: 'BRL', image: '123' },\r\n  { value: 2, text: 'USD', image: '123' },\r\n  { value: 3, text: 'EUR', image: '123' },\r\n  { value: 4, text: 'GBP', image: '123' },\r\n  { value: 5, text: 'CAD', image: '123' },\r\n  { value: 6, text: 'AUD', image: '123' },\r\n  { value: 7, text: 'CNY', image: '123' },\r\n  { value: 8, text: 'AED', image: '123' },\r\n]"
+        }
+      ],
       "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
         {
           "name": "Default",
@@ -581,13 +747,26 @@
           "kind": 183
         }
       ],
-      "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+      "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<InputCurrencyComponent>",
-          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "rawtype": "StoryObj<PhoneFieldComponent>",
+          "file": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ChipsCheckboxComponent>",
+          "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -620,6 +799,19 @@
           "kind": 183
         }
       ],
+      "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<InputCurrencyComponent>",
+          "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
         {
           "name": "Story",
@@ -646,6 +838,46 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "config",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
+        "type": "type alias",
+        "linktype": "miscellaneous",
+        "linksubtype": "typealias",
+        "name": "Story",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -722,6 +954,56 @@
       },
       {
         "filePath": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+        "type": "type alias",
+        "linktype": "miscellaneous",
+        "linksubtype": "typealias",
+        "name": "Story",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "options",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts",
         "type": "type alias",
         "linktype": "miscellaneous",
         "linksubtype": "typealias",
