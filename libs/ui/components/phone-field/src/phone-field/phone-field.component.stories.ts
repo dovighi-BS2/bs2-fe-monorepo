@@ -17,7 +17,7 @@ const options: SelectInputOption[] = [
 
 const meta: Meta<PhoneFieldComponent> = {
   component: PhoneFieldComponent,
-  title: 'PhoneFieldComponent',
+  title: 'Components/Phone Field',
   decorators: [
     moduleMetadata({
       providers: [provideNgxMask({ validation: false })],

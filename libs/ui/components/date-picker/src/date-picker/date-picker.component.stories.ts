@@ -5,7 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 const meta: Meta<DatePickerComponent> = {
   component: DatePickerComponent,
-  title: 'DatePickerComponent',
+  title: 'Components/Date Picker',
   argTypes: {
     min: {
       control: 'text',

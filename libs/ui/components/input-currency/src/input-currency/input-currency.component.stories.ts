@@ -18,7 +18,7 @@ const options: SelectInputOption[] = [
 
 const meta: Meta<InputCurrencyComponent> = {
   component: InputCurrencyComponent,
-  title: 'InputCurrencyComponent',
+  title: 'Components/Input Currency',
   argTypes: {
     state: {
       control: 'select',

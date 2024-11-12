@@ -1,7 +1,7 @@
 $themes: (
   // PRIMARY
   'primary': #1226aa,
-  'primary_text1_bg2': #090e29,
+  'primary_text_dark': #090e29,
   'primary_emphasis': #ff3366,
   'primary_text2_bg1': #fafafa,
   'primary_white': #ffffff,
@@ -37,7 +37,7 @@ $themes: (
 
 // PRIMARY
 $primary: map-get($themes, primary);
-$primary_text1_bg2: map-get($themes, primary_text1_bg2);
+$primary_text_dark: map-get($themes, primary_text_dark);
 $primary_emphasis: map-get($themes, primary_emphasis);
 $primary_text2_bg1: map-get($themes, primary_text2_bg1);
 $primary_white: map-get($themes, primary_white);
