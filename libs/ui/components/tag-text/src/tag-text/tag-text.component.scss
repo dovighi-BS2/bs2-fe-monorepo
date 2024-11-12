@@ -1,0 +1,43 @@
+.tag {
+  --status_text_color: var(--neutral_n1);
+  --status_bg_color: var(--neutral_n1);
+
+  display: inline-flex;
+  align-items: center;
+  border-radius: 2px;
+  font-weight: 600;
+  color: var(--status_text_color);
+  background-color: var(--status_bg_color);
+
+  &.regular {
+    font-size: 12px;
+    padding: 4px 10px;
+    min-height: 24px;
+  }
+  &.small {
+    font-size: 10px;
+    padding: 2px 10px;
+    min-height: 20px;
+  }
+
+  &.primary {
+    --status_text_color: var(--primary);
+    --status_bg_color: var(--secondary_v1);
+  }
+  &.success {
+    --status_text_color: var(--success);
+    --status_bg_color: var(--success_tint);
+  }
+  &.error {
+    --status_text_color: var(--error);
+    --status_bg_color: var(--error_tint);
+  }
+  &.attention {
+    --status_text_color: var(--attention);
+    --status_bg_color: var(--attention_tint);
+  }
+  &.neutral {
+    --status_text_color: var(--neutral_n5);
+    --status_bg_color: var(--neutral_n1);
+  }
+}

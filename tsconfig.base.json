@@ -24,6 +24,7 @@
       "@bs2-fe-monorepo/ui/components/input-currency": ["libs/ui/components/input-currency/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/select-input": ["libs/ui/components/select-input/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/status-text": ["libs/ui/components/status-text/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/tag-text": ["libs/ui/components/tag-text/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/text-input": ["libs/ui/components/text-input/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/token-field": ["libs/ui/components/token-field/src/index.ts"],
       "@bs2-fe-monorepo/ui/directives/button/filled-button": ["libs/ui/directives/button/filled-button/src/index.ts"],

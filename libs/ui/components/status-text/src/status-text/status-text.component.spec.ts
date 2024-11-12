@@ -3,7 +3,7 @@ import { StatusTextComponent } from './status-text.component';
 import { By } from '@angular/platform-browser';
 
 describe('StatusTextComponent', () => {
-  const testId = 'chips_checkbox__test_id';
+  const testId = 'status_text__test_id';
 
   let component: StatusTextComponent;
   let fixture: ComponentFixture<StatusTextComponent>;
