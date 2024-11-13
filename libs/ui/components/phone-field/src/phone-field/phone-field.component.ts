@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
@@ -16,7 +16,7 @@ import { TextInputComponent } from '@bs2-fe-monorepo/ui/components/text-input';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideNgxMask({ validation: false })],
 })
-export class PhoneFieldComponent implements OnInit {
+export class PhoneFieldComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() form?: FormGroup;
@@ -34,10 +34,10 @@ export class PhoneFieldComponent implements OnInit {
   @Input() readOnly = false;
   @Input() selecteds: SelectInputOption[] = [];
   @Input() options: SelectInputOption[] = [
-    { value: 1, text: flags.brl, image: 'BRL' },
-    { value: 2, text: flags.usa, image: 'USA' },
-    { value: 2, text: flags.chn, image: 'CHN' },
-    { value: 2, text: flags.esp, image: 'ESP' },
+    { value: 1, text: flags.brl, image: 'BR.svg' },
+    { value: 2, text: flags.usa, image: 'US.svg' },
+    { value: 3, text: flags.chn, image: 'CN.svg' },
+    { value: 4, text: flags.esp, image: 'ES.svg' },
   ];
   @Input() hideCheckbox = false;
 
@@ -46,16 +46,10 @@ export class PhoneFieldComponent implements OnInit {
   @Input() ariaInvalid = false;
 
   public inputForm = new FormGroup({
-    ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BRL' }]),
+    ddi: new FormControl([{ value: 1, text: flags.brl, image: 'BR.svg' }]),
     number: new FormControl(''),
   });
 
-  ngOnInit(): void {
-    this.inputForm.get('ddi')?.valueChanges.subscribe((a: any) => {
-      // console.log(a);
-      // this.inputForm.get('ddi').setValue(a[0].text)
-    });
-  }
   get mask() {
     switch (this.getDdiValue) {
       case flags.brl:
@@ -66,6 +60,21 @@ export class PhoneFieldComponent implements OnInit {
         return '(00) 0000-0000';
       case flags.esp:
         return '00 000 00 00 00';
+      default:
+        return '';
+    }
+  }
+
+  get flag() {
+    switch (this.getDdiValue) {
+      case flags.brl:
+        return './BR.svg';
+      case flags.usa:
+        return './US.svg';
+      case flags.chn:
+        return './CN.svg';
+      case flags.esp:
+        return './ES.svg';
       default:
         return '';
     }

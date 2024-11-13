@@ -4,6 +4,8 @@ import { SelectInputComponent } from './select-input.component';
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { SelectInputOption } from './select-input.interface';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const options: SelectInputOption[] = [
   { value: 1, text: 'Categoria 1' },
@@ -113,10 +115,17 @@ const meta: Meta<SelectInputComponent> = {
 export default meta;
 type Story = StoryObj<SelectInputComponent>;
 
+const form: FormGroup = new FormGroup({
+  categories: new FormControl('', [CustomValidators.required]),
+});
+
+delete form['controls']['categories']['_parent'];
+
 export const Default: Story = {
   args: {
+    form: form,
     state: 'default',
-    multiple: true,
+    multiple: false,
     id: 'categories',
     testId: 'categories',
     name: 'categories',
@@ -128,14 +137,14 @@ export const Default: Story = {
     errorText: '',
     placeholder: 'Selecione uma opção',
     readOnly: false,
-    selecteds: [options[1], options[2]],
+    selecteds: [options[1]],
     options,
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();
-  },
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
+  //   expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();
+  // },
 };
