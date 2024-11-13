@@ -131,10 +131,18 @@
       background-color: var(--select_field__option_item_hover_bg_color);
       transition: 0.5s;
     }
+
+    p {
+      margin: 0;
+    }
   }
 
   &__selected {
     display: flex;
+
+    p {
+      margin: 0;
+    }
   }
 
   &__img_flag {
