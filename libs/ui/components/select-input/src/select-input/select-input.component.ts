@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, input, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
@@ -15,6 +15,7 @@ import { fromEvent, Subscription } from 'rxjs';
 export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('selectInputField') selectInputField!: ElementRef;
   @ViewChild('selectInputOption') selectInputOption!: ElementRef;
+  @ViewChild('selectInput') selectInput!: ElementRef;
 
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
@@ -64,7 +65,9 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
     const alreadyIn = (this.selecteds || []).find((item) => item.value === option.value);
 
     if (!this.multiple) {
-      this.selecteds = alreadyIn ? [] : [option];
+      (document.activeElement as any).blur();
+      this.selecteds = [option];
+      // this.selecteds = alreadyIn ? [] : [option];
     } else {
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
     }
@@ -91,20 +94,28 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
     return (this.selecteds || []).find((item) => item.value === option.value);
   }
 
-  getSelected() {
+  getSelectedTexts() {
     if (this.selecteds.length > 1) {
       const selecteds = (this.selecteds || []).map((item) => item.text);
       return `${selecteds[selecteds.length - 1]} (+${selecteds.length - 1})`;
     }
 
-    return this.selecteds.length ? `${this.selecteds[0].image} ${this.selecteds[0].text}` : this.placeholder;
+    return this.selecteds.length ? `${this.selecteds[0].text}` : this.placeholder;
+  }
+
+  getSelectedImage() {
+    if (this.selecteds.length <= 0 || !this.selecteds[0].image) return '';
+
+    return this.selecteds[0].image;
+  }
+
+  get control() {
+    return this.form.get(this.name);
   }
 
   get getErrors(): string {
-    if (!this.form || !this.form.get(this.name)) return '';
-    const control = this.form?.get(this.name);
-    return Object.values(control?.errors || {})
-      .map((error) => error)
-      .join('');
+    if (!this.form || !this.control || this.control.untouched) return '';
+    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    return errors[0];
   }
 }

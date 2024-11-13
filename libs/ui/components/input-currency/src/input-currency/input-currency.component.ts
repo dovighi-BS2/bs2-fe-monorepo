@@ -38,6 +38,7 @@ export class InputCurrencyComponent {
     { value: 8, text: 'AED', image: '123' },
   ];
   @Input() hideCheckbox = false;
+  @Input() flag: any = '';
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;

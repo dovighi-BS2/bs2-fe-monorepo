@@ -54,7 +54,14 @@
         "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
-        }
+        },
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "./components/select-input/assets/images/flags",
+            "output": "./assets/images/"
+          }
+        ]
       },
       "configurations": {
         "ci": {
@@ -74,7 +81,14 @@
         "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
-        }
+        },
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "./components/select-input/assets/images/flags",
+            "output": "./assets/images/"
+          }
+        ]
       },
       "configurations": {
         "ci": {

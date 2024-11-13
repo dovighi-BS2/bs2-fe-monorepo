@@ -9,10 +9,10 @@ import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { provideNgxMask } from 'ngx-mask';
 
 const options: SelectInputOption[] = [
-  { value: 1, text: flags.brl, image: 'BRL' },
-  { value: 2, text: flags.usa, image: 'USA' },
-  { value: 2, text: flags.chn, image: 'CHN' },
-  { value: 2, text: flags.esp, image: 'ESP' },
+  { value: 1, text: flags.brl, image: 'BR.svg' },
+  { value: 2, text: flags.usa, image: 'US.svg' },
+  { value: 3, text: flags.chn, image: 'CN.svg' },
+  { value: 4, text: flags.esp, image: 'ES.svg' },
 ];
 
 const meta: Meta<PhoneFieldComponent> = {

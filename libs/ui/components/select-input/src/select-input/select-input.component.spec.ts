@@ -9,10 +9,10 @@ import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/v
 describe('SelectInputComponent', () => {
   const testId = 'select_input__test_id';
   const options: SelectInputOption[] = [
-    { value: 'Categoria 1', text: 'Categoria 1', image: '123' },
-    { value: 'Categoria 2', text: 'Categoria 2', image: '123' },
+    { value: 'Categoria 1', text: 'Categoria 1' },
+    { value: 'Categoria 2', text: 'Categoria 2' },
     { value: 'Categoria 3', text: 'Categoria 3' },
-    { value: 'Categoria 4', text: 'Categoria 4', image: '123' },
+    { value: 'Categoria 4', text: 'Categoria 4' },
     { value: 'Categoria 5', text: 'Categoria 5' },
   ];
 
@@ -47,14 +47,14 @@ describe('SelectInputComponent', () => {
     component.selecteds = [options[0]];
     fixture.detectChanges();
 
-    let selected = get(`[data-test='${testId}'] .select_input__selected`);
-    const selectedContent = options[0].image ? `${options[0]?.image} ${options[0].text}` : options[0].text;
+    let selected = get(`[data-test='${testId}'] .select_input__selected p`);
+    const selectedContent = options[0].text;
     expect(selected.textContent.trim()).toBe(selectedContent);
 
     component.selecteds = [];
     fixture.detectChanges();
 
-    selected = get(`[data-test='${testId}'] .select_input__selected`);
+    selected = get(`[data-test='${testId}'] .select_input__selected p`);
     expect(selected.textContent.trim()).toBe('Selecione uma opção');
   });
 
@@ -79,8 +79,8 @@ describe('SelectInputComponent', () => {
 
     fixture.detectChanges();
 
-    const selected = get(`[data-test='${testId}'] .select_input__selected`);
-    const selectedContent = options[1].image ? `${options[1]?.image} ${options[1].text}` : options[1].text;
+    const selected = get(`[data-test='${testId}'] .select_input__selected p`);
+    const selectedContent = options[1].text;
     expect(selected.textContent.trim()).toBe(selectedContent);
   });
 
@@ -92,7 +92,7 @@ describe('SelectInputComponent', () => {
 
     fixture.detectChanges();
 
-    const selected = get(`[data-test='${testId}'] .select_input__selected`);
+    const selected = get(`[data-test='${testId}'] .select_input__selected p`);
     expect(selected.textContent.trim()).toBe(`${options[1].text} (+1)`);
   });
 
@@ -113,7 +113,9 @@ describe('SelectInputComponent', () => {
     expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
-    component.selectOption(options[0]);
+    component.form.get('categories').setValue([]);
+    component.selecteds = [];
+    component.form.get('categories').markAsTouched();
     fixture.detectChanges();
     main = get(`[data-test='${testId}']`);
     feedback = get(`[data-test='${testId}'] .select_input__feedback`);
