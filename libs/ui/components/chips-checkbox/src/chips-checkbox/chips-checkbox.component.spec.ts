@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChipsCheckboxComponent } from './chips-checkbox.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
+// import { By } from '@angular/platform-browser';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const defaultOptions = [
@@ -16,8 +16,8 @@ describe('ChipsCheckboxComponent', () => {
   let component: ChipsCheckboxComponent;
   let fixture: ComponentFixture<ChipsCheckboxComponent>;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+  // const get = (selector: string) =>
+  //   fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
