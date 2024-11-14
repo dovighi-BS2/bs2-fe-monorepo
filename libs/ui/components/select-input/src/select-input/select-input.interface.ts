@@ -1,5 +1,5 @@
 export interface SelectInputOption {
-  value: string | number;
+  value: any;
   text: string | number;
   image?: string | number;
 }

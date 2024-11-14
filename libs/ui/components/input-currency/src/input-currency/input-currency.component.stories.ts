@@ -1,19 +1,16 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 
-import { within } from '@storybook/test';
-import { expect } from '@storybook/test';
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { InputCurrencyComponent } from './input-currency.component';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { flags } from './input-currency.component.enum';
 
 const options: SelectInputOption[] = [
-  { value: 1, text: 'BRL', image: '123' },
-  { value: 2, text: 'USD', image: '123' },
-  { value: 3, text: 'EUR', image: '123' },
-  { value: 4, text: 'GBP', image: '123' },
-  { value: 5, text: 'CAD', image: '123' },
-  { value: 6, text: 'AUD', image: '123' },
-  { value: 7, text: 'CNY', image: '123' },
-  { value: 8, text: 'AED', image: '123' },
+  { value: flags.brl, text: 'BRL', image: 'BR.svg' },
+  { value: flags.usa, text: 'USA', image: 'US.svg' },
+  { value: flags.chn, text: 'CHN', image: 'CN.svg' },
+  { value: flags.esp, text: 'ESP', image: 'ES.svg' },
 ];
 
 const meta: Meta<InputCurrencyComponent> = {
@@ -121,8 +118,15 @@ const meta: Meta<InputCurrencyComponent> = {
 export default meta;
 type Story = StoryObj<InputCurrencyComponent>;
 
+const form: FormGroup = new FormGroup({
+  flags: new FormControl([], [CustomValidators.required]),
+});
+
+delete form['controls']['flags']['_parent'];
+
 export const Default: Story = {
   args: {
+    form,
     state: 'default',
     multiple: false,
     id: 'flags',
@@ -142,9 +146,5 @@ export const Default: Story = {
     ariaRequired: false,
     ariaInvalid: false,
     hideCheckbox: true,
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();
   },
 };

@@ -22,7 +22,9 @@ import { ScrollbarDirective } from './scrollbar.directive';
   standalone: true,
 })
 class MockScrollbarComponent {
-  public array = Array(20).fill(0);
+  public array = Array(20)
+    .fill(0)
+    .map((i, key) => key);
 }
 
 const meta: Meta<MockScrollbarComponent> = {
@@ -36,7 +38,6 @@ const meta: Meta<MockScrollbarComponent> = {
       imports: [MockScrollbarComponent, ScrollbarDirective],
     }),
   ],
-  argTypes: {},
 };
 export default meta;
 type Story = StoryObj<MockScrollbarComponent>;

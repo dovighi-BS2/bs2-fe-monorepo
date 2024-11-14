@@ -1,4 +1,3 @@
-<!-- VERSÃO COM REACTIVEFORMS -->
 <div *ngIf="!!form" [attr.id]="id" [attr.data-test]="testId" [formGroup]="form" class="input_currency">
   <select-input
     [readOnly]="readOnly"
@@ -14,23 +13,6 @@
     [state]="state"
     [multiple]="multiple"
     [placeholder]="placeholder"
-  ></select-input>
-</div>
-
-<!-- VERSÃO SEM REACTIVEFORMS -->
-<div *ngIf="!form" [attr.id]="id" [attr.data-test]="testId" class="input_currency">
-  <select-input
-    [readOnly]="readOnly"
-    [helperText]="helperText"
-    [errorText]="errorText"
-    [options]="options"
-    [id]="id"
-    [testId]="testId"
-    [label]="label"
-    [name]="name"
-    [hideCheckbox]="hideCheckbox"
-    [state]="state"
-    [multiple]="multiple"
-    [placeholder]="placeholder"
+    rightIcon=""
   ></select-input>
 </div>
