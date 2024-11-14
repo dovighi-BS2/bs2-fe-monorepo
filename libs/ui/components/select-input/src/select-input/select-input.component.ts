@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, input, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
@@ -32,7 +32,6 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
-  @Input() selecteds: SelectInputOption[] = [];
   @Input() options: SelectInputOption[] = [];
   @Input() hideCheckbox = false;
 
@@ -40,19 +39,21 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
+  public selecteds: SelectInputOption[] = [];
   private selectInputFieldSub: Subscription = new Subscription();
 
   ngOnInit(): void {
-    if (this.options[0] && this.selecteds.length <= 0) this.selectOption(this.options[0]);
-
-    if (this.selecteds.length > 0) this.form && this.form.get(this.name)?.setValue(this.selecteds);
-
-    if (this.form && this.form.get(this.name)?.value.length > 0) this.selecteds = this.form.get(this.name)?.value;
+    // if (this.options[0] && this.selecteds.length <= 0) this.selectOption(this.options[0]);
+    if (this.form && this.control?.value.length > 0) {
+      this.selecteds = (this.options || []).filter((item) => (this.control?.value || []).includes(item.value));
+    }
   }
   ngAfterViewInit(): void {
-    this.selectInputFieldSub = fromEvent(this.selectInputField?.nativeElement, 'click').subscribe(() =>
-      this.selectInputOption?.nativeElement.focus()
-    );
+    if (this.selectInputField?.nativeElement) {
+      this.selectInputFieldSub = fromEvent(this.selectInputField?.nativeElement, 'click').subscribe(() =>
+        this.selectInputOption?.nativeElement.focus()
+      );
+    }
   }
 
   ngOnDestroy(): void {
@@ -71,7 +72,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
     } else {
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
     }
-    this.form && this.form.get(this.name)?.setValue(this.selecteds);
+    this.form && this.control?.setValue(this.selecteds.map((item) => item.value));
   }
 
   addSelected(option: SelectInputOption) {
@@ -82,7 +83,7 @@ export class SelectInputComponent implements OnInit, AfterViewInit, OnDestroy {
     this.selecteds = (this.selecteds || []).filter((item) => item.value !== option.value);
   }
 
-  selectByEnter(el: any, option: SelectInputOption) {
+  selectByEnter(option: SelectInputOption) {
     this.selectOption(option);
   }
 

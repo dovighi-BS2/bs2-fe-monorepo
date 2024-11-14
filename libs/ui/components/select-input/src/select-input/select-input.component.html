@@ -41,10 +41,10 @@
         class="select_input__option_item {{ isSelected(option) ? 'selected' : '' }}"
         role="option"
         [cdkOption]="option.value"
-        (keyup.enter)="selectByEnter($event, option)"
+        (keyup.enter)="selectByEnter(option)"
         (click)="selectByClick(option)"
       >
-        <span class="select_input__option_checkbox" *ngIf="!hideCheckbox"></span>
+        <span class="select_input__option_checkbox" *ngIf="!hideCheckbox && multiple"></span>
         <img [src]="option.image" *ngIf="option.image" class="select_input__img_flag" />
         <p>{{ option.text }}</p>
       </div>

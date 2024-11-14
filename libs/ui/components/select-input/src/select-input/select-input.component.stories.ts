@@ -1,8 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { SelectInputComponent } from './select-input.component';
 
-import { within } from '@storybook/test';
-import { expect } from '@storybook/test';
 import { SelectInputOption } from './select-input.interface';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
@@ -85,11 +83,6 @@ const meta: Meta<SelectInputComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
-    selecteds: {
-      control: { type: 'text' },
-      description: 'Este campo será vinculado com o [control] do ReactiveForms',
-      defaultValue: { summary: '[control] initial value' },
-    },
     options: {
       control: { type: 'text' },
       description: 'obrigatório',
@@ -110,13 +103,18 @@ const meta: Meta<SelectInputComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
+    hideCheckbox: {
+      control: { type: 'boolean' },
+      description: 'opcional',
+      defaultValue: { summary: 'false' },
+    },
   },
 };
 export default meta;
 type Story = StoryObj<SelectInputComponent>;
 
 const form: FormGroup = new FormGroup({
-  categories: new FormControl('', [CustomValidators.required]),
+  categories: new FormControl([2, 3, 4], [CustomValidators.required]),
 });
 
 delete form['controls']['categories']['_parent'];
@@ -125,7 +123,7 @@ export const Default: Story = {
   args: {
     form: form,
     state: 'default',
-    multiple: false,
+    multiple: true,
     id: 'categories',
     testId: 'categories',
     name: 'categories',
@@ -137,11 +135,11 @@ export const Default: Story = {
     errorText: '',
     placeholder: 'Selecione uma opção',
     readOnly: false,
-    selecteds: [options[1]],
     options,
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
+    hideCheckbox: false,
   },
   // play: async ({ canvasElement }) => {
   //   const canvas = within(canvasElement);

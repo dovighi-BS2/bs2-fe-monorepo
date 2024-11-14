@@ -27,18 +27,8 @@ export class InputCurrencyComponent {
   @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
   @Input() selecteds: SelectInputOption[] = [];
-  @Input() options: SelectInputOption[] = [
-    { value: 1, text: 'BRL', image: '123' },
-    { value: 2, text: 'USD', image: '123' },
-    { value: 3, text: 'EUR', image: '123' },
-    { value: 4, text: 'GBP', image: '123' },
-    { value: 5, text: 'CAD', image: '123' },
-    { value: 6, text: 'AUD', image: '123' },
-    { value: 7, text: 'CNY', image: '123' },
-    { value: 8, text: 'AED', image: '123' },
-  ];
+  @Input() options: SelectInputOption[] = [];
   @Input() hideCheckbox = false;
-  @Input() flag: any = '';
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;

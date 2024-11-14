@@ -2,17 +2,16 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
 import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
 import { PhoneFieldComponent } from './phone-field.component';
-import { flags } from './phone-field.component.enum';
-import { within } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { provideNgxMask } from 'ngx-mask';
+import { flags } from '@bs2-fe-monorepo/ui/components/input-currency';
 
 const options: SelectInputOption[] = [
-  { value: 1, text: flags.brl, image: 'BR.svg' },
-  { value: 2, text: flags.usa, image: 'US.svg' },
-  { value: 3, text: flags.chn, image: 'CN.svg' },
-  { value: 4, text: flags.esp, image: 'ES.svg' },
+  { value: flags.brl, text: flags.brl, image: 'BR.svg' },
+  { value: flags.usa, text: flags.usa, image: 'US.svg' },
+  { value: flags.chn, text: flags.chn, image: 'CN.svg' },
+  { value: flags.esp, text: flags.esp, image: 'ES.svg' },
 ];
 
 const meta: Meta<PhoneFieldComponent> = {
@@ -153,9 +152,5 @@ export const Default: Story = {
     ariaRequired: false,
     ariaInvalid: false,
     hideCheckbox: true,
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();
   },
 };
