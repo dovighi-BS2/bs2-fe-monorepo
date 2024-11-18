@@ -6,7 +6,7 @@ const meta: Meta<LoaderDirective> = {
   title: 'Directives/Loader',
   decorators: [
     moduleMetadata({
-      imports: [LoaderDirective, LoaderDirective],
+      imports: [LoaderDirective],
     }),
   ],
   argTypes: {
