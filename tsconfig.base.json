@@ -20,6 +20,7 @@
       "@bs2-fe-monorepo/compiled-plugins": ["libs/compiled-plugins/src/index.ts"],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/chips-checkbox": ["libs/ui/components/chips-checkbox/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/content-divider": ["libs/ui/components/content-divider/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/date-picker": ["libs/ui/components/date-picker/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/input-currency": ["libs/ui/components/input-currency/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/progress-bar": ["libs/ui/components/progress-bar/src/index.ts"],
