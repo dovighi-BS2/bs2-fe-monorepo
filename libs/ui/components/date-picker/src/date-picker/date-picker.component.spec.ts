@@ -105,9 +105,6 @@ describe('DatePickerComponent', () => {
     component.form = new FormGroup({
       birthday: new FormControl('', [CustomValidators.required]),
     });
-    component.form = new FormGroup({
-      birthday: new FormControl('', [CustomValidators.required]),
-    });
     component.name = 'birthday';
     component.testId = testId;
     fixture.detectChanges();

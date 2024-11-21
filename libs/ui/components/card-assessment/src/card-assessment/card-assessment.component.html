@@ -1,5 +1,5 @@
-@if(form){
-<div class="review">
+@if(!!form){
+<div class="review" [attr.data-test]="testId">
   <div class="review__content">
     <p class="review__title">{{ title }}</p>
     <ul class="review__rate">

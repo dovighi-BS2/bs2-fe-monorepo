@@ -3,9 +3,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { ChangeDetectorRef } from '@angular/core';
 
 describe('CardAssessmentComponent', () => {
-  const testId = 'textarea_input__test_id';
+  const testId = 'card_assessment__test_id';
 
   let component: CardAssessmentComponent;
   let fixture: ComponentFixture<CardAssessmentComponent>;
@@ -19,18 +20,46 @@ describe('CardAssessmentComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(CardAssessmentComponent);
-
     component = fixture.componentInstance;
-    // component.form = new FormGroup({
-    //   description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(10)]),
-    // });
-    // component.testId = testId;
-    // component.name = 'description';
-
+    component.form = new FormGroup({
+      rate: new FormControl(null, [CustomValidators.required]),
+    });
+    component.name = 'rate';
+    component.testId = testId;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should execute setRate right', () => {
+    component.setRate(1);
+    expect(component.form.get('rate')?.value).toBe(1);
+
+    component.setRate(3);
+    expect(component.form.get('rate')?.value).toBe(3);
+  });
+
+  it('should add active class to star icon', () => {
+    component.from = 1;
+    component.to = 5;
+
+    component.form.get('rate').setValue(3);
+    fixture.componentRef.injector.get(ChangeDetectorRef).detectChanges();
+
+    expect(get(`.review__rate_item:nth-of-type(5)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(4)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(3)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(2)`)?.classList.contains('active')).toBe(false);
+    expect(get(`.review__rate_item:nth-of-type(1)`)?.classList.contains('active')).toBe(false);
+
+    component.form.get('rate').setValue(5);
+    fixture.componentRef.injector.get(ChangeDetectorRef).detectChanges();
+    expect(get(`.review__rate_item:nth-of-type(5)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(4)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(3)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(2)`)?.classList.contains('active')).toBe(true);
+    expect(get(`.review__rate_item:nth-of-type(1)`)?.classList.contains('active')).toBe(true);
   });
 });
