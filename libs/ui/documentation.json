@@ -145,16 +145,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -165,11 +155,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {},\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -185,21 +185,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    percent: 0,\r\n    loop: false,\r\n    testId: '',\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -215,21 +215,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/textarea-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    percent: 0,\r\n    loop: false,\r\n    testId: '',\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -245,11 +235,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -259,7 +249,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    id: 'description',\r\n    autosize: false,\r\n    resize: false,\r\n    rows: 1,\r\n    maxLength: 300,\r\n    testId: 'description',\r\n    name: 'description',\r\n    label: 'Descrição',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/textarea-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\r\n  },\r\n}"
             },
             {
                 "name": "Filled",
@@ -315,11 +325,11 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
-                "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
+                "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required]),\r\n})"
             },
             {
                 "name": "form",
@@ -345,11 +355,11 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
-                "defaultValue": "new FormGroup({\r\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\r\n})"
+                "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
             },
             {
                 "name": "form",
@@ -372,6 +382,16 @@
                 "defaultValue": "new FormGroup({\r\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\r\n})"
             },
             {
+                "name": "form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormGroup",
+                "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\r\n})"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -380,16 +400,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<MockButtonComponent>",
                 "defaultValue": "{\r\n  component: MockButtonComponent,\r\n  title: 'Directives/Button',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FilledButtonDirective,\r\n    OutlinedButtonDirective,\r\n    FlatButtonDirective,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [MockButtonComponent, FilledButtonDirective, OutlinedButtonDirective, FlatButtonDirective],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n    },\r\n    tabindex: {\r\n      control: { type: 'inline-radio' },\r\n      defaultValue: 0,\r\n      options: [0, -1],\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ContentDividerComponent>",
-                "defaultValue": "{\r\n  component: ContentDividerComponent,\r\n  title: 'Components/Content Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -405,11 +415,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<DatePickerComponent>",
-                "defaultValue": "{\r\n  component: DatePickerComponent,\r\n  title: 'Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                "type": "Meta<CardAssessmentComponent>",
+                "defaultValue": "{\r\n  component: CardAssessmentComponent,\r\n  title: 'Components/Card Assessment',\r\n  argTypes: {},\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ContentDividerComponent>",
+                "defaultValue": "{\r\n  component: ContentDividerComponent,\r\n  title: 'Components/Content Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -425,21 +445,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProgressBarComponent>",
-                "defaultValue": "{\r\n  component: ProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InputCurrencyComponent>",
                 "defaultValue": "{\r\n  component: InputCurrencyComponent,\r\n  title: 'Components/Input Currency',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'SelectInputOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DatePickerComponent>",
+                "defaultValue": "{\r\n  component: DatePickerComponent,\r\n  title: 'Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -455,21 +475,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TagTextComponent>",
-                "defaultValue": "{\r\n  component: TagTextComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TextareaInputComponent>",
-                "defaultValue": "{\r\n  component: TextareaInputComponent,\r\n  title: 'Components/Textarea Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                "type": "Meta<ProgressBarComponent>",
+                "defaultValue": "{\r\n  component: ProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -485,11 +495,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TokenFieldComponent>",
-                "defaultValue": "{\r\n  component: TokenFieldComponent,\r\n  title: 'Components/Token Field',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                "type": "Meta<TagTextComponent>",
+                "defaultValue": "{\r\n  component: TagTextComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -500,6 +510,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
                 "defaultValue": "{\r\n  component: TextInputComponent,\r\n  title: 'Components/Text Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextareaInputComponent>",
+                "defaultValue": "{\r\n  component: TextareaInputComponent,\r\n  title: 'Components/Textarea Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    autosize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    resize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    rows: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    maxLength: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TokenFieldComponent>",
+                "defaultValue": "{\r\n  component: TokenFieldComponent,\r\n  title: 'Components/Token Field',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -589,17 +619,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ContentDividerComponent>",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<ChipsCheckboxComponent>",
                 "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
                 "deprecated": false,
@@ -611,8 +630,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DatePickerComponent>",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "rawtype": "StoryObj<CardAssessmentComponent>",
+                "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ContentDividerComponent>",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -633,8 +663,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressBarComponent>",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "rawtype": "StoryObj<InputCurrencyComponent>",
+                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -644,8 +674,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputCurrencyComponent>",
-                "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                "rawtype": "StoryObj<DatePickerComponent>",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -666,19 +696,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TagTextComponent>",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TextareaInputComponent>",
-                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "rawtype": "StoryObj<ProgressBarComponent>",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -699,8 +718,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TokenFieldComponent>",
-                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                "rawtype": "StoryObj<TagTextComponent>",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -712,6 +731,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TextInputComponent>",
                 "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextareaInputComponent>",
+                "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TokenFieldComponent>",
+                "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -806,28 +847,6 @@
                     "defaultValue": "{\r\n  render: (args) => ({\r\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\r\n  }),\r\n}"
                 }
             ],
-            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ContentDividerComponent>",
-                    "defaultValue": "{\r\n  component: ContentDividerComponent,\r\n  title: 'Components/Content Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts": [
                 {
                     "name": "Default",
@@ -870,36 +889,58 @@
                     "defaultValue": "Array(10)\r\n  .fill(0)\r\n  .map((_, i) => ({\r\n    label: `item ${String(i + 1).padStart(2, '0')}`,\r\n    disabled: [3, 4, 5].includes(i),\r\n  }))"
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+            "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {},\r\n}"
                 },
                 {
                     "name": "form",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
+                    "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required]),\r\n})"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<DatePickerComponent>",
-                    "defaultValue": "{\r\n  component: DatePickerComponent,\r\n  title: 'Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                    "type": "Meta<CardAssessmentComponent>",
+                    "defaultValue": "{\r\n  component: CardAssessmentComponent,\r\n  title: 'Components/Card Assessment',\r\n  argTypes: {},\r\n}"
+                }
+            ],
+            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ContentDividerComponent>",
+                    "defaultValue": "{\r\n  component: ContentDividerComponent,\r\n  title: 'Components/Content Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/components/phone-field/src/phone-field/phone-field.component.stories.ts": [
@@ -944,28 +985,6 @@
                     "defaultValue": "[\r\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\r\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\r\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\r\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\r\n]"
                 }
             ],
-            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    percent: 0,\r\n    loop: false,\r\n    testId: '',\r\n  },\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ProgressBarComponent>",
-                    "defaultValue": "{\r\n  component: ProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1008,6 +1027,38 @@
                     "defaultValue": "[\r\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\r\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\r\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\r\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\r\n]"
                 }
             ],
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DatePickerComponent>",
+                    "defaultValue": "{\r\n  component: DatePickerComponent,\r\n  title: 'Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                }
+            ],
             "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1030,58 +1081,26 @@
                     "defaultValue": "{\r\n  component: StatusTextComponent,\r\n  title: 'Components/Status Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
-            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
+            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    percent: 0,\r\n    loop: false,\r\n    testId: '',\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TagTextComponent>",
-                    "defaultValue": "{\r\n  component: TagTextComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-                }
-            ],
-            "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/textarea-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\r\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\r\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextareaInputComponent>",
-                    "defaultValue": "{\r\n  component: TextareaInputComponent,\r\n  title: 'Components/Textarea Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                    "type": "Meta<ProgressBarComponent>",
+                    "defaultValue": "{\r\n  component: ProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/components/select-input/src/select-input/select-input.component.stories.ts": [
@@ -1126,26 +1145,26 @@
                     "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1' },\r\n  { value: 2, text: 'Categoria 2' },\r\n  { value: 3, text: 'Categoria 3' },\r\n  { value: 4, text: 'Categoria 4' },\r\n  { value: 5, text: 'Categoria 5' },\r\n]"
                 }
             ],
-            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TokenFieldComponent>",
-                    "defaultValue": "{\r\n  component: TokenFieldComponent,\r\n  title: 'Components/Token Field',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                    "type": "Meta<TagTextComponent>",
+                    "defaultValue": "{\r\n  component: TagTextComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
@@ -1157,7 +1176,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/text-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
                 },
                 {
                     "name": "form",
@@ -1178,6 +1197,60 @@
                     "deprecationMessage": "",
                     "type": "Meta<TextInputComponent>",
                     "defaultValue": "{\r\n  component: TextInputComponent,\r\n  title: 'Components/Text Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                }
+            ],
+            "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    id: 'description',\r\n    autosize: false,\r\n    resize: false,\r\n    rows: 1,\r\n    maxLength: 300,\r\n    testId: 'description',\r\n    name: 'description',\r\n    label: 'Descrição',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/textarea-input works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\r\n})"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextareaInputComponent>",
+                    "defaultValue": "{\r\n  component: TextareaInputComponent,\r\n  title: 'Components/Textarea Input',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    autosize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    resize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    rows: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    maxLength: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+                }
+            ],
+            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/token-field works!/gi)).toBeTruthy();\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TokenFieldComponent>",
+                    "defaultValue": "{\r\n  component: TokenFieldComponent,\r\n  title: 'Components/Token Field',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/directives/loader/src/loader/loader.directive.stories.ts": [
@@ -1241,19 +1314,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ContentDividerComponent>",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts": [
                 {
                     "name": "Story",
@@ -1267,13 +1327,26 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+            "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<DatePickerComponent>",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "rawtype": "StoryObj<CardAssessmentComponent>",
+                    "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ContentDividerComponent>",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1293,19 +1366,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressBarComponent>",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
                 {
                     "name": "Story",
@@ -1313,6 +1373,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<InputCurrencyComponent>",
                     "file": "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DatePickerComponent>",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1332,26 +1405,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
+            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TagTextComponent>",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TextareaInputComponent>",
-                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                    "rawtype": "StoryObj<ProgressBarComponent>",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1371,13 +1431,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TokenFieldComponent>",
-                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
+                    "rawtype": "StoryObj<TagTextComponent>",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1391,6 +1451,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TextInputComponent>",
                     "file": "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextareaInputComponent>",
+                    "file": "libs/ui/components/textarea-input/src/textarea-input/textarea-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TokenFieldComponent>",
+                    "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1436,6 +1522,36 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "config",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "form",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
