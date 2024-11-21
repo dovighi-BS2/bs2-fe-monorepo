@@ -2,7 +2,7 @@
   padding: 16px 16px;
   border-radius: 8px;
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-  width: max-content;
+  max-width: 100%;
 
   &__content {
   }
@@ -15,38 +15,29 @@
   &__rate {
     display: flex;
     justify-content: space-between;
-    // column-gap: 20px;
+    flex-direction: row-reverse;
+    column-gap: 20px;
     padding: 0px;
     margin: 0px;
-
-    &:hover svg {
-      transition: 0.5s;
-      stroke: var(--attention);
-      fill: var(--attention_tint);
-    }
   }
   &__rate_item {
     position: relative;
     display: flex;
     flex-direction: column;
 
-    &:not(:last-of-type) {
-      padding-right: 20px;
-    }
     svg {
-      transition: 0.5s;
       stroke: var(--neutral_n2);
     }
-
     &.active svg {
-      transition: 0.5s;
       stroke: var(--attention);
       fill: var(--attention);
     }
-    &:hover ~ & svg {
-      stroke: var(--neutral_n2);
-      fill: transparent;
-    }
+    // Hover não proposto pelo Design System
+    // &:hover svg,
+    // &:hover ~ & svg {
+    //   stroke: var(--attention);
+    //   fill: var(--attention_tint);
+    // }
   }
   &__rate_icon {
     cursor: pointer;

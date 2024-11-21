@@ -28,7 +28,7 @@ export class CardAssessmentComponent {
       .fill(0)
       .map((_, index) => this.from + index);
 
-    return rates;
+    return rates.reverse();
   }
 
   get control() {

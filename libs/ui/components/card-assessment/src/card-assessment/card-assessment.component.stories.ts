@@ -7,7 +7,17 @@ import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 const meta: Meta<CardAssessmentComponent> = {
   component: CardAssessmentComponent,
   title: 'Components/Card Assessment',
-  argTypes: {},
+  argTypes: {
+    form: {
+      control: { type: 'object' },
+      defaultValue: { summary: '(vazio)' },
+      table: {
+        type: {
+          summary: 'FormGroup',
+        },
+      },
+    },
+  },
 };
 
 export default meta;
