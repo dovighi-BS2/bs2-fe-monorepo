@@ -120,7 +120,8 @@
   &.filled {
   }
 
-  &:has(&__field[readonly]) &:has(&__field[readonly='true']),
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {

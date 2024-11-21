@@ -121,7 +121,6 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
-    clickEmitter: fn(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
