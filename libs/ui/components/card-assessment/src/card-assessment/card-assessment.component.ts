@@ -20,13 +20,15 @@ export class CardAssessmentComponent {
   @Input() firstText? = 'Muito ruim';
   @Input() lastText? = 'Excelente';
 
-  public rates: number[] = Array(this.to)
-    .fill(0)
-    .map((_, index) => this.from + index)
-    .reverse();
-
   setRate(rate: number) {
     this.control.setValue(rate);
+  }
+
+  get rates() {
+    return Array(this.to - this.from + 1)
+      .fill(0)
+      .map((_, index) => this.from + index)
+      .reverse();
   }
 
   get control() {

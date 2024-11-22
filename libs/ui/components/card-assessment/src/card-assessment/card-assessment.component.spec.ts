@@ -62,4 +62,18 @@ describe('CardAssessmentComponent', () => {
     expect(get(`.review__rate_item:nth-of-type(2)`)?.classList.contains('active')).toBe(true);
     expect(get(`.review__rate_item:nth-of-type(1)`)?.classList.contains('active')).toBe(true);
   });
+
+  it('should execute get rates right', () => {
+    component.from = 1;
+    component.to = 5;
+    expect(component.rates.length).toBe(5);
+
+    component.from = 1;
+    component.to = 1;
+    expect(component.rates.length).toBe(1);
+
+    component.from = 1;
+    component.to = 10;
+    expect(component.rates.length).toBe(10);
+  });
 });
