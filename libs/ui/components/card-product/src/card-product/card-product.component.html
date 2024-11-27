@@ -22,7 +22,7 @@
   </div>
   @if(label){
   <p class="product__label">{{ label }}</p>
-  } @if(!Number.isNaN(value)){
+  } @if(value !== undefined && !Number.isNaN(value)){
   <p class="product__value">R$ {{ transform(Number(value)) }}</p>
   } @if(text){
   <p class="product__text">{{ text }}</p>
@@ -43,7 +43,7 @@
   </div>
   @if(label){
   <p class="product__label">{{ label }}</p>
-  } @if(!Number.isNaN(value)){
+  } @if(value !== undefined && !Number.isNaN(value)){
   <p class="product__value">R$ ••••••</p>
   } @if(text){
   <p class="product__text">{{ text }}</p>
