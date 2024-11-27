@@ -40,7 +40,6 @@
       ],
       "@bs2-fe-monorepo/ui/directives/loader": ["libs/ui/directives/loader/src/index.ts"],
       "@bs2-fe-monorepo/ui/directives/scrollbar": ["libs/ui/directives/scrollbar/src/index.ts"],
-      "@bs2-fe-monorepo/ui/directives/swiper": ["libs/ui/directives/swiper/src/index.ts"],
       "@bs2-fe-monorepo/ui/validators": ["libs/ui/validators/src/index.ts"]
     }
   },
