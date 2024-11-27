@@ -8,6 +8,242 @@
     "directives": [],
     "components": [
         {
+            "name": "FatherSimulationComponent",
+            "id": "component-FatherSimulationComponent-5a0f9904da979f73fad7124a21380f2df09313a1392d1ff5c064be876fa06f99284c1cbeacc839330de52d4a149cabc34434ad325ec104db62e9cd107c22f05a",
+            "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "father-simulation",
+            "styleUrls": [],
+            "styles": [
+                ":host{ display:block; width: 231px; }"
+            ],
+            "template": "<card-product    [testId]=\"testId\"\n    [loader]=\"loader\"\n    [unavailableTitle]=\"unavailableTitle\"\n    [icon]=\"icon\"\n    [title]=\"title\"\n    [label]=\"label\"\n    [value]=\"value\"\n    [text]=\"text\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "icon",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "loader",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "template",
+                    "defaultValue": "'visible'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "\"visible\" | \"hidden\" | \"unavailable\"",
+                    "decorators": []
+                },
+                {
+                    "name": "testId",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "text",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "unavailableTitle",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "update",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardProductComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CardProductComponent } from './card-product.component';\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { delay, finalize, of } from 'rxjs';\n\nfunction rand(min: number, max: number) {\n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\n@Component({\n  selector: 'father-simulation',\n  styles: `:host{ display:block; width: 231px; }`,\n  template: `<card-product\n    [testId]=\"testId\"\n    [loader]=\"loader\"\n    [unavailableTitle]=\"unavailableTitle\"\n    [icon]=\"icon\"\n    [title]=\"title\"\n    [label]=\"label\"\n    [value]=\"value\"\n    [text]=\"text\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />`,\n  standalone: true,\n  imports: [CardProductComponent],\n})\nclass FatherSimulationComponent {\n  @Input() testId? = '';\n  @Input() loader? = false;\n  @Input() unavailableTitle? = '';\n  @Input() icon? = '';\n  @Input() title? = '';\n  @Input() label? = '';\n  @Input() value?: number;\n  @Input() text? = '';\n  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';\n\n  update() {\n    this.loader = true;\n    of(null)\n      .pipe(\n        delay(3000),\n        finalize(() => (this.loader = false))\n      )\n      .subscribe((_) => {\n        this.template = 'visible';\n        this.value = rand(1, 1000000000);\n      });\n  }\n}\n\nconst meta: Meta<FatherSimulationComponent> = {\n  component: FatherSimulationComponent,\n  title: 'Components/Card Product',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardProductComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardProductComponent],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    unavailableTitle: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    icon: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    label: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    value: {\n      control: { type: 'number' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<FatherSimulationComponent>;\n\nexport const Visible: Story = {\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n};\n\nexport const Hidden: Story = {\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n    template: 'hidden',\n  },\n};\n\nexport const TextOnly: Story = {\n  args: {\n    title: 'Label',\n    text: 'Lorem ipsum pimentbus ardentis queimatuns est labiatuns',\n    testId: '',\n  },\n};\n\nexport const Unavailable: Story = {\n  args: {\n    unavailableTitle: 'Unavailable title',\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    template: 'unavailable',\n    testId: '',\n  },\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ":host{ display:block; width: 231px; }\n",
+            "extends": []
+        },
+        {
+            "name": "FatherSimulationComponent",
+            "id": "component-FatherSimulationComponent-49f569bec0b4c6ea8cd141650e50730d8a4ef4d4d3caddd282529347c282bf96e8fe024a01b934f46ab493095ec7e1a61b5e7512bdb65eff88b80f51bf0bf704-1",
+            "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "father-simulation",
+            "styleUrls": [],
+            "styles": [
+                ":host{ display:block; width: 312px; }"
+            ],
+            "template": "<card-balance    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "balance",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "limit",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "loader",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "template",
+                    "defaultValue": "'visible'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "\"visible\" | \"hidden\" | \"unavailable\"",
+                    "decorators": []
+                },
+                {
+                    "name": "testId",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "update",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardBalanceComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CardBalanceComponent } from './card-balance.component';\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { delay, finalize, of } from 'rxjs';\n\nfunction rand(min: number, max: number) {\n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\n@Component({\n  selector: 'father-simulation',\n  styles: `:host{ display:block; width: 312px; }`,\n  template: `<card-balance\n    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />`,\n  standalone: true,\n  imports: [CardBalanceComponent],\n})\nclass FatherSimulationComponent {\n  @Input() loader? = false;\n  @Input() testId? = '';\n  @Input() balance? = 0;\n  @Input() limit? = 0;\n  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';\n\n  update() {\n    this.loader = true;\n    of(null)\n      .pipe(\n        delay(3000),\n        finalize(() => (this.loader = false))\n      )\n      .subscribe((_) => {\n        this.template = 'visible';\n        this.balance = rand(1, 1000000000);\n        this.limit = rand(1, 300000000);\n      });\n  }\n}\n\nconst meta: Meta<FatherSimulationComponent> = {\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<FatherSimulationComponent>;\n\nexport const Visible: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n};\n\nexport const Hidden: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n};\n\nexport const Unavailable: Story = {\n  args: {\n    template: 'unavailable',\n  },\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ":host{ display:block; width: 312px; }\n",
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "FatherSimulationComponent-1"
+        },
+        {
             "name": "MockButtonComponent",
             "id": "component-MockButtonComponent-985fab87552d03380bd017aaf790164ac023bca588cbcc3fed66d1d5f34fbe45e87acbe47eec219428961dcead969ac82cfccdb0194b8858183e51fb8ced3a1b",
             "file": "libs/ui/directives/button/button.directive.stories.ts",
@@ -155,26 +391,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'card_balance_test_id',\r\n    form: form,\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -185,11 +401,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -215,11 +431,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    percent: 0,\n    loop: false,\n    testId: '',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
             },
             {
                 "name": "Default",
@@ -235,11 +451,31 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    percent: 0,\n    loop: false,\n    testId: '',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    status: 'neutral',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
             },
             {
                 "name": "Default",
@@ -265,16 +501,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -295,21 +521,21 @@
                 "name": "Filled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  render: (args) => ({\n    styles: [\n      `\n      .sm{ position:relative; border: 1px solid red; width: 100px; height: 100px; }\n      .md{ position:relative; border: 1px solid red; width: 200px; height: 200px; }\n      .lg{ position:relative; border: 1px solid red; width: 300px; height: 300px; }\n      .relative{ position:relative; width:100%; height:100%; }\n      .absolute{ position:absolute; width:100%; height:100%; }\n    `,\n    ],\n    template: `\n      <div style='display:flex'>\n        <div class=\"sm\">\n          <div class=\"relative\" [loader]='${args.loader}'>primeiro</div>\n        </div>\n        <div class=\"md\">\n          <div class=\"absolute\" [loader]='${args.loader}' loaderBG='${args.loaderBG}'>segundo</div>\n        </div>\n        <div class=\"lg\">\n          <div class=\"absolute\" [loader]='${args.loader}'>terceiro</div>\n        </div>\n      </div>\n    `,\n  }),\n}"
-            },
-            {
-                "name": "Filled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: (args) => ({\n    template: `<scrollbar-mock />`,\n  }),\n}"
+            },
+            {
+                "name": "Filled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    styles: [\n      `\n      .sm{ position:relative; border: 1px solid red; width: 100px; height: 100px; }\n      .md{ position:relative; border: 1px solid red; width: 200px; height: 200px; }\n      .lg{ position:relative; border: 1px solid red; width: 300px; height: 300px; }\n      .relative{ position:relative; width:100%; height:100%; }\n      .absolute{ position:absolute; width:100%; height:100%; }\n    `,\n    ],\n    template: `\n      <div style='display:flex'>\n        <div class=\"sm\">\n          <div class=\"relative\" [loader]='${args.loader}'>primeiro</div>\n        </div>\n        <div class=\"md\">\n          <div class=\"absolute\" [loader]='${args.loader}' loaderBG='${args.loaderBG}'>segundo</div>\n        </div>\n        <div class=\"lg\">\n          <div class=\"absolute\" [loader]='${args.loader}'>terceiro</div>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Flat",
@@ -335,31 +561,21 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormGroup",
-                "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
-            },
-            {
-                "name": "form",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormGroup",
-                "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
-            },
-            {
-                "name": "form",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
                 "defaultValue": "new FormGroup({\n  reasons: new FormControl([], [CustomValidators.required]),\n})"
+            },
+            {
+                "name": "form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormGroup",
+                "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
             },
             {
                 "name": "form",
@@ -412,6 +628,26 @@
                 "defaultValue": "new FormGroup({\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\n})"
             },
             {
+                "name": "Hidden",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n    template: 'hidden',\n  },\n}"
+            },
+            {
+                "name": "Hidden",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -420,6 +656,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<MockButtonComponent>",
                 "defaultValue": "{\n  component: MockButtonComponent,\n  title: 'Directives/Button',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FilledButtonDirective,\n    OutlinedButtonDirective,\n    FlatButtonDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockButtonComponent, FilledButtonDirective, OutlinedButtonDirective, FlatButtonDirective],\n    }),\n  ],\n  argTypes: {\n    ariaLabel: {\n      control: { type: 'text' },\n    },\n    tabindex: {\n      control: { type: 'inline-radio' },\n      defaultValue: 0,\n      options: [0, -1],\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MockScrollbarComponent>",
+                "defaultValue": "{\n  component: MockScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    ScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockScrollbarComponent, ScrollbarDirective],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LoaderDirective>",
+                "defaultValue": "{\n  component: LoaderDirective,\n  title: 'Directives/Loader',\n  decorators: [\n    moduleMetadata({\n      imports: [LoaderDirective],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    loaderBG: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -435,21 +691,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<DatePickerComponent>",
-                "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'Components/Date Picker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardBalanceComponent>",
-                "defaultValue": "{\r\n  component: CardBalanceComponent,\r\n  title: 'Components/Card balance',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+                "type": "Meta<FatherSimulationComponent>",
+                "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Product',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardProductComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardProductComponent],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    unavailableTitle: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    icon: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    label: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    value: {\n      control: { type: 'number' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -465,11 +711,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ContentDividerComponent>",
-                "defaultValue": "{\n  component: ContentDividerComponent,\n  title: 'Components/Content Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                "type": "Meta<FatherSimulationComponent>",
+                "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DatePickerComponent>",
+                "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'Components/Date Picker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -495,11 +751,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ProgressBarComponent>",
-                "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                "type": "Meta<ContentDividerComponent>",
+                "defaultValue": "{\n  component: ContentDividerComponent,\n  title: 'Components/Content Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -515,11 +771,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressBarComponent>",
+                "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<StatusTextComponent>",
                 "defaultValue": "{\n  component: StatusTextComponent,\n  title: 'Components/Status Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TagTextComponent>",
+                "defaultValue": "{\n  component: TagTextComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -545,41 +821,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TagTextComponent>",
-                "defaultValue": "{\n  component: TagTextComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TokenFieldComponent>",
                 "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'Components/Token Field',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<LoaderDirective>",
-                "defaultValue": "{\n  component: LoaderDirective,\n  title: 'Directives/Loader',\n  decorators: [\n    moduleMetadata({\n      imports: [LoaderDirective],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    loaderBG: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',\n        },\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MockScrollbarComponent>",
-                "defaultValue": "{\n  component: MockScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    ScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockScrollbarComponent, ScrollbarDirective],\n    }),\n  ],\n}"
             },
             {
                 "name": "options",
@@ -630,9 +876,146 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
+            },
+            {
+                "name": "TextOnly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Label',\n    text: 'Lorem ipsum pimentbus ardentis queimatuns est labiatuns',\n    testId: '',\n  },\n}"
+            },
+            {
+                "name": "Unavailable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    unavailableTitle: 'Unavailable title',\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    template: 'unavailable',\n    testId: '',\n  },\n}"
+            },
+            {
+                "name": "Unavailable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    template: 'unavailable',\n  },\n}"
+            },
+            {
+                "name": "Visible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n}"
+            },
+            {
+                "name": "Visible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "rand",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "rand",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "min",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "max",
+                        "type": "number",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "Story",
@@ -640,6 +1023,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<MockButtonComponent>",
                 "file": "libs/ui/directives/button/button.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MockScrollbarComponent>",
+                "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LoaderDirective>",
+                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -660,19 +1065,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DatePickerComponent>",
-                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<CardBalanceComponent>",
-                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "rawtype": "StoryObj<FatherSimulationComponent>",
+                "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -693,8 +1087,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ContentDividerComponent>",
-                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                "rawtype": "StoryObj<FatherSimulationComponent>",
+                "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DatePickerComponent>",
+                "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -726,8 +1131,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressBarComponent>",
-                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "rawtype": "StoryObj<ContentDividerComponent>",
+                "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -748,8 +1153,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressBarComponent>",
+                "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<StatusTextComponent>",
                 "file": "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagTextComponent>",
+                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -781,41 +1208,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TagTextComponent>",
-                "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<TokenFieldComponent>",
                 "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<LoaderDirective>",
-                "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MockScrollbarComponent>",
-                "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -920,70 +1314,6 @@
                     "defaultValue": "{\r\n  component: CardAssessmentComponent,\r\n  title: 'Components/Card Assessment',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DatePickerComponent>",
-                    "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'Components/Date Picker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-                }
-            ],
-            "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'card_balance_test_id',\r\n    form: form,\r\n  },\r\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardBalanceComponent>",
-                    "defaultValue": "{\r\n  component: CardBalanceComponent,\r\n  title: 'Components/Card balance',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/chips-checkbox/src/chips-checkbox/chips-checkbox.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1026,26 +1356,36 @@
                     "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
                 }
             ],
-            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ContentDividerComponent>",
-                    "defaultValue": "{\n  component: ContentDividerComponent,\n  title: 'Components/Content Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                    "type": "Meta<DatePickerComponent>",
+                    "defaultValue": "{\n  component: DatePickerComponent,\n  title: 'Components/Date Picker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/input-currency/src/input-currency/input-currency.component.stories.ts": [
@@ -1132,26 +1472,26 @@
                     "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
                 }
             ],
-            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
+            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    percent: 0,\n    loop: false,\n    testId: '',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ProgressBarComponent>",
-                    "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                    "type": "Meta<ContentDividerComponent>",
+                    "defaultValue": "{\n  component: ContentDividerComponent,\n  title: 'Components/Content Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/select-input/src/select-input/select-input.component.stories.ts": [
@@ -1196,6 +1536,28 @@
                     "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
                 }
             ],
+            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    percent: 0,\n    loop: false,\n    testId: '',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProgressBarComponent>",
+                    "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                }
+            ],
             "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1216,6 +1578,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<StatusTextComponent>",
                     "defaultValue": "{\n  component: StatusTextComponent,\n  title: 'Components/Status Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                }
+            ],
+            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TagTextComponent>",
+                    "defaultValue": "{\n  component: TagTextComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/text-input/src/text-input/text-input.component.stories.ts": [
@@ -1282,28 +1666,6 @@
                     "defaultValue": "{\n  component: TextareaInputComponent,\n  title: 'Components/Textarea Input',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
-            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TagTextComponent>",
-                    "defaultValue": "{\n  component: TagTextComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-                }
-            ],
             "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1324,6 +1686,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<TokenFieldComponent>",
                     "defaultValue": "{\n  component: TokenFieldComponent,\n  title: 'Components/Token Field',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                }
+            ],
+            "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts": [
+                {
+                    "name": "Filled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    template: `<scrollbar-mock />`,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MockScrollbarComponent>",
+                    "defaultValue": "{\n  component: MockScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    ScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockScrollbarComponent, ScrollbarDirective],\n    }),\n  ],\n}"
                 }
             ],
             "libs/ui/directives/loader/src/loader/loader.directive.stories.ts": [
@@ -1348,30 +1732,193 @@
                     "defaultValue": "{\n  component: LoaderDirective,\n  title: 'Directives/Loader',\n  decorators: [\n    moduleMetadata({\n      imports: [LoaderDirective],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    loaderBG: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',\n        },\n      },\n    },\n  },\n}"
                 }
             ],
-            "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts": [
+            "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts": [
                 {
-                    "name": "Filled",
+                    "name": "Hidden",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: (args) => ({\n    template: `<scrollbar-mock />`,\n  }),\n}"
+                    "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n    template: 'hidden',\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<MockScrollbarComponent>",
-                    "defaultValue": "{\n  component: MockScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    ScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockScrollbarComponent, ScrollbarDirective],\n    }),\n  ],\n}"
+                    "type": "Meta<FatherSimulationComponent>",
+                    "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Product',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardProductComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardProductComponent],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    unavailableTitle: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    icon: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    label: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    value: {\n      control: { type: 'number' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "TextOnly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Label',\n    text: 'Lorem ipsum pimentbus ardentis queimatuns est labiatuns',\n    testId: '',\n  },\n}"
+                },
+                {
+                    "name": "Unavailable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    unavailableTitle: 'Unavailable title',\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    template: 'unavailable',\n    testId: '',\n  },\n}"
+                },
+                {
+                    "name": "Visible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n}"
+                }
+            ],
+            "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts": [
+                {
+                    "name": "Hidden",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FatherSimulationComponent>",
+                    "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  // tags: ['autodocs'],\n  subcomponents: {\n    CardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, CardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      // control: 'boolean',\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "Unavailable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    template: 'unavailable',\n  },\n}"
+                },
+                {
+                    "name": "Visible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n}"
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts": [
+                {
+                    "name": "rand",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts": [
+                {
+                    "name": "rand",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "min",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "max",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "libs/ui/directives/button/button.directive.stories.ts": [
@@ -1381,6 +1928,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<MockButtonComponent>",
                     "file": "libs/ui/directives/button/button.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MockScrollbarComponent>",
+                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/directives/loader/src/loader/loader.directive.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LoaderDirective>",
+                    "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1400,26 +1973,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+            "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<DatePickerComponent>",
-                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardBalanceComponent>",
-                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "rawtype": "StoryObj<FatherSimulationComponent>",
+                    "file": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1439,13 +1999,26 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
+            "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ContentDividerComponent>",
-                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
+                    "rawtype": "StoryObj<FatherSimulationComponent>",
+                    "file": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DatePickerComponent>",
+                    "file": "libs/ui/components/date-picker/src/date-picker/date-picker.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1478,13 +2051,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
+            "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressBarComponent>",
-                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "rawtype": "StoryObj<ContentDividerComponent>",
+                    "file": "libs/ui/components/content-divider/src/content-divider/content-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1504,6 +2077,19 @@
                     "kind": 183
                 }
             ],
+            "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressBarComponent>",
+                    "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts": [
                 {
                     "name": "Story",
@@ -1511,6 +2097,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<StatusTextComponent>",
                     "file": "libs/ui/components/status-text/src/status-text/status-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagTextComponent>",
+                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1543,19 +2142,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TagTextComponent>",
-                    "file": "libs/ui/components/tag-text/src/tag-text/tag-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts": [
                 {
                     "name": "Story",
@@ -1563,32 +2149,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TokenFieldComponent>",
                     "file": "libs/ui/components/token-field/src/token-field/token-field.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/directives/loader/src/loader/loader.directive.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<LoaderDirective>",
-                    "file": "libs/ui/directives/loader/src/loader/loader.directive.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MockScrollbarComponent>",
-                    "file": "libs/ui/directives/scrollbar/src/scrollbar/scrollbar.directive.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1644,10 +2204,19 @@
             },
             {
                 "filePath": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
-                "type": "variable",
+                "type": "component",
+                "linktype": "component",
+                "name": "FatherSimulationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "type": "function",
                 "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
+                "linksubtype": "function",
+                "name": "rand",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1657,7 +2226,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "form",
+                "name": "Hidden",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1668,6 +2237,95 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Unavailable",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-balance/src/card-balance/card-balance.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Visible",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FatherSimulationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "rand",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Hidden",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TextOnly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Unavailable",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/card-product/src/card-product/card-product.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Visible",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

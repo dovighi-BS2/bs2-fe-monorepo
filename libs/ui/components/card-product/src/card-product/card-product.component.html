@@ -1,0 +1,58 @@
+<div class="product" [attr.data-test]="testId" [loader]="loader">
+  @if(template === 'visible'){
+  <ng-container *ngTemplateOutlet="visible"></ng-container>
+  } @if(template === 'hidden'){
+  <ng-container *ngTemplateOutlet="hidden"></ng-container>
+  }@if(template === 'unavailable'){
+  <ng-container *ngTemplateOutlet="unavailable"></ng-container>
+  }
+</div>
+
+<ng-template #visible>
+  <div class="product__top">
+    <div class="product__top_left">
+      @if(icon){
+      <span class="product__icon {{ icon }}"></span>
+      }
+      <p class="product__title">{{ title }}</p>
+    </div>
+    <div class="product__top_right">
+      <span class="product__toggler" (click)="setTemplate('hidden')">></span>
+    </div>
+  </div>
+  @if(label){
+  <p class="product__label">{{ label }}</p>
+  } @if(!Number.isNaN(value)){
+  <p class="product__value">R$ {{ transform(Number(value)) }}</p>
+  } @if(text){
+  <p class="product__text">{{ text }}</p>
+  }
+</ng-template>
+
+<ng-template #hidden>
+  <div class="product__top">
+    <div class="product__top_left">
+      @if(icon){
+      <span class="product__icon {{ icon }}"></span>
+      }
+      <p class="product__title">{{ title }}</p>
+    </div>
+    <div class="product__top_right">
+      <span class="product__toggler" (click)="setTemplate('visible')">></span>
+    </div>
+  </div>
+  @if(label){
+  <p class="product__label">{{ label }}</p>
+  } @if(!Number.isNaN(value)){
+  <p class="product__value">R$ ••••••</p>
+  } @if(text){
+  <p class="product__text">{{ text }}</p>
+  }
+</ng-template>
+
+<ng-template #unavailable>
+  <div class="product__unavailable">
+    <p class="product__title">{{ unavailableTitle }}</p>
+    <button flat-button class="product__button" (click)="update?.emit()" aria-label="Atualizar saldo">Atualizar</button>
+  </div>
+</ng-template>

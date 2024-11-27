@@ -9,6 +9,7 @@ function rand(min: number, max: number) {
 
 @Component({
   selector: 'father-simulation',
+  styles: `:host{ display:block; width: 312px; }`,
   template: `<card-balance
     [loader]="loader"
     [testId]="testId"
@@ -117,11 +118,24 @@ const meta: Meta<FatherSimulationComponent> = {
 export default meta;
 type Story = StoryObj<FatherSimulationComponent>;
 
-export const Default: Story = {
+export const Visible: Story = {
   args: {
     balance: 1000000000.12,
     limit: 3000000000.23,
-    loader: false,
     template: 'visible',
+  },
+};
+
+export const Hidden: Story = {
+  args: {
+    balance: 1000000000.12,
+    limit: 3000000000.23,
+    template: 'hidden',
+  },
+};
+
+export const Unavailable: Story = {
+  args: {
+    template: 'unavailable',
   },
 };
