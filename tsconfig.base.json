@@ -25,6 +25,7 @@
       "@bs2-fe-monorepo/ui/components/chips-checkbox": ["libs/ui/components/chips-checkbox/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/content-divider": ["libs/ui/components/content-divider/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/date-picker": ["libs/ui/components/date-picker/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/feedback-item": ["libs/ui/components/feedback-item/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/input-currency": ["libs/ui/components/input-currency/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/progress-bar": ["libs/ui/components/progress-bar/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/select-input": ["libs/ui/components/select-input/src/index.ts"],
