@@ -1,5 +1,5 @@
 <div class="phone_field" *ngIf="!!form">
-  <input-currency
+  <currency-field
     class="select_flag"
     [readOnly]="readOnly"
     [helperText]="helperText"
@@ -14,9 +14,9 @@
     [state]="state"
     [multiple]="multiple"
     [placeholder]="placeholder"
-  ></input-currency>
+  ></currency-field>
 
-  <text-input
+  <text-field
     [mask]="mask"
     [readOnly]="readOnly"
     [helperText]="helperText"
@@ -27,7 +27,7 @@
     [label]="label"
     name="number"
     [state]="state"
-  ></text-input>
+  ></text-field>
 </div>
 
 <!-- <img src="../../" alt=""> -->

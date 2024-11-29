@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
-import { flags, InputCurrencyComponent } from '@bs2-fe-monorepo/ui/components/input-currency';
+import { SelectFieldOption } from '@bs2-fe-monorepo/ui/components/select-field';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
-import { TextInputComponent } from '@bs2-fe-monorepo/ui/components/text-input';
+import { TextFieldComponent } from '@bs2-fe-monorepo/ui/components/text-field';
+import { CurrencyFieldComponent, flags } from '@bs2-fe-monorepo/ui/components/currency-field';
 
 @Component({
   selector: 'phone-field',
   standalone: true,
-  imports: [CommonModule, InputCurrencyComponent, TextInputComponent, ReactiveFormsModule, NgxMaskDirective],
+  imports: [CommonModule, CurrencyFieldComponent, TextFieldComponent, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './phone-field.component.html',
   styleUrl: './phone-field.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,8 +31,8 @@ export class PhoneFieldComponent {
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
-  @Input() selecteds: SelectInputOption[] = [];
-  @Input() options: SelectInputOption[] = [
+  @Input() selecteds: SelectFieldOption[] = [];
+  @Input() options: SelectFieldOption[] = [
     { value: flags.brl, text: flags.brl, image: 'BR.svg' },
     { value: flags.usa, text: flags.usa, image: 'US.svg' },
     { value: flags.chn, text: flags.chn, image: 'CN.svg' },

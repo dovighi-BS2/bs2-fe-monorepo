@@ -132,7 +132,7 @@ export const dateValidators = {
 // notRetroactiveDate: (message?: string) => {
 //     const v : (control: AbstractControl): ValidationErrors => {
 //         if (control.value) {
-//             // TODO: Foi implementada uma solução para que o validador recebe tanto uma data string no formato DDMMYYYY quanto um objeto Date do JS para garantir que esse validador funcione normalmente com matDatePicker (será necessário implementar essa rotina nos demais validadores após os testes nesse cenário)
+//             // TODO: Foi implementada uma solução para que o validador recebe tanto uma data string no formato DDMMYYYY quanto um objeto Date do JS para garantir que esse validador funcione normalmente com matDatepickerField (será necessário implementar essa rotina nos demais validadores após os testes nesse cenário)
 //             let momentDate: moment.Moment;
 //             if (control.value instanceof Date) {
 //                 momentDate = moment(control.value);
