@@ -6,7 +6,7 @@ import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const meta: Meta<CardAssessmentComponent> = {
   component: CardAssessmentComponent,
-  title: 'Components/Card Assessment',
+  title: 'Form Components/Card Assessment',
   argTypes: {
     title: {
       control: { type: 'text' },

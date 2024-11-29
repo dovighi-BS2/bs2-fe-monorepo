@@ -54,7 +54,7 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "./components/select-input/assets/images/flags",
+            "input": "./components/select-field/assets/images/flags",
             "output": "./assets/images/"
           }
         ]
@@ -81,7 +81,7 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "./components/select-input/assets/images/flags",
+            "input": "./components/select-field/assets/images/flags",
             "output": "./assets/images/"
           }
         ]

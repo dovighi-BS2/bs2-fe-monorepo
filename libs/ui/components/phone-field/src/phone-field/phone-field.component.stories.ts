@@ -1,13 +1,13 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
-import { SelectInputOption } from '@bs2-fe-monorepo/ui/components/select-input';
+import { SelectFieldOption } from '@bs2-fe-monorepo/ui/components/select-field';
 import { PhoneFieldComponent } from './phone-field.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { provideNgxMask } from 'ngx-mask';
-import { flags } from '@bs2-fe-monorepo/ui/components/input-currency';
+import { flags } from '@bs2-fe-monorepo/ui/components/currency-field';
 
-const options: SelectInputOption[] = [
+const options: SelectFieldOption[] = [
   { value: flags.brl, text: flags.brl, image: 'BR.svg' },
   { value: flags.usa, text: flags.usa, image: 'US.svg' },
   { value: flags.chn, text: flags.chn, image: 'CN.svg' },
@@ -16,7 +16,7 @@ const options: SelectInputOption[] = [
 
 const meta: Meta<PhoneFieldComponent> = {
   component: PhoneFieldComponent,
-  title: 'Components/Phone Field',
+  title: 'Form Components/Phone Field',
   decorators: [
     moduleMetadata({
       providers: [provideNgxMask({ validation: false })],
@@ -97,7 +97,7 @@ const meta: Meta<PhoneFieldComponent> = {
     options: {
       control: { type: 'text' },
       description: 'obrigatório',
-      defaultValue: { summary: 'SelectInputOption[]' },
+      defaultValue: { summary: 'SelectFieldOption[]' },
     },
     ariaLabel: {
       control: { type: 'text' },
