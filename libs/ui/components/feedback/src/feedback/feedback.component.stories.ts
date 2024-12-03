@@ -2,17 +2,54 @@ import { FeedbackContainerComponent } from '../feedback-container/feedback-conta
 import { FeedbackComponent } from './feedback.component';
 import { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
+import { FeedbackContainerService } from '../feedback-container/feedback-container.service';
+import { Component, inject, Input } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const meta: Meta<FeedbackComponent> = {
-  component: FeedbackComponent,
-  title: 'Components/Feedback Item',
+@Component({
+  selector: 'button-mock',
+  template: `
+    <feedback-container />
+    <button
+      filled-button
+      (click)="
+        feedbackService.add({ type: this.type, message: this.message, status: this.status, duration: this.duration })
+      "
+      aria-label="label"
+    >
+      Abrir Toast
+    </button>
+  `,
+  standalone: true,
+  imports: [FeedbackContainerComponent, FilledButtonDirective],
+})
+class MockFeedbackComponent {
+  @Input() testId? = '';
+  @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
+  @Input() duration = 5000;
+  @Input() message = '';
+  @Input() type: 'static' | 'toast' = 'static';
+
+  public feedbackService = inject(FeedbackContainerService);
+}
+
+const meta: Meta<MockFeedbackComponent> = {
+  component: MockFeedbackComponent,
+  title: 'Components/Feedback',
   // tags: ['autodocs'],
   subcomponents: {
     FeedbackComponent,
   },
   decorators: [
     moduleMetadata({
-      imports: [FeedbackComponent, FeedbackComponent, FilledButtonDirective, FeedbackContainerComponent],
+      imports: [
+        MockFeedbackComponent,
+        FeedbackComponent,
+        FeedbackComponent,
+        FilledButtonDirective,
+        FeedbackContainerComponent,
+        BrowserAnimationsModule,
+      ],
     }),
   ],
   argTypes: {
@@ -22,6 +59,16 @@ const meta: Meta<FeedbackComponent> = {
       table: {
         type: {
           summary: 'string',
+        },
+      },
+    },
+    type: {
+      control: 'select',
+      options: ['static', 'toast'],
+      defaultValue: { summary: 'static' },
+      table: {
+        type: {
+          summary: 'static | toast',
         },
       },
     },
@@ -47,19 +94,13 @@ const meta: Meta<FeedbackComponent> = {
   },
 };
 export default meta;
-type Story = StoryObj<FeedbackComponent>;
+type Story = StoryObj<MockFeedbackComponent>;
 
 export const Static: Story = {
   args: {
     message: 'Lorem ipsum dolor sit amet',
   },
-};
-
-export const AllStatus: Story = {
-  args: {
-    message: 'Lorem ipsum dolor sit amet',
-  },
-  render: (args: FeedbackComponent) => {
+  render: (args: MockFeedbackComponent) => {
     return {
       template: `
         <feedback status='info' message='${args.message}' /><br/>
@@ -71,26 +112,10 @@ export const AllStatus: Story = {
   },
 };
 
-// export const Toast: Story = {
-//   args: {
-//     type: 'toast',
-//     message: 'Lorem ipsum dolor sit amet',
-//   },
-//   render: (args: FeedbackComponent) => {
-//     // const feedbackItems = [
-//     //   { duration: 5000, message: 'Lorem ipsum dolor sit amet', status: 'info', type: 'toast' },
-//     //   { duration: 5000, message: 'Lorem ipsum dolor sit amet', status: 'attention', type: 'toast' },
-//     //   { duration: 5000, message: 'Lorem ipsum dolor sit amet', status: 'error', type: 'toast' },
-//     //   { duration: 5000, message: 'Lorem ipsum dolor sit amet', status: 'success', type: 'toast' },
-//     //   { duration: 5000, message: 'Lorem ipsum dolor sit amet', status: 'error', type: 'toast' },
-//     // ];
-
-//     return {
-//       template: `
-//         <p>Visualize em modo tela cheia para melhor experiência</p>
-//         <button filled-button aria-label='Abrir toast' (click)='${mock.add({ message: "hahaha" })}'>Abrir toast</button>
-//         <feedback-container />
-//       `,
-//     };
-//   },
-// };
+export const Toast: Story = {
+  args: {
+    message: 'Lorem ipsum dolor sit amet',
+    status: 'success',
+    type: 'toast',
+  },
+};

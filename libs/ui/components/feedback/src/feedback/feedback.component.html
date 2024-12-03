@@ -1,4 +1,4 @@
-<div class="feedback_item {{ status }} {{ type }} {{ class }}">
+<div class="feedback_item {{ status }} {{ type }} {{ class }}" [attr.data-test]="testId">
   <div class="feedback_item__left">
     <span class="feedback_item__icon"></span>
     <span class="feedback_item__message">{{ message }}</span>
