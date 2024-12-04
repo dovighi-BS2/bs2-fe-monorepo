@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FeedbackContainerService } from './feedback-container.service';
 import { FeedbackComponent } from '../feedback/feedback.component';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { FeedbackService } from '../feedback/feedback.service';
 
 @Component({
   selector: 'feedback-container',
@@ -23,5 +23,5 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ],
 })
 export class FeedbackContainerComponent {
-  public feedbackContainerService = inject(FeedbackContainerService);
+  public feedbackService = inject(FeedbackService);
 }

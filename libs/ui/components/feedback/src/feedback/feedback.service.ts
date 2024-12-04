@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Feedback } from '../feedback/feedback.interface';
+import { Feedback } from './feedback.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FeedbackContainerService {
-  private default: Feedback = { duration: 5000, message: '', status: 'info', type: 'toast' };
+export class FeedbackService {
+  private default: Feedback = { duration: 5000, message: '', status: 'info' };
   public feedbackItems: Feedback[] = [];
 
   public info(feedbackItem: Feedback): void {

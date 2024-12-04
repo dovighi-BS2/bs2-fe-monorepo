@@ -1,9 +1,11 @@
-<div class="feedback_item {{ status }} {{ type }} {{ class }}" [attr.data-test]="testId">
-  <div class="feedback_item__left">
-    <span class="feedback_item__icon"></span>
-    <span class="feedback_item__message">{{ message }}</span>
+@if(!isRemoved){
+<div class="feedback {{ status }}" [attr.data-test]="testId">
+  <div class="feedback__left">
+    <span class="feedback__icon"></span>
+    <span class="feedback__message">{{ message }}</span>
   </div>
-  <div class="feedback_item__right">
-    <span class="feedback_item__close"></span>
+  <div class="feedback__right">
+    <span class="feedback__close" (click)="close()"></span>
   </div>
 </div>
+}

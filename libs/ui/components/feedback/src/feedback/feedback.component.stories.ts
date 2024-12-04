@@ -2,7 +2,7 @@ import { FeedbackContainerComponent } from '../feedback-container/feedback-conta
 import { FeedbackComponent } from './feedback.component';
 import { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { FeedbackContainerService } from '../feedback-container/feedback-container.service';
+import { FeedbackService } from '../feedback/feedback.service';
 import { Component, inject, Input } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -10,11 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   selector: 'button-mock',
   template: `
     <feedback-container />
+    <p>Para fazer o uso do toast, é necessário usar a service FeedbackService.</p>
     <button
       filled-button
-      (click)="
-        feedbackService.add({ type: this.type, message: this.message, status: this.status, duration: this.duration })
-      "
+      (click)="feedbackService.add({ message: this.message, status: this.status, duration: this.duration })"
       aria-label="label"
     >
       Abrir Toast
@@ -26,11 +25,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 class MockFeedbackComponent {
   @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
-  @Input() duration = 5000;
+  @Input() duration?: number;
   @Input() message = '';
-  @Input() type: 'static' | 'toast' = 'static';
 
-  public feedbackService = inject(FeedbackContainerService);
+  public feedbackService = inject(FeedbackService);
 }
 
 const meta: Meta<MockFeedbackComponent> = {
@@ -62,16 +60,6 @@ const meta: Meta<MockFeedbackComponent> = {
         },
       },
     },
-    type: {
-      control: 'select',
-      options: ['static', 'toast'],
-      defaultValue: { summary: 'static' },
-      table: {
-        type: {
-          summary: 'static | toast',
-        },
-      },
-    },
     status: {
       control: 'select',
       options: ['info', 'attention', 'error', 'success'],
@@ -79,6 +67,14 @@ const meta: Meta<MockFeedbackComponent> = {
       table: {
         type: {
           summary: 'info | attention | error | success',
+        },
+      },
+    },
+    duration: {
+      defaultValue: { summary: '(vazio)' },
+      table: {
+        type: {
+          summary: 'number | undefined',
         },
       },
     },
@@ -116,6 +112,5 @@ export const Toast: Story = {
   args: {
     message: 'Lorem ipsum dolor sit amet',
     status: 'success',
-    type: 'toast',
   },
 };
