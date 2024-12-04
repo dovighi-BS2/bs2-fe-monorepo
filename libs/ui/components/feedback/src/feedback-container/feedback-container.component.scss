@@ -7,7 +7,7 @@
   inset: 20px;
   pointer-events: none;
 
-  ::ng-deep feedback + feedback .feedback_item {
+  ::ng-deep feedback + feedback .feedback {
     margin-bottom: 20px;
   }
 }
