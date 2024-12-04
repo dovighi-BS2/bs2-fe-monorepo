@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  imports: [],
 })
 export class AppComponent {
   title = 'app-angular-monorepo';

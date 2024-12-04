@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, inject } from '@angular/core';
 
 @Component({
   selector: 'feedback',
@@ -7,11 +7,21 @@ import { Component, Input } from '@angular/core';
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.scss',
 })
-export class FeedbackComponent {
+export class FeedbackComponent implements OnInit {
   @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
-  @Input() duration = 5000;
+  @Input() duration?: number;
   @Input() message = '';
-  @Input() type: 'static' | 'toast' = 'static';
-  @Input() class = '';
+
+  private elementRef = inject(ElementRef);
+  public isRemoved = false;
+
+  ngOnInit(): void {
+    if (this.duration) setTimeout(() => (this.isRemoved = true), this.duration);
+  }
+
+  close() {
+    this.isRemoved = true;
+    this.elementRef.nativeElement.remove();
+  }
 }

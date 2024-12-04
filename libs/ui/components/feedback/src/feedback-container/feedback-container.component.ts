@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FeedbackContainerService } from './feedback-container.service';
 import { FeedbackComponent } from '../feedback/feedback.component';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { FeedbackService } from '../feedback/feedback.service';
 
 @Component({
   selector: 'feedback-container',
@@ -13,15 +13,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     trigger('slideInOut', [
       transition(':enter', [
         style({ transform: 'translateX(200%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateX(0px)' })),
+        animate('0.5s ease-in-out', style({ opacity: 1, transform: 'translateX(0px)' })),
       ]),
       transition(':leave', [
         style({ transform: 'translateX(0px)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateX(200%)' })),
+        animate('0.5s ease-in-out', style({ opacity: 0, transform: 'translateX(200%)' })),
       ]),
     ]),
   ],
 })
 export class FeedbackContainerComponent {
-  public feedbackContainerService = inject(FeedbackContainerService);
+  public feedbackService = inject(FeedbackService);
 }
