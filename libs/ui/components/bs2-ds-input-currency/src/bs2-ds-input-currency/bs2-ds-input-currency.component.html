@@ -1,0 +1,18 @@
+<div *ngIf="!!form" [attr.id]="id" [attr.data-test]="testId" [formGroup]="form" class="bs2_ds_input_currency">
+  <bs2-ds-input-select
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [form]="form"
+    [options]="options"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    [name]="name"
+    [hideCheckbox]="hideCheckbox"
+    [state]="state"
+    [multiple]="multiple"
+    [placeholder]="placeholder"
+    rightIcon=""
+  ></bs2-ds-input-select>
+</div>

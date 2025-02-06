@@ -4,13 +4,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatepickerField } from './datepicker-field.interface';
 import { PickerType } from './datepicker-field.enum';
 import { fromEvent, Subscription } from 'rxjs';
-import { TextFieldComponent } from '@bs2-fe-monorepo/ui/components/text-field';
+import { Bs2DSInputTextComponent } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-text';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 @Component({
   selector: 'datepicker-field',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextFieldComponent],
+  imports: [CommonModule, ReactiveFormsModule, Bs2DSInputTextComponent],
   templateUrl: './datepicker-field.component.html',
   styleUrl: './datepicker-field.component.scss',
 })

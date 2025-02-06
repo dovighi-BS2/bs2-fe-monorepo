@@ -5,7 +5,7 @@
   #datePickerRef
   class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
 >
-  <text-field
+  <bs2-ds-input-text
     [form]="formToUser"
     [id]="id"
     name="date"

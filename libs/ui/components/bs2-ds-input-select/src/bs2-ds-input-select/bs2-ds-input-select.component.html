@@ -1,0 +1,58 @@
+<div
+  *ngIf="!!form"
+  [attr.id]="id"
+  [attr.data-test]="testId"
+  [formGroup]="form"
+  #selectInput
+  class="
+    bs2_ds_input_select
+    {{ class }}
+    {{ state }}
+    {{ readOnly ? 'disabled' : '' }}
+    {{ getErrors || errorText ? 'error' : '' }}
+  "
+>
+  <select [multiple]="multiple" class="bs2_ds_input_select__hidden_field" [formControlName]="name">
+    <option *ngFor="let option of options">{{ option.text }}</option>
+  </select>
+  <span class="bs2_ds_input_select__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <span class="bs2_ds_input_select__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="bs2_ds_input_select__wrapper">
+    <div class="bs2_ds_input_select__icon left" *ngIf="leftIcon"></div>
+    <div class="bs2_ds_input_select__icon right" *ngIf="rightIcon"></div>
+    <div
+      #selectInputField
+      class="bs2_ds_input_select__field"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    >
+      <span class="bs2_ds_input_select__selected">
+        <img
+          [src]="getSelectedImage()"
+          *ngIf="getSelectedImage() && !multiple"
+          class="bs2_ds_input_select__selected_image"
+        />
+        <p>{{ getSelectedTexts() }}</p>
+      </span>
+    </div>
+    <div class="bs2_ds_input_select__option" #selectInputOption [tabindex]="0" role="listbox" cdkListbox>
+      <div
+        *ngFor="let option of options"
+        class="bs2_ds_input_select__option_item {{ isSelected(option) ? 'selected' : '' }}"
+        role="option"
+        [cdkOption]="option.value"
+        (keyup.enter)="selectByEnter(option)"
+        (click)="selectByClick(option)"
+      >
+        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && multiple"></span>
+        <img [src]="option.image" *ngIf="option.image" class="bs2_ds_input_select__img_flag" />
+        <p>{{ option.text }}</p>
+      </div>
+    </div>
+  </div>
+  <label *ngIf="label" [for]="id" class="bs2_ds_input_select__label">{{ label }}</label>
+</div>

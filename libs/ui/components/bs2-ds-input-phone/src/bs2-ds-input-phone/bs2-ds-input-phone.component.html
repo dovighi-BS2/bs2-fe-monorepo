@@ -1,0 +1,33 @@
+<div class="bs2_ds_input_phone" *ngIf="!!form">
+  <bs2-ds-input-currency
+    class="select_flag"
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [form]="inputForm"
+    [options]="options"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    name="ddi"
+    [hideCheckbox]="hideCheckbox"
+    [state]="state"
+    [multiple]="multiple"
+    [placeholder]="placeholder"
+  ></bs2-ds-input-currency>
+
+  <bs2-ds-input-text
+    [mask]="mask"
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [form]="inputForm"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    name="number"
+    [state]="state"
+  ></bs2-ds-input-text>
+</div>
+
+<!-- <img src="../../" alt=""> -->

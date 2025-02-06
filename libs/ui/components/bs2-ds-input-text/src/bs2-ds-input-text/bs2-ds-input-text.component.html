@@ -1,0 +1,33 @@
+<div
+  *ngIf="!!form"
+  [attr.data-test]="testId"
+  class="bs2_ds_input_text {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
+  [formGroup]="form"
+>
+  <span class="bs2_ds_input_text__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <span class="bs2_ds_input_text__feedback" *ngIf="!!getErrors || !!errorText">
+    {{ getErrors }}
+    {{ errorText }}
+  </span>
+  <div class="bs2_ds_input_text__wrapper">
+    <div class="bs2_ds_input_text__icon left" *ngIf="leftIcon"></div>
+    <div class="bs2_ds_input_text__icon right" *ngIf="rightIcon"></div>
+    <input
+      class="bs2_ds_input_text__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [name]="name"
+      [mask]="mask"
+      [autocomplete]="autocomplete"
+      (click)="clickEmitter.emit()"
+      (keyup)="keyupEmitter.emit()"
+      [formControlName]="name"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    />
+  </div>
+  <label *ngIf="label" [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
+</div>

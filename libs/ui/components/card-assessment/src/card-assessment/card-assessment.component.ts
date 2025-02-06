@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TextFieldModule } from '@angular/cdk/text-field';
 
 @Component({
   selector: 'card-assessment',
   standalone: true,
-  imports: [ReactiveFormsModule, TextFieldModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './card-assessment.component.html',
   styleUrl: './card-assessment.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
