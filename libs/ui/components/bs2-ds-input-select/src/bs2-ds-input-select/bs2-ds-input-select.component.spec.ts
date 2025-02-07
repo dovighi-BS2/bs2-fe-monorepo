@@ -122,4 +122,43 @@ describe('Bs2DSInputSelectComponent', () => {
     expect(feedback.textContent.trim()).toBe(CustomValidatorMessages.required.trim());
     expect(!!main.classList.contains('error')).toBe(true);
   });
+
+  it('[isSelected] should execute right', () => {
+    component.selectOption(options[0]);
+    expect(!!component.isSelected(options[1])).toBe(false);
+    expect(!!component.isSelected(options[0])).toBe(true);
+    component.selectOption(options[1]);
+    expect(!!component.isSelected(options[1])).toBe(true);
+  });
+
+  it('[selectByClick] should execute right', () => {
+    component.selectByClick(options[0]);
+    expect(!!component.isSelected(options[1])).toBe(false);
+    expect(!!component.isSelected(options[0])).toBe(true);
+    component.selectByClick(options[1]);
+    expect(!!component.isSelected(options[1])).toBe(true);
+  });
+
+  it('[removeSelected] should execute right', () => {
+    component.multiple = true;
+
+    component.selectOption(options[0]);
+    component.selectOption(options[1]);
+    component.selectOption(options[2]);
+
+    expect(component.selecteds.length).toBe(3);
+
+    component.removeSelected(options[1]);
+    expect(component.selecteds.length).toBe(2);
+    expect(!!component.isSelected(options[1])).toBe(false);
+  });
+
+  it('[ngOnInit] should execute right', () => {
+    component.options = options;
+    component.control?.setValue([options[1]].map((item) => item.value));
+    expect(component.selecteds.length).toBe(0);
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.selecteds.length).toBe(1);
+  });
 });
