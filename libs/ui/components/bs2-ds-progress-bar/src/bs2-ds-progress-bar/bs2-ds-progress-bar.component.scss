@@ -1,0 +1,29 @@
+@keyframes loop {
+  from {
+    translate: -100%;
+  }
+  to {
+    translate: 200%;
+  }
+}
+
+.bs2_ds_progress {
+  display: block;
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+  background-color: var(--neutral_n1);
+
+  &.loop {
+    .bs2-ds-progress__bar {
+      width: 50% !important;
+      animation: loop 1s infinite linear;
+    }
+  }
+  &__bar {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: var(--primary);
+  }
+}

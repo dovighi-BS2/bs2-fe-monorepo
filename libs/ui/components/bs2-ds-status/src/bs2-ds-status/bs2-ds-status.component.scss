@@ -1,0 +1,31 @@
+.bs2_ds_status {
+  --bs2_ds_status_bg_color: var(--neutral_n1);
+
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--primary_text_dark);
+
+  &.error {
+    --bs2_ds_status_bg_color: var(--error);
+  }
+  &.success {
+    --bs2_ds_status_bg_color: var(--success);
+  }
+  &.attention {
+    --bs2_ds_status_bg_color: var(--attention);
+  }
+  &.neutral {
+    --bs2_ds_status_bg_color: var(--neutral_n3);
+  }
+
+  &:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50px;
+    background-color: var(--bs2_ds_status_bg_color);
+  }
+}
