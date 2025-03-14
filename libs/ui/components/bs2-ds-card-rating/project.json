@@ -1,12 +1,12 @@
 {
-  "name": "datepicker-field",
+  "name": "bs2-ds-card-rating",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/ui/components/datepicker-field/src",
+  "sourceRoot": "libs/ui/components/bs2-ds-card-rating/src",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/datepicker-field"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/bs2-ds-card-rating"],
       "options": {
         "jestConfig": "libs/ui/jest.config.ts"
       }

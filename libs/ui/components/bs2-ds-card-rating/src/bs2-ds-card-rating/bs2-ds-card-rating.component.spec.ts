@@ -1,25 +1,25 @@
-import { CardAssessmentComponent } from './card-assessment.component';
+import { Bs2DSCardRatingComponent } from './bs2-ds-card-rating.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { ChangeDetectorRef } from '@angular/core';
 
-describe('CardAssessmentComponent', () => {
-  const testId = 'card_assessment__test_id';
+describe('Bs2DSCardRatingComponent', () => {
+  const testId = 'bs2_ds_card_rating__test_id';
 
-  let component: CardAssessmentComponent;
-  let fixture: ComponentFixture<CardAssessmentComponent>;
+  let component: Bs2DSCardRatingComponent;
+  let fixture: ComponentFixture<Bs2DSCardRatingComponent>;
 
   const get = (selector: string) =>
     fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardAssessmentComponent, ReactiveFormsModule],
+      imports: [Bs2DSCardRatingComponent, ReactiveFormsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CardAssessmentComponent);
+    fixture = TestBed.createComponent(Bs2DSCardRatingComponent);
     component = fixture.componentInstance;
     component.form = new FormGroup({
       rate: new FormControl(null, [CustomValidators.required]),

@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'card-assessment',
+  selector: 'bs2-ds-card-rating',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './card-assessment.component.html',
-  styleUrl: './card-assessment.component.scss',
+  templateUrl: './bs2-ds-card-rating.component.html',
+  styleUrl: './bs2-ds-card-rating.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardAssessmentComponent {
+export class Bs2DSCardRatingComponent {
   @Input() testId? = '';
   @Input() form: FormGroup;
   @Input() name = '';

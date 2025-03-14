@@ -1,20 +1,20 @@
 import { Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DatepickerField } from './datepicker-field.interface';
-import { PickerType } from './datepicker-field.enum';
+import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
+import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bs2DSInputTextComponent } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-text';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 @Component({
-  selector: 'datepicker-field',
+  selector: 'bs2-ds-datepicker',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, Bs2DSInputTextComponent],
-  templateUrl: './datepicker-field.component.html',
-  styleUrl: './datepicker-field.component.scss',
+  templateUrl: './bs2-ds-datepicker.component.html',
+  styleUrl: './bs2-ds-datepicker.component.scss',
 })
-export class DatepickerFieldComponent implements OnInit, OnDestroy {
+export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   @ViewChild('datePickerRef') datePickerRef!: ElementRef;
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' | 'opened';
 
@@ -52,7 +52,7 @@ export class DatepickerFieldComponent implements OnInit, OnDestroy {
   public activePickerType = 'day';
 
   public calendarYears: number[] = [];
-  public calendarMonths: DatepickerField['months'] = [
+  public calendarMonths: Bs2DSDatepicker['months'] = [
     { number: 1, abbr: 'Jan', fullName: 'Janeiro' },
     { number: 2, abbr: 'Fev', fullName: 'Fevereiro' },
     { number: 3, abbr: 'Mar', fullName: 'Março' },

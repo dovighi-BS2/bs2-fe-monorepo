@@ -1,12 +1,12 @@
-import { CardAssessmentComponent } from './card-assessment.component';
+import { Bs2DSCardRatingComponent } from './bs2-ds-card-rating.component';
 import { type Meta, type StoryObj } from '@storybook/angular';
 
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
-const meta: Meta<CardAssessmentComponent> = {
-  component: CardAssessmentComponent,
-  title: 'Form Components/Card Assessment',
+const meta: Meta<Bs2DSCardRatingComponent> = {
+  component: Bs2DSCardRatingComponent,
+  title: 'Form Components/Card Rating',
   argTypes: {
     title: {
       control: { type: 'text' },
@@ -84,7 +84,7 @@ const meta: Meta<CardAssessmentComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<CardAssessmentComponent>;
+type Story = StoryObj<Bs2DSCardRatingComponent>;
 
 const form: FormGroup = new FormGroup({
   rate: new FormControl(null, [CustomValidators.required]),
@@ -100,7 +100,7 @@ export const Default: Story = {
     firstText: 'Muito ruim',
     lastText: 'Excelente',
     name: 'rate',
-    testId: 'card_assessment_test_id',
+    testId: 'bs2_ds_card_rating_test_id',
     form: form,
   },
 };

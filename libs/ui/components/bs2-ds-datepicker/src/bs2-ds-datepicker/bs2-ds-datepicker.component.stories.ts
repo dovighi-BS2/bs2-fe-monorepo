@@ -1,11 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { DatepickerFieldComponent } from './datepicker-field.component';
+import { Bs2DSDatepickerComponent } from './bs2-ds-datepicker.component';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { FormControl, FormGroup } from '@angular/forms';
 
-const meta: Meta<DatepickerFieldComponent> = {
-  component: DatepickerFieldComponent,
-  title: 'Form Components/Date Picker',
+const meta: Meta<Bs2DSDatepickerComponent> = {
+  component: Bs2DSDatepickerComponent,
+  title: 'Form Components/Datepicker',
   argTypes: {
     min: {
       control: 'text',
@@ -96,7 +96,7 @@ const meta: Meta<DatepickerFieldComponent> = {
   },
 };
 export default meta;
-type Story = StoryObj<DatepickerFieldComponent>;
+type Story = StoryObj<Bs2DSDatepickerComponent>;
 
 const form: FormGroup = new FormGroup({
   birthday: new FormControl(null, [CustomValidators.isValidDate]),

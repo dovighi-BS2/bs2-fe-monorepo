@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DatepickerFieldComponent } from './datepicker-field.component';
+import { Bs2DSDatepickerComponent } from './bs2-ds-datepicker.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
-import { PickerType } from './datepicker-field.enum';
+import { PickerType } from './bs2-ds-datepicker.enum';
 
 //
 const manualGetFullMonth = (year: number, month: number, days: number) => {
@@ -86,21 +86,21 @@ const firstDaysOfMonths = [
   new Date(`2024-06-01T03:07:00.000Z`),
 ];
 
-describe('DatepickerFieldComponent', () => {
+describe('Bs2DSDatepickerComponent', () => {
   const testId = 'date_picker__test_id';
 
-  let component: DatepickerFieldComponent;
-  let fixture: ComponentFixture<DatepickerFieldComponent>;
+  let component: Bs2DSDatepickerComponent;
+  let fixture: ComponentFixture<Bs2DSDatepickerComponent>;
 
   const get = (selector: string) =>
     fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DatepickerFieldComponent, ReactiveFormsModule],
+      imports: [Bs2DSDatepickerComponent, ReactiveFormsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DatepickerFieldComponent);
+    fixture = TestBed.createComponent(Bs2DSDatepickerComponent);
     component = fixture.componentInstance;
     component.form = new FormGroup({
       birthday: new FormControl('', [CustomValidators.required]),

@@ -295,7 +295,7 @@
     },
     {
       "name": "MockFeedbackComponent",
-      "id": "component-MockFeedbackComponent-7955932f6991e2a2cbcb84e483e428d4a1973a0e9055038317413c17feb6ab064e816c125fe88bb4c2f2e79fdc9c80124b85cd2343e61a3b3ddfecc13ec7bc4f",
+      "id": "component-MockFeedbackComponent-cd16ca16dc40ac14989993045615ded5da62ff120a3513023baa06ebb9e7ef2ee05e86e46403b3c4815bce2dc4542c9198b4122e6c6309ca12d0e46dad819893",
       "file": "libs/ui/components/feedback/src/feedback/feedback.component.stories.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -379,7 +379,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { FeedbackContainerComponent } from '../feedback-container/feedback-container.component';\r\nimport { FeedbackComponent } from './feedback.component';\r\nimport { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';\r\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\r\nimport { FeedbackService } from '../feedback/feedback.service';\r\nimport { Component, inject, Input } from '@angular/core';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n@Component({\r\n  selector: 'button-mock',\r\n  template: `\r\n    <feedback-container />\r\n    <p>Para fazer o uso do toast, é necessário usar a service FeedbackService.</p>\r\n    <button\r\n      filled-button\r\n      (click)=\"feedbackService.add({ message: this.message, status: this.status, duration: this.duration })\"\r\n      aria-label=\"label\"\r\n    >\r\n      Abrir Toast\r\n    </button>\r\n  `,\r\n  standalone: true,\r\n  imports: [FeedbackContainerComponent, FilledButtonDirective],\r\n})\r\nclass MockFeedbackComponent {\r\n  @Input() testId? = '';\r\n  @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';\r\n  @Input() duration?: number;\r\n  @Input() message = '';\r\n\r\n  public feedbackService = inject(FeedbackService);\r\n}\r\n\r\nconst meta: Meta<MockFeedbackComponent> = {\r\n  component: MockFeedbackComponent,\r\n  title: 'Components/Feedback',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FeedbackComponent,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockFeedbackComponent,\r\n        FeedbackComponent,\r\n        FeedbackComponent,\r\n        FilledButtonDirective,\r\n        FeedbackContainerComponent,\r\n        BrowserAnimationsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    message: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    status: {\r\n      control: 'select',\r\n      options: ['info', 'attention', 'error', 'success'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: {\r\n        type: {\r\n          summary: 'info | attention | error | success',\r\n        },\r\n      },\r\n    },\r\n    duration: {\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'number | undefined',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n};\r\nexport default meta;\r\ntype Story = StoryObj<MockFeedbackComponent>;\r\n\r\nexport const Static: Story = {\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n  },\r\n  render: (args: MockFeedbackComponent) => {\r\n    return {\r\n      template: `\r\n        <feedback status='info' message='${args.message}' /><br/>\r\n        <feedback status='attention' message='${args.message}' /><br/>\r\n        <feedback status='error' message='${args.message}' /><br/>\r\n        <feedback status='success' message='${args.message}' />\r\n      `,\r\n    };\r\n  },\r\n};\r\n\r\nexport const Toast: Story = {\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n    status: 'success',\r\n  },\r\n};\r\n",
+      "sourceCode": "import { FeedbackContainerComponent } from '../feedback-container/feedback-container.component';\nimport { FeedbackComponent } from './feedback.component';\nimport { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { FeedbackService } from '../feedback/feedback.service';\nimport { Component, inject, Input } from '@angular/core';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n@Component({\n  selector: 'button-mock',\n  template: `\n    <feedback-container />\n    <p>Para fazer o uso do toast, é necessário usar a service FeedbackService.</p>\n    <button\n      filled-button\n      (click)=\"feedbackService.add({ message: this.message, status: this.status, duration: this.duration })\"\n      aria-label=\"label\"\n    >\n      Abrir Toast\n    </button>\n  `,\n  standalone: true,\n  imports: [FeedbackContainerComponent, FilledButtonDirective],\n})\nclass MockFeedbackComponent {\n  @Input() testId? = '';\n  @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';\n  @Input() duration?: number;\n  @Input() message = '';\n\n  public feedbackService = inject(FeedbackService);\n}\n\nconst meta: Meta<MockFeedbackComponent> = {\n  component: MockFeedbackComponent,\n  title: 'Components/Feedback',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FeedbackComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockFeedbackComponent,\n        FeedbackComponent,\n        FeedbackComponent,\n        FilledButtonDirective,\n        FeedbackContainerComponent,\n        BrowserAnimationsModule,\n      ],\n    }),\n  ],\n  argTypes: {\n    message: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    status: {\n      control: 'select',\n      options: ['info', 'attention', 'error', 'success'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'info | attention | error | success',\n        },\n      },\n    },\n    duration: {\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number | undefined',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<MockFeedbackComponent>;\n\nexport const Static: Story = {\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n  },\n  render: (args: MockFeedbackComponent) => {\n    return {\n      template: `\n        <feedback status='info' message='${args.message}' /><br/>\n        <feedback status='attention' message='${args.message}' /><br/>\n        <feedback status='error' message='${args.message}' /><br/>\n        <feedback status='success' message='${args.message}' />\n      `,\n    };\n  },\n};\n\nexport const Toast: Story = {\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n    status: 'success',\n  },\n};\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
@@ -465,11 +465,31 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'bs2_ds_card_rating_test_id',\r\n    form: form,\r\n  },\r\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'phone',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: '',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    multiple: false,\n    id: 'phone',\n    testId: 'flags',\n    name: 'flags',\n    label: '',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
       },
       {
         "name": "Default",
@@ -479,17 +499,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    form,\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n}"
       },
       {
         "name": "Default",
@@ -499,17 +509,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    id: 'description',\r\n    autosize: false,\r\n    resize: false,\r\n    rows: 1,\r\n    maxLength: 300,\r\n    testId: 'description',\r\n    name: 'description',\r\n    label: 'Descrição',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-textarea works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    id: 'description',\n    autosize: false,\n    resize: false,\n    rows: 1,\n    maxLength: 300,\n    testId: 'description',\n    name: 'description',\n    label: 'Descrição',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-textarea works!/gi)).toBeTruthy();\n  },\n}"
       },
       {
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-token works!/gi)).toBeTruthy();\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
       },
       {
         "name": "Default",
@@ -519,7 +529,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: true,\r\n    id: 'categories',\r\n    testId: 'categories',\r\n    name: 'categories',\r\n    label: 'Categorias',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: false,\r\n  },\r\n  // play: async ({ canvasElement }) => {\r\n  //   const canvas = within(canvasElement);\r\n  //   expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\r\n  // },\r\n}"
+        "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    multiple: true,\n    id: 'categories',\n    testId: 'categories',\n    name: 'categories',\n    label: 'Categorias',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: false,\n  },\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  // },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-token works!/gi)).toBeTruthy();\n  },\n}"
       },
       {
         "name": "Default",
@@ -529,27 +549,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    name: 'reasons',\r\n    options,\r\n  },\r\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'card_assessment_test_id',\r\n    form: form,\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    form: form,\n    name: 'reasons',\n    options,\n  },\n}"
       },
       {
         "name": "Default",
@@ -559,7 +559,27 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/status/src/status/status.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    status: 'neutral',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -570,26 +590,6 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    percent: 0,\n    loop: false,\n    testId: '',\n  },\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/status/src/status/status.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
       },
       {
         "name": "Filled",
@@ -635,11 +635,31 @@
         "name": "form",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "FormGroup",
+        "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  flags: new FormControl(null, [CustomValidators.required]),\r\n})"
+        "defaultValue": "new FormGroup({\n  flags: new FormControl(null, [CustomValidators.required]),\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "FormGroup",
+        "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
       },
       {
         "name": "form",
@@ -649,17 +669,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  flags: new FormControl([], [CustomValidators.required]),\r\n})"
-      },
-      {
-        "name": "form",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\r\n})"
+        "defaultValue": "new FormGroup({\n  flags: new FormControl([], [CustomValidators.required]),\n})"
       },
       {
         "name": "form",
@@ -669,7 +679,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\r\n})"
+        "defaultValue": "new FormGroup({\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "FormGroup",
+        "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
       },
       {
         "name": "form",
@@ -679,7 +699,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  categories: new FormControl([2, 3, 4], [CustomValidators.required]),\r\n})"
+        "defaultValue": "new FormGroup({\n  categories: new FormControl([2, 3, 4], [CustomValidators.required]),\n})"
       },
       {
         "name": "form",
@@ -689,27 +709,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  reasons: new FormControl([], [CustomValidators.required]),\r\n})"
-      },
-      {
-        "name": "form",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
-      },
-      {
-        "name": "form",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "FormGroup",
-        "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
+        "defaultValue": "new FormGroup({\n  reasons: new FormControl([], [CustomValidators.required]),\n})"
       },
       {
         "name": "Hidden",
@@ -745,11 +745,31 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<Bs2DSCardRatingComponent>",
+        "defaultValue": "{\r\n  component: Bs2DSCardRatingComponent,\r\n  title: 'Form Components/Card Rating',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<Bs2DSInputPhoneComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputPhoneComponent,\r\n  title: 'Form Components/InputPhone',\r\n  decorators: [\r\n    moduleMetadata({\r\n      providers: [provideNgxMask({ validation: false })],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<Bs2DSDatepickerComponent>",
+        "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -759,17 +779,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<Bs2DSInputCurrencyComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<Bs2DSInputTextComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -779,27 +789,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<Bs2DSInputTextareaComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputTextareaComponent,\r\n  title: 'Form Components/InputTextArea',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    autosize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    resize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    rows: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    maxLength: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
       },
       {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<Bs2DSInputTokenComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputTokenComponent,\r\n  title: 'Form Components/InputToken',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<Bs2DSInputSelectComponent>",
-        "defaultValue": "{\r\n  component: Bs2DSInputSelectComponent,\r\n  title: 'Form Components/SelectInput',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+        "type": "Meta<Bs2DSInputTextComponent>",
+        "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -815,31 +815,31 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<Bs2DSInputSelectComponent>",
+        "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<Bs2DSInputTokenComponent>",
+        "defaultValue": "{\n  component: Bs2DSInputTokenComponent,\n  title: 'Form Components/InputToken',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/ui/components/chips-field/src/chips-field/chips-field.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ChipsFieldComponent>",
-        "defaultValue": "{\r\n  component: ChipsFieldComponent,\r\n  title: 'Form Components/ChipsField Checkbox',\r\n  argTypes: {\r\n    options: {\r\n      defaultValue: { summary: '[]' },\r\n      table: {\r\n        type: {\r\n          summary: 'ChipCheckboxOption[] | string[]',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<DatepickerFieldComponent>",
-        "defaultValue": "{\r\n  component: DatepickerFieldComponent,\r\n  title: 'Form Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<CardAssessmentComponent>",
-        "defaultValue": "{\r\n  component: CardAssessmentComponent,\r\n  title: 'Form Components/Card Assessment',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: ChipsFieldComponent,\n  title: 'Form Components/ChipsField Checkbox',\n  argTypes: {\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'ChipCheckboxOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -859,7 +859,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<DividerComponent>",
-        "defaultValue": "{\r\n  component: DividerComponent,\r\n  title: 'Components/Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: DividerComponent,\n  title: 'Components/Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -869,7 +869,27 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<MockFeedbackComponent>",
-        "defaultValue": "{\r\n  component: MockFeedbackComponent,\r\n  title: 'Components/Feedback',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FeedbackComponent,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockFeedbackComponent,\r\n        FeedbackComponent,\r\n        FeedbackComponent,\r\n        FilledButtonDirective,\r\n        FeedbackContainerComponent,\r\n        BrowserAnimationsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    message: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    status: {\r\n      control: 'select',\r\n      options: ['info', 'attention', 'error', 'success'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: {\r\n        type: {\r\n          summary: 'info | attention | error | success',\r\n        },\r\n      },\r\n    },\r\n    duration: {\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'number | undefined',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  component: MockFeedbackComponent,\n  title: 'Components/Feedback',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FeedbackComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockFeedbackComponent,\n        FeedbackComponent,\n        FeedbackComponent,\n        FilledButtonDirective,\n        FeedbackContainerComponent,\n        BrowserAnimationsModule,\n      ],\n    }),\n  ],\n  argTypes: {\n    message: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    status: {\n      control: 'select',\n      options: ['info', 'attention', 'error', 'success'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'info | attention | error | success',\n        },\n      },\n    },\n    duration: {\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number | undefined',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<TagComponent>",
+        "defaultValue": "{\n  component: TagComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/ui/components/status/src/status/status.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<StatusComponent>",
+        "defaultValue": "{\n  component: StatusComponent,\n  title: 'Components/Status Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -880,26 +900,6 @@
         "deprecationMessage": "",
         "type": "Meta<ProgressBarComponent>",
         "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/status/src/status/status.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<StatusComponent>",
-        "defaultValue": "{\r\n  component: StatusComponent,\r\n  title: 'Components/Status Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<TagComponent>",
-        "defaultValue": "{\r\n  component: TagComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "meta",
@@ -929,7 +929,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Bs2DSInputSelectOption[]",
-        "defaultValue": "[\r\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\r\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\r\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\r\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\r\n]"
+        "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
       },
       {
         "name": "options",
@@ -939,7 +939,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Bs2DSInputSelectOption[]",
-        "defaultValue": "[\r\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\r\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\r\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\r\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\r\n]"
+        "defaultValue": "[\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\n]"
       },
       {
         "name": "options",
@@ -949,7 +949,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Bs2DSInputSelectOption[]",
-        "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1' },\r\n  { value: 2, text: 'Categoria 2' },\r\n  { value: 3, text: 'Categoria 3' },\r\n  { value: 4, text: 'Categoria 4' },\r\n  { value: 5, text: 'Categoria 5' },\r\n]"
+        "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
       },
       {
         "name": "options",
@@ -959,7 +959,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ChipCheckboxOption[]",
-        "defaultValue": "Array(10)\r\n  .fill(0)\r\n  .map((_, i) => ({\r\n    label: `item ${String(i + 1).padStart(2, '0')}`,\r\n    disabled: [3, 4, 5].includes(i),\r\n  }))"
+        "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
       },
       {
         "name": "Outlined",
@@ -979,7 +979,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n  },\r\n  render: (args: MockFeedbackComponent) => {\r\n    return {\r\n      template: `\r\n        <feedback status='info' message='${args.message}' /><br/>\r\n        <feedback status='attention' message='${args.message}' /><br/>\r\n        <feedback status='error' message='${args.message}' /><br/>\r\n        <feedback status='success' message='${args.message}' />\r\n      `,\r\n    };\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n  },\n  render: (args: MockFeedbackComponent) => {\n    return {\n      template: `\n        <feedback status='info' message='${args.message}' /><br/>\n        <feedback status='attention' message='${args.message}' /><br/>\n        <feedback status='error' message='${args.message}' /><br/>\n        <feedback status='success' message='${args.message}' />\n      `,\n    };\n  },\n}"
       },
       {
         "name": "TextOnly",
@@ -999,7 +999,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n    status: 'success',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n    status: 'success',\n  },\n}"
       },
       {
         "name": "Unavailable",
@@ -1146,8 +1146,30 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
+        "rawtype": "StoryObj<Bs2DSCardRatingComponent>",
+        "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
         "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
         "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<Bs2DSDatepickerComponent>",
+        "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1168,17 +1190,6 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 183
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
         "rawtype": "StoryObj<Bs2DSInputTextareaComponent>",
         "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
         "deprecated": false,
@@ -1190,19 +1201,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<Bs2DSInputTokenComponent>",
-        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 183
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<Bs2DSInputSelectComponent>",
-        "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+        "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+        "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1223,30 +1223,30 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
+        "rawtype": "StoryObj<Bs2DSInputSelectComponent>",
+        "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<Bs2DSInputTokenComponent>",
+        "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
         "rawtype": "StoryObj<ChipsFieldComponent>",
         "file": "libs/ui/components/chips-field/src/chips-field/chips-field.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 183
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<DatepickerFieldComponent>",
-        "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 183
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<CardAssessmentComponent>",
-        "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1289,8 +1289,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ProgressBarComponent>",
-        "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+        "rawtype": "StoryObj<TagComponent>",
+        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1311,8 +1311,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<TagComponent>",
-        "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+        "rawtype": "StoryObj<ProgressBarComponent>",
+        "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1407,6 +1407,38 @@
           "defaultValue": "{\n  render: (args) => ({\n    template: `<button outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
         }
       ],
+      "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'bs2_ds_card_rating_test_id',\r\n    form: form,\r\n  },\r\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormGroup",
+          "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<Bs2DSCardRatingComponent>",
+          "defaultValue": "{\r\n  component: Bs2DSCardRatingComponent,\r\n  title: 'Form Components/Card Rating',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+        }
+      ],
       "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
         {
           "name": "Default",
@@ -1416,7 +1448,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'phone',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: '',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    multiple: false,\n    id: 'phone',\n    testId: 'flags',\n    name: 'flags',\n    label: '',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n}"
         },
         {
           "name": "form",
@@ -1426,7 +1458,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  flags: new FormControl(null, [CustomValidators.required]),\r\n})"
+          "defaultValue": "new FormGroup({\n  flags: new FormControl(null, [CustomValidators.required]),\n})"
         },
         {
           "name": "meta",
@@ -1436,7 +1468,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<Bs2DSInputPhoneComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputPhoneComponent,\r\n  title: 'Form Components/InputPhone',\r\n  decorators: [\r\n    moduleMetadata({\r\n      providers: [provideNgxMask({ validation: false })],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
         },
         {
           "name": "options",
@@ -1446,7 +1478,39 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Bs2DSInputSelectOption[]",
-          "defaultValue": "[\r\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\r\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\r\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\r\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\r\n]"
+          "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
+        }
+      ],
+      "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    form: form,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    name: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormGroup",
+          "defaultValue": "new FormGroup({\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\n})"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<Bs2DSDatepickerComponent>",
+          "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         }
       ],
       "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
@@ -1458,7 +1522,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form,\r\n    state: 'default',\r\n    multiple: false,\r\n    id: 'flags',\r\n    testId: 'flags',\r\n    name: 'flags',\r\n    label: 'flags',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: '',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    selecteds: [options[1], options[2]],\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: true,\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    form,\n    state: 'default',\n    multiple: false,\n    id: 'flags',\n    testId: 'flags',\n    name: 'flags',\n    label: 'flags',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: true,\n  },\n}"
         },
         {
           "name": "form",
@@ -1468,7 +1532,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  flags: new FormControl([], [CustomValidators.required]),\r\n})"
+          "defaultValue": "new FormGroup({\n  flags: new FormControl([], [CustomValidators.required]),\n})"
         },
         {
           "name": "meta",
@@ -1478,7 +1542,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<Bs2DSInputCurrencyComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    selecteds: {\r\n      control: { type: 'text' },\r\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\r\n      defaultValue: { summary: '[control] initial value' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'true' },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'true' },\n    },\n  },\n}"
         },
         {
           "name": "options",
@@ -1488,39 +1552,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Bs2DSInputSelectOption[]",
-          "defaultValue": "[\r\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\r\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\r\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\r\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\r\n]"
-        }
-      ],
-      "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    type: 'text',\r\n    id: 'email',\r\n    testId: 'email',\r\n    name: 'email',\r\n    label: 'E-mail',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\r\n  },\r\n}"
-        },
-        {
-          "name": "form",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\r\n})"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<Bs2DSInputTextComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "[\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\n]"
         }
       ],
       "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts": [
@@ -1532,7 +1564,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    id: 'description',\r\n    autosize: false,\r\n    resize: false,\r\n    rows: 1,\r\n    maxLength: 300,\r\n    testId: 'description',\r\n    name: 'description',\r\n    label: 'Descrição',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-textarea works!/gi)).toBeTruthy();\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    id: 'description',\n    autosize: false,\n    resize: false,\n    rows: 1,\n    maxLength: 300,\n    testId: 'description',\n    name: 'description',\n    label: 'Descrição',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-textarea works!/gi)).toBeTruthy();\n  },\n}"
         },
         {
           "name": "form",
@@ -1542,7 +1574,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\r\n})"
+          "defaultValue": "new FormGroup({\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\n})"
         },
         {
           "name": "meta",
@@ -1552,29 +1584,39 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<Bs2DSInputTextareaComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputTextareaComponent,\r\n  title: 'Form Components/InputTextArea',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    autosize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    resize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: {\r\n        type: {\r\n          summary: 'boolean',\r\n        },\r\n      },\r\n    },\r\n    rows: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    maxLength: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         }
       ],
-      "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
+      "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
         {
           "name": "Default",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    state: 'default',\r\n    type: 'text',\r\n    qtdInputs: 6,\r\n    disabled: false,\r\n    id: 'token',\r\n    testId: 'token',\r\n    name: 'token',\r\n    class: 'custom_class',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  play: async ({ canvasElement }) => {\r\n    const canvas = within(canvasElement);\r\n    expect(canvas.getByText(/bs2-ds-input-token works!/gi)).toBeTruthy();\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    name: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormGroup",
+          "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "Meta<Bs2DSInputTokenComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputTokenComponent,\r\n  title: 'Form Components/InputToken',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'text' },\r\n    },\r\n    qtdInputs: {\r\n      control: { type: 'number' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 6 },\r\n    },\r\n    disabled: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: false },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+          "type": "Meta<Bs2DSInputTextComponent>",
+          "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         }
       ],
       "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
@@ -1586,7 +1628,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    state: 'default',\r\n    multiple: true,\r\n    id: 'categories',\r\n    testId: 'categories',\r\n    name: 'categories',\r\n    label: 'Categorias',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    options,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    hideCheckbox: false,\r\n  },\r\n  // play: async ({ canvasElement }) => {\r\n  //   const canvas = within(canvasElement);\r\n  //   expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\r\n  // },\r\n}"
+          "defaultValue": "{\n  args: {\n    form: form,\n    state: 'default',\n    multiple: true,\n    id: 'categories',\n    testId: 'categories',\n    name: 'categories',\n    label: 'Categorias',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'arrow-down',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n    hideCheckbox: false,\n  },\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  // },\n}"
         },
         {
           "name": "form",
@@ -1596,7 +1638,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  categories: new FormControl([2, 3, 4], [CustomValidators.required]),\r\n})"
+          "defaultValue": "new FormGroup({\n  categories: new FormControl([2, 3, 4], [CustomValidators.required]),\n})"
         },
         {
           "name": "meta",
@@ -1606,7 +1648,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<Bs2DSInputSelectComponent>",
-          "defaultValue": "{\r\n  component: Bs2DSInputSelectComponent,\r\n  title: 'Form Components/SelectInput',\r\n  argTypes: {\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    multiple: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'arrow-down' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'Selecione uma opção' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    options: {\r\n      control: { type: 'text' },\r\n      description: 'obrigatório',\r\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    hideCheckbox: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         },
         {
           "name": "options",
@@ -1616,7 +1658,29 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Bs2DSInputSelectOption[]",
-          "defaultValue": "[\r\n  { value: 1, text: 'Categoria 1' },\r\n  { value: 2, text: 'Categoria 2' },\r\n  { value: 3, text: 'Categoria 3' },\r\n  { value: 4, text: 'Categoria 4' },\r\n  { value: 5, text: 'Categoria 5' },\r\n]"
+          "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
+        }
+      ],
+      "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    state: 'default',\n    type: 'text',\n    qtdInputs: 6,\n    disabled: false,\n    id: 'token',\n    testId: 'token',\n    name: 'token',\n    class: 'custom_class',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-token works!/gi)).toBeTruthy();\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<Bs2DSInputTokenComponent>",
+          "defaultValue": "{\n  component: Bs2DSInputTokenComponent,\n  title: 'Form Components/InputToken',\n  argTypes: {\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'disabled', 'error'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    qtdInputs: {\n      control: { type: 'number' },\n      description: 'opcional',\n      defaultValue: { summary: 6 },\n    },\n    disabled: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: false },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    name: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
         }
       ],
       "libs/ui/components/chips-field/src/chips-field/chips-field.component.stories.ts": [
@@ -1628,7 +1692,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    name: 'reasons',\r\n    options,\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    form: form,\n    name: 'reasons',\n    options,\n  },\n}"
         },
         {
           "name": "form",
@@ -1638,7 +1702,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  reasons: new FormControl([], [CustomValidators.required]),\r\n})"
+          "defaultValue": "new FormGroup({\n  reasons: new FormControl([], [CustomValidators.required]),\n})"
         },
         {
           "name": "meta",
@@ -1648,7 +1712,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ChipsFieldComponent>",
-          "defaultValue": "{\r\n  component: ChipsFieldComponent,\r\n  title: 'Form Components/ChipsField Checkbox',\r\n  argTypes: {\r\n    options: {\r\n      defaultValue: { summary: '[]' },\r\n      table: {\r\n        type: {\r\n          summary: 'ChipCheckboxOption[] | string[]',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: ChipsFieldComponent,\n  title: 'Form Components/ChipsField Checkbox',\n  argTypes: {\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'ChipCheckboxOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
         },
         {
           "name": "options",
@@ -1658,71 +1722,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ChipCheckboxOption[]",
-          "defaultValue": "Array(10)\r\n  .fill(0)\r\n  .map((_, i) => ({\r\n    label: `item ${String(i + 1).padStart(2, '0')}`,\r\n    disabled: [3, 4, 5].includes(i),\r\n  }))"
-        }
-      ],
-      "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    form: form,\r\n    min: new Date('1900-01-01T03:07:00.000Z'),\r\n    max: new Date('2100-12-31T03:07:00.000Z'),\r\n    state: 'default',\r\n    id: 'birthday',\r\n    testId: 'birthday',\r\n    name: 'birthday',\r\n    label: 'Data de nascimento',\r\n    class: 'custom_class',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n}"
-        },
-        {
-          "name": "form",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  birthday: new FormControl(null, [CustomValidators.isValidDate]),\r\n})"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<DatepickerFieldComponent>",
-          "defaultValue": "{\r\n  component: DatepickerFieldComponent,\r\n  title: 'Form Components/Date Picker',\r\n  argTypes: {\r\n    min: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\r\n    },\r\n    max: {\r\n      control: 'text',\r\n      description: 'opcional',\r\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: '(vazio)' },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      description: 'opcional',\r\n      defaultValue: { summary: 'false' },\r\n    },\r\n  },\r\n}"
-        }
-      ],
-      "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Como você avalia nossa nova tela inicial?',\r\n    from: 1,\r\n    to: 5,\r\n    firstText: 'Muito ruim',\r\n    lastText: 'Excelente',\r\n    name: 'rate',\r\n    testId: 'card_assessment_test_id',\r\n    form: form,\r\n  },\r\n}"
-        },
-        {
-          "name": "form",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "FormGroup",
-          "defaultValue": "new FormGroup({\r\n  rate: new FormControl(null, [CustomValidators.required]),\r\n})"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<CardAssessmentComponent>",
-          "defaultValue": "{\r\n  component: CardAssessmentComponent,\r\n  title: 'Form Components/Card Assessment',\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    name: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    form: {\r\n      control: { type: 'object' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'FormGroup',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
         }
       ],
       "libs/ui/components/divider/src/divider/divider.component.stories.ts": [
@@ -1734,7 +1734,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n    testId: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -1744,7 +1744,51 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<DividerComponent>",
-          "defaultValue": "{\r\n  component: DividerComponent,\r\n  title: 'Components/Divider',\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: 20 },\r\n      table: {\r\n        type: {\r\n          summary: 'number',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: DividerComponent,\n  title: 'Components/Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+        }
+      ],
+      "libs/ui/components/tag/src/tag/tag.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    status: 'neutral',\n    size: 'regular',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<TagComponent>",
+          "defaultValue": "{\n  component: TagComponent,\n  title: 'Components/Tag Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+        }
+      ],
+      "libs/ui/components/status/src/status/status.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/status/src/status/status.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    status: 'neutral',\n    text: 'Seu texto aqui',\n    testId: '',\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "libs/ui/components/status/src/status/status.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<StatusComponent>",
+          "defaultValue": "{\n  component: StatusComponent,\n  title: 'Components/Status Text',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
         }
       ],
       "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
@@ -1767,50 +1811,6 @@
           "deprecationMessage": "",
           "type": "Meta<ProgressBarComponent>",
           "defaultValue": "{\n  component: ProgressBarComponent,\n  title: 'Components/Progress Bar',\n  argTypes: {\n    percent: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    loop: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-        }
-      ],
-      "libs/ui/components/status/src/status/status.component.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/status/src/status/status.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/status/src/status/status.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<StatusComponent>",
-          "defaultValue": "{\r\n  component: StatusComponent,\r\n  title: 'Components/Status Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
-        }
-      ],
-      "libs/ui/components/tag/src/tag/tag.component.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n    testId: '',\r\n  },\r\n}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<TagComponent>",
-          "defaultValue": "{\r\n  component: TagComponent,\r\n  title: 'Components/Tag Text',\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\r\n        },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: {\r\n        type: {\r\n          summary: \"'regular' | 'small'\",\r\n        },\r\n      },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
         }
       ],
       "libs/ui/directives/loader/src/loader/loader.directive.stories.ts": [
@@ -1960,7 +1960,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<MockFeedbackComponent>",
-          "defaultValue": "{\r\n  component: MockFeedbackComponent,\r\n  title: 'Components/Feedback',\r\n  // tags: ['autodocs'],\r\n  subcomponents: {\r\n    FeedbackComponent,\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockFeedbackComponent,\r\n        FeedbackComponent,\r\n        FeedbackComponent,\r\n        FilledButtonDirective,\r\n        FeedbackContainerComponent,\r\n        BrowserAnimationsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    message: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n    status: {\r\n      control: 'select',\r\n      options: ['info', 'attention', 'error', 'success'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: {\r\n        type: {\r\n          summary: 'info | attention | error | success',\r\n        },\r\n      },\r\n    },\r\n    duration: {\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'number | undefined',\r\n        },\r\n      },\r\n    },\r\n    testId: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: {\r\n        type: {\r\n          summary: 'string',\r\n        },\r\n      },\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  component: MockFeedbackComponent,\n  title: 'Components/Feedback',\n  // tags: ['autodocs'],\n  subcomponents: {\n    FeedbackComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [\n        MockFeedbackComponent,\n        FeedbackComponent,\n        FeedbackComponent,\n        FilledButtonDirective,\n        FeedbackContainerComponent,\n        BrowserAnimationsModule,\n      ],\n    }),\n  ],\n  argTypes: {\n    message: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    status: {\n      control: 'select',\n      options: ['info', 'attention', 'error', 'success'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'info | attention | error | success',\n        },\n      },\n    },\n    duration: {\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'number | undefined',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
         },
         {
           "name": "Static",
@@ -1970,7 +1970,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n  },\r\n  render: (args: MockFeedbackComponent) => {\r\n    return {\r\n      template: `\r\n        <feedback status='info' message='${args.message}' /><br/>\r\n        <feedback status='attention' message='${args.message}' /><br/>\r\n        <feedback status='error' message='${args.message}' /><br/>\r\n        <feedback status='success' message='${args.message}' />\r\n      `,\r\n    };\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n  },\n  render: (args: MockFeedbackComponent) => {\n    return {\n      template: `\n        <feedback status='info' message='${args.message}' /><br/>\n        <feedback status='attention' message='${args.message}' /><br/>\n        <feedback status='error' message='${args.message}' /><br/>\n        <feedback status='success' message='${args.message}' />\n      `,\n    };\n  },\n}"
         },
         {
           "name": "Toast",
@@ -1980,7 +1980,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    message: 'Lorem ipsum dolor sit amet',\r\n    status: 'success',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    message: 'Lorem ipsum dolor sit amet',\n    status: 'success',\n  },\n}"
         }
       ]
     },
@@ -2091,6 +2091,19 @@
           "kind": 183
         }
       ],
+      "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<Bs2DSCardRatingComponent>",
+          "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
         {
           "name": "Story",
@@ -2098,6 +2111,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
           "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<Bs2DSDatepickerComponent>",
+          "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2117,19 +2143,6 @@
           "kind": 183
         }
       ],
-      "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
       "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts": [
         {
           "name": "Story",
@@ -2143,26 +2156,13 @@
           "kind": 183
         }
       ],
-      "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
+      "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<Bs2DSInputTokenComponent>",
-          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
-      "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<Bs2DSInputSelectComponent>",
-          "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+          "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+          "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2182,6 +2182,32 @@
           "kind": 183
         }
       ],
+      "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<Bs2DSInputSelectComponent>",
+          "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<Bs2DSInputTokenComponent>",
+          "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "libs/ui/components/chips-field/src/chips-field/chips-field.component.stories.ts": [
         {
           "name": "Story",
@@ -2189,32 +2215,6 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<ChipsFieldComponent>",
           "file": "libs/ui/components/chips-field/src/chips-field/chips-field.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
-      "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<DatepickerFieldComponent>",
-          "file": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 183
-        }
-      ],
-      "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<CardAssessmentComponent>",
-          "file": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2260,13 +2260,13 @@
           "kind": 183
         }
       ],
-      "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
+      "libs/ui/components/tag/src/tag/tag.component.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<ProgressBarComponent>",
-          "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
+          "rawtype": "StoryObj<TagComponent>",
+          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2286,13 +2286,13 @@
           "kind": 183
         }
       ],
-      "libs/ui/components/tag/src/tag/tag.component.stories.ts": [
+      "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<TagComponent>",
-          "file": "libs/ui/components/tag/src/tag/tag.component.stories.ts",
+          "rawtype": "StoryObj<ProgressBarComponent>",
+          "file": "libs/ui/components/progress-bar/src/progress-bar/progress-bar.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2343,6 +2343,66 @@
         "status": "low"
       },
       {
+        "filePath": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
         "filePath": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
@@ -2534,36 +2594,6 @@
       },
       {
         "filePath": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Default",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "form",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/card-assessment/src/card-assessment/card-assessment.component.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -2736,36 +2766,6 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "options",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Default",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "form",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "libs/ui/components/datepicker-field/src/datepicker-field/datepicker-field.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
