@@ -83,13 +83,13 @@ describe('Bs2DSInputTextareaComponent', () => {
     component.maxLength = 10;
     component.form?.get('description')?.setValue('12345');
     fixture.detectChanges();
-    let maxLength = get(`.bs2_ds_input_textarea__feedback_max_length`);
+    let maxLength = get(`.bs2_ds_input_textarea__bs2-ds-feedback_max_length`);
     expect(maxLength.textContent.trim()).toBe('5 / 10');
 
     component.maxLength = 0;
     component.form?.get('description')?.setValue('');
     fixture.detectChanges();
-    maxLength = get(`.bs2_ds_input_textarea__feedback_max_length`);
+    maxLength = get(`.bs2_ds_input_textarea__bs2-ds-feedback_max_length`);
     expect(maxLength).toBeFalsy();
   });
 });

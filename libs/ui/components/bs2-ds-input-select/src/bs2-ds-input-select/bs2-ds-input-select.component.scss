@@ -10,7 +10,7 @@
   --select_field__icon_width: 20px;
   --select_field__icon_color: var(--primary);
   --select_field__label_color: var(--neutral_n5);
-  --select_field__feedback_text_color: var(--error);
+  --select_field__bs2-ds-feedback_text_color: var(--error);
 }
 
 .bs2_ds_input_select {
@@ -32,11 +32,11 @@
       display: none;
     }
   }
-  &__feedback {
+  &__bs2-ds-feedback {
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--select_field__feedback_text_color);
+    color: var(--select_field__bs2-ds-feedback_text_color);
 
     &:empty {
       display: none;
@@ -218,7 +218,7 @@
     --select_field__label_color: var(--error);
     --select_field__field_border_color: var(--error);
     --select_field__icon_color: var(--error);
-    --select_field__feedback_text_color: var(--error);
+    --select_field__bs2-ds-feedback_text_color: var(--error);
   }
 
   &:has(&__field:not(:empty)),

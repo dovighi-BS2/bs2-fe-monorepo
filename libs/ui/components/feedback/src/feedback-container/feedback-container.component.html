@@ -1,5 +1,0 @@
-<div class="feedback_container">
-  @for(item of (feedbackService.feedbackItems || []); track item){
-  <feedback [@slideInOut] [message]="item.message" [status]="item.status" />
-  }
-</div>

@@ -16,7 +16,7 @@
     <option *ngFor="let option of options">{{ option.text }}</option>
   </select>
   <span class="bs2_ds_input_select__helper" *ngIf="!!helperText">{{ helperText }}</span>
-  <span class="bs2_ds_input_select__feedback" *ngIf="!!getErrors || !!errorText">
+  <span class="bs2_ds_input_select__bs2-ds-feedback" *ngIf="!!getErrors || !!errorText">
     {{ getErrors }}
     {{ errorText }}
   </span>

@@ -9,7 +9,7 @@
   --text_field__icon_width: 20px;
   --text_field__icon_color: var(--primary);
   --text_field__label_color: var(--neutral_n5);
-  --text_field__feedback_text_color: var(--error);
+  --text_field__bs2-ds-feedback_text_color: var(--error);
 }
 
 .bs2_ds_input_text {
@@ -26,11 +26,11 @@
       display: none;
     }
   }
-  &__feedback {
+  &__bs2-ds-feedback {
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--text_field__feedback_text_color);
+    color: var(--text_field__bs2-ds-feedback_text_color);
 
     &:empty {
       display: none;
@@ -113,7 +113,7 @@
     --text_field__label_color: var(--error);
     --text_field__field_border_color: var(--error);
     --text_field__icon_color: var(--error);
-    --text_field__feedback_text_color: var(--error);
+    --text_field__bs2-ds-feedback_text_color: var(--error);
   }
 
   &:has(&__field:not(:empty)),
