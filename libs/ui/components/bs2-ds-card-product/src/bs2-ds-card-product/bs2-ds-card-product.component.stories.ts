@@ -12,7 +12,7 @@ function rand(min: number, max: number) {
   styles: `:host{ display:block; width: 231px; }`,
   template: `<bs2-ds-card-product
     [testId]="testId"
-    [loader]="loader"
+    [bs2-ds-loader]="loader"
     [unavailableTitle]="unavailableTitle"
     [icon]="icon"
     [title]="title"

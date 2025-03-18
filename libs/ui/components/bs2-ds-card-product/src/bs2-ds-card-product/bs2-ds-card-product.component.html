@@ -1,4 +1,4 @@
-<div class="product" [attr.data-test]="testId" [loader]="loader">
+<div class="product" [attr.data-test]="testId" [bs2-ds-loader]="loader">
   @if(template === 'visible'){
   <ng-container *ngTemplateOutlet="visible"></ng-container>
   } @if(template === 'hidden'){

@@ -1,6 +1,6 @@
 import { Bs2DSFeedbackService } from './bs2-ds-feedback.service';
 import { Bs2DSFeedbackComponent } from './bs2-ds-feedback.component';
-import { FilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/button/filled-button';
+import { Bs2DSFilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Component, inject, Input } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +12,7 @@ import { Bs2DSFeedbackContainerComponent } from '../bs2-ds-feedback-container/bs
     <bs2-ds-feedback-container />
     <p>Para fazer o uso do toast, é necessário usar a service Bs2DSFeedbackService.</p>
     <button
-      filled-button
+      bs2-ds-filled-button
       (click)="bs2 - ds - feedbackService.add({ message: this.message, status: this.status, duration: this.duration })"
       aria-label="label"
     >
@@ -20,7 +20,7 @@ import { Bs2DSFeedbackContainerComponent } from '../bs2-ds-feedback-container/bs
     </button>
   `,
   standalone: true,
-  imports: [Bs2DSFeedbackContainerComponent, FilledButtonDirective],
+  imports: [Bs2DSFeedbackContainerComponent, Bs2DSFilledButtonDirective],
 })
 class MockBs2DSFeedbackComponent {
   @Input() testId? = '';
@@ -44,7 +44,7 @@ const meta: Meta<MockBs2DSFeedbackComponent> = {
         MockBs2DSFeedbackComponent,
         Bs2DSFeedbackComponent,
         Bs2DSFeedbackComponent,
-        FilledButtonDirective,
+        Bs2DSFilledButtonDirective,
         Bs2DSFeedbackContainerComponent,
         BrowserAnimationsModule,
       ],

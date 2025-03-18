@@ -11,7 +11,7 @@ function rand(min: number, max: number) {
   selector: 'father-simulation',
   styles: `:host{ display:block; width: 312px; }`,
   template: `<bs2-ds-card-balance
-    [loader]="loader"
+    [bs2-ds-loader]="loader"
     [testId]="testId"
     [balance]="balance"
     [limit]="limit"
