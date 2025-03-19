@@ -38,11 +38,6 @@ const meta: Meta<Bs2DSInputSelectComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -121,12 +116,11 @@ delete form['controls']['categories']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('categories'),
     state: 'default',
     multiple: true,
     id: 'categories',
     testId: 'categories',
-    name: 'categories',
     label: 'Categorias',
     class: 'custom_class',
     leftIcon: '',

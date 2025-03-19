@@ -44,11 +44,6 @@ const meta: Meta<Bs2DSInputPhoneComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -125,19 +120,18 @@ export default meta;
 type Story = StoryObj<Bs2DSInputPhoneComponent>;
 
 const form: FormGroup = new FormGroup({
-  flags: new FormControl(null, [CustomValidators.required]),
+  phone: new FormControl(null, [CustomValidators.required]),
 });
 
-delete form['controls']['flags']['_parent'];
+delete form['controls']['phone']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('phone'),
     state: 'default',
     multiple: false,
     id: 'phone',
     testId: 'flags',
-    name: 'flags',
     label: '',
     class: 'custom_class',
     leftIcon: '',

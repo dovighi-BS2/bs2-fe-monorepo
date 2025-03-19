@@ -33,11 +33,6 @@ const meta: Meta<Bs2DSDatepickerComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -106,13 +101,12 @@ delete form['controls']['birthday']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('birthday'),
     min: new Date('1900-01-01T03:07:00.000Z'),
     max: new Date('2100-12-31T03:07:00.000Z'),
     state: 'default',
     id: 'birthday',
     testId: 'birthday',
-    name: 'birthday',
     label: 'Data de nascimento',
     class: 'custom_class',
     leftIcon: '',

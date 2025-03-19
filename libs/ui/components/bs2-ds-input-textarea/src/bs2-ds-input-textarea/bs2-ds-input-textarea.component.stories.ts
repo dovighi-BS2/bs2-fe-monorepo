@@ -62,11 +62,6 @@ const meta: Meta<Bs2DSInputTextareaComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -136,7 +131,7 @@ delete form['controls']['description']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('description'),
     state: 'default',
     id: 'description',
     autosize: false,
@@ -144,7 +139,6 @@ export const Default: Story = {
     rows: 1,
     maxLength: 300,
     testId: 'description',
-    name: 'description',
     label: 'Descrição',
     class: 'custom_class',
     leftIcon: '',

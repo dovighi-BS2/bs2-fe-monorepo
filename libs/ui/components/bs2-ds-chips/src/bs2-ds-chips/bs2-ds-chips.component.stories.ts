@@ -40,7 +40,7 @@ delete form['controls']['reasons']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('reasons'),
     name: 'reasons',
     options,
   },

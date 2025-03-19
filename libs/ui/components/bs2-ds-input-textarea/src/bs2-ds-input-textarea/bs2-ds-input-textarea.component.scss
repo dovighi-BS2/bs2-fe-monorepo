@@ -9,29 +9,29 @@
   --textarea_field__icon_width: 20px;
   --textarea_field__icon_color: var(--primary);
   --textarea_field__label_color: var(--neutral_n5);
-  --textarea_field__bs2-ds-feedback_text_color: var(--error);
+  --textarea_field__feedback_text_color: var(--error);
 }
 
 .bs2_ds_input_textarea {
   display: flex;
   flex-direction: column-reverse;
 
-  &__bs2-ds-feedback_wrapper {
+  &__feedback_wrapper {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
-  &__bs2-ds-feedback_left {
+  &__feedback_left {
     display: flex;
     flex-direction: column;
   }
-  &__bs2-ds-feedback_right {
+  &__feedback_right {
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
     color: var(--textarea_field__label_color);
   }
-  &__bs2-ds-feedback_max_length {
+  &__feedback_max_length {
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
@@ -47,11 +47,11 @@
       display: none;
     }
   }
-  &__bs2-ds-feedback {
+  &__feedback {
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--textarea_field__bs2-ds-feedback_text_color);
+    color: var(--textarea_field__feedback_text_color);
 
     &:empty {
       display: none;
@@ -143,7 +143,7 @@
     --textarea_field__label_color: var(--error);
     --textarea_field__field_border_color: var(--error);
     --textarea_field__icon_color: var(--error);
-    --textarea_field__bs2-ds-feedback_text_color: var(--error);
+    --textarea_field__feedback_text_color: var(--error);
   }
 
   &:has(&__field:not(:empty)),

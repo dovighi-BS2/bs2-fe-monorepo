@@ -38,11 +38,6 @@ const meta: Meta<Bs2DSInputCurrencyComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -126,12 +121,11 @@ delete form['controls']['flags']['_parent'];
 
 export const Default: Story = {
   args: {
-    form,
+    control: form.get('flags'),
     state: 'default',
     multiple: false,
     id: 'flags',
     testId: 'flags',
-    name: 'flags',
     label: 'flags',
     class: 'custom_class',
     leftIcon: '',

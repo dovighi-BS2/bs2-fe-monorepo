@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSChipOption } from './bs2-ds-chips.interface';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './bs2-ds-chips.component.scss',
 })
 export class Bs2DSChipsComponent implements OnInit {
-  @Input() form?: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() name?: string = '';
   @Input() testId?: string = '';
 
@@ -51,9 +51,5 @@ export class Bs2DSChipsComponent implements OnInit {
 
   isSelected(item: Bs2DSChipOption) {
     return (this.control?.value || []).includes(item.label);
-  }
-
-  get control() {
-    return this.form.get(this.name);
   }
 }

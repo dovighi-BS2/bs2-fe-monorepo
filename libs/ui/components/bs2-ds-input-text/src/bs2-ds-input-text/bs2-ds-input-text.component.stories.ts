@@ -31,11 +31,6 @@ const meta: Meta<Bs2DSInputTextComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    name: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
     label: {
       control: { type: 'text' },
       description: 'opcional',
@@ -104,12 +99,11 @@ delete form['controls']['email']['_parent'];
 
 export const Default: Story = {
   args: {
-    form: form,
+    control: form.get('email'),
     state: 'default',
     type: 'text',
     id: 'email',
     testId: 'email',
-    name: 'email',
     label: 'E-mail',
     class: 'custom_class',
     leftIcon: '',

@@ -1,6 +1,6 @@
 import { Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
@@ -18,10 +18,9 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   @ViewChild('datePickerRef') datePickerRef!: ElementRef;
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' | 'opened';
 
-  @Input() form?: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() id = '';
   @Input() testId = '';
-  @Input() name = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
@@ -291,14 +290,12 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
     if (operation === 'plus') return new Date(new Date(date).setDate(date.getDate() + days));
     return date;
   }
-  get control() {
-    return this.form?.get(this.name);
-  }
+
   get controlToUser() {
     return this.formToUser?.get('date');
   }
   get getErrors(): string {
-    if (!this.form || !this.control || this.control.untouched) return '';
+    if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {}).map((error) => error);
     return errors[0];
   }

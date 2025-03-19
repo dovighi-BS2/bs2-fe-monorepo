@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { fromEvent, Subscription } from 'rxjs';
@@ -19,11 +19,10 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
 
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() form?: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
-  @Input() name = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
@@ -44,7 +43,7 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
 
   ngOnInit(): void {
     // if (this.options[0] && this.selecteds.length <= 0) this.selectOption(this.options[0]);
-    if (this.form && this.control?.value.length > 0) {
+    if (this.control && this.control?.value.length > 0) {
       this.selecteds = (this.options || []).filter((item) => (this.control?.value || []).includes(item.value));
     }
   }
@@ -72,7 +71,7 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
     } else {
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
     }
-    this.form && this.control?.setValue(this.selecteds.map((item) => item.value));
+    this.control && this.control?.setValue(this.selecteds.map((item) => item.value));
   }
 
   addSelected(option: Bs2DSInputSelectOption) {
@@ -110,12 +109,8 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
     return this.selecteds[0].image;
   }
 
-  get control() {
-    return this.form.get(this.name);
-  }
-
   get getErrors(): string {
-    if (!this.form || !this.control || this.control.untouched) return '';
+    if (!this.control || !this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {}).map((error) => error);
     return errors[0];
   }

@@ -1,12 +1,11 @@
 <div
-  *ngIf="!!form"
-  [formGroup]="form"
+  *ngIf="!!control"
   [attr.data-test]="testId"
   #datePickerRef
   class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
 >
   <bs2-ds-input-text
-    [form]="formToUser"
+    [control]="controlToUser"
     [id]="id"
     name="date"
     [label]="label"
@@ -23,7 +22,7 @@
     (clickEmitter)="dayPicker.open()"
     (keyup)="handleInputChange()"
   />
-  <input type="hidden" [formControlName]="name" />
+  <input type="hidden" [formControl]="control" />
   <div class="date_picker__calendar">
     <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
     <ng-container *ngTemplateOutlet="monthPickerCalendar"></ng-container>

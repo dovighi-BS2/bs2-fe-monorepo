@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSInputSelectOption } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-select';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { Bs2DSInputTextComponent } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-text';
@@ -15,14 +15,13 @@ import { Bs2DSInputCurrencyComponent, flags } from '@bs2-fe-monorepo/ui/componen
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideNgxMask({ validation: false })],
 })
-export class Bs2DSInputPhoneComponent {
+export class Bs2DSInputPhoneComponent implements OnInit {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() form?: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
-  @Input() name = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
@@ -49,6 +48,13 @@ export class Bs2DSInputPhoneComponent {
     number: new FormControl(''),
   });
 
+  ngOnInit(): void {
+    this.inputForm.valueChanges.subscribe((_) => {
+      if (this.ddiControl.invalid || this.numberControl.invalid) return;
+      this.control.setValue(`${this.ddiControl.value} ${this.numberControl.value}`);
+    });
+  }
+
   get mask() {
     switch (this.ddiValue) {
       case flags.brl:
@@ -66,6 +72,10 @@ export class Bs2DSInputPhoneComponent {
 
   get ddiControl() {
     return this.inputForm.get('ddi');
+  }
+
+  get numberControl() {
+    return this.inputForm.get('number');
   }
 
   get ddiValue() {

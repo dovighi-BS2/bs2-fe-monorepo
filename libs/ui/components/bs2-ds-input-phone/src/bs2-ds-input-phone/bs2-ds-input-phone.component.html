@@ -1,15 +1,14 @@
-<div class="bs2_ds_input_phone" *ngIf="!!form">
+<div class="bs2_ds_input_phone" *ngIf="!!control">
   <bs2-ds-input-currency
     class="select_flag"
     [readOnly]="readOnly"
     [helperText]="helperText"
     [errorText]="errorText"
-    [form]="inputForm"
+    [control]="ddiControl"
     [options]="options"
     [id]="id"
     [testId]="testId"
     [label]="label"
-    name="ddi"
     [hideCheckbox]="hideCheckbox"
     [state]="state"
     [multiple]="multiple"
@@ -21,13 +20,10 @@
     [readOnly]="readOnly"
     [helperText]="helperText"
     [errorText]="errorText"
-    [form]="inputForm"
+    [control]="numberControl"
     [id]="id"
     [testId]="testId"
     [label]="label"
-    name="number"
     [state]="state"
   ></bs2-ds-input-text>
 </div>
-
-<!-- <img src="../../" alt=""> -->

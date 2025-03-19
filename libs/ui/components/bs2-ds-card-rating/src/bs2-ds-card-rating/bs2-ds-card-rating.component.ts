@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'bs2-ds-card-rating',
@@ -11,7 +11,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class Bs2DSCardRatingComponent {
   @Input() testId? = '';
-  @Input() form: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() name = '';
   @Input() title? = '';
   @Input() from = 1;
@@ -28,9 +28,5 @@ export class Bs2DSCardRatingComponent {
       .fill(0)
       .map((_, index) => this.from + index)
       .reverse();
-  }
-
-  get control() {
-    return this.form?.get(this.name);
   }
 }

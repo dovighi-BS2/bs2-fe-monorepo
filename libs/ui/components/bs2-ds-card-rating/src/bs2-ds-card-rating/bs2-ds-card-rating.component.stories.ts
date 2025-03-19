@@ -71,15 +71,6 @@ const meta: Meta<Bs2DSCardRatingComponent> = {
         },
       },
     },
-    form: {
-      control: { type: 'object' },
-      defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'FormGroup',
-        },
-      },
-    },
   },
 };
 
@@ -101,6 +92,6 @@ export const Default: Story = {
     lastText: 'Excelente',
     name: 'rate',
     testId: 'bs2_ds_card_rating_test_id',
-    form: form,
+    control: form.get('rate'),
   },
 };
