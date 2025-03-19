@@ -26,7 +26,12 @@ const meta: Meta<MockButtonComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [MockButtonComponent, Bs2DSFilledButtonDirective, Bs2DSOutlinedButtonDirective, Bs2DSFlatButtonDirective],
+      imports: [
+        MockButtonComponent,
+        Bs2DSFilledButtonDirective,
+        Bs2DSOutlinedButtonDirective,
+        Bs2DSFlatButtonDirective,
+      ],
     }),
   ],
   argTypes: {

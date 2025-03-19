@@ -34,8 +34,12 @@
       "@bs2-fe-monorepo/ui/components/bs2-ds-progress-bar": ["libs/ui/components/bs2-ds-progress-bar/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
-      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button": ["libs/ui/directives/bs2-ds-button/bs2-ds-filled-button/src/index.ts"],
-      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-flat-button": ["libs/ui/directives/bs2-ds-button/bs2-ds-flat-button/src/index.ts"],
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button": [
+        "libs/ui/directives/bs2-ds-button/bs2-ds-filled-button/src/index.ts"
+      ],
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-flat-button": [
+        "libs/ui/directives/bs2-ds-button/bs2-ds-flat-button/src/index.ts"
+      ],
       "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-outlined-button": [
         "libs/ui/directives/bs2-ds-button/bs2-ds-outlined-button/src/index.ts"
       ],
