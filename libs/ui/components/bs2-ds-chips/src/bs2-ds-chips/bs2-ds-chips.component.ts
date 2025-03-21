@@ -13,13 +13,11 @@ import { Subscription } from 'rxjs';
 })
 export class Bs2DSChipsComponent implements OnInit {
   @Input() control: AbstractControl = new FormControl();
-  @Input() name?: string = '';
   @Input() testId?: string = '';
 
   @Input() options: Bs2DSChipOption[] | string[] = [];
-  @Input() _options: Bs2DSChipOption[] = [];
 
-  private chipsFieldSubs: Subscription[] = [];
+  public _options: Bs2DSChipOption[] = [];
 
   ngOnInit(): void {
     this.transformOptionsToPattern();

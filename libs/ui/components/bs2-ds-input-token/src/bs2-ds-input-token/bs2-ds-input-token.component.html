@@ -1,31 +1,7 @@
-<!-- VERSÃO SEM REACTIVEFORMS -->
-<div *ngIf="!form" class="bs2_ds_input_token">
+<div *ngIf="!!control" class="bs2_ds_input_token">
   <div [attr.data-test]="testId" class="bs2_ds_input_token__wrapper" role="group">
-    <input
-      *ngFor="let token of [].constructor(qtdInputs); let i = index"
-      class="bs2_ds_input_token__field {{ class }} {{ state }} {{ getErrors(i) ? 'error' : '' }}"
-      #tokenInputField
-      maxlength="1"
-      size="1"
-      [id]="id"
-      [type]="type"
-      [readOnly]="readOnly"
-      [name]="name"
-      [attr.aria-label]="ariaLabel"
-      [attr.aria-required]="ariaRequired"
-      [attr.aria-invalid]="ariaInvalid"
-      [disabled]="disabled"
-      (input)="inputToken($event, i)"
-      (keydown)="keyDownToken($event, i)"
-      (paste)="pasteToken($event)"
-    />
-  </div>
-</div>
-<!-- VERSÃO COM REACTIVEFORMS -->
-<div *ngIf="!!form" class="bs2_ds_input_token">
-  <div [attr.data-test]="testId" [formGroup]="form" class="bs2_ds_input_token__wrapper" role="group">
-    <ng-container [formArrayName]="name">
-      <ng-container *ngFor="let token of forms.controls; let i = index" [formGroupName]="i">
+    <ng-container formArray="forms">
+      <ng-container *ngFor="let form of forms.controls; let i = index">
         <input
           class="bs2_ds_input_token__field {{ class }} {{ state }} {{ getErrors(i) ? 'error' : '' }}"
           #tokenInputField
@@ -39,7 +15,7 @@
           [attr.aria-label]="ariaLabel"
           [attr.aria-required]="ariaRequired"
           [attr.aria-invalid]="ariaInvalid"
-          [formControlName]="i"
+          [formControl]="getControlByIndex(i)"
           (input)="inputToken($event, i)"
           (keyup)="keyDownToken($event, i)"
           (paste)="pasteToken($event)"

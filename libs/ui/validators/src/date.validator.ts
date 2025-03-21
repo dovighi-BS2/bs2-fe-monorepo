@@ -26,6 +26,7 @@ export const dateValidators = {
       return { isValidDateToUser: CustomValidatorMessages.required };
     if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
     const v = control.value.split('/');
+
     // [T03:07:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913
     // se buscar por [1914-01-01T03:00:00.000Z] ele retorna 1913-12-31
     const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:07:00.000Z`);

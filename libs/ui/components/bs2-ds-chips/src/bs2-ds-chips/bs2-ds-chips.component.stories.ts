@@ -19,6 +19,11 @@ const meta: Meta<Bs2DSChipsComponent> = {
   component: Bs2DSChipsComponent,
   title: 'Form Components/Chips Checkbox',
   argTypes: {
+    control: {
+      control: 'inline',
+      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
+      defaultValue: { summary: 'new FormControl()' },
+    },
     options: {
       defaultValue: { summary: '[]' },
       table: {
@@ -41,7 +46,6 @@ delete form['controls']['reasons']['_parent'];
 export const Default: Story = {
   args: {
     control: form.get('reasons'),
-    name: 'reasons',
     options,
   },
 };

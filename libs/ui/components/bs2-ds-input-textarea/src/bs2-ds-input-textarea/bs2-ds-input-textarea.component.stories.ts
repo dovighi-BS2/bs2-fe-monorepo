@@ -10,6 +10,11 @@ const meta: Meta<Bs2DSInputTextareaComponent> = {
   component: Bs2DSInputTextareaComponent,
   title: 'Form Components/InputTextArea',
   argTypes: {
+    control: {
+      control: 'inline',
+      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
+      defaultValue: { summary: 'new FormControl()' },
+    },
     state: {
       control: 'select',
       options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],

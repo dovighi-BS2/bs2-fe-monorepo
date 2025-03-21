@@ -25,6 +25,8 @@
 <ng-template #unavailable>
   <div class="balance__unavailable">
     <p class="balance__title">Saldo indisponível no momento</p>
-    <button flat-button class="balance__button" (click)="update?.emit()" aria-label="Atualizar saldo">Atualizar</button>
+    <button bs2-ds-flat-button class="balance__button" (click)="update?.emit()" aria-label="Atualizar saldo">
+      Atualizar
+    </button>
   </div>
 </ng-template>

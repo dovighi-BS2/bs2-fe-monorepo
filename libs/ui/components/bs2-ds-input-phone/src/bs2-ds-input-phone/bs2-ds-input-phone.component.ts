@@ -19,13 +19,10 @@ export class Bs2DSInputPhoneComponent implements OnInit {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control: AbstractControl = new FormControl();
-  @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
-  @Input() leftIcon = '';
-  @Input() rightIcon = 'arrow-down';
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';

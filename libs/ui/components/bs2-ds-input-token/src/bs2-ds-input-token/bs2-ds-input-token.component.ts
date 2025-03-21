@@ -1,15 +1,16 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
+  OnInit,
   Output,
   QueryList,
   ViewChildren,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormArray, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
@@ -20,11 +21,14 @@ import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
   templateUrl: './bs2-ds-input-token.component.html',
   styleUrl: './bs2-ds-input-token.component.scss',
 })
-export class Bs2DSInputTokenComponent implements AfterViewInit {
+export class Bs2DSInputTokenComponent implements OnInit {
   @ViewChildren('tokenInputField') tokenInputField!: QueryList<ElementRef>;
+
+  private fb = inject(FormBuilder);
+
   @Input() state?: 'default' | 'hovered' | 'focused' | 'disabled' | 'error';
 
-  @Input() form?: FormGroup;
+  @Input() control: AbstractControl = new FormControl();
   @Input() type = 'text';
   @Input() id = '';
   @Input() testId = '';
@@ -38,18 +42,25 @@ export class Bs2DSInputTokenComponent implements AfterViewInit {
   @Input() ariaInvalid = false;
   @Output() tokenValue = new EventEmitter<string>();
 
-  constructor(private fb: FormBuilder) {}
+  public forms = this.fb.array(
+    Array(this.qtdInputs)
+      .fill(0)
+      .map((_, index) => {
+        return this.fb.group({ [index]: ['', CustomValidators.numeric] });
+      })
+  );
 
-  ngAfterViewInit(): void {
-    if (this.form) {
-      for (let index = 0; index < this.qtdInputs; index++) {
-        this.forms.push(this.fb.group({ [index]: [null, CustomValidators.numeric] }));
-      }
-    }
+  ngOnInit(): void {
+    this.forms.valueChanges.subscribe(() => {
+      if (this.forms.invalid) return;
+
+      const token = this.forms.controls.map((form, index) => this.getControlByIndex(index).value).join('');
+      this.control.setValue(token);
+    });
   }
 
-  get forms(): FormArray {
-    return this.form?.get(this.name) as FormArray;
+  getControlByIndex(index: number) {
+    return this.forms.controls[index].get(String(index));
   }
 
   inputToken(event: Event, index: number) {

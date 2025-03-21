@@ -8,6 +8,11 @@ const meta: Meta<Bs2DSCardRatingComponent> = {
   component: Bs2DSCardRatingComponent,
   title: 'Form Components/Card Rating',
   argTypes: {
+    control: {
+      control: 'inline',
+      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
+      defaultValue: { summary: 'new FormControl()' },
+    },
     title: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
@@ -53,15 +58,6 @@ const meta: Meta<Bs2DSCardRatingComponent> = {
         },
       },
     },
-    name: {
-      control: { type: 'text' },
-      defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
-    },
     testId: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
@@ -90,7 +86,6 @@ export const Default: Story = {
     to: 5,
     firstText: 'Muito ruim',
     lastText: 'Excelente',
-    name: 'rate',
     testId: 'bs2_ds_card_rating_test_id',
     control: form.get('rate'),
   },

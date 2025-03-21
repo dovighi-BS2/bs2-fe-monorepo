@@ -14,20 +14,16 @@ export class Bs2DSInputCurrencyComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control: AbstractControl = new FormControl();
-  @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
-  @Input() leftIcon = '';
-  @Input() rightIcon = 'arrow-down';
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
   @Input() selecteds: Bs2DSInputSelectOption[] = [];
   @Input() options: Bs2DSInputSelectOption[] = [];
-  @Input() hideCheckbox = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;

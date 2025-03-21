@@ -12,7 +12,6 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@a
 export class Bs2DSCardRatingComponent {
   @Input() testId? = '';
   @Input() control: AbstractControl = new FormControl();
-  @Input() name = '';
   @Input() title? = '';
   @Input() from = 1;
   @Input() to = 5;

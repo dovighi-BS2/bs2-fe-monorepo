@@ -53,6 +53,8 @@
 <ng-template #unavailable>
   <div class="product__unavailable">
     <p class="product__title">{{ unavailableTitle }}</p>
-    <button flat-button class="product__button" (click)="update?.emit()" aria-label="Atualizar saldo">Atualizar</button>
+    <button bs2-ds-flat-button class="product__button" (click)="update?.emit()" aria-label="Atualizar saldo">
+      Atualizar
+    </button>
   </div>
 </ng-template>

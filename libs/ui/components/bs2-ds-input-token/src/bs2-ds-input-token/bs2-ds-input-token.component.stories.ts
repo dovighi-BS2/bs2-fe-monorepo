@@ -3,6 +3,8 @@ import { Bs2DSInputTokenComponent } from './bs2-ds-input-token.component';
 
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const meta: Meta<Bs2DSInputTokenComponent> = {
   component: Bs2DSInputTokenComponent,
@@ -74,8 +76,15 @@ const meta: Meta<Bs2DSInputTokenComponent> = {
 export default meta;
 type Story = StoryObj<Bs2DSInputTokenComponent>;
 
+const form: FormGroup = new FormGroup({
+  token: new FormControl('', [CustomValidators.required]),
+});
+
+delete form['controls']['token']['_parent'];
+
 export const Default: Story = {
   args: {
+    control: form.get('token'),
     state: 'default',
     type: 'text',
     qtdInputs: 6,

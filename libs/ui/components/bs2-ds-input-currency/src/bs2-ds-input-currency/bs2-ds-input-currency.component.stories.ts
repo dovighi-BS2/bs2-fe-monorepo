@@ -17,16 +17,16 @@ const meta: Meta<Bs2DSInputCurrencyComponent> = {
   component: Bs2DSInputCurrencyComponent,
   title: 'Form Components/InputCurrency',
   argTypes: {
+    control: {
+      control: 'inline',
+      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
+      defaultValue: { summary: 'new FormControl()' },
+    },
     state: {
       control: 'select',
       options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
-    },
-    multiple: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
     },
     id: {
       control: { type: 'text' },
@@ -47,16 +47,6 @@ const meta: Meta<Bs2DSInputCurrencyComponent> = {
       control: { type: 'text' },
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
-    },
-    leftIcon: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    rightIcon: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: 'arrow-down' },
     },
     helperText: {
       control: { type: 'text' },
@@ -103,11 +93,6 @@ const meta: Meta<Bs2DSInputCurrencyComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
-    hideCheckbox: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'true' },
-    },
   },
 };
 export default meta;
@@ -123,13 +108,10 @@ export const Default: Story = {
   args: {
     control: form.get('flags'),
     state: 'default',
-    multiple: false,
     id: 'flags',
     testId: 'flags',
-    label: 'flags',
+    label: 'Bandeiras',
     class: 'custom_class',
-    leftIcon: '',
-    rightIcon: 'arrow-down',
     helperText: '',
     errorText: '',
     placeholder: 'Selecione uma opção',
@@ -139,6 +121,5 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
-    hideCheckbox: true,
   },
 };
