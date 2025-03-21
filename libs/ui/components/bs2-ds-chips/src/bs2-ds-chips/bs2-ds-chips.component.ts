@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSChipOption } from './bs2-ds-chips.interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'bs2-ds-chips',

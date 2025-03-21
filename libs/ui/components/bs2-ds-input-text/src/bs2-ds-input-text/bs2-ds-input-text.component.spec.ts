@@ -2,7 +2,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { Bs2DSInputTextComponent } from './bs2-ds-input-text.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 describe('Bs2DSInputTextComponent', () => {
   const testId = 'bs2_ds_input_text__test_id';
@@ -20,11 +20,11 @@ describe('Bs2DSInputTextComponent', () => {
     fixture = TestBed.createComponent(Bs2DSInputTextComponent);
 
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       email: new FormControl('', [CustomValidators.required]),
     });
+    component.control = form.get('email');
     component.testId = testId;
-    component.name = 'email';
 
     fixture.detectChanges();
   });
@@ -34,12 +34,12 @@ describe('Bs2DSInputTextComponent', () => {
   });
 
   it('should change input value', fakeAsync(() => {
-    component.form?.get('email')?.setValue('');
+    component.control?.setValue('');
     fixture.detectChanges();
     let field = get(`[data-test='${testId}'] input`);
     expect(field.value).toBe('');
 
-    component.form?.get('email')?.setValue('teste');
+    component.control?.setValue('teste');
     fixture.detectChanges();
     tick(1);
     field = get(`[data-test='${testId}'] input`);
@@ -47,7 +47,9 @@ describe('Bs2DSInputTextComponent', () => {
   }));
 
   it('should display error message', () => {
-    component.form?.get('email')?.setValue('teste');
+    component.control?.setValue('teste');
+    component.control.markAllAsTouched();
+
     let field = get(`[data-test='${testId}'] input`);
     field.blur();
     fixture.detectChanges();
@@ -56,26 +58,35 @@ describe('Bs2DSInputTextComponent', () => {
     expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
-    component.form?.get('email')?.setValue('');
+    component.control?.setValue('');
     field = get(`[data-test='${testId}'] input`);
     field.blur();
     fixture.detectChanges();
     main = get(`[data-test='${testId}']`);
     feedback = get(`[data-test='${testId}'] .bs2_ds_input_text__feedback`);
-    // expect((feedback?.textContent || '').trim()).toBe(
-    //   CustomValidatorMessages.required.trim()
-    // );
-    // expect(!!main.classList.contains('error')).toBe(true);
+    expect((feedback?.textContent || '').trim()).toBe(CustomValidatorMessages.required.trim());
+    expect(!!main.classList.contains('error')).toBe(true);
   });
 
   it('should display helper text', () => {
-    component.form?.get('email')?.setValue('teste');
+    component.control?.setValue('teste');
     component.helperText = 'teste';
     fixture.detectChanges();
     const helper = get(`[data-test='${testId}'] .bs2_ds_input_text__helper`);
     expect(helper.textContent.trim()).toBe('teste');
 
-    component.form?.get('email')?.setValue('');
-    component.form?.get('email')?.setValue('');
+    component.control?.setValue('');
+    component.control?.setValue('');
+  });
+
+  it('[getErrors] should execute right', () => {
+    component.control?.setValue('teste');
+    fixture.detectChanges();
+    expect(component.getErrors).toBe('');
+
+    component.control?.setValue('');
+    component.control.markAllAsTouched();
+    fixture.detectChanges();
+    expect(component.getErrors).toBe(CustomValidatorMessages.required);
   });
 });

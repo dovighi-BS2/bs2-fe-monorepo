@@ -21,10 +21,10 @@ describe('Bs2DSCardRatingComponent', () => {
 
     fixture = TestBed.createComponent(Bs2DSCardRatingComponent);
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       rate: new FormControl(null, [CustomValidators.required]),
     });
-    component.name = 'rate';
+    component.control = form.get('rate');
     component.testId = testId;
     fixture.detectChanges();
   });
@@ -35,17 +35,17 @@ describe('Bs2DSCardRatingComponent', () => {
 
   it('should execute setRate right', () => {
     component.setRate(1);
-    expect(component.form.get('rate')?.value).toBe(1);
+    expect(component.control?.value).toBe(1);
 
     component.setRate(3);
-    expect(component.form.get('rate')?.value).toBe(3);
+    expect(component.control?.value).toBe(3);
   });
 
   it('should add active class to star icon', () => {
     component.from = 1;
     component.to = 5;
 
-    component.form.get('rate').setValue(3);
+    component.control.setValue(3);
     fixture.componentRef.injector.get(ChangeDetectorRef).detectChanges();
 
     expect(get(`.review__rate_item:nth-of-type(5)`)?.classList.contains('active')).toBe(true);
@@ -54,7 +54,7 @@ describe('Bs2DSCardRatingComponent', () => {
     expect(get(`.review__rate_item:nth-of-type(2)`)?.classList.contains('active')).toBe(false);
     expect(get(`.review__rate_item:nth-of-type(1)`)?.classList.contains('active')).toBe(false);
 
-    component.form.get('rate').setValue(5);
+    component.control.setValue(5);
     fixture.componentRef.injector.get(ChangeDetectorRef).detectChanges();
     expect(get(`.review__rate_item:nth-of-type(5)`)?.classList.contains('active')).toBe(true);
     expect(get(`.review__rate_item:nth-of-type(4)`)?.classList.contains('active')).toBe(true);

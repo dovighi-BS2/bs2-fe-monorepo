@@ -21,11 +21,11 @@ describe('Bs2DSInputTextareaComponent', () => {
     fixture = TestBed.createComponent(Bs2DSInputTextareaComponent);
 
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(10)]),
     });
+    component.control = form.get('description');
     component.testId = testId;
-    component.name = 'description';
 
     fixture.detectChanges();
   });
@@ -35,20 +35,20 @@ describe('Bs2DSInputTextareaComponent', () => {
   });
 
   it('should change input value', () => {
-    component.form?.get('description')?.setValue('');
+    component.control?.setValue('');
     fixture.detectChanges();
     let field = get(`textarea`);
     expect(field.value).toBe('');
 
-    component.form?.get('description')?.setValue('teste');
+    component.control?.setValue('teste');
     fixture.detectChanges();
     field = get(`textarea`);
     expect(field.value).toBe('teste');
   });
 
   it('should display error message', () => {
-    component.form?.get('description')?.setValue('teste');
-    component.form?.get('description').markAllAsTouched();
+    component.control?.setValue('teste');
+    component.control.markAllAsTouched();
     let field = get(`textarea`);
     field.blur();
     fixture.detectChanges();
@@ -57,8 +57,8 @@ describe('Bs2DSInputTextareaComponent', () => {
     expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
-    component.form?.get('description')?.setValue('');
-    component.form?.get('description').markAllAsTouched();
+    component.control?.setValue('');
+    component.control.markAllAsTouched();
     field = get(`textarea`);
     field.blur();
     fixture.detectChanges();
@@ -69,27 +69,38 @@ describe('Bs2DSInputTextareaComponent', () => {
   });
 
   it('should display helper text', () => {
-    component.form?.get('description')?.setValue('teste');
+    component.control?.setValue('teste');
     component.helperText = 'teste';
     fixture.detectChanges();
     const helper = get(`.bs2_ds_input_textarea__helper`);
     expect(helper.textContent.trim()).toBe('teste');
 
-    component.form?.get('description')?.setValue('');
-    component.form?.get('description')?.setValue('');
+    component.control?.setValue('');
+    component.control?.setValue('');
   });
 
   it('should display max length counter', () => {
     component.maxLength = 10;
-    component.form?.get('description')?.setValue('12345');
+    component.control?.setValue('12345');
     fixture.detectChanges();
-    let maxLength = get(`.bs2_ds_input_textarea__bs2-ds-feedback_max_length`);
+    let maxLength = get(`.bs2_ds_input_textarea__feedback_max_length`);
     expect(maxLength.textContent.trim()).toBe('5 / 10');
 
     component.maxLength = 0;
-    component.form?.get('description')?.setValue('');
+    component.control?.setValue('');
     fixture.detectChanges();
-    maxLength = get(`.bs2_ds_input_textarea__bs2-ds-feedback_max_length`);
+    maxLength = get(`.bs2_ds_input_textarea__feedback_max_length`);
     expect(maxLength).toBeFalsy();
+  });
+
+  it('[getErrors] should execute right', () => {
+    component.control?.setValue('teste');
+    fixture.detectChanges();
+    expect(component.getErrors).toBe('');
+
+    component.control?.setValue('');
+    component.control.markAllAsTouched();
+    fixture.detectChanges();
+    expect(component.getErrors).toBe(CustomValidatorMessages.required);
   });
 });

@@ -26,13 +26,10 @@ describe('Bs2DSChipsComponent', () => {
 
     fixture = TestBed.createComponent(Bs2DSChipsComponent);
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       reasons: new FormControl('', [CustomValidators.required]),
     });
-    component.form = new FormGroup({
-      reasons: new FormControl('', [CustomValidators.required]),
-    });
-    component.name = 'reasons';
+    component.control = form.get('reasons');
     component.testId = testId;
     fixture.detectChanges();
   });
@@ -68,16 +65,16 @@ describe('Bs2DSChipsComponent', () => {
     ];
 
     component.select(component._options[0]);
-    expect(component.form.get('reasons')?.value.length).toBe(1);
+    expect(component.control?.value.length).toBe(1);
 
     component.select(component._options[1]);
-    expect(component.form.get('reasons')?.value.length).toBe(1);
+    expect(component.control?.value.length).toBe(1);
 
     component.select(component._options[2]);
-    expect(component.form.get('reasons')?.value.length).toBe(2);
+    expect(component.control?.value.length).toBe(2);
 
     component.select(component._options[2]);
-    expect(component.form.get('reasons')?.value.length).toBe(1);
+    expect(component.control?.value.length).toBe(1);
   });
 
   it('[add] should execute right', () => {
@@ -88,7 +85,7 @@ describe('Bs2DSChipsComponent', () => {
     ];
 
     component.select(component._options[0]);
-    expect(component.form.get('reasons')?.value.length).toBe(1);
+    expect(component.control?.value.length).toBe(1);
   });
 
   it('[remove] should execute right', () => {
@@ -99,10 +96,10 @@ describe('Bs2DSChipsComponent', () => {
     ];
 
     component.select(component._options[0]);
-    expect(component.form.get('reasons')?.value.length).toBe(1);
+    expect(component.control?.value.length).toBe(1);
 
     component.select(component._options[0]);
-    expect(component.form.get('reasons')?.value.length).toBe(0);
+    expect(component.control?.value.length).toBe(0);
   });
 
   it('should isSelected', () => {

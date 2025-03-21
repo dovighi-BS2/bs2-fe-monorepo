@@ -29,11 +29,11 @@ describe('Bs2DSInputSelectComponent', () => {
     fixture = TestBed.createComponent(Bs2DSInputSelectComponent);
 
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       categories: new FormControl('', [CustomValidators.required]),
     });
+    component.control = form.get('categories');
     component.testId = testId;
-    component.name = 'categories';
     fixture.detectChanges();
   });
 
@@ -113,9 +113,9 @@ describe('Bs2DSInputSelectComponent', () => {
     expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
-    component.form.get('categories').setValue([]);
+    component.control.setValue([]);
     component.selecteds = [];
-    component.form.get('categories').markAsTouched();
+    component.control.markAsTouched();
     fixture.detectChanges();
     main = get(`[data-test='${testId}']`);
     feedback = get(`[data-test='${testId}'] .bs2_ds_input_select__feedback`);
@@ -160,5 +160,16 @@ describe('Bs2DSInputSelectComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
     expect(component.selecteds.length).toBe(1);
+  });
+
+  it('[getErrors] should execute right', () => {
+    component.control?.setValue('teste');
+    fixture.detectChanges();
+    expect(component.getErrors).toBe('');
+
+    component.control?.setValue('');
+    component.control.markAllAsTouched();
+    fixture.detectChanges();
+    expect(component.getErrors).toBe(CustomValidatorMessages.required);
   });
 });
