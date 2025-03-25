@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 
 @Component({
   selector: 'bs2-ds-loader-mock',
-  template: `<div loader></div>`,
+  template: `<div bs2-ds-loader></div>`,
   standalone: true,
 })
 class MockBs2DSLoaderComponent {}
@@ -48,13 +48,13 @@ describe('Bs2DSLoaderDirective', () => {
 
     directive.loaderBG = 'red';
     fixture.detectChanges();
-    expect(get('.loader')?.nativeElement.style.backgroundColor).toBe('red');
+    expect(get('.bs2_ds_loader')?.nativeElement.style.backgroundColor).toBe('red');
     expect(directive.loaderRef.style.backgroundColor).toBe('red');
 
     // Browser converte hexadecimal em RGB
     directive.loaderBG = '#000000';
     fixture.detectChanges();
-    expect(get('.loader')?.nativeElement.style.backgroundColor).toBe('rgb(0, 0, 0)');
+    expect(get('.bs2_ds_loader')?.nativeElement.style.backgroundColor).toBe('rgb(0, 0, 0)');
     expect(directive.loaderRef.style.backgroundColor).toBe('rgb(0, 0, 0)');
   });
 });

@@ -31,6 +31,6 @@ describe('Bs2DSScrollbarDirective', () => {
     new Bs2DSScrollbarDirective(scrollbar);
     const classes = Object.values(scrollbar.nativeElement.classList);
 
-    expect(!!classes.find((item) => item === 'bs2-ds-scrollbar')).toBe(true);
+    expect(!!classes.find((item) => item === 'bs2_ds_scrollbar')).toBe(true);
   });
 });

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Bs2DSDatepickerComponent } from './bs2-ds-datepicker.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 import { PickerType } from './bs2-ds-datepicker.enum';
 
 //
@@ -102,10 +102,10 @@ describe('Bs2DSDatepickerComponent', () => {
 
     fixture = TestBed.createComponent(Bs2DSDatepickerComponent);
     component = fixture.componentInstance;
-    component.form = new FormGroup({
+    const form = new FormGroup({
       birthday: new FormControl('', [CustomValidators.required]),
     });
-    component.name = 'birthday';
+    component.control = form.get('birthday');
     component.testId = testId;
     fixture.detectChanges();
   });
@@ -592,5 +592,16 @@ describe('Bs2DSDatepickerComponent', () => {
 
     expect(component.modDays(date, 2, 'minus').toISOString()).toBe(new Date(`2024-10-13T03:07:00.000Z`).toISOString());
     expect(component.modDays(date, 5, 'minus').toISOString()).toBe(new Date(`2024-10-10T03:07:00.000Z`).toISOString());
+  });
+
+  it('[getErrors] should execute right', () => {
+    component.control?.setValue('teste');
+    fixture.detectChanges();
+    expect(component.getErrors).toBe('');
+
+    component.control?.setValue('');
+    component.control.markAllAsTouched();
+    fixture.detectChanges();
+    expect(component.getErrors).toBe(CustomValidatorMessages.required);
   });
 });
