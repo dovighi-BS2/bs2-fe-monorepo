@@ -43,7 +43,7 @@
       "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-outlined-button": [
         "libs/ui/directives/bs2-ds-button/bs2-ds-outlined-button/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui/directives/bs2-ds-loader": ["libs/ui/directives/bs2-ds-loader/src/index.ts"],
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-loading-spinning": ["libs/ui/directives/bs2-ds-loading-spinning/src/index.ts"],
       "@bs2-fe-monorepo/ui/directives/bs2-ds-scrollbar": ["libs/ui/directives/bs2-ds-scrollbar/src/index.ts"],
       "@bs2-fe-monorepo/ui/validators": ["libs/ui/validators/src/index.ts"]
     }

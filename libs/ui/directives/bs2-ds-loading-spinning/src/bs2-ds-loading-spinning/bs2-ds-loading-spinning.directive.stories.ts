@@ -1,12 +1,12 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSLoaderDirective } from './bs2-ds-loader.directive';
+import { Bs2DSLoadingSpinningDirective } from './bs2-ds-loading-spinning.directive';
 
-const meta: Meta<Bs2DSLoaderDirective> = {
-  component: Bs2DSLoaderDirective,
-  title: 'Directives/Loader',
+const meta: Meta<Bs2DSLoadingSpinningDirective> = {
+  component: Bs2DSLoadingSpinningDirective,
+  title: 'Directives/Loading Spinning',
   decorators: [
     moduleMetadata({
-      imports: [Bs2DSLoaderDirective],
+      imports: [Bs2DSLoadingSpinningDirective],
     }),
   ],
   argTypes: {
@@ -32,7 +32,7 @@ const meta: Meta<Bs2DSLoaderDirective> = {
   },
 };
 export default meta;
-type Story = StoryObj<Bs2DSLoaderDirective>;
+type Story = StoryObj<Bs2DSLoadingSpinningDirective>;
 
 export const Filled: Story = {
   render: (args) => ({
@@ -48,13 +48,13 @@ export const Filled: Story = {
     template: `
       <div style='display:flex'>
         <div class="sm">
-          <div class="relative" [bs2-ds-loader]='${args.loader}'>primeiro</div>
+          <div class="relative" [bs2-ds-loading-spinning]='${args.loader}'>primeiro</div>
         </div>
         <div class="md">
-          <div class="absolute" [bs2-ds-loader]='${args.loader}' loaderBG='${args.loaderBG}'>segundo</div>
+          <div class="absolute" [bs2-ds-loading-spinning]='${args.loader}' loaderBG='${args.loaderBG}'>segundo</div>
         </div>
         <div class="lg">
-          <div class="absolute" [bs2-ds-loader]='${args.loader}'>terceiro</div>
+          <div class="absolute" [bs2-ds-loading-spinning]='${args.loader}'>terceiro</div>
         </div>
       </div>
     `,

@@ -1,4 +1,4 @@
-<div class="balance" [attr.data-test]="testId" [bs2-ds-loader]="loader">
+<div class="balance" [attr.data-test]="testId" [bs2-ds-loading-spinning]="loader">
   @if(template === 'visible' && (!Number.isNaN(balance) && !Number.isNaN(limit))){
   <ng-container *ngTemplateOutlet="visible"></ng-container>
   } @if(template === 'hidden' && (!Number.isNaN(balance) && !Number.isNaN(limit))){

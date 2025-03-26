@@ -1,19 +1,19 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[bs2-ds-loader]',
+  selector: '[bs2-ds-loading-spinning]',
   standalone: true,
 })
-export class Bs2DSLoaderDirective {
+export class Bs2DSLoadingSpinningDirective {
   public loaderRef: HTMLSpanElement;
 
   constructor(public el: ElementRef) {
     this.loaderRef = document.createElement('span');
-    this.loaderRef.classList.add('bs2_ds_loader');
-    this.loaderRef.innerHTML = `<span class='bs2_ds_loader__spinner'></span>`;
+    this.loaderRef.classList.add('bs2_ds_loading_spinning');
+    this.loaderRef.innerHTML = `<span class='bs2_ds_loading_spinning__spinner'></span>`;
   }
 
-  @Input('bs2-ds-loader') set loader(loader: boolean) {
+  @Input('bs2-ds-loading-spinning') set loader(loader: boolean) {
     loader ? this.add() : this.remove();
   }
 
