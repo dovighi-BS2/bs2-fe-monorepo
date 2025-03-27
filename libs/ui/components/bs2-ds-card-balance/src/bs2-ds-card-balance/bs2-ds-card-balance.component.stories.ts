@@ -46,7 +46,6 @@ class FatherSimulationComponent {
 const meta: Meta<FatherSimulationComponent> = {
   component: FatherSimulationComponent,
   title: 'Components/Card Balance',
-  // tags: ['autodocs'],
   subcomponents: {
     Bs2DSCardBalanceComponent,
   },
@@ -94,7 +93,6 @@ const meta: Meta<FatherSimulationComponent> = {
       },
     },
     update: {
-      // control: 'boolean',
       defaultValue: { summary: 'EventEmitter' },
       table: {
         type: {

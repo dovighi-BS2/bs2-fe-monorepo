@@ -10,7 +10,6 @@ const meta: Meta<Bs2DSCardRatingComponent> = {
   argTypes: {
     control: {
       control: 'inline',
-      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
       defaultValue: { summary: 'new FormControl()' },
     },
     title: {

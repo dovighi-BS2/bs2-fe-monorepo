@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Bs2DSChipsComponent } from './bs2-ds-chips.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-// import { By } from '@angular/platform-browser';
 import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
 
 const defaultOptions = [
@@ -15,9 +14,6 @@ describe('Bs2DSChipsComponent', () => {
 
   let component: Bs2DSChipsComponent;
   let fixture: ComponentFixture<Bs2DSChipsComponent>;
-
-  // const get = (selector: string) =>
-  //   fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

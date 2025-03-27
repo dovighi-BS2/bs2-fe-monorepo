@@ -19,7 +19,6 @@ const meta: Meta<Bs2DSInputSelectComponent> = {
   argTypes: {
     control: {
       control: 'inline',
-      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
       defaultValue: { summary: 'new FormControl()' },
     },
     state: {
@@ -140,8 +139,4 @@ export const Default: Story = {
     ariaInvalid: false,
     hideCheckbox: false,
   },
-  // play: async ({ canvasElement }) => {
-  //   const canvas = within(canvasElement);
-  //   expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();
-  // },
 };

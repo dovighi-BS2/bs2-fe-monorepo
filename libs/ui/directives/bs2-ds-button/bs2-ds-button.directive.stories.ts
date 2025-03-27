@@ -18,7 +18,6 @@ class MockButtonComponent {
 const meta: Meta<MockButtonComponent> = {
   component: MockButtonComponent,
   title: 'Directives/Button',
-  // tags: ['autodocs'],
   subcomponents: {
     Bs2DSFilledButtonDirective,
     Bs2DSOutlinedButtonDirective,

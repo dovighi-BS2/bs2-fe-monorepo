@@ -11,17 +11,12 @@ const options: Bs2DSChipOption[] = Array(10)
     disabled: [3, 4, 5].includes(i),
   }));
 
-// const options: string[] = Array(10)
-//   .fill(0)
-//   .map((_, i) => `item ${String(i + 1).padStart(2, '0')}`);
-
 const meta: Meta<Bs2DSChipsComponent> = {
   component: Bs2DSChipsComponent,
   title: 'Form Components/Chips Checkbox',
   argTypes: {
     control: {
       control: 'inline',
-      // options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
       defaultValue: { summary: 'new FormControl()' },
     },
     options: {

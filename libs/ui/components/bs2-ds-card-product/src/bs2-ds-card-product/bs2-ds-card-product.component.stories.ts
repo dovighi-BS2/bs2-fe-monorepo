@@ -53,7 +53,6 @@ class FatherSimulationComponent {
 const meta: Meta<FatherSimulationComponent> = {
   component: FatherSimulationComponent,
   title: 'Components/Card Product',
-  // tags: ['autodocs'],
   subcomponents: {
     Bs2DSCardProductComponent,
   },
@@ -137,7 +136,6 @@ const meta: Meta<FatherSimulationComponent> = {
       },
     },
     update: {
-      // control: 'boolean',
       defaultValue: { summary: 'EventEmitter' },
       table: {
         type: {

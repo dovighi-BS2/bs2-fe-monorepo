@@ -15,9 +15,6 @@ const manualGetFullMonth = (year: number, month: number, days: number) => {
     });
 };
 
-// current[0] year, current[1] month, current[2] maxDays
-// next[0] year, next[1] month, next[2] minDays, next[3] maxDays
-// prev[0] year, prev[1] month, prev[2] minDays, prev[3] maxDays
 const monthsToTest = [
   { current: [2023, 6, 30], next: [2023, 7, 1, 8], prev: [2023, 5, 28, 31] },
   { current: [2023, 7, 31], next: [2023, 8, 1, 5], prev: [2023, 6, 25, 30] },

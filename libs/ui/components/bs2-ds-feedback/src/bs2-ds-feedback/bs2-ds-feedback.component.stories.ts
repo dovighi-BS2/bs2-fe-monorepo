@@ -13,7 +13,7 @@ import { Bs2DSFeedbackContainerComponent } from '../bs2-ds-feedback-container/bs
     <p>Para fazer o uso do toast, é necessário usar a service Bs2DSFeedbackService.</p>
     <button
       bs2-ds-filled-button
-      (click)="bs2 - ds - feedbackService.add({ message: this.message, status: this.status, duration: this.duration })"
+      (click)="feedbackService.add({ message: this.message, status: this.status, duration: this.duration })"
       aria-label="label"
     >
       Abrir Toast
@@ -34,7 +34,6 @@ class MockBs2DSFeedbackComponent {
 const meta: Meta<MockBs2DSFeedbackComponent> = {
   component: MockBs2DSFeedbackComponent,
   title: 'Components/Feedback',
-  // tags: ['autodocs'],
   subcomponents: {
     Bs2DSFeedbackComponent,
   },
