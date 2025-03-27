@@ -1,0 +1,5 @@
+@mixin bs2DSButtonTable($selector) {
+  #{$selector} {
+    min-height: 28px;
+  }
+}

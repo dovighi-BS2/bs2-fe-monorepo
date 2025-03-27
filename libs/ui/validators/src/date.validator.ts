@@ -26,6 +26,7 @@ export const dateValidators = {
       return { isValidDateToUser: CustomValidatorMessages.required };
     if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
     const v = control.value.split('/');
+
     // [T03:07:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913
     // se buscar por [1914-01-01T03:00:00.000Z] ele retorna 1913-12-31
     const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:07:00.000Z`);
@@ -132,7 +133,7 @@ export const dateValidators = {
 // notRetroactiveDate: (message?: string) => {
 //     const v : (control: AbstractControl): ValidationErrors => {
 //         if (control.value) {
-//             // TODO: Foi implementada uma solução para que o validador recebe tanto uma data string no formato DDMMYYYY quanto um objeto Date do JS para garantir que esse validador funcione normalmente com matDatepickerField (será necessário implementar essa rotina nos demais validadores após os testes nesse cenário)
+//             // TODO: Foi implementada uma solução para que o validador recebe tanto uma data string no formato DDMMYYYY quanto um objeto Date do JS para garantir que esse validador funcione normalmente com matBs2DSDatepicker (será necessário implementar essa rotina nos demais validadores após os testes nesse cenário)
 //             let momentDate: moment.Moment;
 //             if (control.value instanceof Date) {
 //                 momentDate = moment(control.value);

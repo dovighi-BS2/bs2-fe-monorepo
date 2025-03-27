@@ -1,0 +1,25 @@
+@mixin bs2DSButtonFlat($selector) {
+  #{$selector} {
+    &.primary {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--primary);
+
+      &.hover,
+      &:hover {
+        background-color: var(--secondary_v1);
+      }
+      &.focus,
+      &.active,
+      &:focus,
+      &:active {
+        background-color: var(--secondary_v2);
+      }
+      &.disabled,
+      &[disabled='true'] {
+        background-color: var(--primary_white);
+        color: var(--neutral_n3);
+      }
+    }
+  }
+}

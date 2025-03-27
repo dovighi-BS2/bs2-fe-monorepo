@@ -1,0 +1,164 @@
+:host {
+  --textarea_field__field_gap: 16px;
+  --textarea_field__field_height: 48px;
+  --textarea_field__field_border_color: var(--neutral_n1);
+  --textarea_field__field_bg_color: transparent;
+  --textarea_field__field_text_color: var(--primary_text_dark);
+  --textarea_field__field_placeholder_color: var(--primary_text_dark);
+  --textarea_field__field_border_width: 1px;
+  --textarea_field__icon_width: 20px;
+  --textarea_field__icon_color: var(--primary);
+  --textarea_field__label_color: var(--neutral_n5);
+  --textarea_field__feedback_text_color: var(--error);
+}
+
+.bs2_ds_input_textarea {
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__feedback_wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  &__feedback_left {
+    display: flex;
+    flex-direction: column;
+  }
+  &__feedback_right {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--textarea_field__label_color);
+  }
+  &__feedback_max_length {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--textarea_field__label_color);
+  }
+  &__helper {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--textarea_field__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--textarea_field__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__icon {
+    width: var(--textarea_field__icon_width);
+    min-height: var(--textarea_field__icon_width);
+    font-weight: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 0, 0, 0.1);
+
+    &.left {
+      order: 1;
+      margin-right: calc((var(--textarea_field__icon_width)) * -1);
+      translate: var(--textarea_field__field_gap) 0px;
+
+      ~ .bs2_ds_input_textarea__field {
+        padding-left: calc(var(--textarea_field__icon_width) + var(--textarea_field__field_gap) + 8px);
+      }
+    }
+    &.right {
+      order: 3;
+      margin-left: calc((var(--textarea_field__icon_width) + var(--textarea_field__field_gap)) * -1);
+
+      ~ .bs2_ds_input_textarea__field {
+        padding-right: calc(var(--textarea_field__icon_width) + var(--textarea_field__field_gap) + 8px);
+      }
+    }
+  }
+  &__field {
+    width: 100%;
+    order: 2;
+    min-height: var(--textarea_field__field_height);
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 12px var(--textarea_field__field_gap) 5px;
+    border: var(--textarea_field__field_border_width) solid var(--textarea_field__field_border_color);
+    background-color: var(--textarea_field__field_bg_color);
+    color: var(--textarea_field__field_text_color);
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    &.resize {
+      resize: vertical;
+    }
+    &.autosize {
+      overflow-y: hidden;
+    }
+  }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--textarea_field__label_color);
+  }
+
+  // Theming
+  &:has(&__field:hover),
+  &.hovered {
+    --textarea_field__field_border_width: 2px;
+    --textarea_field__label_color: var(--neutral_n5);
+    --textarea_field__field_border_color: var(--neutral_n3);
+  }
+
+  &:has(&__field:focus),
+  &.focused {
+    --textarea_field__field_border_width: 2px;
+    --textarea_field__label_color: var(--primary);
+    --textarea_field__field_border_color: var(--primary);
+  }
+
+  &.error {
+    --textarea_field__field_border_width: 2px;
+    --textarea_field__label_color: var(--error);
+    --textarea_field__field_border_color: var(--error);
+    --textarea_field__icon_color: var(--error);
+    --textarea_field__feedback_text_color: var(--error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    --textarea_field__label_color: var(--neutral_n5);
+    --textarea_field__field_border_color: var(--neutral_n2);
+    --textarea_field__field_bg_color: var(--neutral_n0);
+    --textarea_field__field_text_color: var(--neutral_n3);
+    --textarea_field__icon_color: var(--neutral_n3);
+  }
+}
