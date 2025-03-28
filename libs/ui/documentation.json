@@ -9,7 +9,106 @@
     "components": [
         {
             "name": "FatherSimulationComponent",
-            "id": "component-FatherSimulationComponent-958f266a86ff841c8b2a8ab1e7332cac14607dee3de983544f6c884cc158a30a45ce70c03e1ef3d692ae7d1f7c71e5150ea9fb3ce2a54a102d84c20789f2344d",
+            "id": "component-FatherSimulationComponent-b27fb1f26692bbf8a371b07e5638c1d3d1fb0b56514c352c77642d0c0f5ce3203089b9b6afac33208a7360be57ff3b2528b00df0c763b72a5ea24bb743f19c3b",
+            "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "father-simulation",
+            "styleUrls": [],
+            "styles": [
+                ":host{ display:block; width: 312px; }"
+            ],
+            "template": "<bs2-ds-card-balance    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "balance",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "limit",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "loader",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "template",
+                    "defaultValue": "'visible'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "\"visible\" | \"hidden\" | \"unavailable\"",
+                    "decorators": []
+                },
+                {
+                    "name": "testId",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "update",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Bs2DSCardBalanceComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Bs2DSCardBalanceComponent } from './bs2-ds-card-balance.component';\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { delay, finalize, of } from 'rxjs';\n\nfunction rand(min: number, max: number) {\n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\n@Component({\n  selector: 'father-simulation',\n  styles: `:host{ display:block; width: 312px; }`,\n  template: `<bs2-ds-card-balance\n    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />`,\n  standalone: true,\n  imports: [Bs2DSCardBalanceComponent],\n})\nclass FatherSimulationComponent {\n  @Input() loader? = false;\n  @Input() testId? = '';\n  @Input() balance? = 0;\n  @Input() limit? = 0;\n  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';\n\n  update() {\n    this.loader = true;\n    of(null)\n      .pipe(\n        delay(3000),\n        finalize(() => (this.loader = false))\n      )\n      .subscribe((_) => {\n        this.template = 'visible';\n        this.balance = rand(1, 1000000000);\n        this.limit = rand(1, 300000000);\n      });\n  }\n}\n\nconst meta: Meta<FatherSimulationComponent> = {\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<FatherSimulationComponent>;\n\nexport const Visible: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n};\n\nexport const Hidden: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n};\n\nexport const Unavailable: Story = {\n  args: {\n    template: 'unavailable',\n  },\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ":host{ display:block; width: 312px; }\n",
+            "extends": []
+        },
+        {
+            "name": "FatherSimulationComponent",
+            "id": "component-FatherSimulationComponent-958f266a86ff841c8b2a8ab1e7332cac14607dee3de983544f6c884cc158a30a45ce70c03e1ef3d692ae7d1f7c71e5150ea9fb3ce2a54a102d84c20789f2344d-1",
             "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -139,105 +238,6 @@
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ":host{ display:block; width: 231px; }\n",
-            "extends": []
-        },
-        {
-            "name": "FatherSimulationComponent",
-            "id": "component-FatherSimulationComponent-b27fb1f26692bbf8a371b07e5638c1d3d1fb0b56514c352c77642d0c0f5ce3203089b9b6afac33208a7360be57ff3b2528b00df0c763b72a5ea24bb743f19c3b-1",
-            "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "father-simulation",
-            "styleUrls": [],
-            "styles": [
-                ":host{ display:block; width: 312px; }"
-            ],
-            "template": "<bs2-ds-card-balance    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "balance",
-                    "defaultValue": "0",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 27,
-                    "type": "number",
-                    "decorators": []
-                },
-                {
-                    "name": "limit",
-                    "defaultValue": "0",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 28,
-                    "type": "number",
-                    "decorators": []
-                },
-                {
-                    "name": "loader",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 25,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "template",
-                    "defaultValue": "'visible'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 29,
-                    "type": "\"visible\" | \"hidden\" | \"unavailable\"",
-                    "decorators": []
-                },
-                {
-                    "name": "testId",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 26,
-                    "type": "string",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "update",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 31,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "Bs2DSCardBalanceComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Bs2DSCardBalanceComponent } from './bs2-ds-card-balance.component';\nimport { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';\nimport { delay, finalize, of } from 'rxjs';\n\nfunction rand(min: number, max: number) {\n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\n@Component({\n  selector: 'father-simulation',\n  styles: `:host{ display:block; width: 312px; }`,\n  template: `<bs2-ds-card-balance\n    [loader]=\"loader\"\n    [testId]=\"testId\"\n    [balance]=\"balance\"\n    [limit]=\"limit\"\n    [template]=\"template\"\n    (update)=\"update()\"\n  />`,\n  standalone: true,\n  imports: [Bs2DSCardBalanceComponent],\n})\nclass FatherSimulationComponent {\n  @Input() loader? = false;\n  @Input() testId? = '';\n  @Input() balance? = 0;\n  @Input() limit? = 0;\n  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';\n\n  update() {\n    this.loader = true;\n    of(null)\n      .pipe(\n        delay(3000),\n        finalize(() => (this.loader = false))\n      )\n      .subscribe((_) => {\n        this.template = 'visible';\n        this.balance = rand(1, 1000000000);\n        this.limit = rand(1, 300000000);\n      });\n  }\n}\n\nconst meta: Meta<FatherSimulationComponent> = {\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n};\nexport default meta;\ntype Story = StoryObj<FatherSimulationComponent>;\n\nexport const Visible: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n};\n\nexport const Hidden: Story = {\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n};\n\nexport const Unavailable: Story = {\n  args: {\n    template: 'unavailable',\n  },\n};\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": ":host{ display:block; width: 312px; }\n",
             "extends": [],
             "isDuplicate": true,
             "duplicateId": 1,
@@ -304,6 +304,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
+                    "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 31,
@@ -364,6 +365,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
+                    "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 25,
@@ -475,16 +477,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -505,21 +497,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    control: form.get('phone'),\n    state: 'default',\n    id: 'phone',\n    testId: 'flags',\n    label: '',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    control: form.get('flags'),\n    state: 'default',\n    id: 'flags',\n    testId: 'flags',\n    label: 'Bandeiras',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
             },
             {
                 "name": "Default",
@@ -535,6 +517,26 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    control: form.get('flags'),\n    state: 'default',\n    id: 'flags',\n    testId: 'flags',\n    label: 'Bandeiras',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    control: form.get('phone'),\n    state: 'default',\n    id: 'phone',\n    testId: 'flags',\n    label: '',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -545,21 +547,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    control: form.get('email'),\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    control: form.get('description'),\n    state: 'default',\n    id: 'description',\n    autosize: false,\n    resize: false,\n    rows: 1,\n    maxLength: 300,\n    testId: 'description',\n    label: 'Descrição',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-textarea works!/gi)).toBeTruthy();\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    control: form.get('email'),\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "Default",
@@ -665,11 +667,11 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
-                "defaultValue": "new FormGroup({\n  phone: new FormControl(null, [CustomValidators.required]),\n})"
+                "defaultValue": "new FormGroup({\n  reasons: new FormControl([], [CustomValidators.required]),\n})"
             },
             {
                 "name": "form",
@@ -685,11 +687,11 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
-                "defaultValue": "new FormGroup({\n  reasons: new FormControl([], [CustomValidators.required]),\n})"
+                "defaultValue": "new FormGroup({\n  phone: new FormControl(null, [CustomValidators.required]),\n})"
             },
             {
                 "name": "form",
@@ -705,21 +707,21 @@
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "FormGroup",
-                "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
-            },
-            {
-                "name": "form",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "FormGroup",
                 "defaultValue": "new FormGroup({\n  description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(300)]),\n})"
+            },
+            {
+                "name": "form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "FormGroup",
+                "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
             },
             {
                 "name": "form",
@@ -735,21 +737,21 @@
                 "name": "Hidden",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n    template: 'hidden',\n  },\n}"
-            },
-            {
-                "name": "Hidden",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n}"
+            },
+            {
+                "name": "Hidden",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n    template: 'hidden',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -765,11 +767,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Bs2DSLoadingSpinningDirective>",
-                "defaultValue": "{\n  component: Bs2DSLoadingSpinningDirective,\n  title: 'Directives/Loading Spinning',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs2DSLoadingSpinningDirective],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    loaderBG: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',\n        },\n      },\n    },\n  },\n}"
+                "type": "Meta<FatherSimulationComponent>",
+                "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -785,11 +787,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<FatherSimulationComponent>",
-                "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                "type": "Meta<Bs2DSCardRatingComponent>",
+                "defaultValue": "{\n  component: Bs2DSCardRatingComponent,\n  title: 'Form Components/Card Rating',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    from: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    to: {\n      control: { type: 'number' },\n      defaultValue: { summary: '5' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    lastText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    firstText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSDatepickerComponent>",
+                "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -805,21 +817,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Bs2DSCardRatingComponent>",
-                "defaultValue": "{\n  component: Bs2DSCardRatingComponent,\n  title: 'Form Components/Card Rating',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    from: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    to: {\n      control: { type: 'number' },\n      defaultValue: { summary: '5' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    lastText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    firstText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MockBs2DSScrollbarComponent>",
-                "defaultValue": "{\n  component: MockBs2DSScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    Bs2DSScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockBs2DSScrollbarComponent, Bs2DSScrollbarDirective],\n    }),\n  ],\n}"
+                "type": "Meta<Bs2DSChipsComponent>",
+                "defaultValue": "{\n  component: Bs2DSChipsComponent,\n  title: 'Form Components/Chips Checkbox',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'Bs2DSChipOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -835,11 +837,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<Bs2DSDatepickerComponent>",
-                "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                "type": "Meta<Bs2DSInputCurrencyComponent>",
+                "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -849,27 +851,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSInputPhoneComponent>",
-                "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSInputCurrencyComponent>",
-                "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSChipsComponent>",
-                "defaultValue": "{\n  component: Bs2DSChipsComponent,\n  title: 'Form Components/Chips Checkbox',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'Bs2DSChipOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -879,17 +861,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSInputSelectComponent>",
-                "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSInputTextComponent>",
-                "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -899,7 +871,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSInputTextareaComponent>",
-                "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSInputTextComponent>",
+                "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    control: {\n      control: 'object',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -942,14 +924,34 @@
                 "defaultValue": "{\n  component: Bs2DSTagComponent,\n  title: 'Components/Tag',\n  argTypes: {\n    status: {\n      control: 'select',\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\",\n        },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['regular', 'small'],\n      defaultValue: { summary: 'neutral' },\n      table: {\n        type: {\n          summary: \"'regular' | 'small'\",\n        },\n      },\n    },\n    text: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSLoadingSpinningDirective>",
+                "defaultValue": "{\n  component: Bs2DSLoadingSpinningDirective,\n  title: 'Directives/Loading Spinning',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs2DSLoadingSpinningDirective],\n    }),\n  ],\n  argTypes: {\n    loader: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    loaderBG: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',\n        },\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MockBs2DSScrollbarComponent>",
+                "defaultValue": "{\n  component: MockBs2DSScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    Bs2DSScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockBs2DSScrollbarComponent, Bs2DSScrollbarDirective],\n    }),\n  ],\n}"
+            },
+            {
                 "name": "options",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Bs2DSInputSelectOption[]",
-                "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
+                "type": "Bs2DSChipOption[]",
+                "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
             },
             {
                 "name": "options",
@@ -965,11 +967,11 @@
                 "name": "options",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Bs2DSChipOption[]",
-                "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
+                "type": "Bs2DSInputSelectOption[]",
+                "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
             },
             {
                 "name": "options",
@@ -1025,16 +1027,6 @@
                 "name": "Unavailable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    unavailableTitle: 'Unavailable title',\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    template: 'unavailable',\n    testId: '',\n  },\n}"
-            },
-            {
-                "name": "Unavailable",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1042,14 +1034,14 @@
                 "defaultValue": "{\n  args: {\n    template: 'unavailable',\n  },\n}"
             },
             {
-                "name": "Visible",
+                "name": "Unavailable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    unavailableTitle: 'Unavailable title',\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    template: 'unavailable',\n    testId: '',\n  },\n}"
             },
             {
                 "name": "Visible",
@@ -1060,12 +1052,22 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n}"
+            },
+            {
+                "name": "Visible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n}"
             }
         ],
         "functions": [
             {
                 "name": "rand",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -1108,7 +1110,7 @@
             },
             {
                 "name": "rand",
-                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -1166,8 +1168,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSLoadingSpinningDirective>",
-                "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                "rawtype": "StoryObj<FatherSimulationComponent>",
+                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1188,52 +1190,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<FatherSimulationComponent>",
-                "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSDividerComponent>",
-                "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSCardRatingComponent>",
                 "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MockBs2DSScrollbarComponent>",
-                "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
-                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1254,19 +1212,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
-                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "rawtype": "StoryObj<Bs2DSDividerComponent>",
+                "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1287,6 +1234,39 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
+                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
+                "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSInputSelectComponent>",
                 "file": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
                 "deprecated": false,
@@ -1298,8 +1278,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "rawtype": "StoryObj<Bs2DSInputTextareaComponent>",
+                "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1309,8 +1289,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputTextareaComponent>",
-                "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
+                "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1355,6 +1335,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSTagComponent>",
                 "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSLoadingSpinningDirective>",
+                "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MockBs2DSScrollbarComponent>",
+                "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1427,28 +1429,6 @@
                     "defaultValue": "{\n  render: (args) => ({\n    template: `<button bs2-ds-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,\n  }),\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSDividerComponent>",
-                    "defaultValue": "{\n  component: Bs2DSDividerComponent,\n  title: 'Components/Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts": [
                 {
                     "name": "Default",
@@ -1478,7 +1458,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSCardRatingComponent>",
-                    "defaultValue": "{\n  component: Bs2DSCardRatingComponent,\n  title: 'Form Components/Card Rating',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    from: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    to: {\n      control: { type: 'number' },\n      defaultValue: { summary: '5' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    lastText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    firstText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  component: Bs2DSCardRatingComponent,\n  title: 'Form Components/Card Rating',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    title: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    from: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    to: {\n      control: { type: 'number' },\n      defaultValue: { summary: '5' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    lastText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    firstText: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts": [
@@ -1510,91 +1490,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSDatepickerComponent>",
-                    "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                    "defaultValue": "{\n  component: Bs2DSDatepickerComponent,\n  title: 'Form Components/Datepicker',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    min: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('1900-01-01T03:00:00.000Z')\" },\n    },\n    max: {\n      control: 'text',\n      description: 'opcional',\n      defaultValue: { summary: \"new Date('2100-12-31T03:00:00.000Z')\" },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
+            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    control: form.get('phone'),\n    state: 'default',\n    id: 'phone',\n    testId: 'flags',\n    label: '',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\n  phone: new FormControl(null, [CustomValidators.required]),\n})"
+                    "defaultValue": "{\n  args: {\n    space: 20,\n    testId: '',\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<Bs2DSInputPhoneComponent>",
-                    "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-                },
-                {
-                    "name": "options",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Bs2DSInputSelectOption[]",
-                    "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
-                }
-            ],
-            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    control: form.get('flags'),\n    state: 'default',\n    id: 'flags',\n    testId: 'flags',\n    label: 'Bandeiras',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\n  flags: new FormControl([], [CustomValidators.required]),\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSInputCurrencyComponent>",
-                    "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
-                },
-                {
-                    "name": "options",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Bs2DSInputSelectOption[]",
-                    "defaultValue": "[\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\n]"
+                    "type": "Meta<Bs2DSDividerComponent>",
+                    "defaultValue": "{\n  component: Bs2DSDividerComponent,\n  title: 'Components/Divider',\n  argTypes: {\n    space: {\n      control: { type: 'number' },\n      defaultValue: { summary: 20 },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts": [
@@ -1626,7 +1544,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSChipsComponent>",
-                    "defaultValue": "{\n  component: Bs2DSChipsComponent,\n  title: 'Form Components/Chips Checkbox',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'Bs2DSChipOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  component: Bs2DSChipsComponent,\n  title: 'Form Components/Chips Checkbox',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    options: {\n      defaultValue: { summary: '[]' },\n      table: {\n        type: {\n          summary: 'Bs2DSChipOption[] | string[]',\n        },\n      },\n    },\n  },\n}"
                 },
                 {
                     "name": "options",
@@ -1637,6 +1555,90 @@
                     "deprecationMessage": "",
                     "type": "Bs2DSChipOption[]",
                     "defaultValue": "Array(10)\n  .fill(0)\n  .map((_, i) => ({\n    label: `item ${String(i + 1).padStart(2, '0')}`,\n    disabled: [3, 4, 5].includes(i),\n  }))"
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    control: form.get('flags'),\n    state: 'default',\n    id: 'flags',\n    testId: 'flags',\n    label: 'Bandeiras',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\n  flags: new FormControl([], [CustomValidators.required]),\n})"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSInputCurrencyComponent>",
+                    "defaultValue": "{\n  component: Bs2DSInputCurrencyComponent,\n  title: 'Form Components/InputCurrency',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                },
+                {
+                    "name": "options",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Bs2DSInputSelectOption[]",
+                    "defaultValue": "[\n  { value: flags.brl, text: 'BRL', image: 'BR.svg' },\n  { value: flags.usa, text: 'USA', image: 'US.svg' },\n  { value: flags.chn, text: 'CHN', image: 'CN.svg' },\n  { value: flags.esp, text: 'ESP', image: 'ES.svg' },\n]"
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    control: form.get('phone'),\n    state: 'default',\n    id: 'phone',\n    testId: 'flags',\n    label: '',\n    class: 'custom_class',\n    helperText: '',\n    errorText: '',\n    placeholder: 'Selecione uma opção',\n    readOnly: false,\n    selecteds: [options[1], options[2]],\n    options,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\n  phone: new FormControl(null, [CustomValidators.required]),\n})"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSInputPhoneComponent>",
+                    "defaultValue": "{\n  component: Bs2DSInputPhoneComponent,\n  title: 'Form Components/InputPhone',\n  decorators: [\n    moduleMetadata({\n      providers: [provideNgxMask({ validation: false })],\n    }),\n  ],\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    selecteds: {\n      control: { type: 'text' },\n      description: 'Este campo será vinculado com o [control] do ReactiveForms',\n      defaultValue: { summary: '[control] initial value' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                },
+                {
+                    "name": "options",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Bs2DSInputSelectOption[]",
+                    "defaultValue": "[\n  { value: flags.brl, text: flags.brl, image: 'BR.svg' },\n  { value: flags.usa, text: flags.usa, image: 'US.svg' },\n  { value: flags.chn, text: flags.chn, image: 'CN.svg' },\n  { value: flags.esp, text: flags.esp, image: 'ES.svg' },\n]"
                 }
             ],
             "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
@@ -1668,7 +1670,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSInputSelectComponent>",
-                    "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                    "defaultValue": "{\n  component: Bs2DSInputSelectComponent,\n  title: 'Form Components/InputSelect',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    multiple: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'arrow-down' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: 'Selecione uma opção' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    options: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    hideCheckbox: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 },
                 {
                     "name": "options",
@@ -1679,38 +1681,6 @@
                     "deprecationMessage": "",
                     "type": "Bs2DSInputSelectOption[]",
                     "defaultValue": "[\n  { value: 1, text: 'Categoria 1' },\n  { value: 2, text: 'Categoria 2' },\n  { value: 3, text: 'Categoria 3' },\n  { value: 4, text: 'Categoria 4' },\n  { value: 5, text: 'Categoria 5' },\n]"
-                }
-            ],
-            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    control: form.get('email'),\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
-                },
-                {
-                    "name": "form",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSInputTextComponent>",
-                    "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts": [
@@ -1742,7 +1712,39 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSInputTextareaComponent>",
-                    "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    control: {\n      control: 'inline',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                    "defaultValue": "{\n  component: Bs2DSInputTextareaComponent,\n  title: 'Form Components/InputTextArea',\n  argTypes: {\n    control: {\n      control: 'object',\n      if: {\n        arg: 'control',\n        exists: false\n      },\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    autosize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    resize: {\n      control: { type: 'boolean' },\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'boolean',\n        },\n      },\n    },\n    rows: {\n      control: { type: 'number' },\n      defaultValue: { summary: '1' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    maxLength: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    control: form.get('email'),\n    state: 'default',\n    type: 'text',\n    id: 'email',\n    testId: 'email',\n    label: 'E-mail',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: '',\n    helperText: 'Digite seu e-mail principal.',\n    errorText: '',\n    placeholder: 'Ex: joao.da.silva@gmail.com',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();\n  },\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "defaultValue": "new FormGroup({\n  email: new FormControl('', [CustomValidators.required, CustomValidators.numeric]),\n})"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSInputTextComponent>",
+                    "defaultValue": "{\n  component: Bs2DSInputTextComponent,\n  title: 'Form Components/InputText',\n  argTypes: {\n    control: {\n      control: 'object',\n      defaultValue: { summary: 'new FormControl()' },\n    },\n    state: {\n      control: 'select',\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    type: {\n      control: { type: 'text' },\n      description: 'obrigatório',\n      defaultValue: { summary: 'text' },\n    },\n    id: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    testId: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    label: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    class: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    leftIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    rightIcon: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    helperText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    errorText: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    placeholder: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    readOnly: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaLabel: {\n      control: { type: 'text' },\n      description: 'opcional',\n      defaultValue: { summary: '(vazio)' },\n    },\n    ariaRequired: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n    ariaInvalid: {\n      control: { type: 'boolean' },\n      description: 'opcional',\n      defaultValue: { summary: 'false' },\n    },\n  },\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
@@ -1887,6 +1889,48 @@
                     "defaultValue": "{\n  component: MockBs2DSScrollbarComponent,\n  title: 'Directives/Scrollbar',\n  subcomponents: {\n    Bs2DSScrollbarDirective,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [MockBs2DSScrollbarComponent, Bs2DSScrollbarDirective],\n    }),\n  ],\n}"
                 }
             ],
+            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
+                {
+                    "name": "Hidden",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FatherSimulationComponent>",
+                    "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "Unavailable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    template: 'unavailable',\n  },\n}"
+                },
+                {
+                    "name": "Visible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n}"
+                }
+            ],
             "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
                 {
                     "name": "Hidden",
@@ -1939,48 +1983,6 @@
                     "defaultValue": "{\n  args: {\n    title: 'Crédito',\n    label: 'Limite disponível até',\n    value: 50000,\n  },\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
-                {
-                    "name": "Hidden",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'hidden',\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FatherSimulationComponent>",
-                    "defaultValue": "{\n  component: FatherSimulationComponent,\n  title: 'Components/Card Balance',\n  subcomponents: {\n    Bs2DSCardBalanceComponent,\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [FatherSimulationComponent, Bs2DSCardBalanceComponent],\n    }),\n  ],\n  argTypes: {\n    balance: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    limit: {\n      control: { type: 'number' },\n      defaultValue: { summary: '0' },\n      table: {\n        type: {\n          summary: 'number',\n        },\n      },\n    },\n    template: {\n      control: 'select',\n      options: ['visible', 'hidden', 'unavailable'],\n      defaultValue: { summary: 'visible' },\n      table: {\n        type: {\n          summary: 'visible | hidden | unavailable',\n        },\n      },\n    },\n    loader: {\n      control: 'boolean',\n      defaultValue: { summary: 'false' },\n      table: {\n        type: {\n          summary: 'false',\n        },\n      },\n    },\n    update: {\n      defaultValue: { summary: 'EventEmitter' },\n      table: {\n        type: {\n          detail:\n            \"APENAS para documentação, esse EventEmitter esta setando [template='visible'] após um Observable de 3000ms.\",\n          summary: 'new EventEmitter',\n        },\n      },\n    },\n    testId: {\n      control: { type: 'text' },\n      defaultValue: { summary: '(vazio)' },\n      table: {\n        type: {\n          summary: 'string',\n        },\n      },\n    },\n  },\n}"
-                },
-                {
-                    "name": "Unavailable",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    template: 'unavailable',\n  },\n}"
-                },
-                {
-                    "name": "Visible",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    balance: 1000000000.12,\n    limit: 3000000000.23,\n    template: 'visible',\n  },\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts": [
                 {
                     "name": "meta",
@@ -2015,10 +2017,10 @@
             ]
         },
         "groupedFunctions": {
-            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
+            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
                 {
                     "name": "rand",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -2060,10 +2062,10 @@
                     ]
                 }
             ],
-            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
+            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
                 {
                     "name": "rand",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -2121,13 +2123,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts": [
+            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSLoadingSpinningDirective>",
-                    "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                    "rawtype": "StoryObj<FatherSimulationComponent>",
+                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2147,32 +2149,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<FatherSimulationComponent>",
-                    "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSDividerComponent>",
-                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2180,32 +2156,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSCardRatingComponent>",
                     "file": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MockBs2DSScrollbarComponent>",
-                    "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
-                    "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2225,26 +2175,13 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
+            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
-                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "rawtype": "StoryObj<Bs2DSDividerComponent>",
+                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2264,6 +2201,45 @@
                     "kind": 183
                 }
             ],
+            "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
+                    "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
+                    "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2277,19 +2253,6 @@
                     "kind": 183
                 }
             ],
-            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2297,6 +2260,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSInputTextareaComponent>",
                     "file": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2349,6 +2325,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSTagComponent>",
                     "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSLoadingSpinningDirective>",
+                    "file": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MockBs2DSScrollbarComponent>",
+                    "file": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2432,6 +2434,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
                 "type": "component",
                 "linktype": "component",
@@ -2501,6 +2513,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2526,6 +2548,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/bs2-ds-card-rating/src/bs2-ds-card-rating/bs2-ds-card-rating.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2571,6 +2603,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2601,6 +2643,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2616,6 +2668,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2660,6 +2722,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2700,6 +2772,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2740,6 +2822,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2780,6 +2872,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2805,6 +2907,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2840,6 +2952,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-input-textarea/src/bs2-ds-input-textarea/bs2-ds-input-textarea.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2865,6 +2987,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2890,6 +3022,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-progress-bar/src/bs2-ds-progress-bar/bs2-ds-progress-bar.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-status/src/bs2-ds-status/bs2-ds-status.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2910,6 +3052,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/components/bs2-ds-status/src/bs2-ds-status/bs2-ds-status.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2925,6 +3077,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2989,6 +3151,16 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/ui/directives/bs2-ds-button/bs2-ds-button.directive.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3004,6 +3176,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/directives/bs2-ds-loading-spinning/src/bs2-ds-loading-spinning/bs2-ds-loading-spinning.directive.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3033,6 +3215,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/ui/directives/bs2-ds-scrollbar/src/bs2-ds-scrollbar/bs2-ds-scrollbar.directive.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

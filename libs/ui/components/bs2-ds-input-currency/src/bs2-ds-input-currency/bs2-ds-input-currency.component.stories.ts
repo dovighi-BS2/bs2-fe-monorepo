@@ -18,7 +18,7 @@ const meta: Meta<Bs2DSInputCurrencyComponent> = {
   title: 'Form Components/InputCurrency',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     state: {

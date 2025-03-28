@@ -16,7 +16,7 @@ const meta: Meta<Bs2DSChipsComponent> = {
   title: 'Form Components/Chips Checkbox',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     options: {

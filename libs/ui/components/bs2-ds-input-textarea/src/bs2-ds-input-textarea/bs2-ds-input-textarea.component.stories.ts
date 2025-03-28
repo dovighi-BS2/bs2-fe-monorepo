@@ -11,7 +11,7 @@ const meta: Meta<Bs2DSInputTextareaComponent> = {
   title: 'Form Components/InputTextArea',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     state: {
