@@ -9,7 +9,7 @@ const meta: Meta<Bs2DSCardRatingComponent> = {
   title: 'Form Components/Card Rating',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     title: {

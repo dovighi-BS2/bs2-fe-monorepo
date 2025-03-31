@@ -24,7 +24,7 @@ const meta: Meta<Bs2DSInputPhoneComponent> = {
   ],
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     state: {

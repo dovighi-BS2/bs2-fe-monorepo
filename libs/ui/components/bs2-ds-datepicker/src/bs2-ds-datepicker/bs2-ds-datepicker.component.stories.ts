@@ -8,7 +8,7 @@ const meta: Meta<Bs2DSDatepickerComponent> = {
   title: 'Form Components/Datepicker',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     min: {

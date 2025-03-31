@@ -18,7 +18,7 @@ const meta: Meta<Bs2DSInputSelectComponent> = {
   title: 'Form Components/InputSelect',
   argTypes: {
     control: {
-      control: 'inline',
+      control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
     state: {
