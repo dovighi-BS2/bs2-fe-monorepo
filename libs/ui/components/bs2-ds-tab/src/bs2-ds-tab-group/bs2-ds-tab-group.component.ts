@@ -11,7 +11,7 @@ import { Bs2DSTabItemComponent } from '../bs2-ds-tab-item/bs2-ds-tab-item.compon
 export class Bs2DSTabGroupComponent implements AfterViewInit {
   @Input() testId?: string = '';
   @Input() selectedTab?: string = '';
-  @Input() full?: string = '';
+  @Input() full?: boolean = false;
   @Input() align?: 'start' | 'center' | 'end' = 'start';
 
   @ContentChildren(Bs2DSTabItemComponent) tabItems: Bs2DSTabItemComponent[] = [];
