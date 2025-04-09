@@ -33,6 +33,7 @@
       "@bs2-fe-monorepo/ui/components/bs2-ds-input-token": ["libs/ui/components/bs2-ds-input-token/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/bs2-ds-progress-bar": ["libs/ui/components/bs2-ds-progress-bar/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
       "@bs2-fe-monorepo/ui/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
       "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button": [
         "libs/ui/directives/bs2-ds-button/bs2-ds-filled-button/src/index.ts"
