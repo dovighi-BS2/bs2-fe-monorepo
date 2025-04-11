@@ -1,15 +1,15 @@
 :host {
   --text_field__field_gap: 16px;
   --text_field__field_height: 48px;
-  --text_field__field_border_color: var(--neutral_n1);
+  --text_field__field_border_color: var(--neutral200);
   --text_field__field_bg_color: transparent;
   --text_field__field_text_color: var(--primary_text_dark);
   --text_field__field_placeholder_color: var(--primary_text_dark);
   --text_field__field_border_width: 1px;
   --text_field__icon_width: 20px;
   --text_field__icon_color: var(--primary);
-  --text_field__label_color: var(--neutral_n5);
-  --text_field__bs2-ds-feedback_text_color: var(--error);
+  --text_field__label_color: var(--neutral600);
+  --text_field__bs2-ds-feedback_text_color: var(--feedback_error);
 }
 
 .bs2_ds_input_text {
@@ -97,8 +97,8 @@
   &:has(&__field:hover),
   &.hovered {
     --text_field__field_border_width: 2px;
-    --text_field__label_color: var(--neutral_n5);
-    --text_field__field_border_color: var(--neutral_n3);
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral400);
   }
 
   &:has(&__field:focus),
@@ -110,10 +110,10 @@
 
   &.error {
     --text_field__field_border_width: 2px;
-    --text_field__label_color: var(--error);
-    --text_field__field_border_color: var(--error);
-    --text_field__icon_color: var(--error);
-    --text_field__bs2-ds-feedback_text_color: var(--error);
+    --text_field__label_color: var(--feedback_error);
+    --text_field__field_border_color: var(--feedback_error);
+    --text_field__icon_color: var(--feedback_error);
+    --text_field__bs2-ds-feedback_text_color: var(--feedback_error);
   }
 
   &:has(&__field:not(:empty)),
@@ -122,13 +122,14 @@
 
   &:has(&__field[readonly]),
   &:has(&__field[readonly='true']),
+  &:has(&__field[disabled]),
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
-    --text_field__label_color: var(--neutral_n5);
-    --text_field__field_border_color: var(--neutral_n2);
-    --text_field__field_bg_color: var(--neutral_n0);
-    --text_field__field_text_color: var(--neutral_n3);
-    --text_field__icon_color: var(--neutral_n3);
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral300);
+    --text_field__field_bg_color: var(--neutral100);
+    --text_field__field_text_color: var(--neutral400);
+    --text_field__icon_color: var(--neutral400);
   }
 }

@@ -7,18 +7,19 @@
 
       &.hover,
       &:hover {
-        background-color: var(--secondary_v1);
+        background-color: var(--variant100);
       }
       &.focus,
       &.active,
       &:focus,
       &:active {
-        background-color: var(--secondary_v2);
+        background-color: var(--variant200);
       }
       &.disabled,
+      &[disabled],
       &[disabled='true'] {
-        background-color: var(--primary_white);
-        color: var(--neutral_n3);
+        background-color: transparent;
+        color: var(--neutral400);
       }
     }
   }

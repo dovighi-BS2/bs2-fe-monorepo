@@ -1,15 +1,5 @@
 :host {
-  --date_picker__primary: var(--primary);
   --date_picker__field_height: 48px;
-  --date_picker__field_gap: 16px;
-  --date_picker__field_border_color: var(--neutral_n1);
-  --date_picker__field_bg_color: transparent;
-  --date_picker__field_text_color: var(--primary_text_dark);
-  --date_picker__field_placeholder_color: var(--primary_text_dark);
-  --date_picker__icon_width: 20px;
-  --date_picker__icon_color: var(--primary);
-  --date_picker__label_color: var(--neutral_n5);
-  --date_picker__bs2-ds-feedback_text_color: var(--error);
 }
 
 .date_picker {
@@ -18,7 +8,7 @@
   &:focus-within,
   &.focused {
     .date_picker__calendar {
-      border-color: var(--date_picker__primary);
+      // border-color: var(--primary);
     }
   }
 
@@ -38,7 +28,7 @@
     border-radius: 2px;
     padding: 16px 16px;
     border: 2px solid transparent;
-    box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
     background-color: var(--primary_white);
   }
   &__top {
@@ -47,7 +37,6 @@
     justify-content: space-between;
     padding-bottom: 8px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--neutral_n1);
   }
   &__top_left {
     display: flex;
@@ -102,7 +91,7 @@
   }
   &__weekday {
     border-radius: 4px;
-    background-color: var(--secondary_v1);
+    background-color: var(--variant100);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     place-items: center;
@@ -113,11 +102,11 @@
   &__weekday_item {
     font-size: 16px;
     font-weight: 400;
-    color: var(--neutral_n5);
+    color: var(--neutral600);
 
     &.sunday,
     &.saturday {
-      color: var(--neutral_n3);
+      color: var(--neutral400);
     }
   }
   &__day,
@@ -146,26 +135,26 @@
     font-weight: 400;
     border: 1px solid transparent;
     border-radius: 50px;
-    color: var(--date_picker__field_text_color);
+    color: var(--primary_text_dark);
     transition: 0.5s;
     cursor: pointer;
 
     &.previous_month,
     &.next_month {
-      color: var(--neutral_n2);
+      color: var(--neutral300);
     }
     &:hover {
-      background-color: #d0d4ee;
+      background-color: var(--variant200);
     }
     &.current {
-      border-color: 1px solid var(--date_picker__primary);
+      border-color: 1px solid var(--primary);
     }
     &.active {
-      background-color: var(--date_picker__primary);
+      background-color: var(--primary);
       color: var(--primary_white);
     }
     &.disabled {
-      color: #bfbfbf;
+      color: var(--neutral300);
     }
   }
   // &:not(.disabled):focus-within &__calendar,
