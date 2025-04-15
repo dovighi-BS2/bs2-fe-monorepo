@@ -33,6 +33,7 @@
     font-size: 12px;
     font-weight: 600;
     margin-block: 0px;
+    color: var(--primary_text_dark);
   }
   &__top_right {
   }
@@ -48,17 +49,20 @@
     font-size: 12px;
     font-weight: 400;
     margin-block: 0px;
+    color: var(--primary_text_dark);
   }
   &__text {
     font-size: 12px;
     font-weight: 400;
     margin-block: 0px;
+    color: var(--primary_text_dark);
   }
   &__value {
     font-size: 14px;
     font-weight: 600;
     margin-top: 4px;
     margin-bottom: 0px;
+    color: var(--primary_text_dark);
   }
   &__unavailable {
     text-align: center;

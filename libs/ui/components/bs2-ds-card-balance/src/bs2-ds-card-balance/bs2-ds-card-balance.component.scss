@@ -29,18 +29,21 @@
     font-weight: 600;
     margin-top: 0px;
     margin-bottom: 0px;
+    color: var(--primary_text_dark);
   }
   &__balance {
     font-size: 16px;
     font-weight: 600;
     margin-top: 4px;
     margin-bottom: 0px;
+    color: var(--primary_text_dark);
   }
   &__limit {
     font-size: 14px;
     font-weight: 400;
     margin-top: 16px;
     margin-bottom: 0px;
+    color: var(--primary_text_dark);
   }
   &__unavailable {
     text-align: center;
