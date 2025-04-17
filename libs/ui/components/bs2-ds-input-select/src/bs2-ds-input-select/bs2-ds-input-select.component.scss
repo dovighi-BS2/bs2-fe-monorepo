@@ -1,16 +1,16 @@
 :host {
   --select_field__field_gap: 16px;
   --select_field__field_height: 48px;
-  --select_field__field_border_color: var(--neutral_n1);
+  --select_field__field_border_color: var(--neutral200);
   --select_field__field_bg_color: transparent;
   --select_field__field_text_color: var(--primary_text_dark);
   --select_field__field_placeholder_color: var(--primary_text_dark);
   --select_field__option_bg_color: var(--primary_white);
-  --select_field__option_item_hover_bg_color: var(--neutral_n0);
+  --select_field__option_item_hover_bg_color: var(--neutral100);
   --select_field__icon_width: 20px;
   --select_field__icon_color: var(--primary);
-  --select_field__label_color: var(--neutral_n5);
-  --select_field__bs2-ds-feedback_text_color: var(--error);
+  --select_field__label_color: var(--neutral600);
+  --select_field__feedback_text_color: var(--feedback_error);
 }
 
 .bs2_ds_input_select {
@@ -36,7 +36,7 @@
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--select_field__bs2-ds-feedback_text_color);
+    color: var(--select_field__feedback_text_color);
 
     &:empty {
       display: none;
@@ -161,7 +161,7 @@
     width: 18px;
     height: 18px;
     border-radius: 2px;
-    border: 2px solid var(--neutral_n4);
+    border: 2px solid var(--neutral500);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,8 +204,8 @@
   // Theming
   &:has(&__field:hover),
   &.hovered {
-    --select_field__label_color: var(--neutral_n5);
-    --select_field__field_border_color: var(--neutral_n3);
+    --select_field__label_color: var(--neutral600);
+    --select_field__field_border_color: var(--neutral400);
   }
 
   &:has(&__field:focus),
@@ -215,10 +215,10 @@
   }
 
   &.error {
-    --select_field__label_color: var(--error);
-    --select_field__field_border_color: var(--error);
-    --select_field__icon_color: var(--error);
-    --select_field__bs2-ds-feedback_text_color: var(--error);
+    --select_field__label_color: var(--feedback_error);
+    --select_field__field_border_color: var(--feedback_error);
+    --select_field__icon_color: var(--feedback_error);
+    --select_field__bs2-ds-feedback_text_color: var(--feedback_error);
   }
 
   &:has(&__field:not(:empty)),
@@ -230,10 +230,10 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
-    --select_field__label_color: var(--neutral_n5);
-    --select_field__field_border_color: var(--neutral_n2);
-    --select_field__field_bg_color: var(--neutral_n0);
-    --select_field__field_text_color: var(--neutral_n3);
-    --select_field__icon_color: var(--neutral_n3);
+    --select_field__label_color: var(--neutral600);
+    --select_field__field_border_color: var(--neutral400);
+    --select_field__field_bg_color: var(--neutral100);
+    --select_field__field_text_color: var(--neutral400);
+    --select_field__icon_color: var(--neutral400);
   }
 }

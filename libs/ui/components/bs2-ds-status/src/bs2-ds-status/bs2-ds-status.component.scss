@@ -1,5 +1,5 @@
 .bs2_ds_status {
-  --bs2_ds_status_bg_color: var(--neutral_n1);
+  --bs2_ds_status_bg_color: var(--neutral300);
 
   display: inline-flex;
   align-items: center;
@@ -8,16 +8,16 @@
   color: var(--primary_text_dark);
 
   &.error {
-    --bs2_ds_status_bg_color: var(--error);
+    --bs2_ds_status_bg_color: var(--feedback_error);
   }
   &.success {
-    --bs2_ds_status_bg_color: var(--success);
+    --bs2_ds_status_bg_color: var(--feedback_success);
   }
   &.attention {
-    --bs2_ds_status_bg_color: var(--attention);
+    --bs2_ds_status_bg_color: var(--feedback_attention);
   }
   &.neutral {
-    --bs2_ds_status_bg_color: var(--neutral_n3);
+    --bs2_ds_status_bg_color: var(--neutral300);
   }
 
   &:before {

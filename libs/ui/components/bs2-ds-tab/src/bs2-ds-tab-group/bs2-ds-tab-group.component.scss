@@ -28,17 +28,17 @@
 
     &.hover,
     &:hover {
-      background-color: var(--secondary_v1);
+      background-color: var(--variant100);
     }
     &.focus,
     &:focus,
     &:active {
-      background-color: var(--secondary_v2);
+      background-color: var(--variant200);
     }
     &.disabled,
     &[disabled='true'] {
-      background-color: var(--neutral_n1);
-      color: var(--neutral_n3);
+      background-color: var(--neutral200);
+      color: var(--neutral400);
     }
   }
   &__body {

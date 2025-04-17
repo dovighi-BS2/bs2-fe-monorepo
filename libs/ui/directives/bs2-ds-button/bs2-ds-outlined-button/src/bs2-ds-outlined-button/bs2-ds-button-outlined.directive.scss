@@ -7,21 +7,22 @@
 
       &.hover,
       &:hover {
-        border-color: var(--secondary_v5);
-        background-color: var(--secondary_v1);
+        border-color: var(--primary);
+        background-color: var(--variant100);
       }
       &.focus,
       &.active,
       &:focus,
       &:active {
-        border-color: var(--secondary_v5);
-        background-color: var(--secondary_v2);
+        border-color: var(--primary);
+        background-color: var(--variant200);
       }
       &.disabled,
+      &[disabled],
       &[disabled='true'] {
-        border-color: var(--neutral_n1);
-        background-color: var(--primary_white);
-        color: var(--neutral_n3);
+        border-color: var(--neutral300);
+        background-color: transparent;
+        color: var(--neutral400);
       }
     }
   }

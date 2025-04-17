@@ -1,6 +1,6 @@
 .bs2_ds_tag {
-  --bs2_ds_status_text_color: var(--neutral_n1);
-  --bs2_ds_status_bg_color: var(--neutral_n1);
+  --bs2_ds_status_text_color: var(--neutral600);
+  --bs2_ds_status_bg_color: var(--neutral200);
 
   display: inline-flex;
   align-items: center;
@@ -22,22 +22,22 @@
 
   &.primary {
     --bs2_ds_status_text_color: var(--primary);
-    --bs2_ds_status_bg_color: var(--secondary_v1);
+    --bs2_ds_status_bg_color: var(--variant100);
   }
   &.success {
-    --bs2_ds_status_text_color: var(--success);
-    --bs2_ds_status_bg_color: var(--success_tint);
+    --bs2_ds_status_text_color: var(--feedback_success);
+    --bs2_ds_status_bg_color: var(--feedback_success_tint);
   }
   &.error {
-    --bs2_ds_status_text_color: var(--error);
-    --bs2_ds_status_bg_color: var(--error_tint);
+    --bs2_ds_status_text_color: var(--feedback_error);
+    --bs2_ds_status_bg_color: var(--feedback_error_tint);
   }
   &.attention {
-    --bs2_ds_status_text_color: var(--attention);
-    --bs2_ds_status_bg_color: var(--attention_tint);
+    --bs2_ds_status_text_color: var(--feedback_attention);
+    --bs2_ds_status_bg_color: var(--feedback_attention_tint);
   }
   &.neutral {
-    --bs2_ds_status_text_color: var(--neutral_n5);
-    --bs2_ds_status_bg_color: var(--neutral_n1);
+    --bs2_ds_status_text_color: var(--neutral600);
+    --bs2_ds_status_bg_color: var(--neutral200);
   }
 }

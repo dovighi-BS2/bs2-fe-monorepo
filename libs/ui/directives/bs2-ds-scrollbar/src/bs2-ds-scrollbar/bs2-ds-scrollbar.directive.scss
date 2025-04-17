@@ -1,7 +1,7 @@
 @mixin bs2DSScrollbar(
   $size: 8px,
-  $thumbColor: var(--neutral_n2),
-  $trackColor: var(--neutral_n1),
+  $thumbColor: var(--neutral300),
+  $trackColor: var(--neutral200),
   $bgColor: var(--primary_white)
 ) {
   &::-webkit-scrollbar {

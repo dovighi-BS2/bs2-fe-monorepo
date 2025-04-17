@@ -1,7 +1,7 @@
 :host {
   --token_field__field_height: 40px;
   --token_field__field_width: 32px;
-  --token_field__field_border_color: var(--neutral_n1);
+  --token_field__field_border_color: var(--neutral200);
   --token_field__field_bg_color: transparent;
   --token_field__field_text_color: var(--primary_text_dark);
   --token_field__field_text_weight: 400;
@@ -28,6 +28,13 @@
       margin-left: 4px;
     }
     //Theming
+    &:hover,
+    &.hovered {
+      --token_field__field_border_width: 2px;
+      --token_field__label_color: var(--neutral600);
+      --token_field__field_border_color: var(--neutral400);
+    }
+
     &:focus,
     &.focused {
       --token_field__field_border_color: var(--primary);
@@ -38,12 +45,12 @@
     &[disabled='true'],
     &.disabled,
     &.readonly {
-      --token_field__field_border_color: var(--neutral_n2);
-      --token_field__field_bg_color: var(--neutral_n0);
-      --token_field__field_text_color: var(--neutral_n2);
+      --token_field__field_border_color: var(--neutral300);
+      --token_field__field_bg_color: var(--neutral100);
+      --token_field__field_text_color: var(--neutral300);
     }
   }
   &.error {
-    --token_field__field_border_color: var(--error);
+    --token_field__field_border_color: var(--feedback_error);
   }
 }
