@@ -1,15 +1,15 @@
 :host {
   --textarea_field__field_gap: 16px;
   --textarea_field__field_height: 48px;
-  --textarea_field__field_border_color: var(--neutral_n1);
+  --textarea_field__field_border_color: var(--neutral200);
   --textarea_field__field_bg_color: transparent;
   --textarea_field__field_text_color: var(--primary_text_dark);
   --textarea_field__field_placeholder_color: var(--primary_text_dark);
   --textarea_field__field_border_width: 1px;
   --textarea_field__icon_width: 20px;
   --textarea_field__icon_color: var(--primary);
-  --textarea_field__label_color: var(--neutral_n5);
-  --textarea_field__feedback_text_color: var(--error);
+  --textarea_field__label_color: var(--neutral500);
+  --textarea_field__feedback_text_color: var(--feedback_error);
 }
 
 .bs2_ds_input_textarea {
@@ -127,8 +127,8 @@
   &:has(&__field:hover),
   &.hovered {
     --textarea_field__field_border_width: 2px;
-    --textarea_field__label_color: var(--neutral_n5);
-    --textarea_field__field_border_color: var(--neutral_n3);
+    --textarea_field__label_color: var(--neutral600);
+    --textarea_field__field_border_color: var(--neutral400);
   }
 
   &:has(&__field:focus),
@@ -140,10 +140,10 @@
 
   &.error {
     --textarea_field__field_border_width: 2px;
-    --textarea_field__label_color: var(--error);
-    --textarea_field__field_border_color: var(--error);
-    --textarea_field__icon_color: var(--error);
-    --textarea_field__feedback_text_color: var(--error);
+    --textarea_field__label_color: var(--feedback_error);
+    --textarea_field__field_border_color: var(--feedback_error);
+    --textarea_field__icon_color: var(--feedback_error);
+    --textarea_field__feedback_text_color: var(--feedback_error);
   }
 
   &:has(&__field:not(:empty)),
@@ -155,10 +155,10 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
-    --textarea_field__label_color: var(--neutral_n5);
-    --textarea_field__field_border_color: var(--neutral_n2);
-    --textarea_field__field_bg_color: var(--neutral_n0);
-    --textarea_field__field_text_color: var(--neutral_n3);
-    --textarea_field__icon_color: var(--neutral_n3);
+    --textarea_field__label_color: var(--neutral600);
+    --textarea_field__field_border_color: var(--neutral300);
+    --textarea_field__field_bg_color: var(--neutral100);
+    --textarea_field__field_text_color: var(--neutral400);
+    --textarea_field__icon_color: var(--neutral400);
   }
 }

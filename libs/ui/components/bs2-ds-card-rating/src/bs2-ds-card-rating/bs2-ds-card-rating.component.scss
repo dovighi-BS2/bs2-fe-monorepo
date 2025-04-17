@@ -26,17 +26,17 @@
     flex-direction: column;
 
     svg {
-      stroke: var(--neutral_n2);
+      stroke: var(--neutral300);
     }
     &.active svg {
-      stroke: var(--attention);
-      fill: var(--attention);
+      stroke: var(--feedback_attention);
+      fill: var(--feedback_attention);
     }
     // Hover não proposto pelo Design System
     // &:hover svg,
     // &:hover ~ & svg {
-    //   stroke: var(--attention);
-    //   fill: var(--attention_tint);
+    //   stroke: var(--feedback_attention);
+    //   fill: var(--feedback_attention_tint);
     // }
   }
   &__rate_icon {

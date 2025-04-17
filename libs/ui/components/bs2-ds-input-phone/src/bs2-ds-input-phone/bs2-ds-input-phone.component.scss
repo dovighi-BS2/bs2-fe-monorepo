@@ -9,4 +9,14 @@
     width: 120px;
     border-radius: none;
   }
+
+  ::ng-deep bs2-ds-input-select .bs2_ds_input_select__field {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  ::ng-deep bs2-ds-input-text .bs2_ds_input_text__field {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
 }
