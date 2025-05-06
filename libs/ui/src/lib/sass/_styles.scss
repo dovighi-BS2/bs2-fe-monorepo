@@ -1,7 +1,7 @@
-@use './base' as typography;
+// @use './base' as typography;
 @use'./themes' as t;
 @use './utils' as *;
-@include typography.typography();
+// @include typography.typography();
 
 :root {
   @each $key, $value in t.$themes {
