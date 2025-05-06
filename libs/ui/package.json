@@ -3,8 +3,9 @@
   "version": "0.0.13",
   "sideEffects": false,
   "peerDependencies": {
-		"@angular/common": ">=16.0.0",
-		"@angular/core": ">=16.0.0"
+		"@angular/common": ">18",
+		"@angular/core": ">18",
+    "@angular/cdk": "^18.2.1"
 	},
   "allowedNonPeerDependencies": {
     "@nx/devkit": "19.6.5",
