@@ -1,0 +1,26 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - hotfix/*
+      - qa
+      - hml
+      - master
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: SRE/bs2.sre.pipelines
+      ref: 'refs/tags/stable'
+
+stages:
+  - template: templates/stages/pipeline-frontend.yaml@templates # Template reference
+    parameters:
+      k8sTarget: 'k8sOpen'
+      applications: # Aplicações
+        frontenddesignsystemstorybook: # App1 # Só letras - NÃO PODE CARACTER ESPECIAL - NÃO PODE REPETIR
+          deployYaml: 'design-system-storybook/deploy.yml' # Localizado dentro do diretório "cd" do repositorio
+          dockerFile: 'Dockerfile.design-system-storybook' # Localizado na raiz do repositorio
+          dockerImageName: bs2.frontend.designsystem.storybook
+          variableGroupNames: ['bs2-frontend-design-system-storybook']

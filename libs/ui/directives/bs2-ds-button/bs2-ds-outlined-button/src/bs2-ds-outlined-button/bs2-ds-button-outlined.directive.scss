@@ -1,0 +1,29 @@
+@mixin bs2DSButtonOutlined($selector) {
+  #{$selector} {
+    &.primary {
+      background-color: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+
+      &.hover,
+      &:hover {
+        border-color: var(--primary);
+        background-color: var(--variant100);
+      }
+      &.focus,
+      &.active,
+      &:focus,
+      &:active {
+        border-color: var(--primary);
+        background-color: var(--variant200);
+      }
+      &.disabled,
+      &[disabled],
+      &[disabled='true'] {
+        border-color: var(--neutral300);
+        background-color: transparent;
+        color: var(--neutral400);
+      }
+    }
+  }
+}

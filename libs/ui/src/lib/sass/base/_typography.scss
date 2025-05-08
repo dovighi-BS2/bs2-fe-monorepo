@@ -113,6 +113,9 @@
   input {
     font-family: $font_family_primary;
   }
+  textarea {
+    font-family: $font_family_primary;
+  }
 
   :-webkit-input-placeholder {
     font-family: $font_family_primary;

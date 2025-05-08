@@ -1,0 +1,26 @@
+<div *ngIf="!!control" class="bs2_ds_input_token">
+  <div [attr.data-test]="testId" class="bs2_ds_input_token__wrapper" role="group">
+    <ng-container formArray="forms">
+      <ng-container *ngFor="let form of forms.controls; let i = index">
+        <input
+          class="bs2_ds_input_token__field {{ class }} {{ state }} {{ getErrors(i) ? 'error' : '' }}"
+          #tokenInputField
+          maxlength="1"
+          size="1"
+          [id]="id"
+          [type]="type"
+          [readOnly]="readOnly"
+          [name]="name"
+          [attr.disabled]="disabled"
+          [attr.aria-label]="ariaLabel"
+          [attr.aria-required]="ariaRequired"
+          [attr.aria-invalid]="ariaInvalid"
+          [formControl]="getControlByIndex(i)"
+          (input)="inputToken($event, i)"
+          (keyup)="keyDownToken($event, i)"
+          (paste)="pasteToken($event)"
+        />
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

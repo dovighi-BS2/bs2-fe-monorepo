@@ -14,29 +14,41 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictNullChecks": false,
     "paths": {
-      "@bs2-fe-monorepo/bs2-design-system": [
-        "libs/local-plugins/bs2-design-system/src/index.ts"
-      ],
-      "@bs2-fe-monorepo/compiled-plugins": [
-        "libs/compiled-plugins/src/index.ts"
-      ],
+      "@bs2-fe-monorepo/bs2-design-system": ["libs/local-plugins/bs2-design-system/src/index.ts"],
+      "@bs2-fe-monorepo/compiled-plugins": ["libs/compiled-plugins/src/index.ts"],
       "@bs2-fe-monorepo/ui": ["libs/ui/src/index.ts"],
-      "@bs2-fe-monorepo/ui/components/select-input": [
-        "libs/ui/components/select-input/src/index.ts"
+      "@bs2-fe-monorepo/ui/components/bs2-ds-card-balance": ["libs/ui/components/bs2-ds-card-balance/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-card-product": ["libs/ui/components/bs2-ds-card-product/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-card-rating": ["libs/ui/components/bs2-ds-card-rating/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-chips": ["libs/ui/components/bs2-ds-chips/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-datepicker": ["libs/ui/components/bs2-ds-datepicker/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-divider": ["libs/ui/components/bs2-ds-divider/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-feedback": ["libs/ui/components/bs2-ds-feedback/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-input-currency": ["libs/ui/components/bs2-ds-input-currency/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-input-select": ["libs/ui/components/bs2-ds-input-select/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-input-text": ["libs/ui/components/bs2-ds-input-text/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-input-textarea": ["libs/ui/components/bs2-ds-input-textarea/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-input-token": ["libs/ui/components/bs2-ds-input-token/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-progress-bar": ["libs/ui/components/bs2-ds-progress-bar/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
+      "@bs2-fe-monorepo/ui/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button": [
+        "libs/ui/directives/bs2-ds-button/bs2-ds-filled-button/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui/components/text-input": [
-        "libs/ui/components/text-input/src/index.ts"
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-flat-button": [
+        "libs/ui/directives/bs2-ds-button/bs2-ds-flat-button/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui/directives/button/filled-button": [
-        "libs/ui/directives/button/filled-button/src/index.ts"
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-outlined-button": [
+        "libs/ui/directives/bs2-ds-button/bs2-ds-outlined-button/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui/directives/button/flat-button": [
-        "libs/ui/directives/button/flat-button/src/index.ts"
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-loading-spinning": [
+        "libs/ui/directives/bs2-ds-loading-spinning/src/index.ts"
       ],
-      "@bs2-fe-monorepo/ui/directives/button/outlined-button": [
-        "libs/ui/directives/button/outlined-button/src/index.ts"
-      ]
+      "@bs2-fe-monorepo/ui/directives/bs2-ds-scrollbar": ["libs/ui/directives/bs2-ds-scrollbar/src/index.ts"],
+      "@bs2-fe-monorepo/ui/validators": ["libs/ui/validators/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

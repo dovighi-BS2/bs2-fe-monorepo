@@ -6,16 +6,12 @@
   "projectType": "library",
   "tags": [],
   "targets": {
-    "publish":{
+    "publish": {
       "executor": "nx:run-commands",
-			"options": {
-				"commands": [
-					"nx build ui",
-					"nx build compiled-plugins",
-          "cd dist/libs/ui && npm publish"
-				],
-				"parallel": false 
-			}
+      "options": {
+        "commands": ["nx build ui", "nx build compiled-plugins", "cd dist/libs/ui && npm publish"],
+        "parallel": false
+      }
     },
     "build": {
       "executor": "@nx/angular:package",
@@ -54,7 +50,14 @@
         "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
-        }
+        },
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "./components/bs2-ds-input-select/assets/images/flags",
+            "output": "./assets/images/"
+          }
+        ]
       },
       "configurations": {
         "ci": {
@@ -74,7 +77,14 @@
         "styles": ["libs/ui/src/lib/sass/_styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
-        }
+        },
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "./components/bs2-ds-input-select/assets/images/flags",
+            "output": "./assets/images/"
+          }
+        ]
       },
       "configurations": {
         "ci": {

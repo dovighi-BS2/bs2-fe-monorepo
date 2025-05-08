@@ -1,0 +1,12 @@
+<div class="{{ block }} {{ align }} {{ full ? 'full' : '' }}">
+  <ul class="{{ block }}__head">
+    @for(item of tabItems; track $index){
+    <li class="{{ block }}__head_item {{ item.isActive ? 'active' : '' }}" (click)="selectTab(item.title)">
+      {{ item.title }}
+    </li>
+    }
+  </ul>
+  <div class="{{ block }}__body">
+    <ng-content />
+  </div>
+</div>

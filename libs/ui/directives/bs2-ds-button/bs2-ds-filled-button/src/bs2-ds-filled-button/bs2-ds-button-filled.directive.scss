@@ -1,0 +1,29 @@
+@mixin bs2DSButtonFilled($selector) {
+  #{$selector} {
+    &.primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--primary_text_bkg_light);
+
+      &.hover,
+      &:hover {
+        border-color: var(--variant500);
+        background-color: var(--variant500);
+      }
+      &.focus,
+      &.active,
+      &:focus,
+      &:active {
+        border-color: var(--variant600);
+        background-color: var(--variant600);
+      }
+      &.disabled,
+      &[disabled],
+      &[disabled='true'] {
+        border-color: var(--neutral200);
+        background-color: var(--neutral200);
+        color: var(--neutral400);
+      }
+    }
+  }
+}

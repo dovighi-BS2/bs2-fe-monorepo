@@ -1,0 +1,43 @@
+.bs2_ds_tag {
+  --bs2_ds_status_text_color: var(--neutral600);
+  --bs2_ds_status_bg_color: var(--neutral200);
+
+  display: inline-flex;
+  align-items: center;
+  border-radius: 2px;
+  font-weight: 600;
+  color: var(--bs2_ds_status_text_color);
+  background-color: var(--bs2_ds_status_bg_color);
+
+  &.regular {
+    font-size: 12px;
+    padding: 4px 10px;
+    min-height: 24px;
+  }
+  &.small {
+    font-size: 10px;
+    padding: 2px 10px;
+    min-height: 20px;
+  }
+
+  &.primary {
+    --bs2_ds_status_text_color: var(--primary);
+    --bs2_ds_status_bg_color: var(--variant100);
+  }
+  &.success {
+    --bs2_ds_status_text_color: var(--feedback_success);
+    --bs2_ds_status_bg_color: var(--feedback_success_tint);
+  }
+  &.error {
+    --bs2_ds_status_text_color: var(--feedback_error);
+    --bs2_ds_status_bg_color: var(--feedback_error_tint);
+  }
+  &.attention {
+    --bs2_ds_status_text_color: var(--feedback_attention);
+    --bs2_ds_status_bg_color: var(--feedback_attention_tint);
+  }
+  &.neutral {
+    --bs2_ds_status_text_color: var(--neutral600);
+    --bs2_ds_status_bg_color: var(--neutral200);
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "createdAt": "2025-01-20T00:00:00Z",
+  "description": "Aplicação responsável pelo Design System",
+  "appPoolName": "",
+  "projectManager": "Rodrigo Silva",
+  "applicationLeader": "Mike Costa",
+  "technicalLeader": "João Teixeira",
+  "productOwner": "Flavia Tamie",
+  "dependencies": [
+    {
+      "alias": ""
+    }
+  ],
+  "developers": [
+    {
+      "name": "André Marcelino"
+    },
+    {
+      "name": "Brenda Andrade"
+    },
+    {
+      "name": "Bruno Pires"
+    },
+    {
+      "name": "Eduardo Nunes"
+    },
+    {
+      "name": "Felipe Takeu"
+    },
+    {
+      "name": "Gustavo Henrique"
+    }
+  ],
+  "apps": [
+    {
+      "name": "",
+      "type": ""
+    }
+  ]
+}
