@@ -8,8 +8,8 @@
     }
   },
   "scripts": {
-    "test:affected:develop": "nx affected -t test --base=origin/develop",
-    "test:affected:master": "nx affected -t test",
+    "test:affected:develop": "nx affected -t test  --uncommited --base=origin/develop",
+    "test:affected:main": "nx affected -t test",
     "create-entrypoint": "nx g bs2-entry-point",
     "commit": "git-cz",
     "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
