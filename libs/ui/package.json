@@ -1,6 +1,16 @@
 {
-  "name": "@bs2-fe-monorepo/ui",
-  "version": "0.0.1",
-  "peerDependencies": {},
-  "sideEffects": false
+"name": "@bs2/design-system",
+  "version": "0.0.15",
+  "sideEffects": false,
+  "peerDependencies": {
+		"@angular/common": ">=18.0.0",
+		"@angular/core": ">=18.0.0",
+    "@angular/cdk": "^18.2.1"
+	},
+  "allowedNonPeerDependencies": {
+    "@nx/devkit": "19.6.5",
+    "nx": "19.5.6"
+  },
+  "generators": "./compiled-plugins/generators.json",
+	"schematics": "./compiled-plugins/generators.json"
 }

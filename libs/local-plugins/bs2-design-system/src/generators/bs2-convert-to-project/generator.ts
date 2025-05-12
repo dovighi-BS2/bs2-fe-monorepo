@@ -24,9 +24,10 @@ export async function bs2ConvertToProjectGenerator(tree: Tree, options: Bs2Conve
     targets: {
       test: {
         executor: '@nx/jest:jest',
-        outputs: [`{workspaceRoot}/coverage/{projectRoot}/${options.name}`],
+        outputs: [`{workspaceRoot}/coverage/{projectRoot}`],
         options: {
           jestConfig: `${projectConfiguration.root}/jest.config.ts`,
+          testPathPattern: [prepareNameForTestPath(options.name)],
         },
       },
       lint: {
@@ -36,6 +37,12 @@ export async function bs2ConvertToProjectGenerator(tree: Tree, options: Bs2Conve
   });
 
   await formatFiles(tree);
+}
+
+function prepareNameForTestPath(entrypointName: string) {
+  const parts = entrypointName.split('/');
+  const entrypointNameWithoutPath = parts.pop() || parts.pop();
+  return entrypointNameWithoutPath;
 }
 
 export default bs2ConvertToProjectGenerator;

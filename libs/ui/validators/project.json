@@ -8,7 +8,8 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}/validators"],
       "options": {
-        "jestConfig": "libs/ui/jest.config.ts"
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["validators"]
       }
     },
     "lint": {
