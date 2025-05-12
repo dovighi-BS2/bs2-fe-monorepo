@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test:affected:develop": "nx affected -t test  --uncommited --base=origin/develop",
+    "graph:affected": "nx graph --affected --base=origin/develop",
     "test:affected:main": "nx affected -t test",
     "create-entrypoint": "nx g bs2-entry-point",
     "commit": "git-cz",
