@@ -25,6 +25,7 @@ export class Bs2DSCardBalanceComponent {
   }
 
   transform(value: number): string {
+    console.log('teste');
     const formattedValue = new Intl.NumberFormat('pt-br', {
       style: 'decimal',
       minimumFractionDigits: 2,
