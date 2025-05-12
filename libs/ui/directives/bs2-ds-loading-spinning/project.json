@@ -8,7 +8,8 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}/directives/bs2-ds-loading-spinning"],
       "options": {
-        "jestConfig": "libs/ui/jest.config.ts"
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-loading-spinning"]
       }
     },
     "lint": {
