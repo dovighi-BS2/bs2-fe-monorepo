@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Bs2DSInputSelectOption } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-select';
+import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
-import { Bs2DSInputTextComponent } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-text';
-import { Bs2DSInputCurrencyComponent, flags } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-currency';
+import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
+import { Bs2DSInputCurrencyComponent, flags } from '@bs2/design-system/components/bs2-ds-input-currency';
 
 @Component({
   selector: 'bs2-ds-input-phone',
@@ -18,7 +18,7 @@ import { Bs2DSInputCurrencyComponent, flags } from '@bs2-fe-monorepo/ui/componen
 export class Bs2DSInputPhoneComponent implements OnInit {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';
@@ -68,11 +68,11 @@ export class Bs2DSInputPhoneComponent implements OnInit {
   }
 
   get ddiControl() {
-    return this.inputForm.get('ddi');
+    return this.inputForm.get('ddi') as FormControl;
   }
 
   get numberControl() {
-    return this.inputForm.get('number');
+    return this.inputForm.get('number') as FormControl;
   }
 
   get ddiValue() {

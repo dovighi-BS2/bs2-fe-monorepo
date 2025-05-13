@@ -2,7 +2,7 @@ import { Bs2DSCardRatingComponent } from './bs2-ds-card-rating.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 import { ChangeDetectorRef } from '@angular/core';
 
 describe('Bs2DSCardRatingComponent', () => {

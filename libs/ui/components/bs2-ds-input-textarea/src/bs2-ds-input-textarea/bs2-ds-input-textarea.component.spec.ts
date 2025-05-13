@@ -2,7 +2,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { Bs2DSInputTextareaComponent } from './bs2-ds-input-textarea.component';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2/design-system/validators';
 
 describe('Bs2DSInputTextareaComponent', () => {
   const testId = 'bs2_ds_input_textarea__test_id';
@@ -24,7 +24,7 @@ describe('Bs2DSInputTextareaComponent', () => {
     const form = new FormGroup({
       description: new FormControl('', [CustomValidators.required, CustomValidators.maxLength(10)]),
     });
-    component.control = form.get('description');
+    component.control = form.get('description') as FormControl;
     component.testId = testId;
 
     fixture.detectChanges();

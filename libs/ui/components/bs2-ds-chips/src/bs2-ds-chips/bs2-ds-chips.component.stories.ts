@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSChipsComponent } from './bs2-ds-chips.component';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Bs2DSChipOption } from './bs2-ds-chips.interface';
 

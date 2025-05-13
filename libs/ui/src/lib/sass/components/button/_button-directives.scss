@@ -1,0 +1,7 @@
+@use './button-variants.scss' as button ;
+
+@include button.bs2DSButtonDefault('.bs2_ds_button');
+@include button.bs2DSButtonFilled('.bs2_ds_button.filled');
+@include button.bs2DSButtonOutlined('.bs2_ds_button.outlined');
+@include button.bs2DSButtonFlat('.bs2_ds_button.flat');
+@include button.bs2DSButtonTable('table .bs2_ds_button, .table .bs2_ds_button, .bs2_ds_button.table');

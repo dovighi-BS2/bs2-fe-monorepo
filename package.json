@@ -12,6 +12,7 @@
     "graph:affected": "nx graph --affected --base=origin/develop",
     "test:affected:main": "nx affected -t test",
     "create-entrypoint": "nx g bs2-entry-point",
+    "package": "nx run-many -t build --projects=ui,compiled-plugins",
     "commit": "git-cz",
     "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },

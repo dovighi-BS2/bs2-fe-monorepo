@@ -14,7 +14,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 export class Bs2DSInputTextareaComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';

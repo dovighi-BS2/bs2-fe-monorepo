@@ -12,7 +12,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 @Component({
   selector: 'bs2-ds-input-token',
@@ -60,7 +60,7 @@ export class Bs2DSInputTokenComponent implements OnInit {
   }
 
   getControlByIndex(index: number) {
-    return this.forms.controls[index].get(String(index));
+    return this.forms.controls[index].get(String(index)) as FormControl;
   }
 
   inputToken(event: Event, index: number) {

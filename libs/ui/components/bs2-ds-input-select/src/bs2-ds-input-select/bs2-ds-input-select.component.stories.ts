@@ -3,7 +3,7 @@ import { Bs2DSInputSelectComponent } from './bs2-ds-input-select.component';
 
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 const options: Bs2DSInputSelectOption[] = [
   { value: 1, text: 'Categoria 1' },
@@ -120,7 +120,7 @@ delete form['controls']['categories']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('categories'),
+    control: form.get('categories') as FormControl,
     state: 'default',
     multiple: true,
     id: 'categories',

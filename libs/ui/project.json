@@ -9,12 +9,12 @@
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["nx build ui", "nx build compiled-plugins", "cd dist/libs/ui && npm publish"],
+        "commands": ["npm run package" , "cd dist/libs/ui && npm publish"],
         "parallel": false
       }
     },
     "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/ui/ng-package.json"
@@ -48,9 +48,13 @@
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
         "compodocArgs": ["-e", "json", "-d", "libs/ui"],
-        "styles": ["libs/ui/src/lib/sass/_styles.scss"],
+        "styles": [
+          "libs/ui/src/lib/sass/_styles.scss"
+        ],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
+          "includePaths": [
+            "libs/ui/src/lib/sass/_styles.scss"
+         ]
         },
         "assets": [
           {
@@ -75,9 +79,13 @@
         "browserTarget": "ui:build-storybook",
         "compodoc": true,
         "compodocArgs": ["-e", "json", "-d", "libs/ui"],
-        "styles": ["libs/ui/src/lib/sass/_styles.scss"],
+        "styles": [
+          "libs/ui/src/lib/sass/_styles.scss"
+        ],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/ui/src/lib/sass/_styles.scss"]
+          "includePaths": [
+            "libs/ui/src/lib/sass/_styles.scss"
+         ]
         },
         "assets": [
           {

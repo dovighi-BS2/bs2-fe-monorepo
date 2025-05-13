@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
-import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2/design-system/validators';
 
 describe('Bs2DSInputSelectComponent', () => {
   const testId = 'bs2_ds_input_select__test_id';
@@ -32,7 +32,7 @@ describe('Bs2DSInputSelectComponent', () => {
     const form = new FormGroup({
       categories: new FormControl('', [CustomValidators.required]),
     });
-    component.control = form.get('categories');
+    component.control = form.get('categories') as FormControl;
     component.testId = testId;
     fixture.detectChanges();
   });

@@ -4,8 +4,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModu
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
-import { Bs2DSInputTextComponent } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-text';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 @Component({
   selector: 'bs2-ds-datepicker',
@@ -18,7 +18,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   @ViewChild('datePickerRef') datePickerRef!: ElementRef;
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' | 'opened';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';
@@ -292,7 +292,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   }
 
   get controlToUser() {
-    return this.formToUser?.get('date');
+    return this.formToUser?.get('date') as FormControl;
   }
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
