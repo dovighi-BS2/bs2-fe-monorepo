@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Bs2DSDatepickerComponent } from './bs2-ds-datepicker.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { CustomValidatorMessages, CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2/design-system/validators';
 import { PickerType } from './bs2-ds-datepicker.enum';
 
 //

@@ -1,6 +1,6 @@
 import { Bs2DSFeedbackService } from './bs2-ds-feedback.service';
 import { Bs2DSFeedbackComponent } from './bs2-ds-feedback.component';
-import { Bs2DSFilledButtonDirective } from '@bs2-fe-monorepo/ui/directives/bs2-ds-button/bs2-ds-filled-button';
+import { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Component, inject, Input } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

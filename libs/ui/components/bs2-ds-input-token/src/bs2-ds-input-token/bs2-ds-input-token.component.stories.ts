@@ -4,7 +4,7 @@ import { Bs2DSInputTokenComponent } from './bs2-ds-input-token.component';
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 const meta: Meta<Bs2DSInputTokenComponent> = {
   component: Bs2DSInputTokenComponent,
@@ -84,7 +84,7 @@ delete form['controls']['token']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('token'),
+    control: form.get('token') as FormControl,
     state: 'default',
     type: 'text',
     qtdInputs: 6,

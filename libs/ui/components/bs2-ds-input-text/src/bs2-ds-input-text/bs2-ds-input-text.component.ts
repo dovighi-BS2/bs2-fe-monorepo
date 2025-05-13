@@ -15,7 +15,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 export class Bs2DSInputTextComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() type = 'text';
   @Input() id = '';
   @Input() testId = '';

@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 
-import { Bs2DSInputSelectOption } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-select';
+import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 import { flags } from './bs2-ds-input-currency.component.enum';
 import { Bs2DSInputCurrencyComponent } from './bs2-ds-input-currency.component';
 
@@ -105,7 +105,7 @@ delete form['controls']['flags']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('flags'),
+    control: form.get('flags') as FormControl,
     state: 'default',
     id: 'flags',
     testId: 'flags',

@@ -2,7 +2,7 @@ import { Bs2DSCardRatingComponent } from './bs2-ds-card-rating.component';
 import { type Meta, type StoryObj } from '@storybook/angular';
 
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 const meta: Meta<Bs2DSCardRatingComponent> = {
   component: Bs2DSCardRatingComponent,

@@ -4,7 +4,7 @@ import { Bs2DSInputTextComponent } from './bs2-ds-input-text.component';
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 const meta: Meta<Bs2DSInputTextComponent> = {
   component: Bs2DSInputTextComponent,
@@ -103,7 +103,7 @@ delete form['controls']['email']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('email'),
+    control: form.get('email') as FormControl,
     state: 'default',
     type: 'text',
     id: 'email',

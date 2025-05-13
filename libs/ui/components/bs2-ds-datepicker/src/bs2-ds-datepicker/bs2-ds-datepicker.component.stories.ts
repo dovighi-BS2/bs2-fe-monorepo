@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSDatepickerComponent } from './bs2-ds-datepicker.component';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 import { FormControl, FormGroup } from '@angular/forms';
 
 const meta: Meta<Bs2DSDatepickerComponent> = {
@@ -105,7 +105,7 @@ delete form['controls']['birthday']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('birthday'),
+    control: form.get('birthday') as FormControl,
     min: new Date('1900-01-01T03:07:00.000Z'),
     max: new Date('2100-12-31T03:07:00.000Z'),
     state: 'default',

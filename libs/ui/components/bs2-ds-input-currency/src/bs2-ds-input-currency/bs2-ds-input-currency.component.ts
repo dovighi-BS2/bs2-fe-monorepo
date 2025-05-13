@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-select';
+import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 
 @Component({
   selector: 'bs2-ds-input-currency',
@@ -13,7 +13,7 @@ import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2-fe-monor
 export class Bs2DSInputCurrencyComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';

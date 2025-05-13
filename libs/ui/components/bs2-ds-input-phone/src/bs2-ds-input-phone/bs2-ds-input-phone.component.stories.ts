@@ -1,11 +1,11 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
-import { Bs2DSInputSelectOption } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-select';
+import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 import { Bs2DSInputPhoneComponent } from './bs2-ds-input-phone.component';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomValidators } from '@bs2-fe-monorepo/ui/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 import { provideNgxMask } from 'ngx-mask';
-import { flags } from '@bs2-fe-monorepo/ui/components/bs2-ds-input-currency';
+import { flags } from '@bs2/design-system/components/bs2-ds-input-currency';
 
 const options: Bs2DSInputSelectOption[] = [
   { value: flags.brl, text: flags.brl, image: 'BR.svg' },
@@ -111,7 +111,7 @@ delete form['controls']['phone']['_parent'];
 
 export const Default: Story = {
   args: {
-    control: form.get('phone'),
+    control: form.get('phone') as FormControl,
     state: 'default',
     id: 'phone',
     testId: 'flags',

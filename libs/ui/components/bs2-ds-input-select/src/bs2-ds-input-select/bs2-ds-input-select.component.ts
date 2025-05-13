@@ -19,7 +19,7 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
 
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
-  @Input() control: AbstractControl = new FormControl();
+  @Input() control = new FormControl();
   @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
