@@ -102,7 +102,7 @@ describe('Bs2DSDatepickerComponent', () => {
     const form = new FormGroup({
       birthday: new FormControl('', [CustomValidators.required]),
     });
-    component.control = form.get('birthday');
+    component.control = form.get('birthday') as FormControl;
     component.testId = testId;
     fixture.detectChanges();
   });
