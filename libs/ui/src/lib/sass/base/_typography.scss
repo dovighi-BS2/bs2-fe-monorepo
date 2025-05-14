@@ -1,6 +1,106 @@
 // fazer classes helpers para tipografia demanda sprint 10
+@use "sass:map";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 html, body {
   font-family: 'Poppins', sans-serif;
 }
+
+$display-styles: (
+  light: (
+    large: (
+      font-size: 48px,
+      font-weight: 300,
+      line-height: 56px,
+      font-style:normal
+    ),
+    medium: (
+      font-size: 40px,
+      font-weight: 300,
+      line-height: 48px,
+      font-style: normal,
+    ),
+    small: (
+      font-size: 32px,
+      font-weight: 300,
+      line-height: 40px,
+      font-style: normal,
+    )
+  ),
+  regular: (
+    large: (
+      font-size: 48px,
+      font-weight: 400,
+      line-height: 56px,
+      font-style:normal
+    ),
+    medium: (
+      font-size: 40px,
+      font-weight: 400,
+      line-height: 48px,
+      font-style: normal,
+    ),
+    small: (
+      font-size: 32px,
+      font-weight: 400,
+      line-height: 40px,
+      font-style: normal,
+    )
+  ),
+  semi-bold: (
+    large: (
+      font-size: 48px,
+      font-weight: 600,
+      line-height: 56px,
+      font-style:normal
+    ),
+    medium: (
+      font-size: 40px,
+      font-weight: 600,
+      line-height: 48px,
+      font-style: normal,
+    ),
+    small: (
+      font-size: 32px,
+      font-weight: 600,
+      line-height: 40px,
+      font-style: normal,
+    )
+  ),
+  bold: (
+    large: (
+      font-size: 48px,
+      font-weight: 700,
+      line-height: 56px,
+      font-style:normal
+    ),
+    medium: (
+      font-size: 40px,
+      font-weight: 700,
+      line-height: 48px,
+      font-style: normal,
+    ),
+    small: (
+      font-size: 32px,
+      font-weight: 700,
+      line-height: 40px,
+      font-style: normal,
+    )
+  )
+);
+
+@mixin generate-display-classes($map) {
+  @each $weight, $sizes in $map {
+    @each $size, $style in $sizes {
+      .display-#{$weight}-#{$size} {
+        font-family: 'Poppins', sans-serif;
+        font-size: map.get($style, font-size);
+        font-weight: map.get($style, font-weight);
+        line-height: map.get($style, line-height);
+        font-style: normal;
+      }
+    }
+  }
+}
+
+@include generate-display-classes($display-styles);
