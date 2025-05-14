@@ -342,7 +342,7 @@ $label-styles: (
 );
 
 
-@mixin generate-display-classes($map,$name) {
+@mixin generate-classes($map,$name) {
   @each $weight, $sizes in $map {
     @each $size, $style in $sizes {
       .bs2-#{$name}-#{$weight}-#{$size} {
@@ -356,8 +356,8 @@ $label-styles: (
   }
 }
 
-@include generate-display-classes($display-styles , "display");
-@include generate-display-classes($headline-styles , "headline");
-@include generate-display-classes($title-styles , "title");
-@include generate-display-classes($body-styles , "body");
-@include generate-display-classes($label-styles , "label");
+@include generate-classes($display-styles , "display");
+@include generate-classes($headline-styles , "headline");
+@include generate-classes($title-styles , "title");
+@include generate-classes($body-styles , "body");
+@include generate-classes($label-styles , "label");
