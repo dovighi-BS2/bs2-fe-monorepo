@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 @Component({
   selector: 'bs2-ds-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskModule],
+  providers: [NgxMaskModule.forRoot().providers],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideNgxMask({ validation: false })],
 })
 export class Bs2DSInputTextComponent {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
