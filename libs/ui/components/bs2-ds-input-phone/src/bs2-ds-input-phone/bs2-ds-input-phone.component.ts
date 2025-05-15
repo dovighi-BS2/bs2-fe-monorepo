@@ -1,19 +1,19 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
 import { Bs2DSInputCurrencyComponent, flags } from '@bs2/design-system/components/bs2-ds-input-currency';
 
 @Component({
   selector: 'bs2-ds-input-phone',
   standalone: true,
-  imports: [CommonModule, Bs2DSInputCurrencyComponent, Bs2DSInputTextComponent, ReactiveFormsModule, NgxMaskDirective],
+  imports: [CommonModule, Bs2DSInputCurrencyComponent, Bs2DSInputTextComponent, ReactiveFormsModule, NgxMaskModule],
+  providers: [NgxMaskModule.forRoot().providers],
   templateUrl: './bs2-ds-input-phone.component.html',
   styleUrl: './bs2-ds-input-phone.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideNgxMask({ validation: false })],
 })
 export class Bs2DSInputPhoneComponent implements OnInit {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';

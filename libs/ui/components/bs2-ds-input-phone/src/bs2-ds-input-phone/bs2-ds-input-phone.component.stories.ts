@@ -4,7 +4,7 @@ import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-inp
 import { Bs2DSInputPhoneComponent } from './bs2-ds-input-phone.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
-import { provideNgxMask } from 'ngx-mask';
+import { NgxMaskModule} from 'ngx-mask';
 import { flags } from '@bs2/design-system/components/bs2-ds-input-currency';
 
 const options: Bs2DSInputSelectOption[] = [
@@ -19,7 +19,9 @@ const meta: Meta<Bs2DSInputPhoneComponent> = {
   title: 'Form Components/InputPhone',
   decorators: [
     moduleMetadata({
-      providers: [provideNgxMask({ validation: false })],
+      imports:[
+        NgxMaskModule.forRoot()
+      ],
     }),
   ],
   argTypes: {

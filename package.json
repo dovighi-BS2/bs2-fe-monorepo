@@ -31,7 +31,7 @@
     "@angular/router": "^18.2.13",
     "@nx/angular": "21.0.3",
     "@nx/devkit": "21.0.3",
-    "ngx-mask": "^18.0.1",
+    "ngx-mask": "^14.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rxjs": "~7.8.0",

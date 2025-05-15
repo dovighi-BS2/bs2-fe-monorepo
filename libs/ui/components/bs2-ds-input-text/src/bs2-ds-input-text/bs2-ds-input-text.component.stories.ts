@@ -1,14 +1,20 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSInputTextComponent } from './bs2-ds-input-text.component';
 
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
+import { NgxMaskModule } from 'ngx-mask';
 
 const meta: Meta<Bs2DSInputTextComponent> = {
   component: Bs2DSInputTextComponent,
   title: 'Form Components/InputText',
+  decorators: [
+    moduleMetadata({
+      imports: [NgxMaskModule.forRoot()],
+    }),
+  ],
   argTypes: {
     control: {
       control: 'object',
