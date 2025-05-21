@@ -5,7 +5,6 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
   standalone: true,
 })
 export class Bs2DSRowDirective implements OnInit {
-  @Input() row = '';
   @Input() gap = '30px';
   @Input() columns = 12;
 

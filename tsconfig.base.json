@@ -48,7 +48,7 @@
         "libs/ui/directives/bs2-ds-loading-spinning/src/index.ts"
       ],
       "@bs2/design-system/directives/bs2-ds-scrollbar": ["libs/ui/directives/bs2-ds-scrollbar/src/index.ts"],
-      "@bs2/design-system/directives/bs2-grid": ["libs/ui/directives/bs2-grid/src/index.ts"],
+      "@bs2/design-system/directives/bs2-ds-grid": ["libs/ui/directives/bs2-ds-grid/src/index.ts"],
       "@bs2/design-system/types": ["libs/ui/types/src/index.ts"],
       "@bs2/design-system/validators": ["libs/ui/validators/src/index.ts"]
     }

@@ -1,7 +1,8 @@
-@use "sass:map";
+@use 'sass:map';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-html, body {
+html,
+body {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -21,7 +22,7 @@ $display-styles: (
       font-size: 32px,
       font-weight: 300,
       line-height: 40px,
-    )
+    ),
   ),
   regular: (
     large: (
@@ -38,7 +39,7 @@ $display-styles: (
       font-size: 32px,
       font-weight: 400,
       line-height: 40px,
-    )
+    ),
   ),
   semi-bold: (
     large: (
@@ -55,7 +56,7 @@ $display-styles: (
       font-size: 32px,
       font-weight: 600,
       line-height: 40px,
-    )
+    ),
   ),
   bold: (
     large: (
@@ -72,10 +73,9 @@ $display-styles: (
       font-size: 32px,
       font-weight: 700,
       line-height: 40px,
-    )
-  )
+    ),
+  ),
 );
-
 
 $headline-styles: (
   light: (
@@ -93,7 +93,7 @@ $headline-styles: (
       font-size: 16px,
       font-weight: 400,
       line-height: 32px,
-    )
+    ),
   ),
   regular: (
     large: (
@@ -110,7 +110,7 @@ $headline-styles: (
       font-size: 16px,
       font-weight: 600,
       line-height: 32px,
-    )
+    ),
   ),
   semi-bold: (
     large: (
@@ -127,7 +127,7 @@ $headline-styles: (
       font-size: 16px,
       font-weight: 600,
       line-height: 32px,
-    )
+    ),
   ),
   bold: (
     large: (
@@ -144,8 +144,8 @@ $headline-styles: (
       font-size: 16px,
       font-weight: 700,
       line-height: 32px,
-    )
-  )
+    ),
+  ),
 );
 
 $title-styles: (
@@ -164,7 +164,7 @@ $title-styles: (
       font-size: 15px,
       font-weight: 300,
       line-height: 20px,
-    )
+    ),
   ),
   regular: (
     large: (
@@ -181,7 +181,7 @@ $title-styles: (
       font-size: 15px,
       font-weight: 400,
       line-height: 20px,
-    )
+    ),
   ),
   semi-bold: (
     large: (
@@ -198,7 +198,7 @@ $title-styles: (
       font-size: 15px,
       font-weight: 600,
       line-height: 20px,
-    )
+    ),
   ),
   bold: (
     large: (
@@ -215,8 +215,8 @@ $title-styles: (
       font-size: 15px,
       font-weight: 700,
       line-height: 20px,
-    )
-  )
+    ),
+  ),
 );
 
 $body-styles: (
@@ -235,7 +235,7 @@ $body-styles: (
       font-size: 12px,
       font-weight: 300,
       line-height: 16px,
-    )
+    ),
   ),
   regular: (
     large: (
@@ -252,7 +252,7 @@ $body-styles: (
       font-size: 12px,
       font-weight: 400,
       line-height: 16px,
-    )
+    ),
   ),
   semi-bold: (
     large: (
@@ -269,7 +269,7 @@ $body-styles: (
       font-size: 12px,
       font-weight: 600,
       line-height: 16px,
-    )
+    ),
   ),
   bold: (
     large: (
@@ -286,8 +286,8 @@ $body-styles: (
       font-size: 12px,
       font-weight: 700,
       line-height: 16px,
-    )
-  )
+    ),
+  ),
 );
 
 $label-styles: (
@@ -301,7 +301,7 @@ $label-styles: (
       font-size: 10px,
       font-weight: 300,
       line-height: 12px,
-    )
+    ),
   ),
   regular: (
     medium: (
@@ -325,7 +325,7 @@ $label-styles: (
       font-size: 10px,
       font-weight: 600,
       line-height: 12px,
-    )
+    ),
   ),
   bold: (
     medium: (
@@ -337,12 +337,11 @@ $label-styles: (
       font-size: 10px,
       font-weight: 700,
       line-height: 12px,
-    )
-  )
+    ),
+  ),
 );
 
-
-@mixin generate-classes($map,$name) {
+@mixin generate-classes($map, $name) {
   @each $weight, $sizes in $map {
     @each $size, $style in $sizes {
       .bs2-#{$name}-#{$weight}-#{$size} {
@@ -356,8 +355,8 @@ $label-styles: (
   }
 }
 
-@include generate-classes($display-styles , "display");
-@include generate-classes($headline-styles , "headline");
-@include generate-classes($title-styles , "title");
-@include generate-classes($body-styles , "body");
-@include generate-classes($label-styles , "label");
+@include generate-classes($display-styles, 'display');
+@include generate-classes($headline-styles, 'headline');
+@include generate-classes($title-styles, 'title');
+@include generate-classes($body-styles, 'body');
+@include generate-classes($label-styles, 'label');
