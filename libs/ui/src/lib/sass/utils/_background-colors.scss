@@ -1,0 +1,7 @@
+@use './../themes' as t;
+
+@each $key, $value in t.$themes {
+  .bg_#{$key} {
+    background-color: var(--#{$key}) !important;
+  }
+}

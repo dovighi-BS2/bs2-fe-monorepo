@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSInputTextareaComponent } from './bs2-ds-input-textarea.component';
 
-import { fn, within } from '@storybook/test';
+import { within } from '@storybook/test';
 import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';

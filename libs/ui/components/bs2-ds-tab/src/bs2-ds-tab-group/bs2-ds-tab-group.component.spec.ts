@@ -17,8 +17,6 @@ import { Component } from '@angular/core';
 class MockTabComponent {}
 
 describe('Bs2DSTabGroupComponent', () => {
-  const testId = 'bs2_ds_tab_group_text__test_id';
-
   let bs2DSTabGroupComponent: Bs2DSTabGroupComponent;
   let fixture: ComponentFixture<MockTabComponent>;
 
