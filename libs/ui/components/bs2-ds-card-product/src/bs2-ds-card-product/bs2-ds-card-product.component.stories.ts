@@ -43,7 +43,7 @@ class FatherSimulationComponent {
         delay(3000),
         finalize(() => (this.loader = false))
       )
-      .subscribe((_) => {
+      .subscribe(() => {
         this.template = 'visible';
         this.value = rand(1, 1000000000);
       });

@@ -1,4 +1,4 @@
-@use './button-variants.scss' as button ;
+@use './button-variants.scss' as button;
 
 @include button.bs2DSButtonDefault('.bs2_ds_button');
 @include button.bs2DSButtonFilled('.bs2_ds_button.filled');

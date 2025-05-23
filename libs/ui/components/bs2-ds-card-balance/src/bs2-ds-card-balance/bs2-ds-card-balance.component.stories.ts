@@ -35,7 +35,7 @@ class FatherSimulationComponent {
         delay(3000),
         finalize(() => (this.loader = false))
       )
-      .subscribe((_) => {
+      .subscribe(() => {
         this.template = 'visible';
         this.balance = rand(1, 1000000000);
         this.limit = rand(1, 300000000);

@@ -1,9 +1,11 @@
 @use './base' as typography;
-@use'./themes' as t;
+@use './themes' as t;
 @use './utils' as *;
 
 :root {
   @each $key, $value in t.$themes {
     --#{$key}: #{$value};
   }
+  --bs2_ds_grid__gap: 30px;
+  --bs2_ds_grid__columns: 12;
 }

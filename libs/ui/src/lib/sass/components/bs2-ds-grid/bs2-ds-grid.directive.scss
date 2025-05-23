@@ -1,0 +1,82 @@
+$maxColumns: 20;
+
+@mixin columnGenerator($breakpoint) {
+  @for $i from 1 through $maxColumns {
+    & > .bs2_ds_column__#{$breakpoint}_#{$i} {
+      width: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+    }
+  }
+}
+
+@mixin offsetGenerator($breakpoint) {
+  @for $i from 1 through $maxColumns {
+    & > .bs2_ds_offset__#{$breakpoint}_#{$i} {
+      margin-left: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+    }
+  }
+}
+
+@mixin pushGenerator($breakpoint) {
+  @for $i from 1 through $maxColumns {
+    & > .bs2_ds_push__#{$breakpoint}_#{$i} {
+      margin-right: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+    }
+  }
+}
+
+@mixin orderGenerator($breakpoint) {
+  @for $i from 1 through $maxColumns {
+    & > .bs2_ds_order__#{$breakpoint}_#{$i} {
+      order: $i;
+    }
+  }
+}
+
+.bs2_ds_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc((var(--bs2_ds_grid__gap) / 2) * -1);
+
+  & > [class*='bs2_ds_column__'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: calc((var(--bs2_ds_grid__gap) / 2));
+  }
+
+  @media all and (min-width: 1px) {
+    @include columnGenerator(xs);
+    @include offsetGenerator(xs);
+    @include pushGenerator(xs);
+    @include orderGenerator(xs);
+  }
+  @media all and (min-width: 576px) {
+    @include columnGenerator(sm);
+    @include offsetGenerator(sm);
+    @include pushGenerator(sm);
+    @include orderGenerator(sm);
+  }
+  @media all and (min-width: 768px) {
+    @include columnGenerator(md);
+    @include offsetGenerator(md);
+    @include pushGenerator(md);
+    @include orderGenerator(md);
+  }
+  @media all and (min-width: 992px) {
+    @include columnGenerator(lg);
+    @include offsetGenerator(lg);
+    @include pushGenerator(lg);
+    @include orderGenerator(lg);
+  }
+  @media all and (min-width: 1200px) {
+    @include columnGenerator(xl);
+    @include offsetGenerator(xl);
+    @include pushGenerator(xl);
+    @include orderGenerator(xl);
+  }
+  @media all and (min-width: 1400px) {
+    @include columnGenerator(xxl);
+    @include offsetGenerator(xxl);
+    @include pushGenerator(xxl);
+    @include orderGenerator(xxl);
+  }
+}

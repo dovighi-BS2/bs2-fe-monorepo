@@ -46,7 +46,7 @@ export class Bs2DSInputPhoneComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.inputForm.valueChanges.subscribe((_) => {
+    this.inputForm.valueChanges.subscribe(() => {
       if (this.ddiControl.invalid || this.numberControl.invalid) return;
       this.control.setValue(`${this.ddiControl.value} ${this.numberControl.value}`);
     });

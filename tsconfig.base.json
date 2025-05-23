@@ -44,6 +44,7 @@
       "@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button": [
         "libs/ui/directives/bs2-ds-button/bs2-ds-outlined-button/src/index.ts"
       ],
+      "@bs2/design-system/directives/bs2-ds-grid": ["libs/ui/directives/bs2-ds-grid/src/index.ts"],
       "@bs2/design-system/directives/bs2-ds-loading-spinning": [
         "libs/ui/directives/bs2-ds-loading-spinning/src/index.ts"
       ],

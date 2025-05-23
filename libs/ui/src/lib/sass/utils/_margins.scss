@@ -1,0 +1,21 @@
+$maxMargins: 100;
+$marginDirections: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+  x: block,
+  y: inline,
+);
+
+@mixin marginGenerator() {
+  @each $short, $full in $marginDirections {
+    @for $i from 1 through $maxMargins {
+      .m#{$short}_#{$i} {
+        margin-#{$full}: #{$i}px !important;
+      }
+    }
+  }
+}
+
+@include marginGenerator();

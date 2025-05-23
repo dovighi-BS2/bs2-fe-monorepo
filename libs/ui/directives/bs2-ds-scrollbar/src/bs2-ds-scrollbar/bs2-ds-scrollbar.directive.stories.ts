@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<MockBs2DSScrollbarComponent>;
 
 export const Filled: Story = {
-  render: (args) => ({
+  render: () => ({
     template: `<bs2-ds-scrollbar-mock />`,
   }),
 };

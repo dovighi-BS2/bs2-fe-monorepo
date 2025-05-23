@@ -13,8 +13,7 @@ export async function initDesignSystemGenerator(tree: Tree) {
 
   const packageJson = readJson(tree, 'package.json');
 
-  const version =
-    packageJson['dependencies']?.['@bs2/design-system'] || 'latest';
+  const version = packageJson['dependencies']?.['@bs2/design-system'] || 'latest';
 
   addDependenciesToPackageJson(tree, { '@bs2/design-system': version }, {});
 

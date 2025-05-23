@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { Bs2DSInputCurrencyComponent } from './bs2-ds-input-currency.component';
 
 describe('Bs2DSInputCurrencyComponent', () => {
