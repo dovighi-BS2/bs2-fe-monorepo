@@ -14,7 +14,8 @@
     "create-entrypoint": "nx g bs2-entry-point",
     "package": "nx run-many -t build --projects=ui,compiled-plugins",
     "commit": "git-cz",
-    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
+    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited",
+    "prepare": "husky && git config --local core.editor cat"
   },
   "private": true,
   "dependencies": {
