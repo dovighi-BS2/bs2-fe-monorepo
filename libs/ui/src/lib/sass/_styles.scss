@@ -9,3 +9,16 @@
   --bs2_ds_grid__gap: 30px;
   --bs2_ds_grid__max_column: 12;
 }
+
+.bs2_ds_button_selector--open {
+  display: initial !important;
+  position: absolute;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+}
+
+[bs2-ds-button-selector] {
+  display: none;
+  width: 150px;
+}
