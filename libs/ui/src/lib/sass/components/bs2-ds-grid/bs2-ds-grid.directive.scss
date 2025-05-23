@@ -3,7 +3,7 @@ $maxColumns: 20;
 @mixin columnGenerator($breakpoint) {
   @for $i from 1 through $maxColumns {
     & > .bs2_ds_column__#{$breakpoint}_#{$i} {
-      width: min(100%, calc((100% / var(--bs2_ds_grid__max_column)) * #{$i}));
+      width: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
     }
   }
 }
@@ -11,7 +11,7 @@ $maxColumns: 20;
 @mixin offsetGenerator($breakpoint) {
   @for $i from 1 through $maxColumns {
     & > .bs2_ds_offset__#{$breakpoint}_#{$i} {
-      margin-left: min(100%, calc((100% / var(--bs2_ds_grid__max_column)) * #{$i}));
+      margin-left: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
     }
   }
 }
@@ -19,7 +19,7 @@ $maxColumns: 20;
 @mixin pushGenerator($breakpoint) {
   @for $i from 1 through $maxColumns {
     & > .bs2_ds_push__#{$breakpoint}_#{$i} {
-      margin-right: min(100%, calc((100% / var(--bs2_ds_grid__max_column)) * #{$i}));
+      margin-right: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
     }
   }
 }

@@ -14,6 +14,6 @@ export class Bs2DSRowDirective implements OnInit {
     this.elRef.nativeElement.classList.add('bs2_ds_row');
 
     !!this.gap && this.elRef.nativeElement.style.setProperty('--bs2_ds_grid__gap', this.gap);
-    !!this.columns && this.elRef.nativeElement.style.setProperty('--bs2_ds_grid__max_column', this.columns);
+    !!this.columns && this.elRef.nativeElement.style.setProperty('--bs2_ds_grid__columns', this.columns);
   }
 }
