@@ -10,12 +10,12 @@ import { Bs2DSFlatButtonDirective } from '@bs2/design-system/directives/bs2-ds-b
   template: `
     <h3>Importante!</h3>
     <p>
-      Storybook parece interferir no funcionamento real da diretive.
-      Recomendamos selecionar o menu DIRECTIVES/BUTTON SELECTOR/DEFAULT para uma melhor experiência
+      Storybook parece interferir no funcionamento real da diretive. Recomendamos selecionar o menu DIRECTIVES/BUTTON
+      SELECTOR/DEFAULT para uma melhor experiência
     </p>
     <button bs2-ds-flat-button [bs2-ds-button-selector-trigger]="menu1">exemplo</button>
 
-    <div bs2-ds-button-selector #menu1="bs2-ds-button-selector" [direction]='direction'>
+    <div bs2-ds-button-selector #menu1="bs2-ds-button-selector" [direction]="direction">
       <button>opção item 1</button>
       <button>opção item 2</button>
       <button>opção item 3</button>
@@ -42,11 +42,7 @@ const meta: Meta<MockButtonSelectorComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [
-        MockButtonSelectorComponent,
-        Bs2DSButtonSelectorDirective,
-        Bs2DSButtonSelectorTriggerDirective
-      ],
+      imports: [MockButtonSelectorComponent, Bs2DSButtonSelectorDirective, Bs2DSButtonSelectorTriggerDirective],
     }),
   ],
   argTypes: {
@@ -65,6 +61,4 @@ const meta: Meta<MockButtonSelectorComponent> = {
 export default meta;
 type Story = StoryObj<MockButtonSelectorComponent>;
 
-export const Default: Story = {
-
-};
+export const Default: Story = {};
