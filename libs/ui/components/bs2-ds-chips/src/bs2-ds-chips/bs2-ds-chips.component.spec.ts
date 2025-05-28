@@ -4,9 +4,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 
 const defaultOptions = [
-  { label: 'item 01', disabled: false },
-  { label: 'item 02', disabled: false },
-  { label: 'item 03', disabled: false },
+  { value: 'item 01', label: 'item 01', disabled: false },
+  { value: 'item 02', label: 'item 02', disabled: false },
+  { value: 'item 03', label: 'item 03', disabled: false },
 ];
 
 describe('Bs2DSChipsComponent', () => {
@@ -55,9 +55,9 @@ describe('Bs2DSChipsComponent', () => {
 
   it('[select] should execute right', () => {
     component._options = [
-      { label: 'item 01', disabled: false },
-      { label: 'item 02', disabled: true },
-      { label: 'item 03', disabled: false },
+      { value: 'item 01', label: 'item 01', disabled: false },
+      { value: 'item 02', label: 'item 02', disabled: true },
+      { value: 'item 03', label: 'item 03', disabled: false },
     ];
 
     component.select(component._options[0]);
@@ -75,9 +75,9 @@ describe('Bs2DSChipsComponent', () => {
 
   it('[add] should execute right', () => {
     component._options = [
-      { label: 'item 01', disabled: false },
-      { label: 'item 02', disabled: true },
-      { label: 'item 03', disabled: false },
+      { value: 'item 01', label: 'item 01', disabled: false },
+      { value: 'item 02', label: 'item 02', disabled: true },
+      { value: 'item 03', label: 'item 03', disabled: false },
     ];
 
     component.select(component._options[0]);
@@ -86,9 +86,9 @@ describe('Bs2DSChipsComponent', () => {
 
   it('[remove] should execute right', () => {
     component._options = [
-      { label: 'item 01', disabled: false },
-      { label: 'item 02', disabled: true },
-      { label: 'item 03', disabled: false },
+      { value: 'item 01', label: 'item 01', disabled: false },
+      { value: 'item 02', label: 'item 02', disabled: true },
+      { value: 'item 03', label: 'item 03', disabled: false },
     ];
 
     component.select(component._options[0]);
@@ -100,9 +100,9 @@ describe('Bs2DSChipsComponent', () => {
 
   it('should isSelected', () => {
     component._options = [
-      { label: 'item 01', disabled: false },
-      { label: 'item 02', disabled: true },
-      { label: 'item 03', disabled: false },
+      { value: 'item 01', label: 'item 01', disabled: false },
+      { value: 'item 02', label: 'item 02', disabled: true },
+      { value: 'item 03', label: 'item 03', disabled: false },
     ];
 
     component.select(component._options[0]);

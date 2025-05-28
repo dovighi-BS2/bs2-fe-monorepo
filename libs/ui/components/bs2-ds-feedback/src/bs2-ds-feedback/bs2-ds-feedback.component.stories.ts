@@ -13,7 +13,9 @@ import { Bs2DSFeedbackContainerComponent } from '../bs2-ds-feedback-container/bs
     <p>Para fazer o uso do toast, é necessário usar a service Bs2DSFeedbackService.</p>
     <button
       bs2-ds-filled-button
-      (click)="feedbackService.add({ message: this.message, status: this.status, duration: this.duration })"
+      (click)="
+        feedbackService.add({ title: this.title, message: this.message, status: this.status, duration: this.duration })
+      "
       aria-label="label"
     >
       Abrir Toast
@@ -26,6 +28,7 @@ class MockBs2DSFeedbackComponent {
   @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
   @Input() duration?: number;
+  @Input() title = '';
   @Input() message = '';
 
   public feedbackService = inject(Bs2DSFeedbackService);
@@ -50,6 +53,15 @@ const meta: Meta<MockBs2DSFeedbackComponent> = {
     }),
   ],
   argTypes: {
+    title: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
     message: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
@@ -93,15 +105,16 @@ type Story = StoryObj<MockBs2DSFeedbackComponent>;
 
 export const Static: Story = {
   args: {
-    message: 'Lorem ipsum dolor sit amet',
+    title: 'Lorem ipsum dolor title',
+    message: 'Lorem ipsum dolor message',
   },
   render: (args: MockBs2DSFeedbackComponent) => {
     return {
       template: `
-        <bs2-ds-feedback status='info' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='attention' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='error' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='success' message='${args.message}' />
+        <bs2-ds-feedback status='info' title='${args.title}' message='${args.message}' /><br/>
+        <bs2-ds-feedback status='attention' title='${args.title}' message='${args.message}' /><br/>
+        <bs2-ds-feedback status='error' title='${args.title}' message='${args.message}' /><br/>
+        <bs2-ds-feedback status='success' title='${args.title}' message='${args.message}' />
       `,
     };
   },
@@ -109,7 +122,8 @@ export const Static: Story = {
 
 export const Toast: Story = {
   args: {
-    message: 'Lorem ipsum dolor sit amet',
+    title: 'Lorem ipsum dolor title',
+    message: 'Lorem ipsum dolor message',
     status: 'success',
   },
 };

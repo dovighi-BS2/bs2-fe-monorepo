@@ -11,7 +11,7 @@
     (keydown.enter)="select(item, $event)"
     (keydown.space)="select(item, $event)"
   >
-    {{ item.label }}
+    {{ item.value ?? item.label }}
   </li>
   }
 </ul>

@@ -7,6 +7,7 @@ import { Bs2DSChipOption } from './bs2-ds-chips.interface';
 const options: Bs2DSChipOption[] = Array(10)
   .fill(0)
   .map((_, i) => ({
+    value: `item ${String(i + 1).padStart(2, '0')}`,
     label: `item ${String(i + 1).padStart(2, '0')}`,
     disabled: [3, 4, 5].includes(i),
   }));
@@ -27,13 +28,31 @@ const meta: Meta<Bs2DSChipsComponent> = {
         },
       },
     },
+    max: {
+      control: { type: 'number' },
+      defaultValue: { summary: '(vazio)' },
+      table: {
+        type: {
+          summary: 'number',
+        },
+      },
+    },
+    min: {
+      control: { type: 'number' },
+      defaultValue: { summary: '(vazio)' },
+      table: {
+        type: {
+          summary: 'number',
+        },
+      },
+    },
   },
 };
 export default meta;
 type Story = StoryObj<Bs2DSChipsComponent>;
 
 const form: FormGroup = new FormGroup({
-  reasons: new FormControl([], [CustomValidators.required]),
+  reasons: new FormControl([], []),
 });
 
 delete form['controls']['reasons']['_parent'];
@@ -42,5 +61,7 @@ export const Default: Story = {
   args: {
     control: form.get('reasons'),
     options,
+    max: 3,
+    min: 1,
   },
 };

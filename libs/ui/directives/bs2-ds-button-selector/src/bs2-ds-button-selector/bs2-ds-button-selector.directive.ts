@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, signal, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, HostListener, signal, OnDestroy, Input } from '@angular/core';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 
 @Directive({
@@ -12,6 +12,7 @@ export class Bs2DSButtonSelectorDirective implements OnDestroy {
   private scrollSub?: Subscription;
   private resizeSub?: Subscription;
   private clickOutsideSub?: Subscription;
+  @Input() direction?: 'right' | 'left' = 'left';
 
   constructor(private el: ElementRef<HTMLElement>) {}
 
@@ -41,16 +42,18 @@ export class Bs2DSButtonSelectorDirective implements OnDestroy {
     const triggerRect = this.triggerElement.getBoundingClientRect();
     const dropdownEl = this.el.nativeElement;
 
-    dropdownEl.style.position = 'fixed';
     dropdownEl.style.top = `${triggerRect.bottom}px`;
-    dropdownEl.style.left = `${triggerRect.left}px`;
-    dropdownEl.style.display = 'block';
+
+    if (this.direction === 'left') dropdownEl.style.left = `${triggerRect.left}px`;
+    if (this.direction === 'right') dropdownEl.style.left = `${triggerRect.right - triggerRect.width * 2}px`;
+
     dropdownEl.style.zIndex = '10000';
+    dropdownEl.classList.add('bs2_ds_button_selector--open');
   }
 
   private hideDropdown() {
     const dropdownEl = this.el.nativeElement;
-    dropdownEl.style.display = 'none';
+    dropdownEl.classList.remove('bs2_ds_button_selector--open');
   }
 
   private startListeners() {
