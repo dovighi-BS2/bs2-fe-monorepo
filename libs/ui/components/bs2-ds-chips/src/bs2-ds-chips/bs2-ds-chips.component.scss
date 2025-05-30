@@ -12,8 +12,8 @@
   margin: 0px;
 
   &__item {
-    min-height: 40px;
-    padding: 12px 12px;
+    min-height: 44px;
+    padding: 10px 12px;
     font-size: 14px;
     font-weight: 400;
     border-radius: 50px;
@@ -23,6 +23,9 @@
     border: 1px solid var(--chip_primary);
     color: var(--chip_text_color);
     background-color: var(--chip_bg_color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       --chip_bg_color: var(--variant100);

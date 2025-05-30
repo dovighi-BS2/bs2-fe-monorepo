@@ -19,6 +19,15 @@ const meta: Meta<Bs2DSLoadingSpinningDirective> = {
         },
       },
     },
+    dynamic: {
+      control: { type: 'boolean' },
+      defaultValue: { summary: 'false' },
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+    },
     loaderBG: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
@@ -38,23 +47,21 @@ export const Filled: Story = {
   render: (args) => ({
     styles: [
       `
-      .sm{ position:relative; border: 1px solid red; width: 100px; height: 100px; }
-      .md{ position:relative; border: 1px solid red; width: 200px; height: 200px; }
-      .lg{ position:relative; border: 1px solid red; width: 300px; height: 300px; }
-      .relative{ position:relative; width:100%; height:100%; }
-      .absolute{ position:absolute; width:100%; height:100%; }
+      .sm{ padding:5px; text-align:center; border: 1px solid red; }
+      .md{ padding:5px; text-align:center; border: 1px solid red; }
+      .lg{ padding:5px; text-align:center; border: 1px solid red; width: 300px; height: 300px; }
     `,
     ],
     template: `
       <div style='display:flex'>
-        <div class="sm">
-          <div class="relative" [bs2-ds-loading-spinning]='${args.loader}'>primeiro</div>
+        <div class="sm" [bs2-ds-loading-spinning]='${args.loader}' [dynamic]='${args.dynamic}'>
+          primeiro adaptavel
         </div>
-        <div class="md">
-          <div class="absolute" [bs2-ds-loading-spinning]='${args.loader}' loaderBG='${args.loaderBG}'>segundo</div>
+        <div class="md" [bs2-ds-loading-spinning]='${args.loader}' [dynamic]='${args.dynamic}' loaderBG='${args.loaderBG}'>
+          segundo com tamanho adaptavel um pouco maior
         </div>
-        <div class="lg">
-          <div class="absolute" [bs2-ds-loading-spinning]='${args.loader}'>terceiro</div>
+        <div class="lg" [bs2-ds-loading-spinning]='${args.loader}' [dynamic]='${args.dynamic}'>
+            terceiro tamanho fixo 300px x 300px
         </div>
       </div>
     `,

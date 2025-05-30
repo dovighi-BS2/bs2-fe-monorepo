@@ -19,9 +19,6 @@
       "@bs2-fe-monorepo/bs2-design-system": ["libs/local-plugins/bs2-design-system/src/index.ts"],
       "@bs2-fe-monorepo/compiled-plugins": ["libs/compiled-plugins/src/index.ts"],
       "@bs2/design-system": ["libs/ui/src/index.ts"],
-      "@bs2/design-system/./directives/bs2-ds-button-selector": [
-        "libs/ui/./directives/bs2-ds-button-selector/src/index.ts"
-      ],
       "@bs2/design-system/components/bs2-ds-card-balance": ["libs/ui/components/bs2-ds-card-balance/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-card-product": ["libs/ui/components/bs2-ds-card-product/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-card-rating": ["libs/ui/components/bs2-ds-card-rating/src/index.ts"],
@@ -38,6 +35,9 @@
       "@bs2/design-system/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
+      "@bs2/design-system/directives/bs2-ds-button-selector": [
+        "libs/ui/directives/bs2-ds-button-selector/src/index.ts"
+      ],
       "@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button": [
         "libs/ui/directives/bs2-ds-button/bs2-ds-filled-button/src/index.ts"
       ],

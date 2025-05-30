@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, signal, OnDestroy, Input } from '@angular/core';
+import { Directive, ElementRef, signal, OnDestroy, Input } from '@angular/core';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 
 @Directive({
@@ -7,16 +7,21 @@ import { debounceTime, fromEvent, Subscription } from 'rxjs';
   standalone: true,
 })
 export class Bs2DSButtonSelectorDirective implements OnDestroy {
-  open = signal(false);
+  @Input() direction?: 'right' | 'left' = 'left';
+
+  public open = signal(false);
   private triggerElement?: HTMLElement;
   private scrollSub?: Subscription;
   private resizeSub?: Subscription;
   private clickOutsideSub?: Subscription;
-  @Input() direction?: 'right' | 'left' = 'left';
 
   constructor(private el: ElementRef<HTMLElement>) {}
 
-  toggle(trigger?: HTMLElement) {
+  public ngOnDestroy() {
+    this.stopListeners();
+  }
+
+  public toggle(trigger?: HTMLElement): void {
     if (trigger) this.triggerElement = trigger;
 
     const isOpen = !this.open();
@@ -30,13 +35,13 @@ export class Bs2DSButtonSelectorDirective implements OnDestroy {
     }
   }
 
-  close() {
+  public close(): void {
     this.open.set(false);
     this.hideDropdown();
     this.stopListeners();
   }
 
-  private positionDropdown() {
+  private positionDropdown(): void {
     if (!this.triggerElement) return;
 
     const triggerRect = this.triggerElement.getBoundingClientRect();
@@ -51,13 +56,13 @@ export class Bs2DSButtonSelectorDirective implements OnDestroy {
     dropdownEl.classList.add('bs2_ds_button_selector--open');
   }
 
-  private hideDropdown() {
+  private hideDropdown(): void {
     const dropdownEl = this.el.nativeElement;
     dropdownEl.classList.remove('bs2_ds_button_selector--open');
   }
 
-  private startListeners() {
-    this.stopListeners(); // remove antes pra evitar múltiplos subs
+  private startListeners(): void {
+    this.stopListeners();
 
     this.scrollSub = fromEvent(window, 'scroll')
       .pipe(debounceTime(10))
@@ -67,28 +72,19 @@ export class Bs2DSButtonSelectorDirective implements OnDestroy {
       .pipe(debounceTime(50))
       .subscribe(() => this.positionDropdown());
 
-    this.clickOutsideSub = fromEvent(document, 'click').subscribe((event: Event) => {
-      this.handleClickOutside(event);
-    });
+    this.clickOutsideSub = fromEvent(document, 'click').subscribe((event: Event) => this.handleClickOutside(event));
   }
 
-  private stopListeners() {
+  private stopListeners(): void {
     this.scrollSub?.unsubscribe();
     this.resizeSub?.unsubscribe();
     this.clickOutsideSub?.unsubscribe();
   }
 
-  private handleClickOutside(event: Event) {
+  private handleClickOutside(event: Event): void {
     const target = event.target as Node;
     const dropdownEl = this.el.nativeElement;
 
-    // Se clicar fora do dropdown e fora do trigger, fecha o dropdown
-    if (!dropdownEl.contains(target) && this.triggerElement && !this.triggerElement.contains(target)) {
-      this.close();
-    }
-  }
-
-  ngOnDestroy() {
-    this.stopListeners();
+    if (!dropdownEl.contains(target) && this.triggerElement && !this.triggerElement.contains(target)) this.close();
   }
 }

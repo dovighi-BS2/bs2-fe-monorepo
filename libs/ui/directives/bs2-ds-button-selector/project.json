@@ -1,8 +1,8 @@
 {
-  "name": "ui/./directives/bs2-ds-button-selector",
+  "name": "ui/directives/bs2-ds-button-selector",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/ui/./directives/bs2-ds-button-selector/src",
+  "sourceRoot": "libs/ui/directives/bs2-ds-button-selector/src",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
