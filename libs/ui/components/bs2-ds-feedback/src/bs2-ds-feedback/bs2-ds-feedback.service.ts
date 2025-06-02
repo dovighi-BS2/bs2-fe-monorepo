@@ -5,7 +5,7 @@ import { Bs2DSFeedback } from './bs2-ds-feedback.interface';
   providedIn: 'root',
 })
 export class Bs2DSFeedbackService {
-  private default: Bs2DSFeedback = { duration: 5000, message: '', status: 'info' };
+  private default: Bs2DSFeedback = { duration: 5000, title: '', message: '', status: 'info' };
   public feedbackItems: Bs2DSFeedback[] = [];
 
   public info(feedbackItem: Bs2DSFeedback): void {

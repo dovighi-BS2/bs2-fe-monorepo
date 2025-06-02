@@ -11,6 +11,7 @@ export class Bs2DSFeedbackComponent implements OnInit {
   @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
   @Input() duration?: number;
+  @Input() title = '';
   @Input() message = '';
 
   private elementRef = inject(ElementRef);

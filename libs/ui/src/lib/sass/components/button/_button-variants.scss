@@ -18,6 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--primary);
 
       &.left {
         margin-right: 4px;
@@ -27,6 +28,11 @@
       }
       &:empty {
         display: none;
+      }
+
+      svg,
+      svg path {
+        stroke: var(--primary);
       }
     }
     &:hover {

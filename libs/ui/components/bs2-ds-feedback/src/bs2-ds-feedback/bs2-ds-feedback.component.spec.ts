@@ -56,16 +56,16 @@ describe('Bs2DSFeedbackComponent', () => {
     expect(get(``).classList.contains('success'));
   });
 
-  it('should change [message] text', () => {
-    component.message = 'teste 1';
+  it('should change [title] text', () => {
+    component.title = 'teste 1';
     fixture.detectChanges();
     expect(get(``).textContent.trim()).toBe('teste 1');
 
-    component.message = 'teste 2';
+    component.title = 'teste 2';
     fixture.detectChanges();
     expect(get(``).textContent.trim()).toBe('teste 2');
 
-    component.message = 'teste 3';
+    component.title = 'teste 3';
     fixture.detectChanges();
     expect(get(``).textContent.trim()).toBe('teste 3');
   });

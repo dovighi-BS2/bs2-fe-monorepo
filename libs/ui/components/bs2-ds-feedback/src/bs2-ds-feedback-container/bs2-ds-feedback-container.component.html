@@ -1,5 +1,5 @@
 <div class="feedback_container">
   @for(item of (feedbackService.feedbackItems || []); track item){
-  <bs2-ds-feedback [@slideInOut] [message]="item.message" [status]="item.status" />
+  <bs2-ds-feedback [@slideInOut] [title]="item.title" [message]="item.message" [status]="item.status" />
   }
 </div>
