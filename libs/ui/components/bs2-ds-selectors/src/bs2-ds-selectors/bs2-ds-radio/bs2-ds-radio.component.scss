@@ -1,0 +1,88 @@
+.bs2_ds_radio {
+  display: inline-flex;
+  align-items: flex-start;
+  cursor: pointer;
+
+  &__area {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
+  &__field {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border: 2px solid var(--neutral500);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  &__check {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    background-color: transparent;
+  }
+  &__indeterminate {
+    position: absolute;
+    width: 10px;
+    height: 3px;
+    background-color: transparent;
+  }
+  &__text {
+    width: calc(100% - 44px);
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-top: 10px;
+    color: var(--primary_text_dark);
+  }
+
+  &.filled {
+    .bs2_ds_radio {
+      &__field {
+        border: 2px solid var(--primary);
+      }
+      &__check {
+        background-color: var(--primary);
+      }
+      &__indeterminate {
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  &.disabled {
+    .bs2_ds_radio {
+      &__area {
+      }
+    }
+  }
+
+  &:hover {
+    .bs2_ds_radio {
+      &__area {
+        background-color: var(--neutral100);
+      }
+    }
+  }
+
+  &:active,
+  &:focus {
+    .bs2_ds_radio {
+      &__area {
+        background-color: var(--variant100);
+      }
+    }
+  }
+}

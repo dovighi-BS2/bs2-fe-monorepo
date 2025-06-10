@@ -28,7 +28,7 @@ const meta: Meta<Bs2DSChipsComponent> = {
         },
       },
     },
-    max: {
+    maxSelectable: {
       control: { type: 'number' },
       defaultValue: { summary: '(vazio)' },
       table: {
@@ -37,7 +37,7 @@ const meta: Meta<Bs2DSChipsComponent> = {
         },
       },
     },
-    min: {
+    minSelectable: {
       control: { type: 'number' },
       defaultValue: { summary: '(vazio)' },
       table: {
@@ -61,7 +61,7 @@ export const Default: Story = {
   args: {
     control: form.get('reasons'),
     options,
-    max: 3,
-    min: 1,
+    maxSelectable: 3,
+    minSelectable: 1,
   },
 };

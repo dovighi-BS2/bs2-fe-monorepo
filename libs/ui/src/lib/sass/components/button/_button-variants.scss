@@ -18,7 +18,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
 
       &.left {
         margin-right: 4px;
@@ -28,11 +27,6 @@
       }
       &:empty {
         display: none;
-      }
-
-      svg,
-      svg path {
-        stroke: var(--primary);
       }
     }
     &:hover {
@@ -49,6 +43,14 @@
 
 @mixin bs2DSButtonOutlined($selector) {
   #{$selector} {
+    &__icon {
+      color: var(--primary);
+
+      svg,
+      svg path {
+        stroke: var(--primary);
+      }
+    }
     &.primary {
       background-color: transparent;
       border-color: var(--primary);
@@ -79,6 +81,14 @@
 
 @mixin bs2DSButtonFlat($selector) {
   #{$selector} {
+    &__icon {
+      color: var(--primary);
+
+      svg,
+      svg path {
+        stroke: var(--primary);
+      }
+    }
     &.primary {
       background-color: transparent;
       border-color: transparent;
@@ -106,6 +116,14 @@
 
 @mixin bs2DSButtonFilled($selector) {
   #{$selector} {
+    &__icon {
+      color: var(--primary_white);
+
+      svg,
+      svg path {
+        stroke: var(--primary_white);
+      }
+    }
     &.primary {
       background-color: var(--primary);
       border-color: var(--primary);

@@ -15,16 +15,16 @@ export class Bs2DSChipsComponent implements OnInit {
   @Input() control: AbstractControl = new FormControl();
   @Input() testId?: string = '';
 
-  @Input() min?: number;
-  @Input() max?: number;
-  @Input() options: Bs2DSChipOption[] | string[] = [];
+  @Input() minSelectable?: number;
+  @Input() maxSelectable?: number;
+  @Input() options?: Bs2DSChipOption[] | string[] = [];
 
   public _options: Bs2DSChipOption[] = [];
 
   ngOnInit(): void {
     this.transformOptionsToPattern();
-    this.max && this.control.addValidators(CustomValidators.maxLength(this.max));
-    this.min && this.control.addValidators(CustomValidators.minLength(this.min));
+    this.minSelectable && this.control.addValidators(CustomValidators.minLength(this.minSelectable));
+    this.maxSelectable && this.control.addValidators(CustomValidators.maxLength(this.maxSelectable));
   }
 
   transformOptionsToPattern() {
@@ -44,13 +44,13 @@ export class Bs2DSChipsComponent implements OnInit {
   add(item: Bs2DSChipOption) {
     const addedValue = [...(this.control.value || []), item.value];
     this.control.setValue(addedValue);
-    if (this.max && this.control.value.length > this.max)
+    if (this.maxSelectable && this.control.value.length > this.maxSelectable)
       (this.control.value || []).length > 0 &&
         this.remove(this._options.find((chip) => chip.value === this.control.value[0]));
   }
 
   remove(item: Bs2DSChipOption) {
-    if (this.min && this.control.value.length <= this.min) return;
+    if (this.minSelectable && this.control.value.length <= this.minSelectable) return;
     const filteredValue = (this.control.value || []).filter((chip: string) => chip !== item.value);
     this.control.setValue(filteredValue);
   }

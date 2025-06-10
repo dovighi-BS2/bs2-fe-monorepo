@@ -3,7 +3,9 @@ $maxColumns: 20;
 @mixin columnGenerator($breakpoint) {
   @for $i from 1 through $maxColumns {
     & > .bs2_ds_column__#{$breakpoint}_#{$i} {
-      width: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+      // width: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+      max-width: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
+      flex-basis: min(100%, calc((100% / var(--bs2_ds_grid__columns)) * #{$i}));
     }
   }
 }
@@ -38,7 +40,8 @@ $maxColumns: 20;
   margin-inline: calc((var(--bs2_ds_grid__gap) / 2) * -1);
 
   & > [class*='bs2_ds_column__'] {
-    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
     box-sizing: border-box;
     padding-inline: calc((var(--bs2_ds_grid__gap) / 2));
   }
