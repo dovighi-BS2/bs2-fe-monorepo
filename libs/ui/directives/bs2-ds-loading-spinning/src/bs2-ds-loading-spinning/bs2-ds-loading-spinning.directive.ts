@@ -1,10 +1,10 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[bs2-ds-loading-spinning]',
   standalone: true,
 })
-export class Bs2DSLoadingSpinningDirective implements AfterViewInit {
+export class Bs2DSLoadingSpinningDirective implements OnChanges {
   private loaderRef: HTMLSpanElement;
 
   @Input('bs2-ds-loading-spinning') loader = false;
@@ -15,18 +15,19 @@ export class Bs2DSLoadingSpinningDirective implements AfterViewInit {
     this.loaderRef.classList.add('bs2_ds_loading_spinning');
   }
 
-  ngAfterViewInit(): void {
+  ngOnChanges(): void {
     this.loader ? this.add() : this.remove();
   }
 
   @Input() set loaderBG(loaderBG: string) {
-    this.loaderRef.style.backgroundColor = loaderBG;
+    const value = window.getComputedStyle(document.documentElement).getPropertyValue(`--${loaderBG}`);
+    if (value) this.loaderRef.style.backgroundColor = value ?? 'var(--primary_white)';
+
+    this.loaderRef.style.backgroundColor = loaderBG ?? 'var(--primary_white)';
   }
 
   private add() {
     this.el.nativeElement.style.position = 'relative';
-    // this.el.nativeElement.style.width = '100%';
-    // this.el.nativeElement.style.height = '100%';
     this.loaderRef.innerHTML = this.loaderContent();
     this.el.nativeElement.appendChild(this.loaderRef);
   }

@@ -34,7 +34,7 @@ const meta: Meta<Bs2DSLoadingSpinningDirective> = {
       table: {
         type: {
           summary: 'string',
-          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | var(--neutral_n2)',
+          detail: 'Use hexadecimal, cores padrões ou até variaveis de css. Ex: #f5f5f5 | red | neutral_n2',
         },
       },
     },

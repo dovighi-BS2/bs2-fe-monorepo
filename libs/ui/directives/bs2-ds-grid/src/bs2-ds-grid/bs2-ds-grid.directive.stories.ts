@@ -137,6 +137,22 @@ export const CustomMaxColumnAndGap: Story = {
   }),
 };
 
+export const Nested: Story = {
+  render: () => ({
+    template: `
+      ${boxStyle}
+      <div bs2-ds-row>
+        <div [bs2-ds-column]="${JSON.stringify([6, 6])}">
+          <div bs2-ds-row>
+            ${column(2, [6, 6])}
+          </div>
+        </div>
+        ${column(1, [6, 6])}
+      </div>
+    `,
+  }),
+};
+
 export const Offset: Story = {
   render: () => ({
     template: `
