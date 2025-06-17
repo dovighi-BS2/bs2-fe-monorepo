@@ -1,6 +1,6 @@
 import { Directive, ElementRef, signal, OnDestroy, Input } from '@angular/core';
-import { debounceTime, fromEvent, Subscription } from 'rxjs';
-
+import { fromEvent, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 @Directive({
   selector: '[bs2-ds-button-selector]',
   exportAs: 'bs2-ds-button-selector',
