@@ -5,4 +5,5 @@ export interface Bs2DSFeedback {
   title?: string;
   message?: string;
   class?: string;
+  hasClose?: boolean;
 }

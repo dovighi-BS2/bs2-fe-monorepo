@@ -7,4 +7,9 @@ export enum CustomValidatorMessages {
   numeric = 'Apenas números.',
   date = 'Data inválida.',
   dateRangeInvalid = 'Data esta fora de validade.',
+  cnpj = 'CNPJ inválido',
+  cpf = 'CPFr inválido',
+  cellphone = 'Celular inválido',
+  phone = 'Telefone inválido',
+  email = 'E-mail inválido',
 }
