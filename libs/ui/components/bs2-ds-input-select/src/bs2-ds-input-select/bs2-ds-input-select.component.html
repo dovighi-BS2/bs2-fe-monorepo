@@ -20,8 +20,8 @@
     {{ errorText }}
   </span>
   <div class="bs2_ds_input_select__wrapper">
-    <div class="bs2_ds_input_select__icon left" *ngIf="leftIcon"></div>
-    <div class="bs2_ds_input_select__icon right" *ngIf="rightIcon"></div>
+    <div class="bs2_ds_input_select__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
+    <div class="bs2_ds_input_select__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
     <div
       #selectInputField
       class="bs2_ds_input_select__field"

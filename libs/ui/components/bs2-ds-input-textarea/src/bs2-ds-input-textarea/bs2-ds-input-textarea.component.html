@@ -16,8 +16,8 @@
     </div>
   </div>
   <div class="bs2_ds_input_textarea__wrapper">
-    <div class="bs2_ds_input_textarea__icon left" *ngIf="leftIcon"></div>
-    <div class="bs2_ds_input_textarea__icon right" *ngIf="rightIcon"></div>
+    <div class="bs2_ds_input_textarea__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
+    <div class="bs2_ds_input_textarea__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
     <textarea
       class="bs2_ds_input_textarea__field {{ resize ? 'resize' : '' }} {{ autosize ? 'autosize' : '' }}"
       [rows]="rows"

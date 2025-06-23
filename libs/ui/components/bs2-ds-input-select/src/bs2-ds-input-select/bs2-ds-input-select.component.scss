@@ -49,13 +49,13 @@
   &__icon {
     width: var(--select_field__icon_width);
     min-height: var(--select_field__icon_width);
-    font-weight: 20;
+    font-size: 24px;
+    color:var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 1;
-    background-color: rgba(255, 0, 0, 0.1);
 
     &.left {
       order: 1;
