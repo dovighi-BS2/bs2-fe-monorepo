@@ -651,7 +651,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    control: form.get('birthday') as FormControl,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    control: form.get('birthday') as FormControl,\n    min: new Date('1900-01-01T03:00:00.000Z'),\n    max: new Date('2100-12-31T03:00:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -2026,7 +2026,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    control: form.get('birthday') as FormControl,\n    min: new Date('1900-01-01T03:07:00.000Z'),\n    max: new Date('2100-12-31T03:07:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    control: form.get('birthday') as FormControl,\n    min: new Date('1900-01-01T03:00:00.000Z'),\n    max: new Date('2100-12-31T03:00:00.000Z'),\n    state: 'default',\n    id: 'birthday',\n    testId: 'birthday',\n    label: 'Data de nascimento',\n    class: 'custom_class',\n    leftIcon: '',\n    rightIcon: 'h',\n    helperText: 'Digite sua data de aniversário',\n    errorText: '',\n    placeholder: 'Ex: 31/01/2024',\n    readOnly: false,\n    ariaLabel: '',\n    ariaRequired: false,\n    ariaInvalid: false,\n  },\n}"
                 },
                 {
                     "name": "form",

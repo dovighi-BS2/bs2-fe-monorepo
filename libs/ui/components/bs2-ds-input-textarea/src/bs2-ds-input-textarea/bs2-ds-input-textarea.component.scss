@@ -99,7 +99,7 @@
     font-weight: 400;
     border-radius: 4px;
     padding: 12px var(--textarea_field__field_gap) 5px;
-    border: var(--textarea_field__field_border_width) solid var(--textarea_field__field_border_color);
+    box-shadow: 0px 0px 0px var(--textarea_field__field_border_width) var(--textarea_field__field_border_color);
     background-color: var(--textarea_field__field_bg_color);
     color: var(--textarea_field__field_text_color);
     resize: none;

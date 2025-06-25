@@ -3,18 +3,15 @@ import { CustomValidatorMessages } from './messages.validator';
 
 export const dateValidators = {
   isValidDate: (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value) return { isValidDate: CustomValidatorMessages.required };
     if (!(control.value instanceof Date)) return { isValidDate: CustomValidatorMessages.date };
     return null;
   },
   isDateBetween: (min: Date, max: Date) => {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (!control.value || control.value.trim().length <= 0)
-        return { isDateBetween: CustomValidatorMessages.required };
       if (control.value.trim().length !== 10) return { isDateBetween: CustomValidatorMessages.date };
 
       const v = control.value.split('/');
-      const value = new Date(`${v[2]}-${v[1]}-${v[0]}T03:07:00.000Z`);
+      const value = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
 
       if (value?.valueOf() < min.valueOf() || value?.valueOf() > max.valueOf())
         return { isDateBetween: CustomValidatorMessages.dateRangeInvalid };
@@ -22,14 +19,13 @@ export const dateValidators = {
     };
   },
   isValidDateToUser: (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value || control.value.trim().length <= 0)
-      return { isValidDateToUser: CustomValidatorMessages.required };
     if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
     const v = control.value.split('/');
 
-    // [T03:07:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913
+    // Para funcionar 100%, altera para [*T03:07:00.000Z]
+    // [T03:00:00.000Z] especifico pois brasilia usava LMT (Local Mean Time) até 1913
     // se buscar por [1914-01-01T03:00:00.000Z] ele retorna 1913-12-31
-    const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:07:00.000Z`);
+    const d = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
     const _year = Number(v[2]);
     const _month = Number(v[1] - 1);
     const _day = Number(v[0]);

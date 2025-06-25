@@ -5,6 +5,7 @@
   --select_field__field_bg_color: transparent;
   --select_field__field_text_color: var(--primary_text_dark);
   --select_field__field_placeholder_color: var(--primary_text_dark);
+  --select_field__field_border_width: 1px;
   --select_field__option_bg_color: var(--primary_white);
   --select_field__option_item_hover_bg_color: var(--neutral100);
   --select_field__icon_width: 20px;
@@ -86,7 +87,7 @@
     border-radius: 4px;
     cursor: pointer;
     padding: 13px var(--select_field__field_gap) 5px;
-    border: 1px solid var(--select_field__field_border_color);
+    box-shadow: 0px 0px 0px var(--select_field__field_border_width) var(--select_field__field_border_color);
     background-color: var(--select_field__field_bg_color);
     color: var(--select_field__field_text_color);
 
@@ -204,17 +205,20 @@
   // Theming
   &:has(&__field:hover),
   &.hovered {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--neutral600);
     --select_field__field_border_color: var(--neutral400);
   }
 
   &:has(&__field:focus),
   &.focused {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--primary);
     --select_field__field_border_color: var(--primary);
   }
 
   &.error {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--feedback_error);
     --select_field__field_border_color: var(--feedback_error);
     --select_field__icon_color: var(--feedback_error);

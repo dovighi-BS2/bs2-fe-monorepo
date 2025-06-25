@@ -27,6 +27,12 @@ const meta: Meta<Bs2DSDatepickerComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
+    direction: {
+      control: 'select',
+      options: ['left', 'right'],
+      description: 'opcional',
+      defaultValue: { summary: 'left' },
+    },
     id: {
       control: { type: 'text' },
       description: 'opcional',
@@ -77,6 +83,11 @@ const meta: Meta<Bs2DSDatepickerComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
+    disabled: {
+      control: { type: 'boolean' },
+      description: 'opcional',
+      defaultValue: { summary: 'false' },
+    },
     ariaLabel: {
       control: { type: 'text' },
       description: 'opcional',
@@ -98,7 +109,7 @@ export default meta;
 type Story = StoryObj<Bs2DSDatepickerComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl(null, [CustomValidators.isValidDate]),
+  birthday: new FormControl(null, [CustomValidators.required]),
 });
 
 delete form['controls']['birthday']['_parent'];
@@ -106,9 +117,10 @@ delete form['controls']['birthday']['_parent'];
 export const Default: Story = {
   args: {
     control: form.get('birthday') as FormControl,
-    min: new Date('1900-01-01T03:07:00.000Z'),
-    max: new Date('2100-12-31T03:07:00.000Z'),
+    min: new Date('1900-01-01T03:00:00.000Z'),
+    max: new Date('2100-12-31T03:00:00.000Z'),
     state: 'default',
+    direction: 'left',
     id: 'birthday',
     testId: 'birthday',
     label: 'Data de nascimento',
@@ -122,5 +134,6 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
+    disabled: false
   },
 };

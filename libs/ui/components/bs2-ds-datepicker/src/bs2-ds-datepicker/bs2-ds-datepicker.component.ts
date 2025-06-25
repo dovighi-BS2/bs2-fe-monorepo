@@ -1,4 +1,14 @@
-import { Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
@@ -14,9 +24,9 @@ import { CustomValidators } from '@bs2/design-system/validators';
   templateUrl: './bs2-ds-datepicker.component.html',
   styleUrl: './bs2-ds-datepicker.component.scss',
 })
-export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
+export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('datePickerRef') datePickerRef!: ElementRef;
-  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' | 'opened';
+  @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
   @Input() id = '';
@@ -29,14 +39,18 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   @Input() errorText = '';
   @Input() placeholder = '';
   @Input() readOnly = false;
+  @Input() direction: 'left' | 'right' = 'left';
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  @Input() min: Date = new Date('1900-01-01T03:07:00.000Z');
-  @Input() max: Date = new Date('2100-12-31T03:07:00.000Z');
+  @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
+  @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
   @Input() selectedDate = new Date();
+  @Input() disabled = false;
+
+  public isOpened = false;
 
   private fb = inject(FormBuilder);
 
@@ -88,11 +102,11 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
       if (!this.isDaySelectable(date)) return;
 
       if (from === 'input' && this.controlToUser.invalid) {
-        this.state = undefined;
+        this.isOpened = false;
         return;
       }
 
-      this.state = undefined;
+      this.isOpened = undefined;
       this.selectedDate = date;
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
@@ -111,7 +125,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
       return this.calendarMonths.find((m) => m.number === this.selectedMonth);
     },
     open: () => {
-      this.state = 'opened';
+      this.isOpened = true;
       this.activePickerType = 'day';
     },
   };
@@ -166,9 +180,16 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
 
     this.outsideClickSub = fromEvent(document, 'click').subscribe((event) => {
       if (!this.datePickerRef?.nativeElement.contains(event.target)) {
-        this.state = undefined;
+        this.isOpened = false;
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('disabled' in changes) {
+      this.disabled ? this.controlToUser.disable() : this.controlToUser.enable();
+      this.disabled ? this.control.disable() : this.control.enable();
+    }
   }
 
   ngOnDestroy(): void {
@@ -283,7 +304,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy {
   newDate(year: number, month: number, day: number) {
     const _month = String(month).padStart(2, '0');
     const _day = String(day).padStart(2, '0');
-    return new Date(`${year}-${_month}-${_day}T03:07:00.000Z`);
+    return new Date(`${year}-${_month}-${_day}T03:00:00.000Z`);
   }
   modDays(date: Date, days: number, operation: 'minus' | 'plus' = 'plus') {
     if (operation === 'minus') return new Date(new Date(date).setDate(date.getDate() - days));
