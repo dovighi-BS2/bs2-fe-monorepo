@@ -109,7 +109,8 @@ export default meta;
 type Story = StoryObj<Bs2DSDatepickerComponent>;
 
 const form: FormGroup = new FormGroup({
-  birthday: new FormControl(null, [CustomValidators.required]),
+  birthday: new FormControl('04/12/1991', []),
+  // birthday: new FormControl(new Date('1991-12-05'), [CustomValidators.required]),
 });
 
 delete form['controls']['birthday']['_parent'];

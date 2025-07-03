@@ -4,6 +4,7 @@ import { dateValidators } from './date.validator';
 import { lengthValidations } from './length.validator';
 import { isValidCnpj } from './is-valid-cnpj.utils';
 import { isValidCpf } from './is-valid-cpf.utils';
+import { valueValidations } from './value';
 
 export const CustomValidators = {
   required: (control: AbstractControl): ValidationErrors | null => {
@@ -73,4 +74,5 @@ export const CustomValidators = {
   },
   ...dateValidators,
   ...lengthValidations,
+  ...valueValidations
 };

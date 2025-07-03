@@ -9,18 +9,18 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule, JsonPipe } from '@angular/common';
+import { AbstractControl, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
-import { CustomValidators } from '@bs2/design-system/validators';
+import { CustomValidatorMessages, CustomValidators } from '@bs2/design-system/validators';
 
 @Component({
   selector: 'bs2-ds-datepicker',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, Bs2DSInputTextComponent],
+  imports: [CommonModule, ReactiveFormsModule, Bs2DSInputTextComponent, JsonPipe],
   templateUrl: './bs2-ds-datepicker.component.html',
   styleUrl: './bs2-ds-datepicker.component.scss',
 })
@@ -111,8 +111,8 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
       this.selectedYear = date.getFullYear();
-      this.control?.setValue(this.selectedDate);
       this.controlToUser?.setValue(this.getFormatedDate(this.selectedDate));
+      this.control?.setValue(this.selectedDate);
       this.fillCalendar();
     },
     isToday: (date: Date) => {
@@ -173,9 +173,13 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     this.fillCalendar();
 
-    if (this.control?.value) {
-      const d = this.controlToUser.value.split('/');
-      this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
+    this.control.addValidators(CustomValidators.isBs2DSDatePickerValidator(this.controlToUser));
+
+    if (typeof this.control.value === 'string') {
+      this.controlToUser.setValue(this.control.value);
+      this.handleInputChange();
+    } else if (this.control.value?.getDate()) {
+      this.dayPicker.selectDate(this.control.value, 'click');
     }
 
     this.outsideClickSub = fromEvent(document, 'click').subscribe((event) => {
@@ -198,10 +202,14 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
   handleInputChange() {
     const maskedDate = this.getMaskedDate();
+    const d = maskedDate.split('/');
+
     this.controlToUser?.setValue(maskedDate);
+    this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])));
+
+    if(!this.control.value?.getDate()) this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
 
     if (this.controlToUser?.value.length !== 10) return;
-    const d = maskedDate.split('/');
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
   }
 
@@ -320,4 +328,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const errors = Object.values(this.control?.errors || {}).map((error) => error);
     return errors[0];
   }
+
+  // get controlValidators() { return this.control.validator?.({} as AbstractControl) }
+  // get controlToUserValidators() { return this.controlToUser.validator?.({} as AbstractControl) }
 }

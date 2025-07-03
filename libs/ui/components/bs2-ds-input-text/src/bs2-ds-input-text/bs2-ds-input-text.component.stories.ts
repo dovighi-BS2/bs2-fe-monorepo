@@ -102,7 +102,12 @@ export default meta;
 type Story = StoryObj<Bs2DSInputTextComponent>;
 
 const form: FormGroup = new FormGroup({
-  email: new FormControl('', [CustomValidators.required, CustomValidators.minLength(3), CustomValidators.maxLength(6)]),
+  email: new FormControl('', [
+    // CustomValidators.required,
+    // CustomValidators.minLength(3),
+    // CustomValidators.maxLength(6)
+    CustomValidators.valueBetween(3, 6)
+  ]),
 });
 
 delete form['controls']['email']['_parent'];
