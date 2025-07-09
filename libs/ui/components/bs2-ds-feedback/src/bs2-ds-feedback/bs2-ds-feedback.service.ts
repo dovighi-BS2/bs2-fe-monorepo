@@ -24,6 +24,10 @@ export class Bs2DSFeedbackService {
     this.add({ ...feedbackItem, status: 'attention' });
   }
 
+  public custom(feedbackItem: Bs2DSFeedback): void {
+    this.add(feedbackItem);
+  }
+
   public removeByID(id: Bs2DSFeedback['id']) {
     this.feedbackItems = this.feedbackItems.filter((item) => item.id !== id);
   }

@@ -27,11 +27,6 @@ const meta: Meta<Bs2DSInputSelectComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    multiple: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
-    },
     id: {
       control: { type: 'text' },
       description: 'opcional',
@@ -113,7 +108,7 @@ export default meta;
 type Story = StoryObj<Bs2DSInputSelectComponent>;
 
 const form: FormGroup = new FormGroup({
-  categories: new FormControl([2, 3, 4], [CustomValidators.required]),
+  categories: new FormControl(null, [CustomValidators.required]),
 });
 
 delete form['controls']['categories']['_parent'];
@@ -122,7 +117,6 @@ export const Default: Story = {
   args: {
     control: form.get('categories') as FormControl,
     state: 'default',
-    multiple: true,
     id: 'categories',
     testId: 'categories',
     label: 'Categorias',
@@ -139,4 +133,28 @@ export const Default: Story = {
     ariaInvalid: false,
     hideCheckbox: false,
   },
+  render: (args) => ({
+    props: {
+    control: args.control,
+    state: args.state,
+    id: args.id,
+    testId: args.testId,
+    label: args.label,
+    class: args.class,
+    leftIcon: args.leftIcon,
+    rightIcon: args.rightIcon,
+    helperText: args.helperText,
+    errorText: args.errorText,
+    placeholder: args.placeholder,
+    readOnly: args.readOnly,
+    options: args.options,
+    ariaLabel: args.ariaLabel,
+    ariaRequired: args.ariaRequired,
+    ariaInvalid: args.ariaInvalid,
+    hideCheckbox: args.hideCheckbox,
+    },
+    template: `
+      <bs2-ds-input-select [label]='label' [helperText]='helperText' [control]='control' [options]='options'/>
+    `
+  })
 };

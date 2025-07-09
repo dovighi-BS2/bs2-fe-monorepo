@@ -17,8 +17,6 @@
 .bs2_ds_input_select {
   display: flex;
   flex-direction: column-reverse;
-  position: relative;
-  z-index: 1;
 
   &__hidden_field {
     display: none;
@@ -56,7 +54,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1;
 
     &.left {
       order: 1;
@@ -105,6 +102,7 @@
     box-sizing: border-box;
     margin: 0px;
     position: absolute;
+    z-index: 900;
     top: 0px;
     left: 0px;
     border-radius: 4px;

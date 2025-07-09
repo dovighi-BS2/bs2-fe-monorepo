@@ -7,6 +7,10 @@
   }
 }
 
+:host{
+  --bs2_ds_progress_bar__theme: var(--primary);
+}
+
 .bs2_ds_progress {
   display: block;
   width: 100%;
@@ -24,6 +28,6 @@
     display: block;
     width: 0%;
     height: 100%;
-    background-color: var(--primary);
+    background-color: var(--bs2_ds_progress_bar__theme);
   }
 }

@@ -61,7 +61,6 @@
   }
   &__title {
     display: block;
-    margin-top: 2px;
     font-size: 14px;
     font-weight: 600;
     color: var(--primary_text_dark);
@@ -86,7 +85,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bs2_ds_feedback_border_color);
+    font-size: 20px;
+    color: var(--primary);
     cursor: pointer;
   }
 }

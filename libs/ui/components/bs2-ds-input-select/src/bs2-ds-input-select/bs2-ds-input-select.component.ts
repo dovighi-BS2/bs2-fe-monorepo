@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
@@ -12,7 +12,7 @@ import { fromEvent, Subscription } from 'rxjs';
   templateUrl: './bs2-ds-input-select.component.html',
   styleUrl: './bs2-ds-input-select.component.scss',
 })
-export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestroy {
+export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   @ViewChild('selectInputField') selectInputField!: ElementRef;
   @ViewChild('selectInputOption') selectInputOption!: ElementRef;
   @ViewChild('selectInput') selectInput!: ElementRef;
@@ -20,13 +20,12 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
-  @Input() multiple = false;
   @Input() id = '';
   @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
-  @Input() rightIcon = 'arrow-down';
+  @Input() rightIcon = 'icon icon-chevronbaixo';
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';
@@ -38,15 +37,8 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  public selecteds: Bs2DSInputSelectOption[] = [];
   private selectInputFieldSub: Subscription = new Subscription();
 
-  ngOnInit(): void {
-    // if (this.options[0] && this.selecteds.length <= 0) this.selectOption(this.options[0]);
-    if (this.control && this.control?.value.length > 0) {
-      this.selecteds = (this.options || []).filter((item) => (this.control?.value || []).includes(item.value));
-    }
-  }
   ngAfterViewInit(): void {
     if (this.selectInputField?.nativeElement) {
       this.selectInputFieldSub = fromEvent(this.selectInputField?.nativeElement, 'click').subscribe(() =>
@@ -62,24 +54,21 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
   selectOption(option: Bs2DSInputSelectOption) {
     if (this.readOnly) return;
 
-    const alreadyIn = (this.selecteds || []).find((item) => item.value === option.value);
-
-    if (!this.multiple) {
+    if (!this.controlIsArray) {
       (document.activeElement as any).blur();
-      this.selecteds = [option];
-      // this.selecteds = alreadyIn ? [] : [option];
+      this.control.setValue(option.value);
     } else {
+      const alreadyIn = (this.control.value || []).find((item: string) => item === option.value);
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
     }
-    this.control && this.control?.setValue(this.selecteds.map((item) => item.value));
   }
 
   addSelected(option: Bs2DSInputSelectOption) {
-    this.selecteds.push(option);
+    this.control.setValue([...this.control.value, option.value]);
   }
 
   removeSelected(option: Bs2DSInputSelectOption) {
-    this.selecteds = (this.selecteds || []).filter((item) => item.value !== option.value);
+    this.control.setValue((this.control.value || []).filter((item: string) => item !== option.value));
   }
 
   selectByEnter(option: Bs2DSInputSelectOption) {
@@ -91,27 +80,43 @@ export class Bs2DSInputSelectComponent implements OnInit, AfterViewInit, OnDestr
   }
 
   isSelected(option: Bs2DSInputSelectOption) {
-    return (this.selecteds || []).find((item) => item.value === option.value);
+    return this.controlIsArray
+      ? (this.control.value || []).includes(option.value)
+      : this.control.value === option.value;
   }
 
   getSelectedTexts() {
-    if (this.selecteds.length > 1) {
-      const selecteds = (this.selecteds || []).map((item) => item.text);
-      return `${selecteds[selecteds.length - 1]} (+${selecteds.length - 1})`;
+    if (!this.controlIsArray) {
+      const selected = (this.options || []).find((item) => item.value == this.control.value);
+      return selected?.text ?? this.placeholder;
+    } else {
+      const lastValueSelected = this.control.value[this.control.value.length - 1];
+      const lastSelected = (this.options || []).find((item) => item.value == lastValueSelected);
+      return this.control.value.length > 0
+        ? `${lastSelected.text}${this.control.value.length > 1 ? ` (+${this.control.value.length - 1})` : ''}`
+        : this.placeholder;
     }
-
-    return this.selecteds.length ? `${this.selecteds[0].text}` : this.placeholder;
   }
 
   getSelectedImage() {
-    if (this.selecteds.length <= 0 || !this.selecteds[0].image) return '';
-
-    return this.selecteds[0].image;
+    if (!this.controlIsArray) {
+      const selected = (this.options || []).find((item) => item.value == this.control.value);
+      return selected?.image ?? '';
+    } else {
+      const selected = (this.options || []).find(
+        (item) => item.value == this.control.value[this.control.value.length - 1]
+      );
+      return selected?.image ?? '';
+    }
   }
 
   get getErrors(): string {
     if (!this.control || !this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {}).map((error) => error);
     return errors[0];
+  }
+
+  get controlIsArray(): boolean {
+    return Array.isArray(this.control.value);
   }
 }

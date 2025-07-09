@@ -11,7 +11,7 @@
     {{ getErrors || errorText ? 'error' : '' }}
   "
 >
-  <select [multiple]="multiple" class="bs2_ds_input_select__hidden_field" [formControl]="control">
+  <select [multiple]="controlIsArray" class="bs2_ds_input_select__hidden_field" [formControl]="control">
     <option *ngFor="let option of options">{{ option.text }}</option>
   </select>
   <span class="bs2_ds_input_select__helper" *ngIf="!!helperText">{{ helperText }}</span>
@@ -19,8 +19,8 @@
     {{ errorText || getErrors }}
   </span>
   <div class="bs2_ds_input_select__wrapper">
-    <div class="bs2_ds_input_select__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
-    <div class="bs2_ds_input_select__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+    <i class="bs2_ds_input_select__icon left {{ leftIcon }}" *ngIf="leftIcon"></i>
+    <i class="bs2_ds_input_select__icon right {{ rightIcon }}" *ngIf="rightIcon"></i>
     <div
       #selectInputField
       class="bs2_ds_input_select__field"
@@ -31,7 +31,7 @@
       <span class="bs2_ds_input_select__selected">
         <img
           [src]="getSelectedImage()"
-          *ngIf="getSelectedImage() && !multiple"
+          *ngIf="getSelectedImage() && !(controlIsArray)"
           class="bs2_ds_input_select__selected_image"
         />
         <p>{{ getSelectedTexts() }}</p>
@@ -46,7 +46,7 @@
         (keyup.enter)="selectByEnter(option)"
         (click)="selectByClick(option)"
       >
-        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && multiple"></span>
+        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && (controlIsArray)"></span>
         <img [src]="option.image" *ngIf="option.image" class="bs2_ds_input_select__img_flag" />
         <p>{{ option.text }}</p>
       </div>
