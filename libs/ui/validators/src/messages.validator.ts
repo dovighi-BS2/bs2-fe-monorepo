@@ -14,4 +14,9 @@ export enum CustomValidatorMessages {
   cellphone = 'Celular inválido',
   phone = 'Telefone inválido',
   email = 'E-mail inválido',
+  username = 'Usuário inválido',
+  passwordCompare = 'Senhas não conferem',
+  hasLowercase = 'Caracter em minúsculo obrigatório',
+  hasUppercase = 'Caracter em maiúsculo obrigatório',
+  hasSpecialCharacters = 'Caracter em especial obrigatório',
 }

@@ -72,7 +72,58 @@ export const CustomValidators = {
     }
     return null;
   },
+  username(control: AbstractControl): ValidationErrors {
+    const name = control.value;
+    const reg = /^[a-zA-Z0-9_]+$/g;
+
+    if (!reg.test(name)) {
+      return { username: CustomValidatorMessages.username };
+    }
+    return null;
+  },
+  passwordCompare: (controlKey: string) => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.parent && control.parent.get(controlKey)) {
+        if (control?.value !== control.parent.get(controlKey)?.value) {
+          return { passwordCompare: CustomValidatorMessages.passwordCompare };
+        }
+        return null;
+      }
+
+      return null;
+    };
+  },
+  hasLowerCase: (control: AbstractControl): ValidationErrors | null => {
+    const value: string = control.value;
+    const reg = /[a-z]/;
+
+    if (!reg.test(value)) {
+      return { hasLowerCase: CustomValidatorMessages.hasLowercase };
+    }
+
+    return null;
+  },
+  hasUpperCase: (control: AbstractControl): ValidationErrors | null => {
+    const value: string = control.value;
+    const reg = /[A-Z]/;
+
+    if (!reg.test(value)) {
+      return { hasUpperCase: CustomValidatorMessages.hasUppercase };
+    }
+
+    return null;
+  },
+  hasSpecialCharacters: (control: AbstractControl): ValidationErrors | null => {
+    const value: string = control.value;
+    const reg = /[=^""><!#$%&'()*+,-.\/:;?@[\\\]_`{|}~]/;
+
+    if (!reg.test(value)) {
+      return { hasSpecialCharacters: CustomValidatorMessages.hasSpecialCharacters };
+    }
+
+    return null;
+  },
   ...dateValidators,
   ...lengthValidations,
-  ...valueValidations
+  ...valueValidations,
 };

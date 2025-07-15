@@ -56,15 +56,22 @@ type Story = StoryObj<Bs2DSTabGroupComponent>;
 export const Default: Story = {
   args: {
     align: 'start',
-    selectedTab: 'Tab 1',
+    selectedTab: 'Tab 3',
     full: false,
   },
   render: (args: Bs2DSTabGroupComponent) => {
     return {
+      props: {
+        align: args.align,
+        selectedTab: args.selectedTab,
+        full: args.full,
+      },
       template: `
-        <bs2-ds-tab-group align='${args.align}' [full]='${args.full}' selectedTab='${args.selectedTab}'>
+        <bs2-ds-tab-group align='align' [full]='full' [selectedTab]='selectedTab'>
           <bs2-ds-tab-item title='Tab 1'>Conteúdo Tab 1</bs2-ds-tab-item>
+          @if(full){
           <bs2-ds-tab-item title='Tab 2'>Conteúdo Tab 2</bs2-ds-tab-item>
+          }
           <bs2-ds-tab-item title='Tab 3'>Conteúdo Tab 3</bs2-ds-tab-item>
         </bs2-ds-tab-group>
       `,
