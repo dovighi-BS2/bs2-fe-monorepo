@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Bs2DSCardBalanceComponent } from './bs2-ds-card-balance.component';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { delay, finalize, of } from 'rxjs';
+import { delay, finalize } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 function rand(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);

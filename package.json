@@ -32,10 +32,11 @@
     "@angular/router": "^18.2.13",
     "@nx/angular": "21.0.3",
     "@nx/devkit": "21.0.3",
+    "ngx-currency": "^18.0.0",
     "ngx-mask": "^14.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rxjs": "~6.6.2",
+    "rxjs": "6.6.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

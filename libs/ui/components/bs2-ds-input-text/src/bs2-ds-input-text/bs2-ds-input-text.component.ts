@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgxCurrencyDirective } from 'ngx-currency';
 
 @Component({
   selector: 'bs2-ds-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskModule],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskModule, NgxCurrencyDirective],
   providers: [NgxMaskModule.forRoot().providers],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
@@ -29,6 +30,7 @@ export class Bs2DSInputTextComponent {
   @Input() autocomplete = '';
   @Input() readOnly = false;
   @Input() mask = '';
+  @Input() currencyMask?: object;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -37,7 +39,7 @@ export class Bs2DSInputTextComponent {
   @Output() clickEmitter = new EventEmitter();
   @Output() keyupEmitter = new EventEmitter();
 
-  get getErrors(): string {
+  public get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {}).map((error) => error);
     return errors[0];

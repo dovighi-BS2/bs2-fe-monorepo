@@ -10,6 +10,7 @@
   <div class="bs2_ds_input_text__wrapper">
     <div class="bs2_ds_input_text__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
     <div class="bs2_ds_input_text__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+    @if(!currencyMask){
     <input
       class="bs2_ds_input_text__field"
       [id]="id"
@@ -25,6 +26,24 @@
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
     />
+    } @if(currencyMask){
+    <input
+      class="bs2_ds_input_text__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [currencyMask]="mask"
+      [autocomplete]="autocomplete"
+      (click)="clickEmitter.emit()"
+      (keyup)="keyupEmitter.emit()"
+      [formControl]="control"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+      [currencyMask]="currencyMask"
+    />
+    }
   </div>
   <label *ngIf="label" [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
 </div>

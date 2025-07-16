@@ -1,6 +1,6 @@
 {
   "name": "@bs2/design-system",
-  "version": "0.0.82",
+  "version": "0.0.85",
   "sideEffects": false,
   "peerDependencies": {
     "@angular/common": ">=18.0.0",
@@ -9,6 +9,7 @@
     "@nx/devkit": "^20.0.0",
     "nx": "^20.0.0",
     "ngx-mask": "^14.2.4",
+    "ngx-currency": "^18.0.0",
     "rxjs": "~6.6.2"
   },
   "generators": "./compiled-plugins/generators.json",
