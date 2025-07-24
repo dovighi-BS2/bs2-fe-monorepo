@@ -8,6 +8,7 @@
     {{ class }}
     {{ state }}
     {{ readOnly ? 'disabled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
     {{ getErrors || errorText ? 'error' : '' }}
   "
 >

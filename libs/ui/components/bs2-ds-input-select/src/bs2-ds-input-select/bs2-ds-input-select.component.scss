@@ -232,6 +232,7 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
+    pointer-events: none;
     --select_field__label_color: var(--neutral600);
     --select_field__field_border_color: var(--neutral400);
     --select_field__field_bg_color: var(--neutral100);

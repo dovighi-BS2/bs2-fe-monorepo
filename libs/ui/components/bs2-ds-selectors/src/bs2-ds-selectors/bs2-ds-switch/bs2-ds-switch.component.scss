@@ -1,3 +1,10 @@
+:host {
+  --bs2_ds_switch__border_color: var(--neutral300);
+  --bs2_ds_switch__bg_color: transparent;
+  --bs2_ds_switch__check_color: var(--primary_text_bkg_light);
+  --bs2_ds_switch__text_color: var(--primary_text_dark);
+}
+
 .bs2_ds_switch {
   display: inline-flex;
   align-items: center;
@@ -17,8 +24,8 @@
     width: 40px;
     height: 24px;
     border-radius: 50px;
-    border: 2px solid var(--neutral300);
-    background-color: var(--neutral300);
+    border: 2px solid var(--bs2_ds_switch__border_color);
+    background-color: var(--bs2_ds_switch__border_color);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -31,7 +38,7 @@
     left: 1px;
     border-radius: 50px;
     transition: 0.2s;
-    background-color: var(--primary_text_bkg_light);
+    background-color: var(--bs2_ds_switch__check_color);
     box-shadow: 0px 2px 4px 0px #2727271a;
   }
   &__indeterminate {
@@ -41,7 +48,7 @@
     left: 1px;
     border-radius: 50px;
     transition: 0.2s;
-    background-color: var(--primary_text_bkg_light);
+    background-color: var(--bs2_ds_switch__check_color);
     box-shadow: 0px 2px 4px 0px #2727271a;
   }
   &__text {
@@ -50,15 +57,14 @@
     font-size: 14px;
     margin-left: 4px;
     // margin-top: 10px;
-    color: var(--primary_text_dark);
+    color: var(--bs2_ds_switch__text_color);
   }
 
   &.filled {
+    --bs2_ds_switch__border_color: var(--primary);
+    --bs2_ds_switch__bg_color: var(--primary);
+
     .bs2_ds_switch {
-      &__field {
-        border: 2px solid var(--primary);
-        background-color: var(--primary);
-      }
       &__check {
         left: 16px;
       }
@@ -69,9 +75,12 @@
   }
 
   &.disabled {
-    .bs2_ds_switch {
-      &__area {
-      }
+    pointer-events: none;
+    --bs2_ds_switch__border_color: var(--neutral200);
+    --bs2_ds_switch__text_color: var(--neutral300);
+
+    &.filled {
+      --bs2_ds_switch__bg_color: var(--neutral200);
     }
   }
 

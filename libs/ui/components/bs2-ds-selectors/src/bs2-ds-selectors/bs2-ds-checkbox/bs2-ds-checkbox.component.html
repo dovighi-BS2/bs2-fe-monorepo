@@ -3,6 +3,7 @@
   class="
     bs2_ds_checkbox
     {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
   "
   (click)="toggle()"
   [attr.data-test]="testId"

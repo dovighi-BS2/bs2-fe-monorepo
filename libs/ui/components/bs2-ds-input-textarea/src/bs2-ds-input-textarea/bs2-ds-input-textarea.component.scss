@@ -154,6 +154,7 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
+    pointer-events: none;
     --textarea_field__label_color: var(--neutral600);
     --textarea_field__field_border_color: var(--neutral300);
     --textarea_field__field_bg_color: var(--neutral100);
