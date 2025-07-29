@@ -116,7 +116,7 @@ export const Default: Story = {
 
 export const Radio: Story = {
   render: () => {
-    const control = new FormControl('');
+    const control = new FormControl(null);
     const options = [
       { id: 1, text: 'Banana' },
       { id: 2, text: 'Maça' },
@@ -134,7 +134,6 @@ export const Radio: Story = {
             type="radio"
             [control]="control"
             [value]="item.id"
-            (emitter)="emitter($event)"
           >
             <ng-template>{{ item.text }}</ng-template>
           </bs2-ds-selectors>

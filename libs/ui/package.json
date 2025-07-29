@@ -1,6 +1,6 @@
 {
   "name": "@bs2/design-system",
-  "version": "0.0.89",
+  "version": "0.0.90",
   "sideEffects": false,
   "peerDependencies": {
     "@angular/common": ">=18.0.0",

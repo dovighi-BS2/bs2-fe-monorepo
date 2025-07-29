@@ -11,7 +11,7 @@ export const lengthValidations = {
           return { maxLength: CustomValidatorMessages.maxLength.replace('@maxLength@', String(maxLength)) };
       }
 
-      if (control.value && typeof control.value === 'object') {
+      if (control.value && typeof Array.isArray(control.value)) {
         if ((control.value || []).length <= 0) return { maxLength: CustomValidatorMessages.required };
 
         if ((control.value || []).length > maxLength)
@@ -32,7 +32,7 @@ export const lengthValidations = {
           return { minLength: CustomValidatorMessages.minLength.replace('@minLength@', String(minLength)) };
       }
 
-      if (control.value && typeof control.value === 'object') {
+      if (control.value && typeof Array.isArray(control.value)) {
         if ((control.value || []).length <= 0) return { minLength: CustomValidatorMessages.required };
 
         if ((control.value || []).length < minLength)

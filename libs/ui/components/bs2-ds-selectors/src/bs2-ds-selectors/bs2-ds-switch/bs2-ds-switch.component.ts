@@ -25,26 +25,26 @@ export class Bs2DSSwitchComponent {
     this.emitter?.emit(this.value);
     if (this.isMain) return;
 
-    if (typeof this.control.value === 'object') {
+    if (Array.isArray(this.control.value)) {
       const alreadyIn = this.control.value.includes(this.value);
       !alreadyIn
         ? this.control.setValue([...this.control.value, this.value])
         : this.control.setValue(this.control.value.filter((item: any) => item !== this.value));
     }
 
-    if (typeof this.control.value !== 'object') {
+    if (!Array.isArray(this.control.value)) {
       this.control.setValue(this.value === this.control.value ? '' : this.value);
     }
   }
 
   public isSelected(): boolean {
-    if (typeof this.control.value === 'object') return (this.control.value || []).includes(this.value);
+    if (Array.isArray(this.control.value)) return (this.control.value || []).includes(this.value);
 
     return this.control.value === this.value;
   }
 
   public isAllSelected(): boolean {
-    if (typeof this.control.value !== 'object') return false;
+    if (!Array.isArray(this.control.value)) return false;
     return this.totalItemsCount === (this.control.value || []).length;
   }
 
