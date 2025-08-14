@@ -112,7 +112,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
   get getErrors(): string {
     if (!this.control || !this.control || this.control.untouched) return '';
-    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
 

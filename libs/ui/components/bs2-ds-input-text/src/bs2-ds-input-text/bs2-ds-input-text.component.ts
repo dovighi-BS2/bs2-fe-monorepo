@@ -8,7 +8,7 @@ import { NgxCurrencyDirective } from 'ngx-currency';
   selector: 'bs2-ds-input-text',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, NgxMaskModule, NgxCurrencyDirective],
-  providers: [NgxMaskModule.forRoot().providers],
+  providers: [NgxMaskModule.forRoot({ validation: false }).providers],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,7 +41,7 @@ export class Bs2DSInputTextComponent {
 
   public get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
-    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
 }

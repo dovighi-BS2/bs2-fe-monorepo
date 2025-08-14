@@ -8,6 +8,7 @@ import { valueValidations } from './value';
 
 export const CustomValidators = {
   required: (control: AbstractControl): ValidationErrors | null => {
+    if (control.value === undefined) return { required: CustomValidatorMessages.required };
     if (Array.isArray(control.value) && (control.value || []).length <= 0)
       return { required: CustomValidatorMessages.required };
 

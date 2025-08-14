@@ -101,10 +101,10 @@ type Story = StoryObj<Bs2DSInputTextComponent>;
 
 const form: FormGroup = new FormGroup({
   email: new FormControl('', [
-    // CustomValidators.required,
+    CustomValidators.required,
     // CustomValidators.minLength(3),
     // CustomValidators.maxLength(6)
-    CustomValidators.valueBetween(3, 6)
+    // CustomValidators.valueBetween(3, 6)
   ]),
 });
 

@@ -10,7 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
-import { AbstractControl, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
@@ -54,9 +54,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
   private fb = inject(FormBuilder);
 
-  public formToUser = this.fb.group({
-    date: ['', [CustomValidators.isValidDateToUser, CustomValidators.isDateBetween(this.min, this.max)]],
-  });
+  public formToUser = this.fb.group({ date: ['', []] });
 
   public selectedYear = this.selectedDate.getFullYear();
   public selectedMonth = this.selectedDate.getMonth() + 1;
@@ -173,6 +171,10 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     this.fillCalendar();
 
+    this.formToUser
+      .get('date')
+      .setValidators([CustomValidators.isValidDateToUser, CustomValidators.isDateBetween(this.min, this.max)]);
+
     this.control.addValidators(CustomValidators.isBs2DSDatePickerValidator(this.controlToUser));
 
     if (typeof this.control.value === 'string') {
@@ -207,7 +209,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     this.controlToUser?.setValue(maskedDate);
     this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])));
 
-    if(!this.control.value?.getDate()) this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
+    if (!this.control.value?.getDate()) this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
 
     if (this.controlToUser?.value.length !== 10) return;
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
@@ -325,7 +327,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   }
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
-    const errors = Object.values(this.control?.errors || {}).map((error) => error);
+    const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
 
