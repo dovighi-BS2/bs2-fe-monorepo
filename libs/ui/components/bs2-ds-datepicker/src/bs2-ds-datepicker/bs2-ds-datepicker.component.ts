@@ -47,7 +47,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
   @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
-  @Input() selectedDate = new Date();
+  @Input() selectedDate?: Date;
   @Input() disabled = false;
 
   public isOpened = false;
@@ -56,9 +56,9 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
   public formToUser = this.fb.group({ date: ['', []] });
 
-  public selectedYear = this.selectedDate.getFullYear();
-  public selectedMonth = this.selectedDate.getMonth() + 1;
-  public selectedDay = this.selectedDate.getDate();
+  public selectedYear?: number;
+  public selectedMonth?: number;
+  public selectedDay?: number;
 
   public activePickerType = 'day';
 
@@ -169,6 +169,11 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   };
 
   ngOnInit(): void {
+    this.selectedDate = this.max;
+    this.selectedYear = this.selectedDate.getFullYear();
+    this.selectedMonth = this.selectedDate.getMonth() + 1;
+    this.selectedDay = this.selectedDate.getDate();
+
     this.fillCalendar();
 
     this.formToUser
