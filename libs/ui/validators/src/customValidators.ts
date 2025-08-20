@@ -75,7 +75,7 @@ export const CustomValidators = {
   },
   username(control: AbstractControl): ValidationErrors {
     const name = control.value;
-    const reg = /^[a-zA-Z0-9_]+$/g;
+    const reg = /^[a-zA-Z0-9._]+$/g;
 
     if (!reg.test(name)) {
       return { username: CustomValidatorMessages.username };

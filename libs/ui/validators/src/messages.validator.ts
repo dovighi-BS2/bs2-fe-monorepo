@@ -6,7 +6,7 @@ export enum CustomValidatorMessages {
   minValue = 'Valor mínimo permitido de @minValue@.',
   arrayMaxLength = 'Máximo de @arrayMaxLength@ itens selecionados.',
   arrayMinLength = 'Mínimo de @arrayMinLength@ itens selecionados.',
-  numeric = 'Apenas números permidos.',
+  numeric = 'Apenas números permitidos.',
   date = 'Data inválida.',
   dateRangeInvalid = 'Data está fora de validade.',
   cnpj = 'CNPJ inválido',
