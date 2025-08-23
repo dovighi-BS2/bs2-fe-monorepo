@@ -8,7 +8,7 @@ import { valueValidations } from './value';
 
 export const CustomValidators = {
   required: (control: AbstractControl): ValidationErrors | null => {
-    if (control.value === undefined) return { required: CustomValidatorMessages.required };
+    if ([undefined, null].includes(control.value)) return { required: CustomValidatorMessages.required };
     if (Array.isArray(control.value) && (control.value || []).length <= 0)
       return { required: CustomValidatorMessages.required };
 
@@ -33,7 +33,7 @@ export const CustomValidators = {
   cpf: (control: AbstractControl): ValidationErrors | null => {
     if (control.value && control.value != '') {
       if (!isValidCpf(control.value)) {
-        return { cpfInvalid: CustomValidatorMessages.cpf };
+        return { cpf: CustomValidatorMessages.cpf };
       }
     }
     return null;
