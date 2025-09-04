@@ -10,7 +10,7 @@ export enum CustomValidatorMessages {
   arrayLength = 'É necessario @arrayLength@ itens selecionados.',
   numeric = 'Apenas números permitidos.',
   date = 'Data inválida.',
-  dateRangeInvalid = 'Data fota do limite permitido.',
+  dateRangeInvalid = 'Data fora do limite permitido.',
   cnpj = 'CNPJ inválido',
   cpf = 'CPF inválido',
   cellphone = 'Celular inválido',
