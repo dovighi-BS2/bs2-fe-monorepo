@@ -28,7 +28,7 @@ existente ou não, especifique o caminho! (i.e., components/meu-entrypoint)
 Rode `npx nx run ui:storybook` para executar o storybook
 Por padrão será executado na porta 4400 - Link: http://localhost:4400/
 
-#### Contruir (Build) Storybook
+#### Construir (Build) Storybook
 
 Rode `npx nx run ui:build-storybook` para buildar o storybook
 
@@ -36,6 +36,14 @@ Rode `npx nx run ui:build-storybook` para buildar o storybook
 
 Rode `npx nx run ui:test-storybook` para buildar o storybook
 Para rodar os teste localmente talvez seja necessário rodar o seguinte commando `npx playwright install` para instalar o
+
+#### Gerar versao do Storybook
+
+npx nx run ui:publish
+
+#### Rodar somente o teste do componente
+
+npx nx run bs2-ds-datepicker:test --coverage --html --watch
 
 ### Estrutura de diretorios
 
