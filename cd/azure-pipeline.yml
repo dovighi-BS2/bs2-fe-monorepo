@@ -5,6 +5,7 @@ trigger:
       - hml
       - master
       - main
+      - release/pipeline
 resources:
   repositories:
     - repository: templates
@@ -16,4 +17,4 @@ stages:
     parameters:
       applications:
         designSystem:
-          appDiretory: './src/'
+          appDiretory: './libs/ui'
