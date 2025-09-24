@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - hml
+      - master
+      - main
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: SRE/bs2.sre.pipelines
+      ref: 'refs/tags/stable'
+stages:
+  - template: templates/stages/pipeline-runNpm.yaml@templates
+    parameters:
+      applications:
+        designSystem:
+          appDiretory: './src/'
