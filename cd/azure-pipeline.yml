@@ -2,19 +2,22 @@ trigger:
   branches:
     include:
       - develop
-      - hml
       - master
+      - release/*
       - main
-      - release/pipeline
+
 resources:
   repositories:
     - repository: templates
       type: git
       name: SRE/bs2.sre.pipelines
-      ref: 'refs/tags/stable'
+      ref: "refs/heads/f/npmpublish"
+
+variables:
+    - group: "InfraConfig-NOPRD"
+
 stages:
   - template: templates/stages/pipeline-runNpm.yaml@templates
     parameters:
-      applications:
-        designSystem:
-          appDiretory: './libs/ui/src'
+      azenvironment: 'default-noprd'
+      command: npm publish --workspace libs/ui
