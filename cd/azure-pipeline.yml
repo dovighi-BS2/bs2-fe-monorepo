@@ -17,4 +17,4 @@ stages:
     parameters:
       applications:
         designSystem:
-          appDiretory: './libs/ui'
+          appDiretory: './libs/ui/src'
