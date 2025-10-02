@@ -1,216 +1,290 @@
-import { FormControl } from '@angular/forms';
-import { CustomValidatorMessages } from './messages.validator';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from './customValidators';
+import { CustomValidatorMessages } from './messages.validator';
 
 describe('CustomValidators', () => {
-  describe('required validator', () => {
-    it('should return error if string is empty or whitespace', () => {
-      expect(CustomValidators.required(new FormControl(''))).toEqual({ required: CustomValidatorMessages.required });
-      expect(CustomValidators.required(new FormControl('   '))).toEqual({ required: CustomValidatorMessages.required });
-    });
+  it('required', () => {
+    const control = new FormControl<any>(null);
+    control.markAllAsTouched();
+    expect(CustomValidators.required(control)).toEqual({ required: CustomValidatorMessages.required });
 
-    it('should return error if array is empty', () => {
-      expect(CustomValidators.required(new FormControl([]))).toEqual({ required: CustomValidatorMessages.required });
-    });
+    control.setValue(undefined);
+    expect(CustomValidators.required(control)).toEqual({ required: CustomValidatorMessages.required });
 
-    it('should return null if value is present', () => {
-      expect(CustomValidators.required(new FormControl('test'))).toBeNull();
-      expect(CustomValidators.required(new FormControl(['item']))).toBeNull();
-    });
+    control.setValue([]);
+    expect(CustomValidators.required(control)).toEqual({ required: CustomValidatorMessages.required });
+
+    control.setValue('');
+    expect(CustomValidators.required(control)).toEqual({ required: CustomValidatorMessages.required });
+
+    control.setValue('  ');
+    expect(CustomValidators.required(control)).toEqual({ required: CustomValidatorMessages.required });
+
+    control.setValue('valid');
+    expect(CustomValidators.required(control)).toBeNull();
   });
 
-  describe('numeric validator', () => {
-    it('should return error if empty or not a number', () => {
-      expect(CustomValidators.numeric(new FormControl(''))).toEqual({ required: CustomValidatorMessages.numeric });
-      expect(CustomValidators.numeric(new FormControl('abc'))).toEqual({ required: CustomValidatorMessages.numeric });
-      expect(CustomValidators.numeric(new FormControl('12a'))).toEqual({ required: CustomValidatorMessages.numeric });
-    });
+  it('numeric', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+    expect(CustomValidators.numeric(control)).toEqual({ required: CustomValidatorMessages.numeric });
 
-    it('should return null for valid numeric string or number', () => {
-      expect(CustomValidators.numeric(new FormControl('123'))).toBeNull();
-      expect(CustomValidators.numeric(new FormControl(456))).toBeNull();
-    });
+    control.setValue('abc');
+    expect(CustomValidators.numeric(control)).toEqual({ required: CustomValidatorMessages.numeric });
+
+    control.setValue(123);
+    expect(CustomValidators.numeric(control)).toBeNull();
   });
 
-  describe('cellphone validator', () => {
-    it('should return null if empty', () => {
-      expect(CustomValidators.cellphone(new FormControl(''))).toBeNull();
-      expect(CustomValidators.cellphone(new FormControl(null))).toBeNull();
-      expect(CustomValidators.cellphone(new FormControl(undefined))).toBeNull();
-    });
+  it('cellphone', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+    expect(CustomValidators.cellphone(control)).toBeNull();
 
-    it('should return error if invalid cellphone format', () => {
-      expect(CustomValidators.cellphone(new FormControl('1234567890'))).toEqual({ cellphone: CustomValidatorMessages.cellphone });
-      expect(CustomValidators.cellphone(new FormControl('11999999999'))).toBeNull(); // valid pattern example
-    });
+    control.setValue('abc');
+    expect(CustomValidators.cellphone(control)).toEqual({ cellphone: CustomValidatorMessages.cellphone });
 
-    it('should accept valid cellphone format', () => {
-      // Example valid: two digits DDD, 9, second digit 1-9, 3 digits, 4 digits
-      expect(CustomValidators.cellphone(new FormControl('11991234567'))).toBeNull();
-      expect(CustomValidators.cellphone(new FormControl('(11) 99123-4567'))).toBeNull();
-    });
+    control.setValue('11999999999');
+    expect(CustomValidators.cellphone(control)).toBeNull();
+
+    control.setValue(null);
+    expect(CustomValidators.cellphone(control)).toBeNull();
   });
 
-  describe('phone validator', () => {
-    it('should return null if empty', () => {
-      expect(CustomValidators.phone(new FormControl(''))).toBeNull();
-    });
+  it('phone', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+    expect(CustomValidators.phone(control)).toBeNull();
 
-    it('should return error if invalid phone', () => {
-      expect(CustomValidators.phone(new FormControl('123456'))).toEqual({ phone: CustomValidatorMessages.phone });
-      expect(CustomValidators.phone(new FormControl('1199123456'))).toEqual({ phone: CustomValidatorMessages.phone });
-    });
+    control.setValue('abc');
+    expect(CustomValidators.phone(control)).toEqual({ phone: CustomValidatorMessages.phone });
 
-    it('should accept valid cellphone format', () => {
-      expect(CustomValidators.phone(new FormControl('11991234567'))).toBeNull();
-      expect(CustomValidators.phone(new FormControl('(11) 99123-4567'))).toBeNull();
-    });
+    control.setValue('11999999999');
+    expect(CustomValidators.phone(control)).toBeNull();
 
-    it('should accept valid fixed phone format', () => {
-      expect(CustomValidators.phone(new FormControl('1133334444'))).toBeNull();
-      expect(CustomValidators.phone(new FormControl('(11) 3333-4444'))).toBeNull();
-    });
+    control.setValue('1133334444');
+    expect(CustomValidators.phone(control)).toBeNull();
   });
 
-  describe('email validator', () => {
-    it('should return null if empty', () => {
-      expect(CustomValidators.email(new FormControl(''))).toBeNull();
-      expect(CustomValidators.email(new FormControl(null))).toBeNull();
-    });
+  it('email', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+    expect(CustomValidators.email(control)).toBeNull();
 
-    it('should return error if invalid email', () => {
-      expect(CustomValidators.email(new FormControl('not-an-email'))).toEqual({ email: CustomValidatorMessages.email });
-      expect(CustomValidators.email(new FormControl('email@domain'))).toEqual({ email: CustomValidatorMessages.email });
-      expect(CustomValidators.email(new FormControl('email@domain.'))).toEqual({ email: CustomValidatorMessages.email });
-    });
+    control.setValue('invalid-email');
+    expect(CustomValidators.email(control)).toEqual({ email: CustomValidatorMessages.email });
 
-    it('should return null if valid email', () => {
-      expect(CustomValidators.email(new FormControl('test@example.com'))).toBeNull();
-      expect(CustomValidators.email(new FormControl('user.name+tag+sorting@example.co.uk'))).toBeNull();
-    });
+    control.setValue('valid@email.com');
+    expect(CustomValidators.email(control)).toBeNull();
   });
 
-  describe('dateValidators.isValidDate', () => {
-    it('should return error if value is not a Date instance', () => {
-      expect(CustomValidators.isValidDate(new FormControl('2024-01-01'))).toEqual({ isValidDate: CustomValidatorMessages.date });
-      expect(CustomValidators.isValidDate(new FormControl(null))).toEqual({ isValidDate: CustomValidatorMessages.date });
-    });
+  it('username', () => {
+    const control = new FormControl<any>('valid_user.name123');
+    control.markAllAsTouched();
+    expect(CustomValidators.username(control)).toBeNull();
 
-    it('should return null if value is Date instance', () => {
-      expect(CustomValidators.isValidDate(new FormControl(new Date()))).toBeNull();
-    });
+    control.setValue('invalid user!');
+    expect(CustomValidators.username(control)).toEqual({ username: CustomValidatorMessages.username });
   });
 
-  describe('dateValidators.isDateBetween', () => {
-    const min = new Date('2023-01-01T00:00:00.000Z');
-    const max = new Date('2023-12-31T23:59:59.999Z');
+  it('passwordCompare', () => {
+    const group = new FormGroup({
+      password: new FormControl('123456'),
+      confirmPassword: new FormControl('654321'),
+    });
+    const control = group.get('confirmPassword')!;
+    control.markAllAsTouched();
+    expect(CustomValidators.passwordCompare('password')(control)).toEqual({
+      passwordCompare: CustomValidatorMessages.passwordCompare,
+    });
+
+    control.setValue('123456');
+    expect(CustomValidators.passwordCompare('password')(control)).toBeNull();
+  });
+
+  it('hasLowerCase', () => {
+    const control = new FormControl<any>('ABC');
+    control.markAllAsTouched();
+    expect(CustomValidators.hasLowerCase(control)).toEqual({ hasLowerCase: CustomValidatorMessages.hasLowercase });
+
+    control.setValue('aBC');
+    expect(CustomValidators.hasLowerCase(control)).toBeNull();
+  });
+
+  it('hasUpperCase', () => {
+    const control = new FormControl<any>('abc');
+    control.markAllAsTouched();
+    expect(CustomValidators.hasUpperCase(control)).toEqual({ hasUpperCase: CustomValidatorMessages.hasUppercase });
+
+    control.setValue('Abc');
+    expect(CustomValidators.hasUpperCase(control)).toBeNull();
+  });
+
+  it('hasSpecialCharacters', () => {
+    const control = new FormControl<any>('abc');
+    control.markAllAsTouched();
+    expect(CustomValidators.hasSpecialCharacters(control)).toEqual({
+      hasSpecialCharacters: CustomValidatorMessages.hasSpecialCharacters,
+    });
+
+    control.setValue('abc!');
+    expect(CustomValidators.hasSpecialCharacters(control)).toBeNull();
+  });
+
+  it('isValidDate', () => {
+    const control = new FormControl<any>('2020-01-01');
+    control.markAllAsTouched();
+    expect(CustomValidators.isValidDate(control)).toEqual({ isValidDate: CustomValidatorMessages.date });
+
+    control.setValue(new Date());
+    expect(CustomValidators.isValidDate(control)).toBeNull();
+  });
+
+  it('isDateBetween', () => {
+    const min = new Date('2020-01-01T03:00:00.000Z');
+    const max = new Date('2022-01-01T03:00:00.000Z');
+    const control = new FormControl<any>('01/01/2019');
+    control.markAllAsTouched();
+
     const validator = CustomValidators.isDateBetween(min, max);
+    expect(validator(control)).toEqual({ isDateBetween: CustomValidatorMessages.dateRangeInvalid });
 
-    it('should return error if date string length is not 10', () => {
-      expect(validator(new FormControl('2023-01-01T'))).toEqual({ isDateBetween: CustomValidatorMessages.date });
-    });
+    control.setValue('01/01/2021');
+    expect(validator(control)).toBeNull();
 
-    it('should return error if date is outside range', () => {
-      expect(validator(new FormControl('31/12/2022'))).toEqual({ isDateBetween: CustomValidatorMessages.dateRangeInvalid });
-      expect(validator(new FormControl('01/01/2024'))).toEqual({ isDateBetween: CustomValidatorMessages.dateRangeInvalid });
-    });
+    control.setValue('');
+    expect(validator(control)).toEqual({ isDateBetween: CustomValidatorMessages.date });
+  });
 
-    it('should return null if date is inside range', () => {
-      expect(validator(new FormControl('15/06/2023'))).toBeNull();
+  it('isValidDateToUser', () => {
+    const control = new FormControl<any>('31/02/2024');
+    control.markAllAsTouched();
+    expect(CustomValidators.isValidDateToUser(control)).toEqual({ isValidDateToUser: CustomValidatorMessages.date });
+
+    control.setValue('10/10/2024');
+    expect(CustomValidators.isValidDateToUser(control)).toBeNull();
+
+    control.setValue('');
+    expect(CustomValidators.isValidDateToUser(control)).toEqual({ isValidDateToUser: CustomValidatorMessages.date });
+  });
+
+  it('isBs2DSDatePickerValidator', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+    control.setErrors({ invalid: true });
+
+    const validator = CustomValidators.isBs2DSDatePickerValidator(control);
+    expect(validator()).toEqual({ isBs2DSDatePickerValidator: CustomValidatorMessages.date });
+
+    control.setErrors(null);
+    expect(validator()).toBeNull();
+  });
+
+  it('length', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+
+    const validator = CustomValidators.length(5);
+
+    control.setValue('abc');
+    expect(validator(control)).toEqual({ length: CustomValidatorMessages.length.replace('@length@', '5') });
+
+    control.setValue('abcde');
+    expect(validator(control)).toBeNull();
+
+    control.setValue([]);
+    expect(validator(control)).toEqual({ length: CustomValidatorMessages.required });
+
+    control.setValue([1, 2, 3, 4, 5, 6]);
+    expect(validator(control)).toEqual({
+      length: CustomValidatorMessages.arrayLength.replace('@length@', '5'),
     });
   });
 
-  describe('dateValidators.isValidDateToUser', () => {
-    it('should return error if string length is not 10', () => {
-      expect(CustomValidators.isValidDateToUser(new FormControl('2023-01-01T'))).toEqual({ isValidDateToUser: CustomValidatorMessages.date });
-    });
+  it('maxLength', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
 
-    it('should return error if date parts do not match (ex: 31/02/2023)', () => {
-      expect(CustomValidators.isValidDateToUser(new FormControl('31/02/2023'))).toEqual({ isValidDateToUser: CustomValidatorMessages.date });
-    });
+    const validator = CustomValidators.maxLength(5);
 
-    it('should return null if date is valid', () => {
-      expect(CustomValidators.isValidDateToUser(new FormControl('15/06/2023'))).toBeNull();
-    });
-  });
+    control.setValue('abcdef');
+    expect(validator(control)).toEqual({ maxLength: CustomValidatorMessages.maxLength.replace('@maxLength@', '5') });
 
-  describe('dateValidators.isBs2DSDatePickerValidator', () => {
-    it('should return error if controlToUser is invalid', () => {
-      const control = new FormControl('');
-      control.setErrors({ invalid: true });
-      const validatorFn = CustomValidators.isBs2DSDatePickerValidator(control);
-      expect(validatorFn()).toEqual({ isBs2DSDatePickerValidator: CustomValidatorMessages.date });
-    });
+    control.setValue('abc');
+    expect(validator(control)).toBeNull();
 
-    it('should return null if controlToUser is valid', () => {
-      const control = new FormControl('');
-      control.setErrors(null);
-      const validatorFn = CustomValidators.isBs2DSDatePickerValidator(control);
-      expect(validatorFn()).toBeNull();
+    control.setValue([]);
+    expect(validator(control)).toEqual({ maxLength: CustomValidatorMessages.required });
+
+    control.setValue([1, 2, 3, 4, 5, 6]);
+    expect(validator(control)).toEqual({
+      maxLength: CustomValidatorMessages.arrayMaxLength.replace('@maxLength@', '5'),
     });
   });
 
-  describe('lengthValidations.maxLength', () => {
-    const maxLengthValidator = CustomValidators.maxLength(5);
+  it('minLength', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
 
-    it('should return error if string length is 0', () => {
-      expect(maxLengthValidator(new FormControl(''))).toEqual({ maxLength: CustomValidatorMessages.required });
-    });
+    const validator = CustomValidators.minLength(3);
 
-    it('should return error if string length > maxLength', () => {
-      expect(maxLengthValidator(new FormControl('123456'))).toEqual({
-        maxLength: CustomValidatorMessages.maxLength.replace('@maxLength@', '5'),
-      });
-    });
+    control.setValue('ab');
+    expect(validator(control)).toEqual({ minLength: CustomValidatorMessages.minLength.replace('@minLength@', '3') });
 
-    it('should return null if string length <= maxLength', () => {
-      expect(maxLengthValidator(new FormControl('12345'))).toBeNull();
-    });
+    control.setValue('abcd');
+    expect(validator(control)).toBeNull();
 
-    it('should return error if array length is 0', () => {
-      expect(maxLengthValidator(new FormControl([]))).toEqual({ maxLength: CustomValidatorMessages.required });
-    });
+    control.setValue([]);
+    expect(validator(control)).toEqual({ minLength: CustomValidatorMessages.required });
 
-    it('should return error if array length > maxLength', () => {
-      expect(maxLengthValidator(new FormControl([1, 2, 3, 4, 5, 6]))).toEqual({
-        maxLength: CustomValidatorMessages.arrayMaxLength.replace('@maxLength@', '5'),
-      });
-    });
-
-    it('should return null if array length <= maxLength', () => {
-      expect(maxLengthValidator(new FormControl([1, 2, 3]))).toBeNull();
+    control.setValue([1]);
+    expect(validator(control)).toEqual({
+      minLength: CustomValidatorMessages.arrayMaxLength.replace('@minLength@', '3'),
     });
   });
 
-  describe('lengthValidations.minLength', () => {
-    const minLengthValidator = CustomValidators.minLength(3);
+  it('maxValue', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
 
-    it('should return error if string length is 0', () => {
-      expect(minLengthValidator(new FormControl(''))).toEqual({ minLength: CustomValidatorMessages.required });
-    });
+    const validator = CustomValidators.maxValue(10);
+    expect(validator(control)).toEqual({ required: CustomValidatorMessages.numeric });
 
-    it('should return error if string length < minLength', () => {
-      expect(minLengthValidator(new FormControl('12'))).toEqual({
-        minLength: CustomValidatorMessages.minLength.replace('@minLength@', '3'),
-      });
-    });
+    control.setValue(11);
+    expect(validator(control)).toEqual({ maxValue: CustomValidatorMessages.maxValue.replace('@maxValue@', '10') });
 
-    it('should return null if string length >= minLength', () => {
-      expect(minLengthValidator(new FormControl('123'))).toBeNull();
-    });
+    control.setValue(5);
+    expect(validator(control)).toBeNull();
+  });
 
-    it('should return error if array length is 0', () => {
-      expect(minLengthValidator(new FormControl([]))).toEqual({ minLength: CustomValidatorMessages.required });
-    });
+  it('minValue', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
 
-    it('should return error if array length < minLength', () => {
-      expect(minLengthValidator(new FormControl([1]))).toEqual({
-        minLength: CustomValidatorMessages.arrayMaxLength.replace('@minLength@', '3'),
-      });
-    });
+    const validator = CustomValidators.minValue(5);
+    expect(validator(control)).toEqual({ required: CustomValidatorMessages.numeric });
 
-    it('should return null if array length >= minLength', () => {
-      expect(minLengthValidator(new FormControl([1, 2, 3]))).toBeNull();
-    });
+    control.setValue(3);
+    expect(validator(control)).toEqual({ minValue: CustomValidatorMessages.minValue.replace('@minValue@', '5') });
+
+    control.setValue(6);
+    expect(validator(control)).toBeNull();
+  });
+
+  it('valueBetween', () => {
+    const control = new FormControl<any>('');
+    control.markAllAsTouched();
+
+    const validator = CustomValidators.valueBetween(5, 10);
+    expect(validator(control)).toEqual({ required: CustomValidatorMessages.numeric });
+
+    control.setValue(4);
+    expect(validator(control)).toEqual({ value: CustomValidatorMessages.minValue.replace('@minValue@', '5') });
+
+    control.setValue(11);
+    expect(validator(control)).toEqual({ value: CustomValidatorMessages.maxValue.replace('@maxValue@', '10') });
+
+    control.setValue(7);
+    expect(validator(control)).toBeNull();
   });
 });

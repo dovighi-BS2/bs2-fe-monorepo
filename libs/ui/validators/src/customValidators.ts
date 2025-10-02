@@ -116,7 +116,8 @@ export const CustomValidators = {
   },
   hasSpecialCharacters: (control: AbstractControl): ValidationErrors | null => {
     const value: string = control.value;
-    const reg = /[=^""><!#$%&'()*+,-.\/:;?@[\\\]_`{|}~]/;
+    // const reg = /[=^""><!#$%&'()*+,-.\/:;?@[\\\]_`{|}~]/;
+    const reg = /[=^""><!#$%&'()*+,\-./:;?@[\\\]_`{|}~]/;
 
     if (!reg.test(value)) {
       return { hasSpecialCharacters: CustomValidatorMessages.hasSpecialCharacters };
