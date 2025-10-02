@@ -10,8 +10,10 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build:storybook-bs2-design-system": "nx build ui:storybook",
+    "publish:npm-bs2-design-system": "nx build ui && cd dist/libs/ui && npm publish",
     "test": "nx test",
-    "prepare": "husky && git config --local core.editor cat",
+    "husky": "husky && git config --local core.editor cat",
     "commit": "git-cz",
     "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
