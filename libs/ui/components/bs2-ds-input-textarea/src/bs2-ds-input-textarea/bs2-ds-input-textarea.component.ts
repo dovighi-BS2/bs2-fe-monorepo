@@ -38,7 +38,7 @@ export class Bs2DSInputTextareaComponent {
 
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
-    const errors = Object.values(this.control?.errors || {})
+    const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
 }

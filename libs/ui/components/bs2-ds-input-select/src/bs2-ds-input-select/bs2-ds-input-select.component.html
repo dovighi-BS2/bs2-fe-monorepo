@@ -32,7 +32,7 @@
       <span class="bs2_ds_input_select__selected">
         <img
           [src]="getSelectedImage()"
-          *ngIf="getSelectedImage() && !(controlIsArray)"
+          *ngIf="getSelectedImage() && !controlIsArray"
           class="bs2_ds_input_select__selected_image"
         />
         <p>{{ getSelectedTexts() }}</p>
@@ -47,7 +47,7 @@
         (keyup.enter)="selectByEnter(option)"
         (click)="selectByClick(option)"
       >
-        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && (controlIsArray)"></span>
+        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && controlIsArray"></span>
         <img [src]="option.image" *ngIf="option.image" class="bs2_ds_input_select__img_flag" />
         <p>{{ option.text }}</p>
       </div>

@@ -29,11 +29,9 @@ export const valueValidations = {
       if (String(control.value).trim().length <= 0 || isNaN(control.value))
         return { required: CustomValidatorMessages.numeric };
 
-      if (control.value < min)
-        return { value: CustomValidatorMessages.minValue.replace('@minValue@', String(min)) };
+      if (control.value < min) return { value: CustomValidatorMessages.minValue.replace('@minValue@', String(min)) };
 
-      if (control.value > max)
-        return { value: CustomValidatorMessages.maxValue.replace('@maxValue@', String(max)) };
+      if (control.value > max) return { value: CustomValidatorMessages.maxValue.replace('@maxValue@', String(max)) };
 
       return null;
     };

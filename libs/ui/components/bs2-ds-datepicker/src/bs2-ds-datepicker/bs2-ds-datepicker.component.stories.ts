@@ -135,6 +135,6 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
-    disabled: false
+    disabled: false,
   },
 };

@@ -5,7 +5,8 @@
     bs2_ds_input_text
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
-  ">
+  "
+>
   <span class="bs2_ds_input_text__helper" *ngIf="!!helperText">{{ helperText }}</span>
   <span class="bs2_ds_input_text__feedback" *ngIf="!!getErrors || !!errorText">
     {{ errorText || getErrors }}

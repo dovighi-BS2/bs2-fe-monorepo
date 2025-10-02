@@ -29,7 +29,7 @@ export class Bs2DSFeedbackComponent implements OnInit {
   }
 
   get filteredIcon(): string {
-    if(this.icon) return this.icon;
+    if (this.icon) return this.icon;
 
     switch (this.status) {
       case 'info':

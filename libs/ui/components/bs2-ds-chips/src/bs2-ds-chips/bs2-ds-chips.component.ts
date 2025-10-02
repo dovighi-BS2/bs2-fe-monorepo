@@ -38,7 +38,7 @@ export class Bs2DSChipsComponent implements OnInit {
   select(item: Bs2DSChipOption, e?: Event) {
     if ([' ', 'Enter'].includes((e as KeyboardEvent)?.key)) e.preventDefault();
     if (item.disabled) return;
-    if(!this.controlIsArray) return this.control.setValue(item.value);
+    if (!this.controlIsArray) return this.control.setValue(item.value);
     const alreadySelected = (this.control?.value || []).includes(item.value);
     alreadySelected ? this.remove(item) : this.add(item);
   }
@@ -58,7 +58,7 @@ export class Bs2DSChipsComponent implements OnInit {
   }
 
   isSelected(item: Bs2DSChipOption) {
-    if(!this.controlIsArray) return this.control.value === item.value;
+    if (!this.controlIsArray) return this.control.value === item.value;
     return this.control?.value.includes(item.value);
   }
 

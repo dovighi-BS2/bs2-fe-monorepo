@@ -38,7 +38,7 @@ export const dateValidators = {
   },
   isBs2DSDatePickerValidator: (controlToUser: AbstractControl) => {
     return (): ValidationErrors | null => {
-      if(controlToUser.invalid) return { isBs2DSDatePickerValidator: CustomValidatorMessages.date };
+      if (controlToUser.invalid) return { isBs2DSDatePickerValidator: CustomValidatorMessages.date };
       return null;
     };
   },

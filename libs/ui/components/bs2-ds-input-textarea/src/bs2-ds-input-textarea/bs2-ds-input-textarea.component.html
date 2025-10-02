@@ -5,7 +5,8 @@
     bs2_ds_input_textarea
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
-  ">
+  "
+>
   <div class="bs2_ds_input_textarea__feedback_wrapper">
     <div class="bs2_ds_input_textarea__feedback_left">
       <span class="bs2_ds_input_textarea__helper" *ngIf="!!helperText">{{ helperText }}</span>

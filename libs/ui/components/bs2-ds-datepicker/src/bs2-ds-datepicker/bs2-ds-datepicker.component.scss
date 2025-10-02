@@ -164,7 +164,7 @@
       color: var(--neutral300);
     }
   }
-  &.opened:not(.disabled) &__calendar{
+  &.opened:not(.disabled) &__calendar {
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
