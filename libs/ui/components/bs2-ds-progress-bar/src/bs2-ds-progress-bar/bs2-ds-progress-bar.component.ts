@@ -11,4 +11,5 @@ export class Bs2DSProgressBarComponent {
   @Input() testId?: string = '';
   @Input() loop?: boolean = false;
   @Input() percent?: number = 0;
+  @Input() theme?: string = '';
 }

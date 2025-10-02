@@ -2,9 +2,10 @@
   --select_field__field_gap: 16px;
   --select_field__field_height: 48px;
   --select_field__field_border_color: var(--neutral200);
-  --select_field__field_bg_color: transparent;
+  --select_field__field_bg_color: var(--primary_white);
   --select_field__field_text_color: var(--primary_text_dark);
   --select_field__field_placeholder_color: var(--primary_text_dark);
+  --select_field__field_border_width: 1px;
   --select_field__option_bg_color: var(--primary_white);
   --select_field__option_item_hover_bg_color: var(--neutral100);
   --select_field__icon_width: 20px;
@@ -16,8 +17,6 @@
 .bs2_ds_input_select {
   display: flex;
   flex-direction: column-reverse;
-  position: relative;
-  z-index: 1;
 
   &__hidden_field {
     display: none;
@@ -49,13 +48,12 @@
   &__icon {
     width: var(--select_field__icon_width);
     min-height: var(--select_field__icon_width);
-    font-weight: 20;
+    font-size: 24px;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1;
-    background-color: rgba(255, 0, 0, 0.1);
 
     &.left {
       order: 1;
@@ -86,7 +84,7 @@
     border-radius: 4px;
     cursor: pointer;
     padding: 13px var(--select_field__field_gap) 5px;
-    border: 1px solid var(--select_field__field_border_color);
+    box-shadow: 0px 0px 0px var(--select_field__field_border_width) var(--select_field__field_border_color);
     background-color: var(--select_field__field_bg_color);
     color: var(--select_field__field_text_color);
 
@@ -104,6 +102,7 @@
     box-sizing: border-box;
     margin: 0px;
     position: absolute;
+    z-index: 900;
     top: 0px;
     left: 0px;
     border-radius: 4px;
@@ -204,17 +203,20 @@
   // Theming
   &:has(&__field:hover),
   &.hovered {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--neutral600);
     --select_field__field_border_color: var(--neutral400);
   }
 
   &:has(&__field:focus),
   &.focused {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--primary);
     --select_field__field_border_color: var(--primary);
   }
 
   &.error {
+    --select_field__field_border_width: 2px;
     --select_field__label_color: var(--feedback_error);
     --select_field__field_border_color: var(--feedback_error);
     --select_field__icon_color: var(--feedback_error);
@@ -230,6 +232,7 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
+    pointer-events: none;
     --select_field__label_color: var(--neutral600);
     --select_field__field_border_color: var(--neutral400);
     --select_field__field_bg_color: var(--neutral100);

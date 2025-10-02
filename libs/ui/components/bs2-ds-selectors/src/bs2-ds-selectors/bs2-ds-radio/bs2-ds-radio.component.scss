@@ -1,3 +1,10 @@
+:host {
+  --bs2_ds_radio__border_color: var(--neutral500);
+  --bs2_ds_radio__bg_color: transparent;
+  --bs2_ds_radio__check_color: transparent;
+  --bs2_ds_radio__text_color: var(--primary_text_dark);
+}
+
 .bs2_ds_radio {
   display: inline-flex;
   align-items: flex-start;
@@ -19,8 +26,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50px;
-    border: 2px solid var(--neutral500);
-    background-color: transparent;
+    border: 2px solid var(--bs2_ds_radio__border_color);
+    background-color: var(--bs2_ds_radio__bg_color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,13 +38,13 @@
     width: 10px;
     height: 10px;
     border-radius: 50px;
-    background-color: transparent;
+    background-color: var(--bs2_ds_radio__check_color);
   }
   &__indeterminate {
     position: absolute;
     width: 10px;
     height: 3px;
-    background-color: transparent;
+    background-color: var(--bs2_ds_radio__check_color);
   }
   &__text {
     width: calc(100% - 44px);
@@ -45,27 +52,24 @@
     font-size: 14px;
     margin-left: 4px;
     margin-top: 10px;
-    color: var(--primary_text_dark);
+    color: var(--bs2_ds_radio__text_color);
   }
 
   &.filled {
-    .bs2_ds_radio {
-      &__field {
-        border: 2px solid var(--primary);
-      }
-      &__check {
-        background-color: var(--primary);
-      }
-      &__indeterminate {
-        background-color: var(--primary);
-      }
-    }
+    --bs2_ds_radio__border_color: var(--primary);
+    --bs2_ds_radio__bg_color: transparent;
+    --bs2_ds_radio__check_color: var(--primary);
   }
 
   &.disabled {
-    .bs2_ds_radio {
-      &__area {
-      }
+    pointer-events: none;
+
+    --bs2_ds_radio__border_color: var(--neutral300);
+    --bs2_ds_radio__bg_color: transparent;
+    --bs2_ds_radio__text_color: var(--neutral300);
+
+    &.filled {
+      --bs2_ds_radio__check_color: var(--neutral300);
     }
   }
 

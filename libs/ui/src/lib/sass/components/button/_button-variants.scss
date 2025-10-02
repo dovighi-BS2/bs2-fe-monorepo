@@ -1,6 +1,6 @@
 @mixin bs2DSButtonDefault($selector) {
   #{$selector} {
-    min-height: 36px;
+    min-height: 44px;
     padding: 4px 12px;
     border-radius: 4px;
     border: 1px solid transparent;
@@ -13,22 +13,32 @@
     transition: 0.5s;
     cursor: pointer;
 
-    &__icon {
-      width: 16px;
+    &.large {
+      min-height: 48px;
+    }
+    &.medium {
+      min-height: 44px;
+    }
+    &.small {
+      min-height: 28px;
+    }
+
+    & > .icon {
+      width: 20px;
+      font-size: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       &.left {
-        margin-right: 4px;
+        margin-right: 8px;
       }
+
       &.right {
-        margin-left: 12px;
-      }
-      &:empty {
-        display: none;
+        margin-left: 8px;
       }
     }
+
     &:hover {
       transition: 0.5s;
     }
@@ -51,6 +61,7 @@
         stroke: var(--primary);
       }
     }
+
     &.primary {
       background-color: transparent;
       border-color: var(--primary);
@@ -61,6 +72,7 @@
         border-color: var(--primary);
         background-color: var(--variant100);
       }
+
       &.focus,
       &.active,
       &:focus,
@@ -68,6 +80,7 @@
         border-color: var(--primary);
         background-color: var(--variant200);
       }
+
       &.disabled,
       &[disabled],
       &[disabled='true'] {
@@ -89,6 +102,7 @@
         stroke: var(--primary);
       }
     }
+
     &.primary {
       background-color: transparent;
       border-color: transparent;
@@ -98,12 +112,14 @@
       &:hover {
         background-color: var(--variant100);
       }
+
       &.focus,
       &.active,
       &:focus,
       &:active {
         background-color: var(--variant200);
       }
+
       &.disabled,
       &[disabled],
       &[disabled='true'] {
@@ -124,6 +140,7 @@
         stroke: var(--primary_white);
       }
     }
+
     &.primary {
       background-color: var(--primary);
       border-color: var(--primary);
@@ -134,6 +151,7 @@
         border-color: var(--variant500);
         background-color: var(--variant500);
       }
+
       &.focus,
       &.active,
       &:focus,
@@ -141,6 +159,7 @@
         border-color: var(--variant600);
         background-color: var(--variant600);
       }
+
       &.disabled,
       &[disabled],
       &[disabled='true'] {

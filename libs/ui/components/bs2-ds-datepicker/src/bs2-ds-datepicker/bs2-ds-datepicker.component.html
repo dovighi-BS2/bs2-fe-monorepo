@@ -2,16 +2,26 @@
   *ngIf="!!control"
   [attr.data-test]="testId"
   #datePickerRef
-  class="date_picker {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}"
+  class="
+    date_picker
+    {{ direction }}
+    {{ class }}
+    {{ getErrors || errorText ? 'error' : '' }}
+    {{ isOpened ? 'opened' : '' }}
+    {{ state }}
+    {{ controlToUser.disabled ? 'disabled' : '' }}
+    "
 >
   <bs2-ds-input-text
     [control]="controlToUser"
     [id]="id"
     name="date"
+    [state]="state"
     [label]="label"
     [leftIcon]="leftIcon"
     [rightIcon]="rightIcon"
     [helperText]="helperText"
+    [errorText]="errorText"
     [placeholder]="placeholder"
     [readOnly]="readOnly"
     [ariaLabel]="ariaLabel"
@@ -39,8 +49,8 @@
         </span>
       </div>
       <div class="date_picker__top_right">
-        <span class="date_picker__previous" (click)="dayPicker.previousMonth()"> < </span>
-        <span class="date_picker__next" (click)="dayPicker.nextMonth()">></span>
+        <span class="date_picker__previous icon icon-chevronvoltar" (click)="dayPicker.previousMonth()"></span>
+        <span class="date_picker__next icon icon-chevronprosseguir" (click)="dayPicker.nextMonth()"></span>
       </div>
     </div>
     <div class="date_picker__body">
@@ -83,8 +93,8 @@
         </span>
       </div>
       <div class="date_picker__top_right">
-        <span class="date_picker__previous" (click)="monthPicker.previousYear()"> < </span>
-        <span class="date_picker__next" (click)="monthPicker.nextYear()">></span>
+        <span class="date_picker__previous icon icon-chevronvoltar" (click)="monthPicker.previousYear()"></span>
+        <span class="date_picker__next icon icon-chevronprosseguir" (click)="monthPicker.nextYear()"></span>
       </div>
     </div>
     <div class="date_picker__body">

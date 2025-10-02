@@ -5,7 +5,9 @@
   align-items: flex-end;
   justify-content: flex-end;
   inset: 20px;
-  pointer-events: none;
+  width: max-content;
+  margin-left: auto;
+  z-index: 1000;
 
   ::ng-deep bs2-ds-feedback + bs2-ds-feedback .feedback {
     margin-bottom: 20px;

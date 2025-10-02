@@ -3,6 +3,7 @@
   class="
     bs2_ds_radio
     {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
   "
   (click)="select()"
   [attr.data-test]="testId"

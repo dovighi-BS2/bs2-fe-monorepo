@@ -1,3 +1,10 @@
+:host {
+  --bs2_ds_checkbox__border_color: var(--neutral500);
+  --bs2_ds_checkbox__bg_color: transparent;
+  --bs2_ds_checkbox__check_color: transparent;
+  --bs2_ds_checkbox__text_color: var(--primary_text_dark);
+}
+
 .bs2_ds_checkbox {
   display: inline-flex;
   align-items: flex-start;
@@ -19,8 +26,8 @@
     width: 20px;
     height: 20px;
     border-radius: 2px;
-    border: 2px solid var(--neutral500);
-    background-color: transparent;
+    border: 2px solid var(--bs2_ds_checkbox__border_color);
+    background-color: var(--bs2_ds_checkbox__bg_color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,8 +37,8 @@
     position: absolute;
     width: 10px;
     height: 5px;
-    border-left: 3px solid transparent;
-    border-bottom: 3px solid transparent;
+    border-left: 3px solid var(--bs2_ds_checkbox__check_color);
+    border-bottom: 3px solid var(--bs2_ds_checkbox__check_color);
     rotate: -45deg;
     translate: 0px -1px;
   }
@@ -39,7 +46,7 @@
     position: absolute;
     width: 10px;
     height: 3px;
-    background-color: transparent;
+    background-color: var(--bs2_ds_checkbox__check_color);
   }
   &__text {
     width: calc(100% - 44px);
@@ -47,30 +54,22 @@
     font-size: 14px;
     margin-left: 4px;
     margin-top: 10px;
-    color: var(--primary_text_dark);
+    color: var(--bs2_ds_checkbox__text_color);
   }
 
   &.filled {
-    .bs2_ds_checkbox {
-      &__field {
-        border: 2px solid var(--primary);
-        background-color: var(--primary);
-      }
-      &__check {
-        background-color: var(--primary);
-        border-left: 3px solid var(--primary_white);
-        border-bottom: 3px solid var(--primary_white);
-      }
-      &__indeterminate {
-        background-color: var(--primary_white);
-      }
-    }
+    --bs2_ds_checkbox__border_color: var(--primary);
+    --bs2_ds_checkbox__bg_color: var(--primary);
+    --bs2_ds_checkbox__check_color: var(--primary_white);
   }
 
   &.disabled {
-    .bs2_ds_checkbox {
-      &__area {
-      }
+    pointer-events: none;
+    --bs2_ds_checkbox__border_color: var(--neutral300);
+    --bs2_ds_checkbox__text_color: var(--neutral300);
+
+    &.filled {
+      --bs2_ds_checkbox__bg_color: var(--neutral300);
     }
   }
 

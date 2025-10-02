@@ -1,61 +1,102 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { Component, DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Bs2DSLoadingSpinningDirective } from './bs2-ds-loading-spinning.directive';
-import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 @Component({
-  selector: 'bs2-ds-loading-spinning-mock',
-  template: `<div bs2-ds-loading-spinning></div>`,
+  template: `
+    <div id="test-element" [bs2-ds-loading-spinning]="loader" [dynamic]="dynamic" [loaderBG]="loaderBG">
+      Test Content
+    </div>
+  `,
   standalone: true,
+  imports: [Bs2DSLoadingSpinningDirective],
 })
-class MockBs2DSLoadingSpinningComponent {}
+class TestComponent {
+  loader = false;
+  dynamic = false;
+  loaderBG = '';
+}
 
 describe('Bs2DSLoadingSpinningDirective', () => {
-  let fixture: ComponentFixture<MockBs2DSLoadingSpinningComponent>;
+  let fixture: ComponentFixture<TestComponent>;
+  let component: TestComponent;
+  let debugEl: DebugElement;
+  let directiveInstance: Bs2DSLoadingSpinningDirective;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[bs2-ds-loading-spinning] ${selector}`)) || undefined;
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [TestComponent],
+    }).compileComponents();
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      imports: [Bs2DSLoadingSpinningDirective, MockBs2DSLoadingSpinningComponent],
-    }).createComponent(MockBs2DSLoadingSpinningComponent);
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
+    debugEl = fixture.debugElement.query(By.directive(Bs2DSLoadingSpinningDirective));
+    directiveInstance = debugEl.injector.get(Bs2DSLoadingSpinningDirective);
     fixture.detectChanges();
   });
 
-  it('should create an instance', () => {
-    const loader = get('');
-    const directive = new Bs2DSLoadingSpinningDirective(loader);
-    expect(directive).toBeTruthy();
+  it('should create the directive instance', () => {
+    expect(directiveInstance).toBeTruthy();
   });
 
-  it('should toggle loader HTML inside component', () => {
-    const loader = get('');
-    const directive = new Bs2DSLoadingSpinningDirective(loader);
-
-    directive.loader = true;
-    fixture.detectChanges();
-    expect(get('.bs2_ds_loading_spinning__spinner')).toBeTruthy();
-
-    directive.loader = false;
-    fixture.detectChanges();
-    expect(get('.bs2_ds_loading_spinning__spinner')).toBeFalsy();
+  it('should not append loader initially when loader is false', () => {
+    const span = debugEl.nativeElement.querySelector('span.bs2_ds_loading_spinning');
+    expect(span).toBeNull();
   });
 
-  it('should change loader background-color', () => {
-    const loader = get('');
-    const directive = new Bs2DSLoadingSpinningDirective(loader);
-    directive.loader = true;
-
-    directive.loaderBG = 'red';
+  it('should append loader when loader is true', () => {
+    component.loader = true;
     fixture.detectChanges();
-    expect(get('.bs2_ds_loading_spinning')?.nativeElement.style.backgroundColor).toBe('red');
-    expect(directive.loaderRef.style.backgroundColor).toBe('red');
 
-    // Browser converte hexadecimal em RGB
-    directive.loaderBG = '#000000';
+    const span = debugEl.nativeElement.querySelector('span.bs2_ds_loading_spinning');
+    expect(span).not.toBeNull();
+    expect(span.innerHTML).toContain('svg');
+  });
+
+  it('should remove loader when loader changes from true to false', () => {
+    component.loader = true;
     fixture.detectChanges();
-    expect(get('.bs2_ds_loading_spinning')?.nativeElement.style.backgroundColor).toBe('rgb(0, 0, 0)');
-    expect(directive.loaderRef.style.backgroundColor).toBe('rgb(0, 0, 0)');
+
+    let span = debugEl.nativeElement.querySelector('span.bs2_ds_loading_spinning');
+    expect(span).not.toBeNull();
+
+    component.loader = false;
+    fixture.detectChanges();
+
+    span = debugEl.nativeElement.querySelector('span.bs2_ds_loading_spinning');
+    expect(span).toBeNull();
+  });
+
+  it('should set backgroundColor from CSS variable if it exists', () => {
+    const mockGetComputedStyle = jest.spyOn(window, 'getComputedStyle');
+    mockGetComputedStyle.mockReturnValue({
+      getPropertyValue: () => 'rgb(255, 255, 255)', // Simula valor da variável
+    } as any);
+
+    component.loader = true;
+    component.loaderBG = 'primary_white';
+    fixture.detectChanges();
+
+    const span = debugEl.nativeElement.querySelector('span.bs2_ds_loading_spinning');
+    expect(span.style.backgroundColor).toBe('rgb(255, 255, 255)');
+  });
+
+  it('should apply dynamic class if dynamic is true', () => {
+    component.loader = true;
+    component.dynamic = true;
+    fixture.detectChanges();
+
+    const svg = debugEl.nativeElement.querySelector('svg');
+    expect(svg.classList.contains('dynamic')).toBe(true);
+  });
+
+  it('should not apply dynamic class if dynamic is false', () => {
+    component.loader = true;
+    component.dynamic = false;
+    fixture.detectChanges();
+
+    const svg = debugEl.nativeElement.querySelector('svg');
+    expect(svg.classList.contains('dynamic')).toBe(false);
   });
 });

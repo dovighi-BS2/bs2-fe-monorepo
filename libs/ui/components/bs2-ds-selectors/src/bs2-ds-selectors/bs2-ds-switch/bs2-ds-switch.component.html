@@ -3,6 +3,7 @@
   class="
     bs2_ds_switch
     {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
   "
   (click)="toggle()"
   [attr.data-test]="testId"

@@ -80,6 +80,7 @@ describe('Bs2DSInputTextComponent', () => {
   });
 
   it('[getErrors] should execute right', () => {
+    component.control = new FormControl('', [CustomValidators.required]);
     component.control?.setValue('teste');
     fixture.detectChanges();
     expect(component.getErrors).toBe('');

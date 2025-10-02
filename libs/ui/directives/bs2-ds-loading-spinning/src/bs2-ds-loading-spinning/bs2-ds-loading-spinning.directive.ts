@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
   standalone: true,
 })
 export class Bs2DSLoadingSpinningDirective implements OnChanges {
-  private loaderRef: HTMLSpanElement;
+  public loaderRef: HTMLSpanElement;
 
   @Input('bs2-ds-loading-spinning') loader = false;
   @Input() dynamic = false;

@@ -1,14 +1,16 @@
 @if(!isRemoved){
 <div class="feedback {{ status }}" [attr.data-test]="testId">
   <div class="feedback__left">
-    <span class="feedback__icon"></span>
+    <span class="feedback__icon {{ filteredIcon }}"></span>
     <div class="feedback__text">
       <span class="feedback__title">{{ title }}</span>
       <span class="feedback__message">{{ message }}</span>
     </div>
   </div>
+  @if(hasClose){
   <div class="feedback__right">
-    <span class="feedback__close" (click)="close()"></span>
+    <span class="feedback__close icon icon-limpar" (click)="close()"></span>
   </div>
+  }
 </div>
 }

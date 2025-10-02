@@ -2,6 +2,27 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CustomValidatorMessages } from './messages.validator';
 
 export const lengthValidations = {
+  length: (length: number) => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && typeof control.value === 'string') {
+        if (control.value.trim().length <= 0) return { length: CustomValidatorMessages.required };
+
+        if (control.value.trim().length !== length)
+          return { length: CustomValidatorMessages.length.replace('@length@', String(length)) };
+      }
+
+      if (control.value && typeof Array.isArray(control.value)) {
+        if ((control.value || []).length <= 0) return { length: CustomValidatorMessages.required };
+
+        if ((control.value || []).length > length)
+          return {
+            length: CustomValidatorMessages.arrayLength.replace('@length@', String(length)),
+          };
+      }
+
+      return null;
+    };
+  },
   maxLength: (maxLength: number) => {
     return (control: AbstractControl): ValidationErrors | null => {
       if (control.value && typeof control.value === 'string') {
@@ -11,7 +32,7 @@ export const lengthValidations = {
           return { maxLength: CustomValidatorMessages.maxLength.replace('@maxLength@', String(maxLength)) };
       }
 
-      if (control.value && typeof control.value === 'object') {
+      if (control.value && typeof Array.isArray(control.value)) {
         if ((control.value || []).length <= 0) return { maxLength: CustomValidatorMessages.required };
 
         if ((control.value || []).length > maxLength)
@@ -32,7 +53,7 @@ export const lengthValidations = {
           return { minLength: CustomValidatorMessages.minLength.replace('@minLength@', String(minLength)) };
       }
 
-      if (control.value && typeof control.value === 'object') {
+      if (control.value && typeof Array.isArray(control.value)) {
         if ((control.value || []).length <= 0) return { minLength: CustomValidatorMessages.required };
 
         if ((control.value || []).length < minLength)

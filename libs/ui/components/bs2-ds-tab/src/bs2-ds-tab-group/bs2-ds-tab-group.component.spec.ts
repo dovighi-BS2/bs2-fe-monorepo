@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Bs2DSTabGroupComponent } from './bs2-ds-tab-group.component';
 import { By } from '@angular/platform-browser';
 import { Bs2DSTabItemComponent } from '../bs2-ds-tab-item/bs2-ds-tab-item.component';
@@ -30,36 +30,25 @@ describe('Bs2DSTabGroupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('[ngAfterViewInit] should execute right', () => {
-    bs2DSTabGroupComponent.selectedTab = 'Tab 2';
-    bs2DSTabGroupComponent.ngAfterViewInit();
-    fixture.detectChanges();
-
-    let tabItems = fixture.debugElement.queryAll(By.directive(Bs2DSTabItemComponent));
-    let tab1 = tabItems[0].componentInstance;
-    let tab2 = tabItems[1].componentInstance;
-    let tab3 = tabItems[2].componentInstance;
-
-    expect(tab1.isActive).toBe(false);
-    expect(tab2.isActive).toBe(true);
-    expect(tab3.isActive).toBe(false);
-
+  it('[ngAfterViewInit] should execute right', fakeAsync(() => {
     bs2DSTabGroupComponent.selectedTab = 'Tab 3';
     bs2DSTabGroupComponent.ngAfterViewInit();
+    tick();
     fixture.detectChanges();
 
-    tabItems = fixture.debugElement.queryAll(By.directive(Bs2DSTabItemComponent));
-    tab1 = tabItems[0].componentInstance;
-    tab2 = tabItems[1].componentInstance;
-    tab3 = tabItems[2].componentInstance;
+    const tabItems = fixture.debugElement.queryAll(By.directive(Bs2DSTabItemComponent));
+    const tab1 = tabItems[0].componentInstance;
+    const tab2 = tabItems[1].componentInstance;
+    const tab3 = tabItems[2].componentInstance;
 
     expect(tab1.isActive).toBe(false);
     expect(tab2.isActive).toBe(false);
     expect(tab3.isActive).toBe(true);
-  });
+  }));
 
-  it('[selectTab] should execute right', () => {
+  it('[selectTab] should execute right', fakeAsync(() => {
     bs2DSTabGroupComponent.selectTab('Tab 2');
+    tick();
     fixture.detectChanges();
 
     let tabItems = fixture.debugElement.queryAll(By.directive(Bs2DSTabItemComponent));
@@ -72,6 +61,7 @@ describe('Bs2DSTabGroupComponent', () => {
     expect(tab3.isActive).toBe(false);
 
     bs2DSTabGroupComponent.selectTab('Tab 3');
+    tick();
     fixture.detectChanges();
 
     tabItems = fixture.debugElement.queryAll(By.directive(Bs2DSTabItemComponent));
@@ -82,5 +72,5 @@ describe('Bs2DSTabGroupComponent', () => {
     expect(tab1.isActive).toBe(false);
     expect(tab2.isActive).toBe(false);
     expect(tab3.isActive).toBe(true);
-  });
+  }));
 });

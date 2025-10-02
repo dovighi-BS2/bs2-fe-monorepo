@@ -12,6 +12,14 @@
     }
   }
 
+  &.left &__calendar {
+    left: 0px;
+  }
+
+  &.right &__calendar {
+    right: 0px;
+  }
+
   // CALENDÁRIO
   &__calendar {
     width: 304px;
@@ -19,7 +27,6 @@
     box-sizing: border-box;
     position: absolute;
     top: 0px;
-    left: 0px;
     z-index: 2;
     opacity: 0;
     visibility: hidden;
@@ -157,8 +164,7 @@
       color: var(--neutral300);
     }
   }
-  // &:not(.disabled):focus-within &__calendar,
-  &.opened &__calendar {
+  &.opened:not(.disabled) &__calendar {
     opacity: 1;
     visibility: visible;
     pointer-events: initial;

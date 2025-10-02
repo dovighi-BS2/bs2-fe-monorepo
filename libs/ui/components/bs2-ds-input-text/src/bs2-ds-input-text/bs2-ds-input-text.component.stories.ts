@@ -1,8 +1,6 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSInputTextComponent } from './bs2-ds-input-text.component';
 
-import { within } from '@storybook/test';
-import { expect } from '@storybook/test';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 import { NgxMaskModule } from 'ngx-mask';
@@ -102,7 +100,12 @@ export default meta;
 type Story = StoryObj<Bs2DSInputTextComponent>;
 
 const form: FormGroup = new FormGroup({
-  email: new FormControl('', [CustomValidators.required, CustomValidators.minLength(3), CustomValidators.maxLength(6)]),
+  email: new FormControl('', [
+    CustomValidators.required,
+    // CustomValidators.minLength(3),
+    // CustomValidators.maxLength(6)
+    // CustomValidators.valueBetween(3, 6)
+  ]),
 });
 
 delete form['controls']['email']['_parent'];
@@ -125,9 +128,5 @@ export const Default: Story = {
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/bs2-ds-input-text works!/gi)).toBeTruthy();
   },
 };

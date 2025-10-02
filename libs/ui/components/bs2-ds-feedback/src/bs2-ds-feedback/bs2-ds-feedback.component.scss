@@ -1,4 +1,5 @@
 .feedback {
+  --bs2_ds_feedback_status: transparent;
   --bs2_ds_feedback_border_color: transparent;
   --bs2_ds_feedback_bg_color: transparent;
   --bs2_ds_feedback_icon_color: transparent;
@@ -14,18 +15,22 @@
   align-items: flex-start;
 
   &.info {
+    --bs2_ds_feedback_status: var(--primary);
     --bs2_ds_feedback_bg_color: var(--variant100);
     --bs2_ds_feedback_border_color: var(--variant200);
   }
   &.attention {
+    --bs2_ds_feedback_status: var(--feedback_attention);
     --bs2_ds_feedback_bg_color: var(--feedback_attention_tint);
     --bs2_ds_feedback_border_color: color-mix(in srgb, var(--feedback_attention), transparent 50%);
   }
   &.error {
+    --bs2_ds_feedback_status: var(--feedback_error);
     --bs2_ds_feedback_bg_color: var(--feedback_error_tint);
     --bs2_ds_feedback_border_color: color-mix(in srgb, var(--feedback_error), transparent 85%);
   }
   &.success {
+    --bs2_ds_feedback_status: var(--feedback_success);
     --bs2_ds_feedback_bg_color: var(--feedback_success_tint);
     --bs2_ds_feedback_border_color: color-mix(in srgb, var(--feedback_success), transparent 85%);
   }
@@ -44,18 +49,18 @@
   &__icon {
     width: 20px;
     height: 20px;
+    font-size: 20px;
     margin-right: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bs2_ds_feedback_border_color);
+    color: var(--bs2_ds_feedback_status);
   }
   &__text {
     width: calc(100% - (20px + 16px));
   }
   &__title {
     display: block;
-    margin-top: 2px;
     font-size: 14px;
     font-weight: 600;
     color: var(--primary_text_dark);
@@ -80,7 +85,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bs2_ds_feedback_border_color);
+    font-size: 20px;
+    color: var(--primary);
     cursor: pointer;
   }
 }

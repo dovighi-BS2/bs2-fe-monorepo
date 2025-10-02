@@ -2,7 +2,7 @@
   --textarea_field__field_gap: 16px;
   --textarea_field__field_height: 48px;
   --textarea_field__field_border_color: var(--neutral200);
-  --textarea_field__field_bg_color: transparent;
+  --textarea_field__field_bg_color: var(--primary_white);
   --textarea_field__field_text_color: var(--primary_text_dark);
   --textarea_field__field_placeholder_color: var(--primary_text_dark);
   --textarea_field__field_border_width: 1px;
@@ -63,13 +63,12 @@
   &__icon {
     width: var(--textarea_field__icon_width);
     min-height: var(--textarea_field__icon_width);
-    font-weight: 20;
+    font-size: 24px;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 1;
-    background-color: rgba(255, 0, 0, 0.1);
 
     &.left {
       order: 1;
@@ -99,7 +98,7 @@
     font-weight: 400;
     border-radius: 4px;
     padding: 12px var(--textarea_field__field_gap) 5px;
-    border: var(--textarea_field__field_border_width) solid var(--textarea_field__field_border_color);
+    box-shadow: 0px 0px 0px var(--textarea_field__field_border_width) var(--textarea_field__field_border_color);
     background-color: var(--textarea_field__field_bg_color);
     color: var(--textarea_field__field_text_color);
     resize: none;
@@ -155,6 +154,7 @@
   &:has(&__field[disabled='true']),
   &.disabled,
   &.readonly {
+    pointer-events: none;
     --textarea_field__label_color: var(--neutral600);
     --textarea_field__field_border_color: var(--neutral300);
     --textarea_field__field_bg_color: var(--neutral100);

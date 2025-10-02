@@ -5,7 +5,7 @@ import { Bs2DSFeedback } from './bs2-ds-feedback.interface';
   providedIn: 'root',
 })
 export class Bs2DSFeedbackService {
-  private default: Bs2DSFeedback = { duration: 5000, title: '', message: '', status: 'info' };
+  private default: Bs2DSFeedback = { duration: 5000, title: '', message: '', status: 'info', hasClose: true };
   public feedbackItems: Bs2DSFeedback[] = [];
 
   public info(feedbackItem: Bs2DSFeedback): void {
@@ -22,6 +22,10 @@ export class Bs2DSFeedbackService {
 
   public attention(feedbackItem: Bs2DSFeedback): void {
     this.add({ ...feedbackItem, status: 'attention' });
+  }
+
+  public custom(feedbackItem: Bs2DSFeedback): void {
+    this.add(feedbackItem);
   }
 
   public removeByID(id: Bs2DSFeedback['id']) {

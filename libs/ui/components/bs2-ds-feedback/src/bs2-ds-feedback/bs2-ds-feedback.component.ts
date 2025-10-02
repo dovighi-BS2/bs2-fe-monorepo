@@ -13,6 +13,8 @@ export class Bs2DSFeedbackComponent implements OnInit {
   @Input() duration?: number;
   @Input() title = '';
   @Input() message = '';
+  @Input() hasClose = false;
+  @Input() icon = '';
 
   private elementRef = inject(ElementRef);
   public isRemoved = false;
@@ -24,5 +26,22 @@ export class Bs2DSFeedbackComponent implements OnInit {
   close() {
     this.isRemoved = true;
     this.elementRef.nativeElement.remove();
+  }
+
+  get filteredIcon(): string {
+    if (this.icon) return this.icon;
+
+    switch (this.status) {
+      case 'info':
+        return 'icon icon-informacao';
+      case 'attention':
+        return 'icon icon-erro';
+      case 'error':
+        return 'icon icon-sair';
+      case 'success':
+        return 'icon icon-checked';
+      default:
+        return this.icon;
+    }
   }
 }

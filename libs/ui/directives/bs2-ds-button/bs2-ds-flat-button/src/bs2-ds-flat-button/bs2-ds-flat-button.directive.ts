@@ -5,6 +5,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
   standalone: true,
 })
 export class Bs2DSFlatButtonDirective implements OnInit {
+  @Input('bs2-ds-flat-button') bs2DSFlatButton?: 'small' | 'medium' | 'large' | '';
   @Input('aria-label') ariaLabel = '';
   @Input('aria-disabled') ariaDisabled = '';
   @Input() tabindex = 0;
@@ -21,5 +22,7 @@ export class Bs2DSFlatButtonDirective implements OnInit {
 
     if (this.ariaDisabled === 'true' && this.ariaLabel.trim().length)
       throw new Error('Remova o atributo [aria-label].');
+
+    this.bs2DSFlatButton && this.el.nativeElement.classList.add(this.bs2DSFlatButton);
   }
 }

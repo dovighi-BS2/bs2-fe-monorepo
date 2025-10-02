@@ -61,7 +61,7 @@ export const Default: Story = {
   args: {
     control: form.get('reasons'),
     options,
-    maxSelectable: 3,
     minSelectable: 1,
+    maxSelectable: 1,
   },
 };

@@ -4,8 +4,8 @@ $paddingDirections: (
   r: right,
   b: bottom,
   l: left,
-  x: block,
-  y: inline,
+  x: inline,
+  y: block,
 );
 
 @mixin paddingGenerator() {

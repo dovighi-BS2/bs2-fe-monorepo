@@ -11,7 +11,7 @@ const manualGetFullMonth = (year: number, month: number, days: number) => {
     .fill(0)
     .map((_, n) => {
       const date = `${year}-${String(month).padStart(2, '0')}-${String(n + 1).padStart(2, '0')}`;
-      return new Date(`${date}T03:07:00.000Z`).toISOString();
+      return new Date(`${date}T03:00:00.000Z`).toISOString();
     });
 };
 
@@ -38,24 +38,24 @@ const manualGetNextMonth = (year: number, month: number, from: number, to: numbe
     .fill(0)
     .map((_, n) => {
       const date = `${year}-${String(month).padStart(2, '0')}-${String(from + n).padStart(2, '0')}`;
-      return new Date(`${date}T03:07:00.000Z`).toISOString();
+      return new Date(`${date}T03:00:00.000Z`).toISOString();
     });
 };
 
 const lastDaysOfMonths = [
-  [new Date(`2023-06-30T03:07:00.000Z`), 34],
-  [new Date(`2023-07-31T03:07:00.000Z`), 37],
-  [new Date(`2023-08-31T03:07:00.000Z`), 33],
-  [new Date(`2023-09-30T03:07:00.000Z`), 35],
-  [new Date(`2023-10-31T03:07:00.000Z`), 38],
-  [new Date(`2023-11-30T03:07:00.000Z`), 33],
-  [new Date(`2023-12-31T03:07:00.000Z`), 36],
-  [new Date(`2024-01-31T03:07:00.000Z`), 32],
-  [new Date(`2024-02-29T03:07:00.000Z`), 33],
-  [new Date(`2024-03-31T03:07:00.000Z`), 36],
-  [new Date(`2024-04-30T03:07:00.000Z`), 31],
-  [new Date(`2024-05-31T03:07:00.000Z`), 34],
-  [new Date(`2024-06-30T03:07:00.000Z`), 36],
+  [new Date(`2023-06-30T03:00:00.000Z`), 34],
+  [new Date(`2023-07-31T03:00:00.000Z`), 37],
+  [new Date(`2023-08-31T03:00:00.000Z`), 33],
+  [new Date(`2023-09-30T03:00:00.000Z`), 35],
+  [new Date(`2023-10-31T03:00:00.000Z`), 38],
+  [new Date(`2023-11-30T03:00:00.000Z`), 33],
+  [new Date(`2023-12-31T03:00:00.000Z`), 36],
+  [new Date(`2024-01-31T03:00:00.000Z`), 32],
+  [new Date(`2024-02-29T03:00:00.000Z`), 33],
+  [new Date(`2024-03-31T03:00:00.000Z`), 36],
+  [new Date(`2024-04-30T03:00:00.000Z`), 31],
+  [new Date(`2024-05-31T03:00:00.000Z`), 34],
+  [new Date(`2024-06-30T03:00:00.000Z`), 36],
 ];
 
 const manualGetPreviousMonth = (year: number, month: number, from: number, to: number) => {
@@ -63,24 +63,24 @@ const manualGetPreviousMonth = (year: number, month: number, from: number, to: n
     .fill(0)
     .map((_, n) => {
       const date = `${year}-${String(month).padStart(2, '0')}-${String(from + n).padStart(2, '0')}`;
-      return new Date(`${date}T03:07:00.000Z`).toISOString();
+      return new Date(`${date}T03:00:00.000Z`).toISOString();
     });
 };
 
 const firstDaysOfMonths = [
-  new Date(`2023-06-01T03:07:00.000Z`),
-  new Date(`2023-07-01T03:07:00.000Z`),
-  new Date(`2023-08-01T03:07:00.000Z`),
-  new Date(`2023-09-01T03:07:00.000Z`),
-  new Date(`2023-10-01T03:07:00.000Z`),
-  new Date(`2023-11-01T03:07:00.000Z`),
-  new Date(`2023-12-01T03:07:00.000Z`),
-  new Date(`2024-01-01T03:07:00.000Z`),
-  new Date(`2024-02-01T03:07:00.000Z`),
-  new Date(`2024-03-01T03:07:00.000Z`),
-  new Date(`2024-04-01T03:07:00.000Z`),
-  new Date(`2024-05-01T03:07:00.000Z`),
-  new Date(`2024-06-01T03:07:00.000Z`),
+  new Date(`2023-06-01T03:00:00.000Z`),
+  new Date(`2023-07-01T03:00:00.000Z`),
+  new Date(`2023-08-01T03:00:00.000Z`),
+  new Date(`2023-09-01T03:00:00.000Z`),
+  new Date(`2023-10-01T03:00:00.000Z`),
+  new Date(`2023-11-01T03:00:00.000Z`),
+  new Date(`2023-12-01T03:00:00.000Z`),
+  new Date(`2024-01-01T03:00:00.000Z`),
+  new Date(`2024-02-01T03:00:00.000Z`),
+  new Date(`2024-03-01T03:00:00.000Z`),
+  new Date(`2024-04-01T03:00:00.000Z`),
+  new Date(`2024-05-01T03:00:00.000Z`),
+  new Date(`2024-06-01T03:00:00.000Z`),
 ];
 
 describe('Bs2DSDatepickerComponent', () => {
@@ -171,13 +171,13 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('[daypicker] should execute selectDate right', () => {
-    const initSelectedDate = new Date(`2024-05-20T03:07:00.000Z`);
+    const initSelectedDate = new Date(`2024-05-20T03:00:00.000Z`);
 
-    const invalidDate = new Date(`2024-11-15T03:07:00.000Z`);
-    const validDate = new Date(`2024-05-15T03:07:00.000Z`);
+    const invalidDate = new Date(`2024-11-15T03:00:00.000Z`);
+    const validDate = new Date(`2024-05-15T03:00:00.000Z`);
 
-    component.min = new Date(`2024-01-01T03:07:00.000Z`);
-    component.max = new Date(`2024-10-10T03:07:00.000Z`);
+    component.min = new Date(`2024-01-01T03:00:00.000Z`);
+    component.max = new Date(`2024-10-10T03:00:00.000Z`);
 
     const expectDate = (date: Date, year: number, month: number, day: number) => {
       expect(component.selectedDate).toStrictEqual(date);
@@ -216,13 +216,13 @@ describe('Bs2DSDatepickerComponent', () => {
 
   it('[daypicker] should execute isToday right', () => {
     expect(component.dayPicker.isToday(new Date())).toBe(true);
-    expect(component.dayPicker.isToday(new Date(`2024-10-31T03:07:00.000Z`))).toBe(false);
+    expect(component.dayPicker.isToday(new Date(`2024-10-31T03:00:00.000Z`))).toBe(false);
   });
 
   it('[daypicker] should execute canActiveDay right', () => {
-    component.selectedDate = new Date(`2024-10-31T03:07:00.000Z`);
-    expect(component.dayPicker.canActiveDay(new Date(`2024-10-31T03:07:00.000Z`))).toBe(true);
-    expect(component.dayPicker.canActiveDay(new Date(`2024-10-30T03:07:00.000Z`))).toBe(false);
+    component.selectedDate = new Date(`2024-10-31T03:00:00.000Z`);
+    expect(component.dayPicker.canActiveDay(new Date(`2024-10-31T03:00:00.000Z`))).toBe(true);
+    expect(component.dayPicker.canActiveDay(new Date(`2024-10-30T03:00:00.000Z`))).toBe(false);
   });
 
   it('[daypicker] should execute getSelectedMonthName right', () => {
@@ -293,8 +293,8 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('[monthpicker] should execute selectMonth right', () => {
-    component.min = new Date(`2024-10-01T03:07:00.000Z`);
-    component.max = new Date(`2024-11-30T03:07:00.000Z`);
+    component.min = new Date(`2024-10-01T03:00:00.000Z`);
+    component.max = new Date(`2024-11-30T03:00:00.000Z`);
 
     component.selectedYear = 2024;
     component.selectedMonth = 10;
@@ -318,8 +318,8 @@ describe('Bs2DSDatepickerComponent', () => {
     // 28 anos é a quantidade de anos que coube no calendário de anos
     // seguindo o tamanho proposto pela UX
 
-    component.min = new Date(`2024-10-01T03:07:00.000Z`);
-    component.max = new Date(`2026-10-01T03:07:00.000Z`);
+    component.min = new Date(`2024-10-01T03:00:00.000Z`);
+    component.max = new Date(`2026-10-01T03:00:00.000Z`);
 
     component.selectedYear = 2025;
     component.yearPicker.nextYears();
@@ -334,8 +334,8 @@ describe('Bs2DSDatepickerComponent', () => {
     // 28 anos é a quantidade de anos que coube no calendário de anos
     // seguindo o tamanho proposto pela UX
 
-    component.min = new Date(`2024-10-01T03:07:00.000Z`);
-    component.max = new Date(`2026-10-01T03:07:00.000Z`);
+    component.min = new Date(`2024-10-01T03:00:00.000Z`);
+    component.max = new Date(`2026-10-01T03:00:00.000Z`);
 
     component.selectedYear = 2025;
     component.yearPicker.previousYears();
@@ -366,8 +366,8 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('[yearpicker] should execute selectYear right', () => {
-    component.min = new Date(`2024-01-01T03:07:00.000Z`);
-    component.max = new Date(`2026-12-31T03:07:00.000Z`);
+    component.min = new Date(`2024-01-01T03:00:00.000Z`);
+    component.max = new Date(`2026-12-31T03:00:00.000Z`);
 
     component.selectedYear = 2024;
     component.selectedMonth = 1;
@@ -403,10 +403,10 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('should execute ngOnInit right', () => {
-    component.control.setValue(new Date('2024-10-15T03:07:00.000Z'));
+    component.control.setValue(new Date('2024-10-15T03:00:00.000Z'));
     component.controlToUser.setValue('15/10/2024');
     component.ngOnInit();
-    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:07:00.000Z'));
+    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:00:00.000Z'));
     expect(component.selectedYear).toBe(2024);
     expect(component.selectedMonth).toBe(10);
     expect(component.selectedDay).toBe(15);
@@ -416,7 +416,7 @@ describe('Bs2DSDatepickerComponent', () => {
     component.controlToUser.setValue('15102024');
     component.handleInputChange();
     expect(component.controlToUser.value).toBe('15/10/2024');
-    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:07:00.000Z'));
+    expect(component.selectedDate).toStrictEqual(new Date('2024-10-15T03:00:00.000Z'));
     expect(component.selectedYear).toBe(2024);
     expect(component.selectedMonth).toBe(10);
     expect(component.selectedDay).toBe(15);
@@ -529,23 +529,23 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('should execute isDaySelectable right', () => {
-    component.min = new Date(`2024-06-01T03:07:00.000Z`);
-    component.max = new Date(`2026-06-30T03:07:00.000Z`);
+    component.min = new Date(`2024-06-01T03:00:00.000Z`);
+    component.max = new Date(`2026-06-30T03:00:00.000Z`);
 
-    expect(component.isDaySelectable(new Date(`2024-01-01T03:07:00.000Z`))).toBe(false);
-    expect(component.isDaySelectable(new Date(`2024-05-31T03:07:00.000Z`))).toBe(false);
-    expect(component.isDaySelectable(new Date(`2024-06-01T03:07:00.000Z`))).toBe(true);
-    expect(component.isDaySelectable(new Date(`2024-12-31T03:07:00.000Z`))).toBe(true);
+    expect(component.isDaySelectable(new Date(`2024-01-01T03:00:00.000Z`))).toBe(false);
+    expect(component.isDaySelectable(new Date(`2024-05-31T03:00:00.000Z`))).toBe(false);
+    expect(component.isDaySelectable(new Date(`2024-06-01T03:00:00.000Z`))).toBe(true);
+    expect(component.isDaySelectable(new Date(`2024-12-31T03:00:00.000Z`))).toBe(true);
 
-    expect(component.isDaySelectable(new Date(`2026-01-01T03:07:00.000Z`))).toBe(true);
-    expect(component.isDaySelectable(new Date(`2026-06-30T03:07:00.000Z`))).toBe(true);
-    expect(component.isDaySelectable(new Date(`2026-07-01T03:07:00.000Z`))).toBe(false);
-    expect(component.isDaySelectable(new Date(`2026-12-31T03:07:00.000Z`))).toBe(false);
+    expect(component.isDaySelectable(new Date(`2026-01-01T03:00:00.000Z`))).toBe(true);
+    expect(component.isDaySelectable(new Date(`2026-06-30T03:00:00.000Z`))).toBe(true);
+    expect(component.isDaySelectable(new Date(`2026-07-01T03:00:00.000Z`))).toBe(false);
+    expect(component.isDaySelectable(new Date(`2026-12-31T03:00:00.000Z`))).toBe(false);
   });
 
   it('should execute isMonthSelectable right', () => {
-    component.min = new Date(`2024-06-01T03:07:00.000Z`);
-    component.max = new Date(`2026-06-30T03:07:00.000Z`);
+    component.min = new Date(`2024-06-01T03:00:00.000Z`);
+    component.max = new Date(`2026-06-30T03:00:00.000Z`);
 
     component.selectedYear = 2024;
     expect(component.isMonthSelectable(1)).toBe(false);
@@ -561,8 +561,8 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('should execute isYearSelectable right', () => {
-    component.min = new Date(`2024-01-01T03:07:00.000Z`);
-    component.max = new Date(`2026-12-31T03:07:00.000Z`);
+    component.min = new Date(`2024-01-01T03:00:00.000Z`);
+    component.max = new Date(`2026-12-31T03:00:00.000Z`);
 
     expect(component.isYearSelectable(2023)).toBe(false);
     expect(component.isYearSelectable(2024)).toBe(true);
@@ -572,26 +572,27 @@ describe('Bs2DSDatepickerComponent', () => {
   });
 
   it('should execute getFormatedDate right', () => {
-    expect(component.getFormatedDate(new Date(`2024-12-31T03:07:00.000Z`))).toBe('31/12/2024');
-    expect(component.getFormatedDate(new Date(`2024-02-01T03:07:00.000Z`))).toBe('01/02/2024');
+    expect(component.getFormatedDate(new Date(`2024-12-31T03:00:00.000Z`))).toBe('31/12/2024');
+    expect(component.getFormatedDate(new Date(`2024-02-01T03:00:00.000Z`))).toBe('01/02/2024');
   });
 
   it('should execute newDate right', () => {
-    expect(component.newDate(2024, 12, 31).toISOString()).toBe(new Date(`2024-12-31T03:07:00.000Z`).toISOString());
-    expect(component.newDate(2024, 2, 1).toISOString()).toBe(new Date(`2024-02-01T03:07:00.000Z`).toISOString());
+    expect(component.newDate(2024, 12, 31).toISOString()).toBe(new Date(`2024-12-31T03:00:00.000Z`).toISOString());
+    expect(component.newDate(2024, 2, 1).toISOString()).toBe(new Date(`2024-02-01T03:00:00.000Z`).toISOString());
   });
 
   it('should execute modDays right', () => {
-    const date = new Date(`2024-10-15T03:07:00.000Z`);
+    const date = new Date(`2024-10-15T03:00:00.000Z`);
 
-    expect(component.modDays(date, 2, 'plus').toISOString()).toBe(new Date(`2024-10-17T03:07:00.000Z`).toISOString());
-    expect(component.modDays(date, 5, 'plus').toISOString()).toBe(new Date(`2024-10-20T03:07:00.000Z`).toISOString());
+    expect(component.modDays(date, 2, 'plus').toISOString()).toBe(new Date(`2024-10-17T03:00:00.000Z`).toISOString());
+    expect(component.modDays(date, 5, 'plus').toISOString()).toBe(new Date(`2024-10-20T03:00:00.000Z`).toISOString());
 
-    expect(component.modDays(date, 2, 'minus').toISOString()).toBe(new Date(`2024-10-13T03:07:00.000Z`).toISOString());
-    expect(component.modDays(date, 5, 'minus').toISOString()).toBe(new Date(`2024-10-10T03:07:00.000Z`).toISOString());
+    expect(component.modDays(date, 2, 'minus').toISOString()).toBe(new Date(`2024-10-13T03:00:00.000Z`).toISOString());
+    expect(component.modDays(date, 5, 'minus').toISOString()).toBe(new Date(`2024-10-10T03:00:00.000Z`).toISOString());
   });
 
   it('[getErrors] should execute right', () => {
+    component.control = new FormControl('', [CustomValidators.isValidDate]);
     component.control?.setValue('teste');
     fixture.detectChanges();
     expect(component.getErrors).toBe('');
@@ -599,6 +600,6 @@ describe('Bs2DSDatepickerComponent', () => {
     component.control?.setValue('');
     component.control.markAllAsTouched();
     fixture.detectChanges();
-    expect(component.getErrors).toBe(CustomValidatorMessages.required);
+    expect(component.getErrors).toBe(CustomValidatorMessages.date);
   });
 });
