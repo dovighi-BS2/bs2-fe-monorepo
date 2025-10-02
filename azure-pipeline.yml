@@ -11,13 +11,13 @@ resources:
     - repository: templates
       type: git
       name: SRE/bs2.sre.pipelines
-      ref: "refs/heads/f/npmpublish"
+      ref: 'refs/heads/f/npmpublish'
 
 variables:
-    - group: "InfraConfig-NOPRD"
+  - group: 'InfraConfig-NOPRD'
 
 stages:
   - template: templates/stages/pipeline-runNpm.yaml@templates
     parameters:
       azenvironment: 'default-noprd'
-      command: npm publish
+      command: npm i && npm run publish:@bs2/design-system
