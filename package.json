@@ -11,7 +11,7 @@
     "start": "nx serve",
     "build": "nx build",
     "build:storybook-bs2-design-system": "nx build ui:storybook",
-    "publish:npm-bs2-design-system": "nx build ui && cd dist/libs/ui && npm publish",
+    "publish:npm-bs2-design-system": "nx reset && nx run bs2-design-system:publish",
     "test": "nx test",
     "husky": "husky && git config --local core.editor cat",
     "commit": "git-cz",
