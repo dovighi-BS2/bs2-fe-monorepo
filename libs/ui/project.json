@@ -9,7 +9,7 @@
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["npm config list","npm run package", "cd dist/libs/ui && npm publish"],
+        "commands": ["npm config list","npm run package", "npm publish dist/libs/ui"],
         "parallel": false
       }
     },
