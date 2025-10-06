@@ -1,0 +1,22 @@
+.bs2_ds_input_phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+
+  .select_flag {
+    width: 120px;
+    border-radius: none;
+  }
+
+  ::ng-deep bs2-ds-input-select .bs2_ds_input_select__field {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  ::ng-deep bs2-ds-input-text .bs2_ds_input_text__field {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}

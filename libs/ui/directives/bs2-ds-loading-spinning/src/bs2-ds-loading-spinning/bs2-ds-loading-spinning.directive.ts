@@ -1,0 +1,48 @@
+import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
+
+@Directive({
+  selector: '[bs2-ds-loading-spinning]',
+  standalone: true,
+})
+export class Bs2DSLoadingSpinningDirective implements OnChanges {
+  public loaderRef: HTMLSpanElement;
+
+  @Input('bs2-ds-loading-spinning') loader = false;
+  @Input() dynamic = false;
+
+  constructor(public el: ElementRef) {
+    this.loaderRef = document.createElement('span');
+    this.loaderRef.classList.add('bs2_ds_loading_spinning');
+  }
+
+  ngOnChanges(): void {
+    this.loader ? this.add() : this.remove();
+  }
+
+  @Input() set loaderBG(loaderBG: string) {
+    const value = window.getComputedStyle(document.documentElement).getPropertyValue(`--${loaderBG}`);
+    if (value) this.loaderRef.style.backgroundColor = value ?? 'var(--primary_white)';
+
+    this.loaderRef.style.backgroundColor = loaderBG ?? 'var(--primary_white)';
+  }
+
+  private add() {
+    this.el.nativeElement.style.position = 'relative';
+    this.loaderRef.innerHTML = this.loaderContent();
+    this.el.nativeElement.appendChild(this.loaderRef);
+  }
+
+  private remove() {
+    this.loaderRef.remove();
+  }
+
+  private loaderContent(): string {
+    return `
+      <svg class='bs2_ds_loading_spinning__spinner ${
+        this.dynamic ? 'dynamic' : ''
+      }' viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20C1.34315 20 -0.0230331 21.3506 0.224571 22.9888C0.661942 25.8826 1.73115 28.6578 3.37061 31.1114C5.56824 34.4004 8.69181 36.9638 12.3463 38.4776C16.0009 39.9913 20.0222 40.3874 23.9018 39.6157C27.7814 38.844 31.3451 36.9392 34.1421 34.1421C36.9392 31.3451 38.844 27.7814 39.6157 23.9018C40.3874 20.0222 39.9913 16.0009 38.4776 12.3463C36.9638 8.69181 34.4004 5.56824 31.1114 3.37061C28.6578 1.73115 25.8826 0.66194 22.9888 0.224573C21.3506 -0.0230349 20 1.34315 20 3C20 4.65685 21.3582 5.96786 22.9771 6.32021C24.6825 6.69135 26.3122 7.38002 27.778 8.35943C30.0803 9.89777 31.8747 12.0843 32.9343 14.6424C33.9939 17.2006 34.2712 20.0155 33.731 22.7313C33.1908 25.447 31.8574 27.9416 29.8995 29.8995C27.9416 31.8574 25.447 33.1908 22.7313 33.731C20.0155 34.2712 17.2006 33.9939 14.6424 32.9343C12.0843 31.8747 9.89777 30.0803 8.35942 27.778C7.38002 26.3122 6.69135 24.6825 6.32021 22.9771C5.96786 21.3582 4.65685 20 3 20Z"/>
+      </svg>
+    `;
+  }
+}

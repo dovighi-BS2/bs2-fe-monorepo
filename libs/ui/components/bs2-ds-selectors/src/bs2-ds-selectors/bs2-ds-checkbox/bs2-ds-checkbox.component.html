@@ -1,0 +1,24 @@
+@if(control){
+<span
+  class="
+    bs2_ds_checkbox
+    {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
+  "
+  (click)="toggle()"
+  [attr.data-test]="testId"
+>
+  <span class="bs2_ds_checkbox__area">
+    <span class="bs2_ds_checkbox__field">
+      @if(!isIndeterminate()){
+      <span class="bs2_ds_checkbox__check"></span>
+      } @if(isIndeterminate() && !isAllSelected()){
+      <span class="bs2_ds_checkbox__indeterminate"></span>
+      }
+    </span>
+  </span>
+  <span class="bs2_ds_checkbox__text">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </span>
+</span>
+}

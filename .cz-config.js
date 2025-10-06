@@ -37,7 +37,7 @@ module.exports = {
   allowTicketNumber: true,
   isTicketNumberRequired: false,
   ticketNumberPrefix: '#',
-  ticketNumberRegExp: '\\d{1,5}',
+  ticketNumberRegExp: '\\d{1,10}',
   // override the messages, defaults are as follows
   messages: {
     type: 'Selecione o tipo de mudança do seu commit:',
@@ -48,8 +48,7 @@ module.exports = {
     body: 'Forneça uma descrição MAIS LONGA da alteração (opcional). Use "|" para quebrar nova linha:\n',
     ticketNumber: 'Número do card do BOARD (somente os números):',
     breaking: 'Liste as BREAKING CHANGES (optional):\n',
-    footer:
-      'Liste quaisquer demandas do AZURE DEVOPS para esta mudança (opcional) Ex.: #1100, #1200:\n',
+    footer: 'Liste quaisquer demandas do AZURE DEVOPS para esta mudança (opcional) Ex.: #1100, #1200:\n',
     confirmCommit: 'Tem certeza de que deseja prosseguir com o commit acima?',
   },
   skipQuestions: ['footer'],

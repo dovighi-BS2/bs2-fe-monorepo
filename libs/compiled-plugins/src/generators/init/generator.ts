@@ -1,52 +1,45 @@
 import {
-	addDependenciesToPackageJson,
-	formatFiles,
-	installPackagesTask,
-	logger,
-	readJson,
-	updateJson,
-	type Tree,
+  addDependenciesToPackageJson,
+  formatFiles,
+  installPackagesTask,
+  logger,
+  readJson,
+  updateJson,
+  type Tree,
 } from '@nx/devkit';
 
 export async function initDesignSystemGenerator(tree: Tree) {
-	logger.log('Inicializando o design-system no projeto...');
+  logger.log('Inicializando o design-system no projeto...');
 
-	const packageJson = readJson(tree, 'package.json');
+  const packageJson = readJson(tree, 'package.json');
 
-	const version =
-		packageJson['dependencies']?.['@bs2/design-system'] ||
-		'latest';
+  const version = packageJson['dependencies']?.['@bs2/design-system'] || 'latest';
 
-	addDependenciesToPackageJson(tree, { "@bs2/design-system": version }, {});
+  addDependenciesToPackageJson(tree, { '@bs2/design-system': version }, {});
 
-	logger.log('Adicionando style no angular json...');
+  logger.log('Adicionando style no angular json...');
 
-	updateJson(tree, 'angular.json', (json)=>{
+  updateJson(tree, 'angular.json', (json) => {
+    const projectName = readJson(tree, 'package.json')['name'];
 
-		const projectName = readJson(tree, 'package.json')['name'];
+    const project = json.projects[projectName];
 
-		const project = json.projects[projectName]
+    if (project && project.architect && project.architect.build) {
+      const styles = project.architect.build.options.styles || [];
 
-		if (project && project.architect && project.architect.build) {
-	
-			const styles = project.architect.build.options.styles || [];
-	
-			const stylePath = '@bs2/design-system/styles/_styles.scss'
-	
-			project.architect.build.options.styles = [...styles, stylePath];
-		}
+      const stylePath = 'node_modules/@bs2/design-system/styles/_styles.scss';
 
-		return json
-	
-	})
+      project.architect.build.options.styles = [...styles, stylePath];
+    }
 
-	await formatFiles(tree);
-	
-	return(()=> {
+    return json;
+  });
 
-		installPackagesTask(tree);
-	
-	});
+  await formatFiles(tree);
+
+  return () => {
+    installPackagesTask(tree);
+  };
 }
 
 export default initDesignSystemGenerator;

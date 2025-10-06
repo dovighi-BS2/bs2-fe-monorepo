@@ -1,0 +1,24 @@
+@if(control){
+<span
+  class="
+    bs2_ds_radio
+    {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
+  "
+  (click)="select()"
+  [attr.data-test]="testId"
+>
+  <span class="bs2_ds_radio__area">
+    <span class="bs2_ds_radio__field">
+      @if(!isIndeterminate()){
+      <span class="bs2_ds_radio__check"></span>
+      } @if(isIndeterminate() && !isAllSelected()){
+      <span class="bs2_ds_radio__indeterminate"></span>
+      }
+    </span>
+  </span>
+  <span class="bs2_ds_radio__text">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </span>
+</span>
+}

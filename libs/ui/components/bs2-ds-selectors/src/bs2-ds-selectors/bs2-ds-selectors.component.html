@@ -1,0 +1,34 @@
+@if(type === 'radio'){
+<bs2-ds-radio
+  [testId]="testId"
+  [content]="content"
+  [control]="control"
+  [value]="value"
+  [isMain]="isMain"
+  [totalItemsCount]="totalItemsCount"
+  [subject]="subject"
+  (emitter)="passingEmitter($event)"
+/>
+} @if(type === 'checkbox'){
+<bs2-ds-checkbox
+  [testId]="testId"
+  [content]="content"
+  [control]="control"
+  [value]="value"
+  [isMain]="isMain"
+  [totalItemsCount]="totalItemsCount"
+  [subject]="subject"
+  (emitter)="passingEmitter($event)"
+/>
+} @if(type === 'switch'){
+<bs2-ds-switch
+  [testId]="testId"
+  [content]="content"
+  [control]="control"
+  [value]="value"
+  [isMain]="isMain"
+  [totalItemsCount]="totalItemsCount"
+  [subject]="subject"
+  (emitter)="passingEmitter($event)"
+/>
+}

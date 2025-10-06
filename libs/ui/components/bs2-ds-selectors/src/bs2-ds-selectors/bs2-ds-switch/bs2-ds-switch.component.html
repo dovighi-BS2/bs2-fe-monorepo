@@ -1,0 +1,24 @@
+@if(control){
+<span
+  class="
+    bs2_ds_switch
+    {{ isSelected() || isAllSelected() || isIndeterminate() ? 'filled' : '' }}
+    {{ control.disabled ? 'disabled' : '' }}
+  "
+  (click)="toggle()"
+  [attr.data-test]="testId"
+>
+  <span class="bs2_ds_switch__area">
+    <span class="bs2_ds_switch__field">
+      @if(!isIndeterminate()){
+      <span class="bs2_ds_switch__check"></span>
+      } @if(isIndeterminate() && !isAllSelected()){
+      <span class="bs2_ds_switch__indeterminate"></span>
+      }
+    </span>
+  </span>
+  <span class="bs2_ds_switch__text">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </span>
+</span>
+}

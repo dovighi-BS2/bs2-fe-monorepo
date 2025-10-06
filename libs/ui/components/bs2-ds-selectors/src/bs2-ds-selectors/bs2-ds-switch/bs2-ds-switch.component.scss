@@ -1,0 +1,103 @@
+:host {
+  --bs2_ds_switch__border_color: var(--neutral300);
+  --bs2_ds_switch__bg_color: transparent;
+  --bs2_ds_switch__check_color: var(--primary_text_bkg_light);
+  --bs2_ds_switch__text_color: var(--primary_text_dark);
+}
+
+.bs2_ds_switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__area {
+    border-radius: 50px;
+    display: inline-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
+  &__field {
+    position: relative;
+    width: 40px;
+    height: 24px;
+    border-radius: 50px;
+    border: 2px solid var(--bs2_ds_switch__border_color);
+    background-color: var(--bs2_ds_switch__border_color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  &__check {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1px;
+    border-radius: 50px;
+    transition: 0.2s;
+    background-color: var(--bs2_ds_switch__check_color);
+    box-shadow: 0px 2px 4px 0px #2727271a;
+  }
+  &__indeterminate {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1px;
+    border-radius: 50px;
+    transition: 0.2s;
+    background-color: var(--bs2_ds_switch__check_color);
+    box-shadow: 0px 2px 4px 0px #2727271a;
+  }
+  &__text {
+    width: calc(100% - 44px);
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 4px;
+    // margin-top: 10px;
+    color: var(--bs2_ds_switch__text_color);
+  }
+
+  &.filled {
+    --bs2_ds_switch__border_color: var(--primary);
+    --bs2_ds_switch__bg_color: var(--primary);
+
+    .bs2_ds_switch {
+      &__check {
+        left: 16px;
+      }
+      &__indeterminate {
+        left: 9px;
+      }
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    --bs2_ds_switch__border_color: var(--neutral200);
+    --bs2_ds_switch__text_color: var(--neutral300);
+
+    &.filled {
+      --bs2_ds_switch__bg_color: var(--neutral200);
+    }
+  }
+
+  &:hover {
+    .bs2_ds_switch {
+      &__area {
+        background-color: var(--neutral100);
+      }
+    }
+  }
+
+  &:active,
+  &:focus {
+    .bs2_ds_switch {
+      &__area {
+        background-color: var(--variant100);
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+:host {
+  --select_field__field_gap: 16px;
+  --select_field__field_height: 48px;
+  --select_field__field_border_color: var(--neutral200);
+  --select_field__field_bg_color: var(--primary_white);
+  --select_field__field_text_color: var(--primary_text_dark);
+  --select_field__field_placeholder_color: var(--primary_text_dark);
+  --select_field__field_border_width: 1px;
+  --select_field__option_bg_color: var(--primary_white);
+  --select_field__option_item_hover_bg_color: var(--neutral100);
+  --select_field__icon_width: 20px;
+  --select_field__icon_color: var(--primary);
+  --select_field__label_color: var(--neutral600);
+  --select_field__feedback_text_color: var(--feedback_error);
+}
+
+.bs2_ds_input_select {
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__hidden_field {
+    display: none;
+  }
+  &__helper {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--select_field__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--select_field__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    position: relative;
+  }
+  &__icon {
+    width: var(--select_field__icon_width);
+    min-height: var(--select_field__icon_width);
+    font-size: 24px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &.left {
+      order: 1;
+      margin-right: calc((var(--select_field__icon_width)) * -1);
+      translate: var(--select_field__field_gap) 0px;
+
+      ~ .bs2_ds_input_select__field {
+        padding-left: calc(var(--select_field__icon_width) + var(--select_field__field_gap) + 8px);
+      }
+    }
+    &.right {
+      order: 3;
+      margin-left: calc((var(--select_field__icon_width) + var(--select_field__field_gap)) * -1);
+
+      ~ .bs2_ds_input_select__field {
+        padding-right: calc(var(--select_field__icon_width) + var(--select_field__field_gap) + 8px);
+      }
+    }
+  }
+  &__field {
+    width: 100%;
+    order: 2;
+    min-height: var(--select_field__field_height);
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 13px var(--select_field__field_gap) 5px;
+    box-shadow: 0px 0px 0px var(--select_field__field_border_width) var(--select_field__field_border_color);
+    background-color: var(--select_field__field_bg_color);
+    color: var(--select_field__field_text_color);
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  &__option {
+    // max-width: 100%;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0px;
+    position: absolute;
+    z-index: 900;
+    top: 0px;
+    left: 0px;
+    border-radius: 4px;
+    padding: 8px 0px;
+    list-style: none;
+    opacity: 0;
+    // visibility: hidden;
+    pointer-events: none;
+    transition: 0.5s;
+    box-shadow: 0px 1px 3px 0px #0000004d, 0px 4px 8px 3px #00000026;
+    background-color: var(--select_field__option_bg_color);
+  }
+  &__option_item {
+    box-sizing: border-box;
+    min-height: 48px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:focus-within,
+    &:hover {
+      background-color: var(--select_field__option_item_hover_bg_color);
+      transition: 0.5s;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__selected {
+    display: flex;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__img_flag {
+    width: 40px;
+    height: 20px;
+  }
+
+  &__selected_image {
+    width: 40px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  &__option_checkbox {
+    position: relative;
+    margin-right: 16px;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    border: 2px solid var(--neutral500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      rotate: -45deg;
+      width: 10px;
+      height: 4px;
+      border: 3px solid transparent;
+      translate: 0px -2px;
+    }
+  }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--select_field__label_color);
+  }
+
+  // Variações
+  &:not(.disabled):focus-within &__option,
+  &.opened &__option {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+    top: var(--select_field__field_height);
+    transition: 0.5s;
+  }
+  &__option_item.selected &__option_checkbox {
+    background-color: var(--primary);
+    border-color: var(--primary);
+
+    &:before {
+      content: '';
+      border-left-color: var(--primary_white);
+      border-bottom-color: var(--primary_white);
+    }
+  }
+
+  // Theming
+  &:has(&__field:hover),
+  &.hovered {
+    --select_field__field_border_width: 2px;
+    --select_field__label_color: var(--neutral600);
+    --select_field__field_border_color: var(--neutral400);
+  }
+
+  &:has(&__field:focus),
+  &.focused {
+    --select_field__field_border_width: 2px;
+    --select_field__label_color: var(--primary);
+    --select_field__field_border_color: var(--primary);
+  }
+
+  &.error {
+    --select_field__field_border_width: 2px;
+    --select_field__label_color: var(--feedback_error);
+    --select_field__field_border_color: var(--feedback_error);
+    --select_field__icon_color: var(--feedback_error);
+    --select_field__bs2-ds-feedback_text_color: var(--feedback_error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    pointer-events: none;
+    --select_field__label_color: var(--neutral600);
+    --select_field__field_border_color: var(--neutral400);
+    --select_field__field_bg_color: var(--neutral100);
+    --select_field__field_text_color: var(--neutral400);
+    --select_field__icon_color: var(--neutral400);
+  }
+}

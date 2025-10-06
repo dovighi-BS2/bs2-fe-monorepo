@@ -1,0 +1,19 @@
+{
+  "name": "bs2-ds-progress-bar",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/components/bs2-ds-progress-bar/src",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/bs2-ds-progress-bar"],
+      "options": {
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-progress-bar"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

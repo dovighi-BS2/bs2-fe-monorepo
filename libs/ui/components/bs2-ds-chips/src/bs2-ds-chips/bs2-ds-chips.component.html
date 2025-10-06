@@ -1,0 +1,17 @@
+<ul class="chip">
+  @for(item of _options; track item.value) {
+  <li
+    tabindex="1"
+    class="
+      chip__item
+      {{ item.disabled ? 'disabled' : '' }}
+      {{ isSelected(item) ? 'selected' : '' }}
+    "
+    (click)="select(item)"
+    (keydown.enter)="select(item, $event)"
+    (keydown.space)="select(item, $event)"
+  >
+    {{ item.label ?? item.value }}
+  </li>
+  }
+</ul>

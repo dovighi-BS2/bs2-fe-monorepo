@@ -1,4 +1,6 @@
-@forward "./breakpoints";
-@forward "./normalize";
-@forward "./functions";
-@forward "./mixins";
+@forward './breakpoints';
+@forward './../components';
+@forward './margins';
+@forward './paddings';
+@forward './colors';
+@forward './background-colors';

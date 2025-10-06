@@ -1,1 +1,23 @@
-<div>teste</div>
+<table>
+  <tr>
+    <th>
+      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
+        <ng-template>Main</ng-template>
+      </bs2-ds-selectors>
+    </th>
+  </tr>
+  @for(item of aprovacoes; track $index){
+  <tr>
+    <th>
+      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
+        <ng-template>Main</ng-template>
+      </bs2-ds-selectors>
+    </th>
+    <th></th>
+    <th></th>
+  </tr>
+  }
+</table>
+
+<br />
+<h3>Output: {{ control.value }}</h3>

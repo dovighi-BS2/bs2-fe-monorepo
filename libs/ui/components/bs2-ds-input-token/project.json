@@ -1,0 +1,19 @@
+{
+  "name": "ui/components/bs2-ds-input-token",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/components/bs2-ds-input-token/src",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/bs2-ds-input-token"],
+      "options": {
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-input-token"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+$maxPaddings: 100;
+$paddingDirections: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+  x: inline,
+  y: block,
+);
+
+@mixin paddingGenerator() {
+  @each $short, $full in $paddingDirections {
+    @for $i from 1 through $maxPaddings {
+      .p#{$short}_#{$i} {
+        padding-#{$full}: #{$i}px !important;
+      }
+    }
+  }
+}
+
+@include paddingGenerator();

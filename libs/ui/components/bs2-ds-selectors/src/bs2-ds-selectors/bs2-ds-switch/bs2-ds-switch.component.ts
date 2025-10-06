@@ -1,0 +1,54 @@
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
+
+@Component({
+  selector: 'bs2-ds-switch',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './bs2-ds-switch.component.html',
+  styleUrl: './bs2-ds-switch.component.scss',
+})
+export class Bs2DSSwitchComponent {
+  @Input() testId?: string = '';
+  @Input() content!: TemplateRef<any>;
+  @Input() control = new FormControl();
+  @Input() value = '';
+  @Input() isMain = false;
+  @Input() totalItemsCount?: number;
+  @Input() subject = new Subject();
+  @Output() emitter = new EventEmitter();
+
+  public toggle(): void {
+    this.subject?.next(this.value);
+    this.emitter?.emit(this.value);
+    if (this.isMain) return;
+
+    if (Array.isArray(this.control.value)) {
+      const alreadyIn = this.control.value.includes(this.value);
+      !alreadyIn
+        ? this.control.setValue([...this.control.value, this.value])
+        : this.control.setValue(this.control.value.filter((item: any) => item !== this.value));
+    }
+
+    if (!Array.isArray(this.control.value)) {
+      this.control.setValue(this.value === this.control.value ? '' : this.value);
+    }
+  }
+
+  public isSelected(): boolean {
+    if (Array.isArray(this.control.value)) return (this.control.value || []).includes(this.value);
+
+    return this.control.value === this.value;
+  }
+
+  public isAllSelected(): boolean {
+    if (!Array.isArray(this.control.value)) return false;
+    return this.totalItemsCount === (this.control.value || []).length;
+  }
+
+  public isIndeterminate(): boolean {
+    return this.isMain && !this.isAllSelected() && (this.control.value || []).length >= 1;
+  }
+}

@@ -12,13 +12,12 @@ o ([CDK (components development kit) ](https://material.angular.io/cdk/categorie
 em casos onde a complexidade e a abrangência de recursos são necessárias. Todo componente , diretiva , etc precisam ser entrypoints
 dentro do design system para evitar performance bottlenecks e trabalharmos com o NX de forma eficiente.
 
-
 #### Para criar um novo entrypoint execute o nosso comando abaixo.
 
-Execute `npx nx g bs2-entry-point` para criar o entrypoint;
+Execute `npm run create-entrypoint` para criar o entrypoint;
 
 TL;DR se escrever apenas o nome do entrypoint ele criará na raiz do diretorio UI se quiser algo mais especifico dentro de alguma pasta
-existente ou não, especifique o caminho! (i.e.,  components/meu-entrypoint)
+existente ou não, especifique o caminho! (i.e., components/meu-entrypoint)
 
 ## Storybook
 
@@ -29,7 +28,7 @@ existente ou não, especifique o caminho! (i.e.,  components/meu-entrypoint)
 Rode `npx nx run ui:storybook` para executar o storybook
 Por padrão será executado na porta 4400 - Link: http://localhost:4400/
 
-#### Contruir (Build) Storybook
+#### Construir (Build) Storybook
 
 Rode `npx nx run ui:build-storybook` para buildar o storybook
 
@@ -37,6 +36,14 @@ Rode `npx nx run ui:build-storybook` para buildar o storybook
 
 Rode `npx nx run ui:test-storybook` para buildar o storybook
 Para rodar os teste localmente talvez seja necessário rodar o seguinte commando `npx playwright install` para instalar o
+
+#### Gerar versao do Storybook
+
+npx nx run ui:publish
+
+#### Rodar somente o teste do componente
+
+npx nx run bs2-ds-datepicker:test --coverage --html --watch
 
 ### Estrutura de diretorios
 

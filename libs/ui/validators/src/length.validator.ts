@@ -1,42 +1,68 @@
-// export const lenthValidators = {
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { CustomValidatorMessages } from './messages.validator';
 
-// 	static customMinLength(value: any, message?: string) {
-// 		const v = (control: AbstractControl): ValidationErrors => {
-// 			let controlValue = control.value;
-// 			return value <= controlValue.length ? null : { 'minLength': { 'message': message } };
-// 		};
+export const lengthValidations = {
+  length: (length: number) => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && typeof control.value === 'string') {
+        if (control.value.trim().length <= 0) return { length: CustomValidatorMessages.required };
 
-// 		return v;
-// 	}
+        if (control.value.trim().length !== length)
+          return { length: CustomValidatorMessages.length.replace('@length@', String(length)) };
+      }
 
-// 	static customMaxLength(value: any, message?: string) {
-// 		const v = (control: AbstractControl): ValidationErrors => {
-// 			let controlValue = control.value;
-// 			return value >= controlValue.length ? null : { 'minLength': { 'message': message } };
-// 		};
+      if (control.value && typeof Array.isArray(control.value)) {
+        if ((control.value || []).length <= 0) return { length: CustomValidatorMessages.required };
 
-// 		return v;
-// 	}
+        if ((control.value || []).length > length)
+          return {
+            length: CustomValidatorMessages.arrayLength.replace('@length@', String(length)),
+          };
+      }
 
-// 	// NUMBER VALIDATORS
-// 	static minValue(value: any, message?: string) {
-// 		const v = (control: AbstractControl): ValidationErrors => {
-// 			let controlValue = control.value;
-// 			if (typeof control.value === 'string') {
-// 				controlValue = parseFloat(control.value.replace(/[^0-9\.]+/g, ''));
-// 			}
-// 			return value <= controlValue ? null : { 'minValue': { 'message': message } };
-// 		};
+      return null;
+    };
+  },
+  maxLength: (maxLength: number) => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && typeof control.value === 'string') {
+        if (control.value.trim().length <= 0) return { maxLength: CustomValidatorMessages.required };
 
-// 		return v;
-// 	}
+        if (control.value.trim().length > maxLength)
+          return { maxLength: CustomValidatorMessages.maxLength.replace('@maxLength@', String(maxLength)) };
+      }
 
-// 	static maxValue(value: number, message?: string) {
-// 		const v = (control: AbstractControl): ValidationErrors => {
+      if (control.value && typeof Array.isArray(control.value)) {
+        if ((control.value || []).length <= 0) return { maxLength: CustomValidatorMessages.required };
 
-// 			return value >= control.value ? null : { 'maxValue': { 'message': message } };
-// 		};
+        if ((control.value || []).length > maxLength)
+          return {
+            maxLength: CustomValidatorMessages.arrayMaxLength.replace('@maxLength@', String(maxLength)),
+          };
+      }
 
-// 		return v;
-// 	}
-// }
+      return null;
+    };
+  },
+  minLength: (minLength: number) => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && typeof control.value === 'string') {
+        if (control.value.trim().length <= 0) return { minLength: CustomValidatorMessages.required };
+
+        if (control.value.trim().length < minLength)
+          return { minLength: CustomValidatorMessages.minLength.replace('@minLength@', String(minLength)) };
+      }
+
+      if (control.value && typeof Array.isArray(control.value)) {
+        if ((control.value || []).length <= 0) return { minLength: CustomValidatorMessages.required };
+
+        if ((control.value || []).length < minLength)
+          return {
+            minLength: CustomValidatorMessages.arrayMaxLength.replace('@minLength@', String(minLength)),
+          };
+      }
+
+      return null;
+    };
+  },
+};

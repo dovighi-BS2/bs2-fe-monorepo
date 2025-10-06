@@ -1,0 +1,7 @@
+@use './../themes' as t;
+
+@each $key, $value in t.$themes {
+  .text_#{$key} {
+    color: var(--#{$key}) !important;
+  }
+}

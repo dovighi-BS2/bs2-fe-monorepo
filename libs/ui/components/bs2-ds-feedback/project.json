@@ -1,0 +1,19 @@
+{
+  "name": "bs2-ds-feedback",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/components/bs2-ds-feedback/src",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/components/bs2-ds-feedback"],
+      "options": {
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-feedback"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
