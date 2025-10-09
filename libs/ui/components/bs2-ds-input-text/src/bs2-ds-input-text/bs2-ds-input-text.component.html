@@ -8,9 +8,11 @@
   "
 >
   <span class="bs2_ds_input_text__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  @if(!hideErrors){
   <span class="bs2_ds_input_text__feedback" *ngIf="!!getErrors || !!errorText">
     {{ errorText || getErrors }}
   </span>
+  }
   <div class="bs2_ds_input_text__wrapper">
     <div class="bs2_ds_input_text__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
     <div class="bs2_ds_input_text__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
