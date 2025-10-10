@@ -59,8 +59,7 @@ export default meta;
 type Story = StoryObj<Bs2DSInputPhoneComponent>;
 
 const form: FormGroup = new FormGroup({
-  // phone: new FormControl('+5511984556053', [CustomValidators.required]),
-  phone: new FormControl('+86', []),
+  phone: new FormControl('', []),
 });
 
 delete form['controls']['phone']['_parent'];
