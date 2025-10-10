@@ -16,9 +16,11 @@
     <option *ngFor="let option of options">{{ option.text }}</option>
   </select>
   <span class="bs2_ds_input_select__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  @if(!hideErrors){
   <span class="bs2_ds_input_select__feedback" *ngIf="!!getErrors || !!errorText">
     {{ errorText || getErrors }}
   </span>
+  }
   <div class="bs2_ds_input_select__wrapper">
     <i class="bs2_ds_input_select__icon left {{ leftIcon }}" *ngIf="leftIcon"></i>
     <i class="bs2_ds_input_select__icon right {{ rightIcon }}" *ngIf="rightIcon"></i>

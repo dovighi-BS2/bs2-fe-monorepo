@@ -1,27 +1,37 @@
-<div class="bs2_ds_input_phone" *ngIf="!!control">
-  <bs2-ds-input-currency
-    class="select_flag"
-    [readOnly]="readOnly"
-    [helperText]="helperText"
-    [errorText]="errorText"
-    [control]="ddiControl"
-    [options]="options"
-    [id]="id"
-    [testId]="testId"
-    [label]="label"
-    [state]="state"
-    [placeholder]="placeholder"
-  ></bs2-ds-input-currency>
+@let block = 'bs2_ds_input_phone';
 
-  <bs2-ds-input-text
-    [mask]="mask"
-    [readOnly]="readOnly"
-    [helperText]="helperText"
-    [errorText]="errorText"
-    [control]="numberControl"
-    [id]="id"
-    [testId]="testId"
-    [label]="label"
-    [state]="state"
-  ></bs2-ds-input-text>
+<div
+  [id]="id"
+  [attr.data-test]="testId"
+  class="
+    {{ block }}
+    {{ getErrors || errorText ? 'error' : '' }} {{ state }}
+    {{ control.disabled ? 'disabled' : '' }}
+"
+>
+  @if(helperText){
+  <div class="{{ block }}__helper">{{ helperText }}</div>
+  } @if(errorText || getErrors){
+  <div class="{{ block }}__feedback">{{ errorText || getErrors }}</div>
+  }
+  <div class="{{ block }}__wrapper">
+    <div class="{{ block }}__left">
+      <bs2-ds-input-select
+        [state]="getErrors || errorText ? 'error' : undefined"
+        [control]="codeControl"
+        [options]="codes"
+        [hideErrors]="true"
+      />
+    </div>
+    <div class="{{ block }}__right">
+      <bs2-ds-input-text
+        [state]="getErrors || errorText ? 'error' : undefined"
+        [control]="phoneControl"
+        [mask]="masks[codeControl.value]"
+        [hideErrors]="true"
+      />
+    </div>
+  </div>
+  <label class="{{ block }}__label">{{ label }}</label>
+  {{ control.valid ? 'valido' : 'invalido' }}
 </div>

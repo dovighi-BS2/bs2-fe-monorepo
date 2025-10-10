@@ -21,4 +21,5 @@ export enum CustomValidatorMessages {
   hasLowercase = 'Caracter em minúsculo obrigatório',
   hasUppercase = 'Caracter em maiúsculo obrigatório',
   hasSpecialCharacters = 'Caracter em especial obrigatório',
+  bs2DSInputPhone = 'Telefone inválido.',
 }

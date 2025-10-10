@@ -1,81 +1,78 @@
+import { CustomValidators } from '@bs2/design-system/validators';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 import { NgxMaskModule } from 'ngx-mask';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
-import { Bs2DSInputCurrencyComponent, flags } from '@bs2/design-system/components/bs2-ds-input-currency';
+import { flags } from '@bs2/design-system/components/bs2-ds-input-currency';
+import { combineLatest } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'bs2-ds-input-phone',
   standalone: true,
-  imports: [CommonModule, Bs2DSInputCurrencyComponent, Bs2DSInputTextComponent, ReactiveFormsModule, NgxMaskModule],
+  imports: [CommonModule, Bs2DSInputTextComponent, Bs2DSInputSelectComponent, ReactiveFormsModule, NgxMaskModule],
   providers: [NgxMaskModule.forRoot().providers],
   templateUrl: './bs2-ds-input-phone.component.html',
   styleUrl: './bs2-ds-input-phone.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Bs2DSInputPhoneComponent implements OnInit {
+  @Input() id = '';
+  @Input() testId = '';
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
-  @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
-  @Input() class = '';
   @Input() helperText = '';
   @Input() errorText = '';
-  @Input() placeholder = 'Selecione uma opção';
   @Input() readOnly = false;
-  @Input() selecteds: Bs2DSInputSelectOption[] = [];
-  @Input() options: Bs2DSInputSelectOption[] = [
+
+  public codeControl = new FormControl(null);
+  public phoneControl = new FormControl(null);
+
+  public codes: Bs2DSInputSelectOption[] = [
     { value: flags.brl, text: flags.brl, image: 'BR.svg' },
     { value: flags.usa, text: flags.usa, image: 'US.svg' },
     { value: flags.chn, text: flags.chn, image: 'CN.svg' },
     { value: flags.esp, text: flags.esp, image: 'ES.svg' },
   ];
-  @Input() hideCheckbox = false;
 
-  @Input() ariaLabel = '';
-  @Input() ariaRequired = false;
-  @Input() ariaInvalid = false;
-
-  public inputForm = new FormGroup({
-    ddi: new FormControl([flags.brl]),
-    number: new FormControl(''),
-  });
+  public masks: Record<string, string> = {
+    [flags.brl]: '(00) 00000-0000',
+    [flags.usa]: '(000) 000-0000',
+    [flags.chn]: '(00) 0000-0000',
+    [flags.esp]: '00 000 00 00 00',
+  };
 
   ngOnInit(): void {
-    this.inputForm.valueChanges.subscribe(() => {
-      if (this.ddiControl.invalid || this.numberControl.invalid) return;
-      this.control.setValue(`${this.ddiControl.value} ${this.numberControl.value}`);
+    const controlValue = String(this.control.value ?? '');
+    const initialCode = this.codes.find((code) => String(controlValue).includes(code.value));
+    this.codeControl.setValue(initialCode?.value || flags.brl);
+    const initialPhone = controlValue?.replace(initialCode?.value, '');
+    initialPhone && this.phoneControl.setValue(initialPhone);
+
+    this.control.setValidators([
+      CustomValidators.bs2DSInputPhone(`${this.codeControl.value}${this.masks[this.codeControl.value]}`),
+    ]);
+
+    combineLatest([
+      this.codeControl.valueChanges.pipe(startWith(this.codeControl.value)),
+      this.phoneControl.valueChanges.pipe(startWith(this.phoneControl.value)),
+    ]).subscribe(() => {
+      const code = this.codeControl.value;
+      const phone = this.phoneControl.value;
+      this.control.setValidators([CustomValidators.bs2DSInputPhone(`${code}${this.masks[code]}`)]);
+      this.control.setValue(`${code}${phone}`, { emitEvent: false });
+      this.control.markAllAsTouched();
     });
   }
 
-  get mask() {
-    switch (this.ddiValue) {
-      case flags.brl:
-        return '(00) 00000-0000';
-      case flags.usa:
-        return '(000) 000-0000';
-      case flags.chn:
-        return '(00) 0000-0000';
-      case flags.esp:
-        return '00 000 00 00 00';
-      default:
-        return '';
-    }
-  }
-
-  get ddiControl() {
-    return this.inputForm.get('ddi') as FormControl;
-  }
-
-  get numberControl() {
-    return this.inputForm.get('number') as FormControl;
-  }
-
-  get ddiValue() {
-    return this.inputForm.get('ddi')?.value[0] ?? '';
+  public get getErrors(): string {
+    if (!this.control || this.control.untouched) return '';
+    if (this.phoneControl.untouched) return '';
+    const errors = Object.values(this.control?.errors || {});
+    return errors[0] || '';
   }
 }

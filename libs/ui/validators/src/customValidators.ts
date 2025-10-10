@@ -125,6 +125,13 @@ export const CustomValidators = {
 
     return null;
   },
+  bs2DSInputPhone(mask: string) {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (`+${mask.replace(/\D/g, '')}`.length !== control.value.length)
+        return { bs2DSInputPhone: CustomValidatorMessages.bs2DSInputPhone };
+      return null;
+    };
+  },
   ...dateValidators,
   ...lengthValidations,
   ...valueValidations,

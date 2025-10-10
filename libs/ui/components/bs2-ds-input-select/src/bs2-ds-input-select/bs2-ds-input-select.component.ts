@@ -32,6 +32,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   @Input() readOnly = false;
   @Input() options: Bs2DSInputSelectOption[] = [];
   @Input() hideCheckbox = false;
+  @Input() hideErrors = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -56,7 +57,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
     if (!this.controlIsArray) {
       (document.activeElement as any).blur();
-      this.control.setValue(option.value);
+      this.control.setValue(option.value, { emitEvent: false });
     } else {
       const alreadyIn = (this.control.value || []).find((item: string) => item === option.value);
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
@@ -64,11 +65,14 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   }
 
   addSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue([...this.control.value, option.value]);
+    this.control.setValue([...this.control.value, option.value], { emitEvent: false });
   }
 
   removeSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue((this.control.value || []).filter((item: string) => item !== option.value));
+    this.control.setValue(
+      (this.control.value || []).filter((item: string) => item !== option.value),
+      { emitEvent: false }
+    );
   }
 
   selectByEnter(option: Bs2DSInputSelectOption) {

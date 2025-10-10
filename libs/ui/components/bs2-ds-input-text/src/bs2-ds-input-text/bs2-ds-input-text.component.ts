@@ -31,6 +31,7 @@ export class Bs2DSInputTextComponent {
   @Input() readOnly = false;
   @Input() mask = '';
   @Input() currencyMask?: object;
+  @Input() hideErrors = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
