@@ -7,7 +7,7 @@
     {{ direction }}
     {{ class }}
     {{ getErrors || errorText ? 'error' : '' }}
-    {{ isOpened ? 'opened' : '' }}
+    {{ isOpened() ? 'opened' : '' }}
     {{ state }}
     {{ controlToUser.disabled ? 'disabled' : '' }}
     "

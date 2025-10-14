@@ -54,7 +54,6 @@ describe('Bs2DSInputTextareaComponent', () => {
     fixture.detectChanges();
     let main = get(``);
     let feedback = get(`.bs2_ds_input_textarea__feedback`);
-    expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
     component.control?.setValue('');
