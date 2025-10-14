@@ -6,6 +6,7 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
+  signal,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -50,7 +51,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   @Input() selectedDate?: Date;
   @Input() disabled = false;
 
-  public isOpened = false;
+  public isOpened = signal(false);
 
   private fb = inject(FormBuilder);
 
@@ -100,11 +101,11 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       if (!this.isDaySelectable(date)) return;
 
       if (from === 'input' && this.controlToUser.invalid) {
-        this.isOpened = false;
+        this.isOpened.set(false);
         return;
       }
 
-      this.isOpened = undefined;
+      this.isOpened.set(undefined);
       this.selectedDate = date;
       this.selectedDay = date.getDate();
       this.selectedMonth = date.getMonth() + 1;
@@ -123,7 +124,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       return this.calendarMonths.find((m) => m.number === this.selectedMonth);
     },
     open: () => {
-      this.isOpened = true;
+      this.isOpened.set(true);
       this.activePickerType = 'day';
     },
   };
@@ -191,7 +192,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
     this.outsideClickSub = fromEvent(document, 'click').subscribe((event) => {
       if (!this.datePickerRef?.nativeElement.contains(event.target)) {
-        this.isOpened = false;
+        this.isOpened.set(false);
       }
     });
   }
