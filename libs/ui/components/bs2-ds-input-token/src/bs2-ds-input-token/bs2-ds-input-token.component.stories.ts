@@ -16,20 +16,15 @@ const meta: Meta<Bs2DSInputTokenComponent> = {
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
     },
-    type: {
+    label: {
       control: { type: 'text' },
       description: 'obrigatório',
       defaultValue: { summary: 'text' },
     },
-    qtdInputs: {
+    amount: {
       control: { type: 'number' },
       description: 'opcional',
       defaultValue: { summary: 6 },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: false },
     },
     id: {
       control: { type: 'text' },
@@ -37,11 +32,6 @@ const meta: Meta<Bs2DSInputTokenComponent> = {
       defaultValue: { summary: '(vazio)' },
     },
     testId: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    name: {
       control: { type: 'text' },
       description: 'opcional',
       defaultValue: { summary: '(vazio)' },
@@ -56,28 +46,13 @@ const meta: Meta<Bs2DSInputTokenComponent> = {
       description: 'opcional',
       defaultValue: { summary: 'false' },
     },
-    ariaLabel: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    ariaRequired: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
-    },
-    ariaInvalid: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
-    },
   },
 };
 export default meta;
 type Story = StoryObj<Bs2DSInputTokenComponent>;
 
 const form: FormGroup = new FormGroup({
-  token: new FormControl('', [CustomValidators.required]),
+  token: new FormControl('', [CustomValidators.required, CustomValidators.minLength(6)]),
 });
 
 delete form['controls']['token']['_parent'];
@@ -86,20 +61,13 @@ export const Default: Story = {
   args: {
     control: form.get('token') as FormControl,
     state: 'default',
-    type: 'text',
-    qtdInputs: 6,
-    disabled: false,
+    label: '',
+    amount: 6,
+    helperText: '',
     id: 'token',
     testId: 'token',
-    name: 'token',
     class: 'custom_class',
     readOnly: false,
-    ariaLabel: '',
-    ariaRequired: false,
-    ariaInvalid: false,
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/bs2-ds-input-token works!/gi)).toBeTruthy();
+    hideErrors: false,
   },
 };
