@@ -1,56 +1,119 @@
 :host {
-  --token_field__field_height: 40px;
-  --token_field__field_width: 32px;
-  --token_field__field_border_color: var(--neutral200);
-  --token_field__field_bg_color: transparent;
-  --token_field__field_text_color: var(--primary_text_dark);
-  --token_field__field_text_weight: 400;
-  --token_field__field_shadow_color: #91919126;
-  --token_field__field_border_width: 1px;
+  --text_field__field_width: 32px;
+  --text_field__field_height: 40px;
+  --text_field__field_border_color: var(--neutral200);
+  --text_field__field_bg_color: var(--primary_white);
+  --text_field__field_text_color: var(--primary_text_dark);
+  --text_field__field_placeholder_color: var(--primary_text_dark);
+  --text_field__field_border_width: 1px;
+  --text_field__label_color: var(--neutral600);
+  --text_field__feedback_text_color: var(--feedback_error);
 }
 
-.bs2_ds_input_token {
+.bs2_ds_input_text {
+  width: max-content;
   display: flex;
-  &__field {
-    width: 32px;
-    height: 40px;
+  flex-direction: column-reverse;
+
+  &__helper {
     text-align: center;
-    font-size: 24px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    box-shadow: -2px 3px 6px 0px var(--token_field__field_shadow_color);
-    border: var(--token_field__field_border_width) solid var(--token_field__field_border_color);
-    color: var(--token_field__field_text_color);
-    font-weight: var(--token_field__field_text_weight);
-    background-color: var(--token_field__field_bg_color);
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__feedback_text_color);
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__field {
+    width: 100%;
+    order: 2;
+    width: var(--text_field__field_width);
+    min-height: var(--text_field__field_height);
     outline: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    box-shadow: 0px 0px 0px var(--text_field__field_border_width) var(--text_field__field_border_color);
+    background-color: var(--text_field__field_bg_color);
+    color: var(--text_field__field_text_color);
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+    }
     & + & {
       margin-left: 4px;
     }
-    //Theming
     &:hover,
     &.hovered {
-      --token_field__field_border_width: 2px;
-      --token_field__label_color: var(--neutral600);
-      --token_field__field_border_color: var(--neutral400);
+      --text_field__field_border_width: 2px;
+      --text_field__label_color: var(--neutral600);
+      --text_field__field_border_color: var(--neutral400);
     }
 
     &:focus,
     &.focused {
-      --token_field__field_border_color: var(--primary);
-      --token_field__field_border_width: 2px;
-    }
-    &[readonly],
-    &[readonly='true'],
-    &[disabled='true'],
-    &.disabled,
-    &.readonly {
-      --token_field__field_border_color: var(--neutral300);
-      --token_field__field_bg_color: var(--neutral100);
-      --token_field__field_text_color: var(--neutral300);
+      --text_field__field_border_width: 2px;
+      --text_field__label_color: var(--primary);
+      --text_field__field_border_color: var(--primary);
     }
   }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text_field__label_color);
+  }
+
+  // Theming
+
+  &.hovered {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral400);
+  }
+
+  &.focused {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--primary);
+    --text_field__field_border_color: var(--primary);
+  }
+
   &.error {
-    --token_field__field_border_color: var(--feedback_error);
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--feedback_error);
+    --text_field__field_border_color: var(--feedback_error);
+    --text_field__feedback_text_color: var(--feedback_error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
+  &:has(&__field[disabled]),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    pointer-events: none;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral300);
+    --text_field__field_bg_color: var(--neutral100);
+    --text_field__field_text_color: var(--neutral400);
   }
 }
