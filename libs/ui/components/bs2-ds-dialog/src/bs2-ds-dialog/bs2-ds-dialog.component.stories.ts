@@ -1,63 +1,93 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { Bs2DsDialogWrapperComponent } from './bs2-ds-dialog-wrapper.component';
-import { DialogData } from './bs2-ds-dialog.component';
+import { Component, Input, TemplateRef, ViewChild, inject } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
+import { Bs2DsDialogComponent, DialogData } from './bs2-ds-dialog.component';
 
-const meta: Meta<DialogData> = {
+@Component({
+  selector: 'storybook-bs2-dialog-button-wrapper',
+  standalone: true,
+  template: `
+    <ng-template #iconTemplate>
+      <p style="font-size: 48px; margin: 0">⚠️</p>
+    </ng-template>
+
+    <button (click)="openDialog()">Abrir diálogo</button>
+  `,
+})
+class ButtonWrapperComponent {
+  dialog = inject(Dialog);
+  @ViewChild('iconTemplate', { static: true }) iconTemplate!: TemplateRef<any>;
+
+  @Input() title!: string;
+  @Input() content!: string | TemplateRef<any>;
+  @Input() primaryText!: string;
+  @Input() secondaryText?: string;
+  @Input() showIcon = false;
+
+  openDialog() {
+    const args: DialogData = {
+      title: this.title,
+      content: this.content,
+      primaryText: this.primaryText,
+      secondaryText: this.secondaryText,
+      showIcon: this.showIcon,
+      iconTemplate: this.showIcon ? this.iconTemplate : undefined,
+    };
+
+    this.dialog.open(Bs2DsDialogComponent, { data: args });
+  }
+}
+
+const meta: Meta<ButtonWrapperComponent> = {
   title: 'Components/Dialog',
-  component: Bs2DsDialogWrapperComponent,
+  component: ButtonWrapperComponent,
   argTypes: {
     title: { control: 'text' },
     content: { control: 'text' },
     primaryText: { control: 'text' },
     secondaryText: { control: 'text' },
-  },
-  args: {
-    title: 'Título do diálogo',
-    content: 'Texto do diálogo',
-    primaryText: 'Confirmar',
-    secondaryText: 'Cancelar',
+    showIcon: { control: 'boolean' },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Bs2DsDialogWrapperComponent>;
+type Story = StoryObj<ButtonWrapperComponent>;
 
-function createStory(data: DialogData): Story {
-  return {
-    render: () => {
-      (window as any)['storybookArgs'] = data;
-      return { template: `<storybook-bs2-dialog-wrapper></storybook-bs2-dialog-wrapper>` };
-    },
-  };
-}
+export const Default: Story = {
+  args: {
+    title: 'Título padrão',
+    content: 'Texto do diálogo',
+    primaryText: 'Confirmar',
+    secondaryText: 'Cancelar',
+    showIcon: false,
+  },
+};
 
-export const Default = createStory({
-  title: 'Título padrão',
-  content: 'Texto do diálogo',
-  primaryText: 'Confirmar',
-  secondaryText: 'Cancelar',
-  showIcon: false,
-});
+export const WithTemplate: Story = {
+  args: {
+    title: 'Diálogo com Template',
+    content: 'Simulação de TemplateRef',
+    primaryText: 'Ok',
+    secondaryText: 'Cancelar',
+    showIcon: false,
+  },
+};
 
-export const WithTemplate = createStory({
-  title: 'Diálogo com Template',
-  content: 'Simulação de TemplateRef',
-  primaryText: 'Ok',
-  secondaryText: 'Cancelar',
-  showIcon: false,
-});
+export const WithIcon: Story = {
+  args: {
+    title: 'Diálogo com Ícone',
+    content: 'Texto simples do diálogo',
+    primaryText: 'Confirmar',
+    secondaryText: 'Cancelar',
+    showIcon: true,
+  },
+};
 
-export const WithIcon = createStory({
-  title: 'Diálogo com Ícone',
-  content: 'Texto simples do diálogo',
-  primaryText: 'Confirmar',
-  secondaryText: 'Cancelar',
-  showIcon: true,
-});
-
-export const NoSecondaryButton = createStory({
-  title: 'Apenas botão primário',
-  content: 'Diálogo sem botão secundário',
-  primaryText: 'Confirmar',
-  showIcon: false,
-});
+export const NoSecondaryButton: Story = {
+  args: {
+    title: 'Apenas botão primário',
+    content: 'Diálogo sem botão secundário',
+    primaryText: 'Confirmar',
+    showIcon: false,
+  },
+};

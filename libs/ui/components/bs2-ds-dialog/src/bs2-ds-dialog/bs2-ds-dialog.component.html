@@ -20,11 +20,11 @@
       }
 
       <div class="dialog__actions">
+        @if (data.primaryText) {
         <button bs2-ds-filled-button (click)="onPrimary()" aria-label="Primeiro botão">
           {{ data.primaryText }}
         </button>
-
-        @if (data.secondaryText) {
+        } @if (data.secondaryText) {
         <button
           bs2-ds-outlined-button
           class="dialog__button dialog__button--secondary"
