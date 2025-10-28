@@ -1,23 +1,11 @@
-<table>
-  <tr>
-    <th>
-      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
-        <ng-template>Main</ng-template>
-      </bs2-ds-selectors>
-    </th>
-  </tr>
-  @for(item of aprovacoes; track $index){
-  <tr>
-    <th>
-      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
-        <ng-template>Main</ng-template>
-      </bs2-ds-selectors>
-    </th>
-    <th></th>
-    <th></th>
-  </tr>
-  }
-</table>
+<button (click)="openBasic()">Abrir dialog básico</button>
+<button (click)="openWithTemplate()">Abrir dialog com template</button>
+<button (click)="openWithIcon()">Abrir dialog com ícone</button>
 
-<br />
-<h3>Output: {{ control.value }}</h3>
+<ng-template #customText>
+  <p>Dialog com template e sem botão secundário</p>
+</ng-template>
+
+<ng-template #customIcon>
+  <span style="font-size: 48px">Ícone</span>
+</ng-template>

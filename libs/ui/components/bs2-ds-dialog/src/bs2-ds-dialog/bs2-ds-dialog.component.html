@@ -1,0 +1,40 @@
+<div class="dialog">
+  <div class="dialog__container">
+    <div class="dialog__content">
+      @if (data.showIcon) { @if (data.iconTemplate) {
+      <ng-container *ngTemplateOutlet="data.iconTemplate"></ng-container>
+      } @else {
+      <p>Ícone</p>
+      } }
+
+      <h2 class="dialog__title">{{ data.title }}</h2>
+
+      @if (data.content) {
+      <div class="dialog__template-content">
+        @if (isTemplate) {
+        <ng-container *ngTemplateOutlet="templateContent"></ng-container>
+        } @else {
+        <p>{{ data.content }}</p>
+        }
+      </div>
+      }
+
+      <div class="dialog__actions">
+        <button bs2-ds-filled-button (click)="onPrimary()" aria-label="Primeiro botão">
+          {{ data.primaryText }}
+        </button>
+
+        @if (data.secondaryText) {
+        <button
+          bs2-ds-outlined-button
+          class="dialog__button dialog__button--secondary"
+          (click)="onSecondary()"
+          aria-label="Segundo botão"
+        >
+          {{ data.secondaryText }}
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+</div>
