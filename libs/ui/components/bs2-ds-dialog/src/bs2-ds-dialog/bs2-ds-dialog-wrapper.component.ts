@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, inject, TemplateRef, ViewChild, Input } from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild, Input } from '@angular/core';
 import { Dialog } from '@angular/cdk/dialog';
 import { Bs2DsDialogComponent, DialogData } from './bs2-ds-dialog.component';
 
