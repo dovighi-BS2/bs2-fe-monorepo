@@ -1,23 +1,18 @@
-<table>
-  <tr>
-    <th>
-      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
-        <ng-template>Main</ng-template>
-      </bs2-ds-selectors>
-    </th>
-  </tr>
-  @for(item of aprovacoes; track $index){
-  <tr>
-    <th>
-      <bs2-ds-selectors type="checkbox" [control]="control" value="batata" [isMain]="true" [totalItemsCount]="3">
-        <ng-template>Main</ng-template>
-      </bs2-ds-selectors>
-    </th>
-    <th></th>
-    <th></th>
-  </tr>
-  }
-</table>
-
-<br />
-<h3>Output: {{ control.value }}</h3>
+teste
+        <bs2-ds-step-navigator-group [loop]="true" [auto]="true" [timer]="200000" [activatedIndex]="5">
+          <span ngProjectAs='previous'>Voltar</span>
+          <span ngProjectAs='next'>Próximo</span>
+          <bs2-ds-step-navigator-item>
+            <div class="dynamic"></div>
+          </bs2-ds-step-navigator-item>
+          <bs2-ds-step-navigator-item>
+            <div class="fixed"></div>
+          </bs2-ds-step-navigator-item>
+          <bs2-ds-step-navigator-item>
+            <div class="width"></div>
+          </bs2-ds-step-navigator-item>
+          <bs2-ds-step-navigator-item [lazy]="true">
+            <div class="height"></div>
+          </bs2-ds-step-navigator-item>
+        </bs2-ds-step-navigator-group>
+teste
