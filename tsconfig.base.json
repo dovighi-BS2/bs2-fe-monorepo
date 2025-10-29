@@ -36,6 +36,7 @@
       "@bs2/design-system/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
+      "@bs2/design-system/components/bs2-ds-dialog": ["libs/ui/components/bs2-ds-dialog/src/index.ts"],
       "@bs2/design-system/directives/bs2-ds-button-selector": [
         "libs/ui/directives/bs2-ds-button-selector/src/index.ts"
       ],
