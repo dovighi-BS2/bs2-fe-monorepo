@@ -17,7 +17,6 @@ describe('Bs2DSStepNavigatorGroupComponent', () => {
     (queryList as any)._dirty = false;
     queryList.notifyOnChanges();
 
-    // 🔧 Força o length (mock para Jest)
     Object.defineProperty(queryList, 'length', { get: () => items.length });
 
     component.items = queryList;
@@ -100,7 +99,7 @@ describe('Bs2DSStepNavigatorGroupComponent', () => {
     component.activatedIndex = 0;
     const goToSpy = jest.spyOn(component, 'goTo');
     component.previous();
-    expect(goToSpy).toHaveBeenCalledWith(2); // ✅ agora passa
+    expect(goToSpy).toHaveBeenCalledWith(2);
   });
 
   it('previous() não deve fazer nada se for o primeiro e loop=false', () => {
@@ -115,7 +114,7 @@ describe('Bs2DSStepNavigatorGroupComponent', () => {
     component.activatedIndex = 1;
     const goToSpy = jest.spyOn(component, 'goTo');
     component.next();
-    expect(goToSpy).toHaveBeenCalledWith(2); // ✅ agora passa
+    expect(goToSpy).toHaveBeenCalledWith(2);
   });
 
   it('next() deve ir para o primeiro item se loop=true e está no último', () => {
