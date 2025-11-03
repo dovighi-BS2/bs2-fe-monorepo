@@ -3,18 +3,16 @@
   --bs2_ds_step_navigator_group__bullet_size: 8px;
   &__top {
     display: flex;
-    background-color: rgba(255, 0, 0, 0.1);
     overflow: hidden;
 
     ::ng-deep {
-      bs2-ds-step-navigator-item:empty {
-        display: none;
-      }
       bs2-ds-step-navigator-item {
-        order: 1;
-      }
-      bs2-ds-step-navigator-item:has(.active) {
-        order: 0;
+        display: none;
+
+        &:has(> .active) {
+          min-width: 100%;
+          display: block;
+        }
       }
     }
   }

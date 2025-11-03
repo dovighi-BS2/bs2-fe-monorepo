@@ -19,7 +19,7 @@ export class Bs2DSStepNavigatorGroupComponent implements AfterViewInit, OnDestro
   public interval: any;
 
   public ngAfterViewInit(): void {
-    for (let [index, item] of this.items.toArray().entries())
+    for (const [index, item] of this.items.toArray().entries())
       if (item.isActive || index === this.activatedIndex) {
         this.activatedIndex = index;
         item.isActive = true;
@@ -42,7 +42,10 @@ export class Bs2DSStepNavigatorGroupComponent implements AfterViewInit, OnDestro
   }
 
   public refresh(): void {
-    for (let [index, item] of this.items.toArray().entries()) item.isActive = this.activatedIndex === index;
+    for (const [index, item] of this.items.toArray().entries()) {
+      // debugger;
+      item.isActive = this.activatedIndex === index;
+    }
   }
 
   public previous(): void {

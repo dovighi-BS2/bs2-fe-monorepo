@@ -12,7 +12,7 @@
     </span>
     <ul class="{{ block }}__list">
       @for(item of items; track $index){
-      <li class="{{ block }}__list_item {{ activatedIndex === $index ? 'active' : '' }}" (click)="goTo($index)"></li>
+      <li class="{{ block }}__list_item {{ item.isActive ? 'active' : '' }}" (click)="goTo($index)"></li>
       }
     </ul>
     <span class="{{ block }}__right">
