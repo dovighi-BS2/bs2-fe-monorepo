@@ -172,6 +172,25 @@ Exemplos:
 - `fix(dialog): corrige bug no fechamento ao pressionar ESC`
 - `docs(readme): atualiza instruções de contribuição`
 
+### Commitar alterações
+
+Adicione as modificações ao stage:
+```bash
+git add .
+``` 
+
+Inicie o commit:
+```bash
+git commit
+```
+
+Siga as instruções exibidas no terminal e preencha as informações conforme o padrão.
+
+Envie as alterações para o repositório remoto:
+```bash
+git push
+```
+
 
 ## Storybook
 
