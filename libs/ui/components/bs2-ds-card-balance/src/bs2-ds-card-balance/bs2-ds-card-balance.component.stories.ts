@@ -9,6 +9,7 @@ const meta: Meta<Bs2DSCardBalanceComponent> = {
   parameters: {
     layout: 'centered',
     docs: {
+      autodocs: false,
       description: {
         component: `O card é um componente que agrupa informações relacionadas em um contêiner visual, geralmente com bordas, sombra ou espaçamento definidos. Ele é usado para organizar conteúdos como textos, imagens, links ou ações, destacando e estruturando informações de forma clara e acessível, facilitando a leitura e a interação. O card de saldo do Banco BS2 exibe o saldo, o limite (sempre que houver), a possibilidade de exibir/ocultar o saldo e um link para o extrato.`,
       },
@@ -131,16 +132,55 @@ export const Unavailable: Story = {
         });
     },
   },
+
   render: (args) => ({
     props: { ...args },
     template: `
       <bs2-ds-card-balance
-        [loader]="loader"
         [balance]="balance"
         [limit]="limit"
         [template]="template"
+        [loader]="loader"
         (update)="update($event)"
       ></bs2-ds-card-balance>
     `,
   }),
+
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<!-- TYPESCRIPT -->
+<!--
+seu-componente.component.ts
+
+public balance: number = 0;
+public limit: number = 0;
+public loader: boolean = false;
+public update(): void {
+  this.loader = true;
+  of(null)
+    .pipe(
+      delay(3000),
+      finalize(() => (this.loader = false))
+    )
+    .subscribe(() => {
+      this.template = 'visible';
+      this.balance = Math.floor(Math.random() * 1000);
+      this.limit = Math.floor(Math.random() * 3000);
+    });
+}
+
+<!-- HTML -->
+<bs2-ds-card-balance
+  [balance]="balance"
+  [limit]="limit"
+  [template]="template"
+  [loader]="loader"
+  (update)="update($event)"
+></bs2-ds-card-balance>
+        `.trim(),
+      },
+    },
+  },
 };
