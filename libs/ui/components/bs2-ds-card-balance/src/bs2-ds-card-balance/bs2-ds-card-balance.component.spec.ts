@@ -8,8 +8,7 @@ describe('Bs2DSCardBalanceComponent', () => {
   let component: Bs2DSCardBalanceComponent;
   let fixture: ComponentFixture<Bs2DSCardBalanceComponent>;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+  const get = (selector: string) => fixture.debugElement.query(By.css(`${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +18,6 @@ describe('Bs2DSCardBalanceComponent', () => {
     fixture = TestBed.createComponent(Bs2DSCardBalanceComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 

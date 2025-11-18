@@ -2,13 +2,11 @@
 
 Esta biblioteca foi gerada com [Nx](https://nx.dev).
 
-
 ## Visão e Objetivo
 
 O Design System foi criado para unificar a linguagem visual e de código entre todos os produtos do Banco BS2, promovendo consistência, velocidade de desenvolvimento e qualidade na experiência do usuário.
 
 Ele serve como uma base compartilhada entre designers e desenvolvedores, garantindo que cada novo produto mantenha a identidade visual e técnica da marca.
-
 
 ## Diretrizes operacionais para construção do Design System
 
@@ -20,12 +18,10 @@ o ([CDK (components development kit) ](https://material.angular.io/cdk/categorie
 em casos onde a complexidade e a abrangência de recursos são necessárias. Todo componente , diretiva , etc precisam ser entrypoints
 dentro do design system para evitar performance bottlenecks e trabalharmos com o NX de forma eficiente.
 
-
 ## Estrutura de diretórios
 
 A estrutura de diretórios segue o padrão acordado com o responsável da área e equipe de desenvolvimento.
 Obs.: Utilize a extensão [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) para gerar os componentes.
-
 
 ## Guia de Contribuição
 
@@ -36,9 +32,11 @@ Antes de rodar o projeto, instale as dependências:
 ```bash
 npm install
 ```
+
 #### Executar o projeto principal
 
 Para rodar a aplicação principal (monorepo Angular), utilize o comando:
+
 ```bash
 npx nx run app-angular-monorepo:serve
 ```
@@ -46,16 +44,17 @@ npx nx run app-angular-monorepo:serve
 Por padrão, o projeto será executado em:
 `http://localhost:4200/`
 
-
 ### Criação de Componentes
 
-Use o comando 
+Use o comando
+
 ```bash
 npm run create-entrypoint
 ```
+
 para gerar novos componentes ou diretivas.
 
-Se criar o entrypoint diretamente com o nome, ele será gerado na raiz do diretório UI. 
+Se criar o entrypoint diretamente com o nome, ele será gerado na raiz do diretório UI.
 Para criar dentro de uma subpasta, especifique o caminho:
 
 ```bash
@@ -70,7 +69,6 @@ npm run create-entrypoint components/meu-entrypoint
 - O nome do componente deve seguir o padrão `bs2-ds-[nome-do-componente]`.
 - Utilize **HTML e SCSS puros**, sem dependências externas de UI (exceto CDK, quando estritamente necessário).
 
-
 ## Estilos e temas
 
 ### Importação de estilos
@@ -80,7 +78,7 @@ O caminho padrão de importação de estilos é:
 
 Ao usar:
 `@import "styles";`
-Você está importando o arquivo _styles.scss, que contém todas as importações básicas.
+Você está importando o arquivo \_styles.scss, que contém todas as importações básicas.
 
 ### Utilização de design tokens e temas
 
@@ -99,7 +97,7 @@ Dentro dos seus componentes SCSS, você pode utilizar as variáveis do tema dire
 ```
 .meu-componente {
  color: var(--primary_text_dark);
- background-color: var(--primary_text_bkg_light);   
+ background-color: var(--primary_text_bkg_light);
 }
 
 ```
@@ -144,17 +142,16 @@ Exemplo de uso:
 <p class="bs2-body-regular-medium">Texto de exemplo</p>
 <h1 class="bs2-display-bold-large">Título principal</h1>
 
-
 ## Cobertura de Testes
 
-- Cada componente, diretiva ou serviço novo deve possuir **testes unitários** cobrindo pelo menos **70%** do código.  
-- A cobertura mínima é validada automaticamente no pipeline de CI/CD.  
+- Cada componente, diretiva ou serviço novo deve possuir **testes unitários** cobrindo pelo menos **70%** do código.
+- A cobertura mínima é validada automaticamente no pipeline de CI/CD.
 
 Utilize o comando abaixo para verificar a cobertura localmente:
 
 ```bash
 npx nx test ui --code-coverage
-``` 
+```
 
 Para executar o **teste de um componente específico**, utilize o comando:
 
@@ -162,12 +159,12 @@ Para executar o **teste de um componente específico**, utilize o comando:
 npx nx run bs2-ds-componente:test --coverage --html --watch
 ```
 
-
 ## Padrão de Commits
 
 Os commits devem seguir o formato [Conventional Commits](https://www.conventionalcommits.org/):
 
 Exemplos:
+
 - `feat(button): adiciona variação outline`
 - `fix(dialog): corrige bug no fechamento ao pressionar ESC`
 - `docs(readme): atualiza instruções de contribuição`
@@ -175,11 +172,13 @@ Exemplos:
 ### Commitar alterações
 
 Adicione as modificações ao stage:
+
 ```bash
 git add .
-``` 
+```
 
 Inicie o commit:
+
 ```bash
 git commit
 ```
@@ -187,19 +186,20 @@ git commit
 Siga as instruções exibidas no terminal e preencha as informações conforme o padrão.
 
 Envie as alterações para o repositório remoto:
+
 ```bash
 git push
 ```
 
-
 ## Storybook
 
-O Storybook é uma ferramenta para visualizar, testar e documentar os componentes do Design System de forma isolada, 
+O Storybook é uma ferramenta para visualizar, testar e documentar os componentes do Design System de forma isolada,
 garantindo consistência e facilidade de desenvolvimento.
 
 ### Executar Storybook
 
-Execute o comando 
+Execute o comando
+
 ```bash
 npx nx run ui:storybook
 ```
@@ -208,41 +208,46 @@ Por padrão será executado na porta 4400 - Link: http://localhost:4400/
 
 ### Construir (Build) Storybook
 
-Execute o comando 
+Execute o comando
+
 ```bash
 npx nx run ui:build-storybook
-``` 
+```
+
 para buildar o storybook
 
 ### Boas práticas para criação de stories
 
-- Cada componente deve ter stories claros e independentes, representando seus principais estados e variações.  
+- Cada componente deve ter stories claros e independentes, representando seus principais estados e variações.
 - Use nomes descritivos para os stories.
-- Inclua controles (args) sempre que possível para facilitar a interação e visualização de diferentes propriedades.  
-- Mantenha o layout e o conteúdo minimalistas, mostrando apenas o necessário para demonstrar o comportamento do componente.  
-- Evite dependências externas ou contextos complexos, o foco deve ser apenas o componente em si.  
+- Inclua controles (args) sempre que possível para facilitar a interação e visualização de diferentes propriedades.
+- Mantenha o layout e o conteúdo minimalistas, mostrando apenas o necessário para demonstrar o comportamento do componente.
+- Evite dependências externas ou contextos complexos, o foco deve ser apenas o componente em si.
 - Sempre que adicionar um novo componente ao Design System, crie seu **story correspondente**.
 
 ### Testar Storybook
 
-Execute o comando 
+Execute o comando
+
 ```bash
 npx nx run ui:test-storybook
-``` 
+```
+
 para testar o storybook
 
 Se necessário, instale o Playwright:
+
 ```bash
 npx playwright install
 ```
 
 ### Gerar versão do Storybook
 
-Execute o comando 
+Execute o comando
+
 ```bash
 npx nx run ui:publish
 ```
-
 
 ## Documentação dos Componentes
 

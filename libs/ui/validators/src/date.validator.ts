@@ -8,6 +8,7 @@ export const dateValidators = {
   },
   isDateBetween: (min: Date, max: Date) => {
     return (control: AbstractControl): ValidationErrors | null => {
+      if (!control.value) return null;
       if (control.value.trim().length !== 10) return { isDateBetween: CustomValidatorMessages.date };
 
       const v = control.value.split('/');
@@ -19,6 +20,7 @@ export const dateValidators = {
     };
   },
   isValidDateToUser: (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) return null;
     if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
     const v = control.value.split('/');
 

@@ -22,7 +22,7 @@
       maxlength="1"
       size="1"
       [readOnly]="readOnly"
-      [formControl]="item"
+      [formControl]="getControlByItem(item)"
       (input)="onInput($event, $index)"
       (keyup)="onKeyUp($event, $index)"
       (paste)="onPaste($event)"
