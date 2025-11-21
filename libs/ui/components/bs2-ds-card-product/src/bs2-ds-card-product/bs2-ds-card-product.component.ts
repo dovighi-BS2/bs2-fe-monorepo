@@ -11,16 +11,14 @@ import { Bs2DSLoadingSpinningDirective } from '@bs2/design-system/directives/bs2
   styleUrl: './bs2-ds-card-product.component.scss',
 })
 export class Bs2DSCardProductComponent {
-  @Input() testId? = '';
   @Input() loader? = false;
   @Input() unavailableTitle? = '';
   @Input() icon? = '';
   @Input() title? = '';
   @Input() label? = '';
   @Input() value?: number;
-  @Input() text? = '';
   @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';
-  @Output() update: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public Number = Number;
 

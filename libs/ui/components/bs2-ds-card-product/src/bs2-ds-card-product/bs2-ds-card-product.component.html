@@ -1,4 +1,4 @@
-<div class="product" [attr.data-test]="testId" [bs2-ds-loading-spinning]="loader">
+<div class="product" [bs2-ds-loading-spinning]="loader">
   @if(template === 'visible'){
   <ng-container *ngTemplateOutlet="visible"></ng-container>
   } @if(template === 'hidden'){
@@ -24,8 +24,6 @@
   <p class="product__label">{{ label }}</p>
   } @if(value !== undefined && !Number.isNaN(value)){
   <p class="product__value">R$ {{ transform(Number(value)) }}</p>
-  } @if(text){
-  <p class="product__text">{{ text }}</p>
   }
 </ng-template>
 
@@ -45,15 +43,13 @@
   <p class="product__label">{{ label }}</p>
   } @if(value !== undefined && !Number.isNaN(value)){
   <p class="product__value">R$ ••••••</p>
-  } @if(text){
-  <p class="product__text">{{ text }}</p>
   }
 </ng-template>
 
 <ng-template #unavailable>
   <div class="product__unavailable">
     <p class="product__title">{{ unavailableTitle }}</p>
-    <button bs2-ds-flat-button class="product__button" (click)="update?.emit()" aria-label="Atualizar saldo">
+    <button bs2-ds-flat-button class="product__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
       Atualizar
     </button>
   </div>

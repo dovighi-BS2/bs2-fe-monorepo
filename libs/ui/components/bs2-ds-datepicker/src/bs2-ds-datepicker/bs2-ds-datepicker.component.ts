@@ -214,9 +214,13 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const d = maskedDate.split('/');
 
     this.controlToUser?.setValue(maskedDate);
-    this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])));
 
-    if (!this.control.value?.getDate()) this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
+    maskedDate
+      ? this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])))
+      : this.control?.setValue(null);
+
+    if (!this.control.value?.getDate() && !this.control.value)
+      this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
 
     if (this.controlToUser?.value.length !== 10) return;
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');

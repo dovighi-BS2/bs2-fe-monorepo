@@ -15,7 +15,7 @@ export class Bs2DSCardBalanceComponent {
   @Input() balance = 0;
   @Input() limit = 0;
   @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';
-  @Output() update: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public Number = Number;
 

@@ -9,10 +9,12 @@
 >
   <div class="bs2_ds_input_textarea__feedback_wrapper">
     <div class="bs2_ds_input_textarea__feedback_left">
-      <span class="bs2_ds_input_textarea__helper" *ngIf="!!helperText">{{ helperText }}</span>
-      <span class="bs2_ds_input_textarea__feedback" *ngIf="!!getErrors || !!errorText">
+      @if(!hideErrors){
+      <span class="bs2_ds_input_textarea__feedback">
         {{ errorText || getErrors }}
       </span>
+      }
+      <span class="bs2_ds_input_textarea__helper" *ngIf="!!helperText">{{ helperText }}</span>
     </div>
     <div class="bs2_ds_input_textarea__feedback_right" *ngIf="!!maxLength">
       <span class="bs2_ds_input_textarea__feedback_max_length">{{ control.value.length || 0 }} / {{ maxLength }}</span>

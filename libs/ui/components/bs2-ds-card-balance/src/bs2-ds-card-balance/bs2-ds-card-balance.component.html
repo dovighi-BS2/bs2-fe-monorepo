@@ -27,7 +27,7 @@
 <ng-template #unavailable>
   <div class="{{ block }}__unavailable">
     <p class="{{ block }}__title">Saldo indisponível no momento</p>
-    <button bs2-ds-flat-button class="{{ block }}__button" (click)="update?.emit()" aria-label="Atualizar saldo">
+    <button bs2-ds-flat-button class="{{ block }}__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
       Atualizar
     </button>
   </div>
