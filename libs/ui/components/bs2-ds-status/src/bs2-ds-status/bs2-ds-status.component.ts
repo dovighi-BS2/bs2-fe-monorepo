@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './bs2-ds-status.component.scss',
 })
 export class Bs2DSStatusComponent {
-  @Input() testId?: string = '';
   @Input() status?: 'error' | 'success' | 'attention' | 'neutral' = 'neutral';
   @Input() text?: string = '';
 }

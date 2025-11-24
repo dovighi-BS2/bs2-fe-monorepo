@@ -3,7 +3,7 @@ import { CustomValidatorMessages } from './messages.validator';
 
 export const dateValidators = {
   isValidDate: (control: AbstractControl): ValidationErrors | null => {
-    if (!(control.value instanceof Date)) return { isValidDate: CustomValidatorMessages.date };
+    if (control.value && !(control.value instanceof Date)) return { isValidDate: CustomValidatorMessages.date };
     return null;
   },
   isDateBetween: (min: Date, max: Date) => {

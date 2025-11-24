@@ -1,4 +1,6 @@
-<div class="product" [bs2-ds-loading-spinning]="loader">
+@let block = 'bs2_ds_card_product';
+
+<div class="{{ block }}" [bs2-ds-loading-spinning]="loader">
   @if(template === 'visible'){
   <ng-container *ngTemplateOutlet="visible"></ng-container>
   } @if(template === 'hidden'){
@@ -9,47 +11,47 @@
 </div>
 
 <ng-template #visible>
-  <div class="product__top">
-    <div class="product__top_left">
+  <div class="{{ block }}__top">
+    <div class="{{ block }}__top_left">
       @if(icon){
-      <span class="product__icon {{ icon }}"></span>
+      <span class="{{ block }}__icon {{ icon }}"></span>
       }
-      <p class="product__title">{{ title }}</p>
+      <p class="{{ block }}__title">{{ title }}</p>
     </div>
-    <div class="product__top_right">
-      <span class="product__toggler" (click)="setTemplate('hidden')">></span>
+    <div class="{{ block }}__top_right">
+      <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">></span>
     </div>
   </div>
   @if(label){
-  <p class="product__label">{{ label }}</p>
+  <p class="{{ block }}__label">{{ label }}</p>
   } @if(value !== undefined && !Number.isNaN(value)){
-  <p class="product__value">R$ {{ transform(Number(value)) }}</p>
+  <p class="{{ block }}__value">R$ {{ transform(Number(value)) }}</p>
   }
 </ng-template>
 
 <ng-template #hidden>
-  <div class="product__top">
-    <div class="product__top_left">
+  <div class="{{ block }}__top">
+    <div class="{{ block }}__top_left">
       @if(icon){
-      <span class="product__icon {{ icon }}"></span>
+      <span class="{{ block }}__icon {{ icon }}"></span>
       }
-      <p class="product__title">{{ title }}</p>
+      <p class="{{ block }}__title">{{ title }}</p>
     </div>
-    <div class="product__top_right">
-      <span class="product__toggler" (click)="setTemplate('visible')">></span>
+    <div class="{{ block }}__top_right">
+      <span class="{{ block }}__toggler" (click)="setTemplate('visible')">></span>
     </div>
   </div>
   @if(label){
-  <p class="product__label">{{ label }}</p>
+  <p class="{{ block }}__label">{{ label }}</p>
   } @if(value !== undefined && !Number.isNaN(value)){
-  <p class="product__value">R$ ••••••</p>
+  <p class="{{ block }}__value">R$ ••••••</p>
   }
 </ng-template>
 
 <ng-template #unavailable>
-  <div class="product__unavailable">
-    <p class="product__title">{{ unavailableTitle }}</p>
-    <button bs2-ds-flat-button class="product__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
+  <div class="{{ block }}__unavailable">
+    <p class="{{ block }}__title">{{ unavailableTitle }}</p>
+    <button bs2-ds-flat-button class="{{ block }}__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
       Atualizar
     </button>
   </div>

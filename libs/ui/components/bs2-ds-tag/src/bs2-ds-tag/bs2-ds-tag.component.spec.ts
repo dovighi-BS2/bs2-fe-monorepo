@@ -3,13 +3,11 @@ import { Bs2DSTagComponent } from './bs2-ds-tag.component';
 import { By } from '@angular/platform-browser';
 
 describe('Bs2DSTagComponent', () => {
-  const testId = 'bs2_ds_tag__test_id';
-
   let component: Bs2DSTagComponent;
   let fixture: ComponentFixture<Bs2DSTagComponent>;
 
   const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+    fixture.debugElement.query(By.css(`.bs2_ds_tag ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +17,6 @@ describe('Bs2DSTagComponent', () => {
     fixture = TestBed.createComponent(Bs2DSTagComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 

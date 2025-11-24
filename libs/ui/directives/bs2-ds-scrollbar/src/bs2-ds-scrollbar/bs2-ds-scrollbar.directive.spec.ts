@@ -22,15 +22,7 @@ describe('Bs2DSScrollbarDirective', () => {
 
   it('should create an instance', () => {
     const scrollbar = fixture.debugElement.query(By.css('div[bs2-ds-scrollbar]'));
-    const directive = new Bs2DSScrollbarDirective(scrollbar);
+    const directive = new Bs2DSScrollbarDirective();
     expect(directive).toBeTruthy();
-  });
-
-  it('should have .bs2-ds-scrollbar.filled.primary classes', () => {
-    const scrollbar = fixture.debugElement.query(By.css('div[bs2-ds-scrollbar]'));
-    new Bs2DSScrollbarDirective(scrollbar);
-    const classes = Object.values(scrollbar.nativeElement.classList);
-
-    expect(!!classes.find((item) => item === 'bs2_ds_scrollbar')).toBe(true);
   });
 });

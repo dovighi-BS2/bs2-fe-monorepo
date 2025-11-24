@@ -3,13 +3,11 @@ import { Bs2DSProgressBarComponent } from './bs2-ds-progress-bar.component';
 import { By } from '@angular/platform-browser';
 
 describe('Bs2DSProgressBarComponent', () => {
-  const testId = 'bs2_ds_progress_bar__test_id';
-
   let component: Bs2DSProgressBarComponent;
   let fixture: ComponentFixture<Bs2DSProgressBarComponent>;
 
   const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+    fixture.debugElement.query(By.css(`.bs2_ds_progress ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +17,6 @@ describe('Bs2DSProgressBarComponent', () => {
     fixture = TestBed.createComponent(Bs2DSProgressBarComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 

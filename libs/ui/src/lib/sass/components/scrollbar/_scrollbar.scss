@@ -19,6 +19,6 @@
   }
 }
 
-.bs2_ds_scrollbar {
+[bs2-ds-scrollbar] {
   @include bs2DSScrollbar();
 }

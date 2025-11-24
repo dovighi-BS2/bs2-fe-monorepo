@@ -182,7 +182,10 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     if (this.min && this.max)
       this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(this.min, this.max)]);
 
-    this.control.addValidators(CustomValidators.isBs2DSDatePickerValidator(this.controlToUser));
+    this.control.addValidators([
+      CustomValidators.isValidDate,
+      CustomValidators.isBs2DSDatePickerValidator(this.controlToUser),
+    ]);
 
     if (typeof this.control.value === 'string') {
       this.controlToUser.setValue(this.control.value);
@@ -213,14 +216,12 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const maskedDate = this.getMaskedDate();
     const d = maskedDate.split('/');
 
+    this.control.markAllAsTouched();
     this.controlToUser?.setValue(maskedDate);
 
     maskedDate
       ? this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])))
       : this.control?.setValue(null);
-
-    if (!this.control.value?.getDate() && !this.control.value)
-      this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
 
     if (this.controlToUser?.value.length !== 10) return;
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
@@ -339,6 +340,12 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {});
+    return errors[0];
+  }
+
+  get getErrorsToUser(): string {
+    if (!this.controlToUser || this.controlToUser.untouched) return '';
+    const errors = Object.values(this.controlToUser?.errors || {});
     return errors[0];
   }
 

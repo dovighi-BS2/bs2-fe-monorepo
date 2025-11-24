@@ -152,7 +152,7 @@ describe('CustomValidators', () => {
     control.setValue('01/01/2021');
     expect(validator(control)).toBeNull();
 
-    control.setValue('');
+    control.setValue('1');
     expect(validator(control)).toEqual({ isDateBetween: CustomValidatorMessages.date });
   });
 
@@ -164,7 +164,7 @@ describe('CustomValidators', () => {
     control.setValue('10/10/2024');
     expect(CustomValidators.isValidDateToUser(control)).toBeNull();
 
-    control.setValue('');
+    control.setValue('1');
     expect(CustomValidators.isValidDateToUser(control)).toEqual({ isValidDateToUser: CustomValidatorMessages.date });
   });
 

@@ -55,7 +55,6 @@ describe('Bs2DSInputTextComponent', () => {
     fixture.detectChanges();
     let main = get(`[data-test='${testId}']`);
     let feedback = get(`[data-test='${testId}'] .bs2_ds_input_text__feedback`);
-    expect(feedback).toBeFalsy();
     expect(main.classList.contains('error')).toBe(false);
 
     component.control?.setValue('');

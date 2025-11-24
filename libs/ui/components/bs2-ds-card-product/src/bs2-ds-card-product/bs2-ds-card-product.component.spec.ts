@@ -3,13 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 describe('Bs2DSCardProductComponent', () => {
-  const testId = 'card_product__test_id';
-
   let component: Bs2DSCardProductComponent;
   let fixture: ComponentFixture<Bs2DSCardProductComponent>;
 
   const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+    fixture.debugElement.query(By.css(`.bs2_ds_card_product ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +17,6 @@ describe('Bs2DSCardProductComponent', () => {
     fixture = TestBed.createComponent(Bs2DSCardProductComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 
@@ -47,21 +44,23 @@ describe('Bs2DSCardProductComponent', () => {
   });
 
   it('should show visible/hidden/unavailable contents', () => {
+    component.title = 'titulo';
+    component.label = 'label';
     component.value = 0;
 
     component.template = 'visible';
     fixture.detectChanges();
-    expect(get(`.product__value`)?.textContent.trim()).toBe('R$ 0,00');
-    expect(!!get(`.product__unavailable`)).toBe(false);
+    expect(get(`.bs2_ds_card_product__value`)?.textContent.trim()).toBe('R$ 0,00');
+    expect(!!get(`.bs2_ds_card_product__unavailable`)).toBe(false);
 
     component.template = 'hidden';
     fixture.detectChanges();
-    expect(get(`.product__value`)?.textContent.trim()).toBe('R$ ••••••');
-    expect(!!get(`.product__unavailable`)).toBe(false);
+    expect(get(`.bs2_ds_card_product__value`)?.textContent.trim()).toBe('R$ ••••••');
+    expect(!!get(`.bs2_ds_card_product__unavailable`)).toBe(false);
 
     component.template = 'unavailable';
     fixture.detectChanges();
-    expect(!!get(`.product__product`)).toBe(false);
-    expect(!!get(`.product__unavailable`)).toBe(true);
+    expect(!!get(`.bs2_ds_card_product__product`)).toBe(false);
+    expect(!!get(`.bs2_ds_card_product__unavailable`)).toBe(true);
   });
 });

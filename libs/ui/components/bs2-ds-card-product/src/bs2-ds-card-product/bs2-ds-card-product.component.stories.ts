@@ -74,12 +74,26 @@ export default meta;
 type Story = StoryObj<Bs2DSCardProductComponent>;
 
 export const Default: Story = {
-  render: () => ({
+  args: {
+    loader: false,
+    unavailableTitle: '',
+    icon: '',
+    title: 'Crédito',
+    label: 'Limite disponível até',
+    value: 50000,
+    template: 'visible',
+  },
+  render: (args) => ({
+    props: { ...args },
     template: `
       <bs2-ds-card-product
-        [title]="'Crédito'"
-        [label]="'Limite disponível até'"
-        [value]="50000"
+        [loader]="loader"
+        [unavailableTitle]="unavailableTitle"
+        [icon]="icon"
+        [title]="title"
+        [label]="label"
+        [value]="value"
+        [template]="template"
       ></bs2-ds-card-product>
     `,
   }),

@@ -3,13 +3,11 @@ import { Bs2DSStatusComponent } from './bs2-ds-status.component';
 import { By } from '@angular/platform-browser';
 
 describe('Bs2DSStatusComponent', () => {
-  const testId = 'bs2-ds-status_text__test_id';
-
   let component: Bs2DSStatusComponent;
   let fixture: ComponentFixture<Bs2DSStatusComponent>;
 
   const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+    fixture.debugElement.query(By.css(`.bs2_ds_status ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +17,6 @@ describe('Bs2DSStatusComponent', () => {
     fixture = TestBed.createComponent(Bs2DSStatusComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 
