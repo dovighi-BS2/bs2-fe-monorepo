@@ -24,6 +24,7 @@
       "@bs2/design-system/components/bs2-ds-card-rating": ["libs/ui/components/bs2-ds-card-rating/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-chips": ["libs/ui/components/bs2-ds-chips/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-datepicker": ["libs/ui/components/bs2-ds-datepicker/src/index.ts"],
+      "@bs2/design-system/components/bs2-ds-dialog": ["libs/ui/components/bs2-ds-dialog/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-divider": ["libs/ui/components/bs2-ds-divider/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-feedback": ["libs/ui/components/bs2-ds-feedback/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-input-currency": ["libs/ui/components/bs2-ds-input-currency/src/index.ts"],
@@ -37,7 +38,6 @@
       "@bs2/design-system/components/bs2-ds-step-navigator": ["libs/ui/components/bs2-ds-step-navigator/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
-      "@bs2/design-system/components/bs2-ds-dialog": ["libs/ui/components/bs2-ds-dialog/src/index.ts"],
       "@bs2/design-system/directives/bs2-ds-button-selector": [
         "libs/ui/directives/bs2-ds-button-selector/src/index.ts"
       ],
@@ -55,6 +55,7 @@
         "libs/ui/directives/bs2-ds-loading-spinning/src/index.ts"
       ],
       "@bs2/design-system/directives/bs2-ds-scrollbar": ["libs/ui/directives/bs2-ds-scrollbar/src/index.ts"],
+      "@bs2/design-system/directives/bs2-ds-tooltip": ["libs/ui/directives/bs2-ds-tooltip/src/index.ts"],
       "@bs2/design-system/types": ["libs/ui/types/src/index.ts"],
       "@bs2/design-system/validators": ["libs/ui/validators/src/index.ts"]
     }

@@ -1,4 +1,6 @@
-<div class="balance" [attr.data-test]="testId" [bs2-ds-loading-spinning]="loader">
+@let block = "bs2_ds_card_balance";
+
+<div class="{{ block }}" [bs2-ds-loading-spinning]="loader">
   @if(template === 'visible' && (!Number.isNaN(balance) && !Number.isNaN(limit))){
   <ng-container *ngTemplateOutlet="visible"></ng-container>
   } @if(template === 'hidden' && (!Number.isNaN(balance) && !Number.isNaN(limit))){
@@ -9,23 +11,23 @@
 </div>
 
 <ng-template #visible>
-  <span class="balance__toggler" (click)="setTemplate('hidden')">></span>
-  <p class="balance__title">Saldo em conta</p>
-  <p class="balance__balance">R$ {{ transform(Number(balance)) }}</p>
-  <p class="balance__limit">Saldo + Limite: {{ transform(Number(balance) + Number(limit)) }}</p>
+  <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">></span>
+  <p class="{{ block }}__title">Saldo em conta</p>
+  <p class="{{ block }}__balance">R$ {{ transform(Number(balance)) }}</p>
+  <p class="{{ block }}__limit">Saldo + Limite: {{ transform(Number(balance) + Number(limit)) }}</p>
 </ng-template>
 
 <ng-template #hidden>
-  <span class="balance__toggler" (click)="setTemplate('visible')">></span>
-  <p class="balance__title">Saldo em conta</p>
-  <p class="balance__balance">R$ ••••••</p>
-  <p class="balance__limit">Saldo + Limite: ••••••</p>
+  <span class="{{ block }}__toggler" (click)="setTemplate('visible')">></span>
+  <p class="{{ block }}__title">Saldo em conta</p>
+  <p class="{{ block }}__balance">R$ ••••••</p>
+  <p class="{{ block }}__limit">Saldo + Limite: ••••••</p>
 </ng-template>
 
 <ng-template #unavailable>
-  <div class="balance__unavailable">
-    <p class="balance__title">Saldo indisponível no momento</p>
-    <button bs2-ds-flat-button class="balance__button" (click)="update?.emit()" aria-label="Atualizar saldo">
+  <div class="{{ block }}__unavailable">
+    <p class="{{ block }}__title">Saldo indisponível no momento</p>
+    <button bs2-ds-flat-button class="{{ block }}__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
       Atualizar
     </button>
   </div>

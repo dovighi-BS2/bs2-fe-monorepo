@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -65,6 +65,10 @@ export class Bs2DSInputTokenComponent implements OnInit {
     for (let i = 0; i < this.amount; i++) if (this.form.at(i).touched) touchedCount++;
     if (touchedCount >= this.amount) this.control.markAllAsTouched();
     this.control.setValue(value.join(''), { emitEvent: false });
+  }
+
+  getControlByItem(item: AbstractControl): FormControl {
+    return item as FormControl;
   }
 
   public get getErrors(): string {

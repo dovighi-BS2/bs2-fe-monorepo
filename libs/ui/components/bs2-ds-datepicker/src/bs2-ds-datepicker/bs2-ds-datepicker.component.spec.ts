@@ -597,7 +597,7 @@ describe('Bs2DSDatepickerComponent', () => {
     fixture.detectChanges();
     expect(component.getErrors).toBe('');
 
-    component.control?.setValue('');
+    component.control?.setValue('01/01/202');
     component.control.markAllAsTouched();
     fixture.detectChanges();
     expect(component.getErrors).toBe(CustomValidatorMessages.date);

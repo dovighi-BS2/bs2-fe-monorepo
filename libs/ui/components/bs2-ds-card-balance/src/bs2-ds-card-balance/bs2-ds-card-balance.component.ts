@@ -11,12 +11,11 @@ import { Bs2DSLoadingSpinningDirective } from '@bs2/design-system/directives/bs2
   styleUrl: './bs2-ds-card-balance.component.scss',
 })
 export class Bs2DSCardBalanceComponent {
-  @Input() testId? = '';
-  @Input() loader? = false;
-  @Input() balance? = 0;
-  @Input() limit? = 0;
+  @Input() loader = false;
+  @Input() balance = 0;
+  @Input() limit = 0;
   @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';
-  @Output() update: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public Number = Number;
 

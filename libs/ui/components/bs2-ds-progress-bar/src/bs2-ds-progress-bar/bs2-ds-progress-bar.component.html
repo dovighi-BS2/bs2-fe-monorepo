@@ -1,13 +1,9 @@
 @if(theme){
-<span
-  class="bs2_ds_progress {{ loop ? 'loop' : '' }}"
-  [attr.data-test]="testId"
-  [style.--bs2_ds_progress_bar__theme]="'var(--' + theme + ')'"
->
+<span class="bs2_ds_progress {{ loop ? 'loop' : '' }}" [style.--bs2_ds_progress_bar__theme]="'var(--' + theme + ')'">
   <span class="bs2_ds_progress__bar" [style.width]="percent + '%'"></span>
 </span>
 } @if(!theme){
-<span class="bs2_ds_progress {{ loop ? 'loop' : '' }}" [attr.data-test]="testId">
+<span class="bs2_ds_progress {{ loop ? 'loop' : '' }}">
   <span class="bs2_ds_progress__bar" [style.width]="percent + '%'"></span>
 </span>
 }

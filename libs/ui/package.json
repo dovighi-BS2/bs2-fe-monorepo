@@ -1,13 +1,11 @@
 {
   "name": "@bs2/design-system",
-  "version": "0.0.103",
+  "version": "1.0.0",
   "sideEffects": false,
   "peerDependencies": {
     "@angular/common": ">=18.0.0",
     "@angular/core": ">=18.0.0",
     "@angular/cdk": "^18.2.1",
-    "@nx/devkit": "^20.0.0",
-    "nx": "^20.0.0",
     "ngx-mask": "^14.2.4",
     "ngx-currency": "^18.0.0",
     "rxjs": "~6.6.2"

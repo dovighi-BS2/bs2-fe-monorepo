@@ -3,13 +3,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 describe('Bs2DSCardBalanceComponent', () => {
-  const testId = 'card_Balance__test_id';
-
   let component: Bs2DSCardBalanceComponent;
   let fixture: ComponentFixture<Bs2DSCardBalanceComponent>;
 
-  const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+  const get = (selector: string) => fixture.debugElement.query(By.css(`${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +16,6 @@ describe('Bs2DSCardBalanceComponent', () => {
     fixture = TestBed.createComponent(Bs2DSCardBalanceComponent);
     component = fixture.componentInstance;
 
-    component.testId = testId;
     fixture.detectChanges();
   });
 
@@ -47,19 +43,22 @@ describe('Bs2DSCardBalanceComponent', () => {
   });
 
   it('should show visible/hidden/unavailable contents', () => {
+    component.balance = 0;
+    component.limit = 0;
+
     component.template = 'visible';
     fixture.detectChanges();
-    expect(get(`.balance__balance`)?.textContent.trim()).toBe('R$ 0,00');
-    expect(!!get(`.balance__unavailable`)).toBe(false);
+    expect(get(`.bs2_ds_card_balance__balance`)?.textContent.trim()).toBe('R$ 0,00');
+    expect(!!get(`.bs2_ds_card_balance__unavailable`)).toBe(false);
 
     component.template = 'hidden';
     fixture.detectChanges();
-    expect(get(`.balance__balance`)?.textContent.trim()).toBe('R$ ••••••');
-    expect(!!get(`.balance__unavailable`)).toBe(false);
+    expect(get(`.bs2_ds_card_balance__balance`)?.textContent.trim()).toBe('R$ ••••••');
+    expect(!!get(`.bs2_ds_card_balance__unavailable`)).toBe(false);
 
     component.template = 'unavailable';
     fixture.detectChanges();
-    expect(!!get(`.balance__balance`)).toBe(false);
-    expect(!!get(`.balance__unavailable`)).toBe(true);
+    expect(!!get(`.bs2_ds_card_balance__balance`)).toBe(false);
+    expect(!!get(`.bs2_ds_card_balance__unavailable`)).toBe(true);
   });
 });

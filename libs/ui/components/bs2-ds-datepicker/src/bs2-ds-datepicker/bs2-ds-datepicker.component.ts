@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
@@ -46,8 +46,8 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   @Input() ariaRequired = false;
   @Input() ariaInvalid = false;
 
-  @Input() min: Date = new Date('1900-01-01T03:00:00.000Z');
-  @Input() max: Date = new Date('2100-12-31T03:00:00.000Z');
+  @Input() min?: Date;
+  @Input() max?: Date;
   @Input() selectedDate?: Date;
   @Input() disabled = false;
 
@@ -170,18 +170,22 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   };
 
   ngOnInit(): void {
-    this.selectedDate = this.max;
+    const today = new Date();
+    this.selectedDate = (this.max?.valueOf() || Infinity) > today.valueOf() ? today : this.max;
     this.selectedYear = this.selectedDate.getFullYear();
     this.selectedMonth = this.selectedDate.getMonth() + 1;
     this.selectedDay = this.selectedDate.getDate();
 
     this.fillCalendar();
 
-    this.formToUser
-      .get('date')
-      .setValidators([CustomValidators.isValidDateToUser, CustomValidators.isDateBetween(this.min, this.max)]);
+    this.formToUser.get('date').addValidators([CustomValidators.isValidDateToUser]);
+    if (this.min && this.max)
+      this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(this.min, this.max)]);
 
-    this.control.addValidators(CustomValidators.isBs2DSDatePickerValidator(this.controlToUser));
+    this.control.addValidators([
+      CustomValidators.isValidDate,
+      CustomValidators.isBs2DSDatePickerValidator(this.controlToUser),
+    ]);
 
     if (typeof this.control.value === 'string') {
       this.controlToUser.setValue(this.control.value);
@@ -212,10 +216,12 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const maskedDate = this.getMaskedDate();
     const d = maskedDate.split('/');
 
+    this.control.markAllAsTouched();
     this.controlToUser?.setValue(maskedDate);
-    this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])));
 
-    if (!this.control.value?.getDate()) this.control.setErrors({ isValidDate: CustomValidatorMessages.date });
+    maskedDate
+      ? this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])))
+      : this.control?.setValue(null);
 
     if (this.controlToUser?.value.length !== 10) return;
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
@@ -300,15 +306,15 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   isDaySelectable(date: Date) {
-    return date.valueOf() >= this.min.valueOf() && date.valueOf() <= this.max.valueOf();
+    return date.valueOf() >= (this.min?.valueOf() || 0) && date.valueOf() <= (this.max?.valueOf() || Infinity);
   }
   isMonthSelectable(month: number) {
     const date = this.newDate(this.selectedYear, month, 1).valueOf();
-    return date >= this.min.valueOf() && date <= this.max.valueOf();
+    return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
   }
   isYearSelectable(year: number) {
     const date = this.newDate(year, 1, 1).valueOf();
-    return date >= this.min.valueOf() && date <= this.max.valueOf();
+    return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
   }
   getFormatedDate(date: Date): string {
     const year = date.getFullYear();
@@ -334,6 +340,12 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {});
+    return errors[0];
+  }
+
+  get getErrorsToUser(): string {
+    if (!this.controlToUser || this.controlToUser.untouched) return '';
+    const errors = Object.values(this.controlToUser?.errors || {});
     return errors[0];
   }
 

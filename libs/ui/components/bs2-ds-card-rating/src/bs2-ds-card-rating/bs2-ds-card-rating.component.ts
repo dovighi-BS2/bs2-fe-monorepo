@@ -10,7 +10,6 @@ import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/form
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Bs2DSCardRatingComponent {
-  @Input() testId? = '';
   @Input() control: AbstractControl = new FormControl();
   @Input() title? = '';
   @Input() from = 1;

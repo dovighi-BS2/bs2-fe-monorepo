@@ -29,6 +29,7 @@ export class Bs2DSInputTextareaComponent {
   @Input() autosize = true;
   @Input() resize = false;
   @Input() rows = 1;
+  @Input() hideErrors = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;

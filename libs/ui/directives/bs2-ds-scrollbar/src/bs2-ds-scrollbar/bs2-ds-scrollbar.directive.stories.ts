@@ -1,49 +1,70 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Component } from '@angular/core';
-import { Bs2DSScrollbarDirective } from './bs2-ds-scrollbar.directive';
+import { Bs2DSScrollbarDirective } from '@bs2/design-system/directives/bs2-ds-scrollbar';
 
-@Component({
-  selector: 'bs2-ds-scrollbar-mock',
-  styles: `
-    .wrapper{ height:300px; overflow: auto; }
-  `,
-  template: `
-    <div class="wrapper" bs2-ds-scrollbar>
-      @for(item of array; track item){
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis?
-      </p>
-      }
-    </div>
-  `,
-  imports: [Bs2DSScrollbarDirective],
-  standalone: true,
-})
-class MockBs2DSScrollbarComponent {
-  public array = Array(20)
-    .fill(0)
-    .map((i, key) => key);
-}
-
-const meta: Meta<MockBs2DSScrollbarComponent> = {
-  component: MockBs2DSScrollbarComponent,
+const meta: Meta<Bs2DSScrollbarDirective> = {
+  component: Bs2DSScrollbarDirective,
   title: 'Directives/Scrollbar',
-  subcomponents: {
-    Bs2DSScrollbarDirective,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          A scrollbar é um componente visual que indica e permite a navegação em conteúdos que excedem o espaço visível na tela, também conhecido como dobra. Ela serve para mostrar a posição atual do usuário no conteúdo e oferecer um meio de interação para rolar vertical ou horizontalmente telas que ocupem espaços mais longos, garantindo acessibilidade e usabilidade em interfaces com conteúdo extenso.
+        `.trim(),
+      },
+    },
   },
   decorators: [
     moduleMetadata({
-      imports: [MockBs2DSScrollbarComponent, Bs2DSScrollbarDirective],
+      imports: [Bs2DSScrollbarDirective],
+    }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],
     }),
   ],
 };
 export default meta;
-type Story = StoryObj<MockBs2DSScrollbarComponent>;
+type Story = StoryObj<Bs2DSScrollbarDirective>;
 
-export const Filled: Story = {
+export const Default: Story = {
   render: () => ({
-    template: `<bs2-ds-scrollbar-mock />`,
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSScrollbarDirective } from "@bs2/design-system/directives/bs2-ds-scrollbar";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSScrollbarDirective], ... })
+export class YourComponentComponent {}
+-->
+
+    <!-- HTML -->
+    <style>[bs2-ds-scrollbar] { width: 100%; height: 300px; overflow-y: auto; overflow-x: hidden; }</style>
+    <div bs2-ds-scrollbar>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+        quis? <br /><br />
+    </div>
+    `.trim(),
   }),
 };

@@ -4,7 +4,6 @@ import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { Bs2DSChipOption } from './bs2-ds-chips.interface';
 
 describe('Bs2DSChipsComponent', () => {
-  const testId = 'bs2_ds_chips__test_id';
   const options: Bs2DSChipOption[] = [
     { value: 'chip1', label: 'Chip 1', disabled: false },
     { value: 'chip2', label: 'Chip 2', disabled: false },
@@ -27,7 +26,6 @@ describe('Bs2DSChipsComponent', () => {
     });
 
     component.control = form.get('chips')!;
-    component.testId = testId;
     component.options = options;
     fixture.detectChanges();
   });

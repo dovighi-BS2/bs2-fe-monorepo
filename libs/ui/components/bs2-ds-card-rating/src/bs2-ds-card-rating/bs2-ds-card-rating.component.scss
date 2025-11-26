@@ -11,6 +11,10 @@
     font-weight: 600;
     margin-top: 0px;
     margin-bottom: 16px;
+
+    &:empty {
+      margin-bottom: 0px;
+    }
   }
   &__rate {
     display: flex;
@@ -47,6 +51,10 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+
+    &:empty {
+      margin-top: 0px;
+    }
   }
   &__text_item {
     font-size: 10px;
