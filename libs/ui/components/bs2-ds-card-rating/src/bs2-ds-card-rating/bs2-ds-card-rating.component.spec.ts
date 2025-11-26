@@ -6,13 +6,11 @@ import { CustomValidators } from '@bs2/design-system/validators';
 import { ChangeDetectorRef } from '@angular/core';
 
 describe('Bs2DSCardRatingComponent', () => {
-  const testId = 'bs2_ds_card_rating__test_id';
-
   let component: Bs2DSCardRatingComponent;
   let fixture: ComponentFixture<Bs2DSCardRatingComponent>;
 
   const get = (selector: string) =>
-    fixture.debugElement.query(By.css(`[data-test='${testId}'] ${selector}`))?.nativeElement || undefined;
+    fixture.debugElement.query(By.css(`.review ${selector}`))?.nativeElement || undefined;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -25,7 +23,6 @@ describe('Bs2DSCardRatingComponent', () => {
       rate: new FormControl(null, [CustomValidators.required]),
     });
     component.control = form.get('rate');
-    component.testId = testId;
     fixture.detectChanges();
   });
 
