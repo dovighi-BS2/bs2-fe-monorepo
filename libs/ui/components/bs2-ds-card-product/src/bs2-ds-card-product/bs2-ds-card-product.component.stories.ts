@@ -86,15 +86,25 @@ export const Default: Story = {
   render: (args) => ({
     props: { ...args },
     template: `
-      <bs2-ds-card-product
-        [loader]="loader"
-        [unavailableTitle]="unavailableTitle"
-        [icon]="icon"
-        [title]="title"
-        [label]="label"
-        [value]="value"
-        [template]="template"
-      ></bs2-ds-card-product>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-card-product";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardProductComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-product
+  [loader]="loader"
+  [unavailableTitle]="unavailableTitle"
+  [icon]="icon"
+  [title]="title"
+  [label]="label"
+  [value]="value"
+  [template]="template"
+></bs2-ds-card-product>
     `,
   }),
 };
@@ -102,11 +112,21 @@ export const Default: Story = {
 export const Visible: Story = {
   render: () => ({
     template: `
-      <bs2-ds-card-product
-        [title]="'Crédito'"
-        [label]="'Limite disponível até'"
-        [value]="50000"
-      ></bs2-ds-card-product>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-card-product";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardProductComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-product
+  [title]="'Crédito'"
+  [label]="'Limite disponível até'"
+  [value]="50000"
+></bs2-ds-card-product>
     `,
   }),
 };
@@ -114,12 +134,22 @@ export const Visible: Story = {
 export const Hidden: Story = {
   render: () => ({
     template: `
-      <bs2-ds-card-product
-        [title]="'Crédito'"
-        [label]="'Limite disponível até'"
-        [value]="50000"
-        [template]="'hidden'"
-      ></bs2-ds-card-product>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-card-product";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardProductComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-product
+  [title]="'Crédito'"
+  [label]="'Limite disponível até'"
+  [value]="50000"
+  [template]="'hidden'"
+></bs2-ds-card-product>
     `,
   }),
 };
@@ -127,10 +157,20 @@ export const Hidden: Story = {
 export const TextOnly: Story = {
   render: () => ({
     template: `
-      <bs2-ds-card-product
-        [title]="'Label'"
-        [label]="'Lorem ipsum pimentbus ardentis queimatuns est labiatuns'"
-      ></bs2-ds-card-product>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-card-product";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardProductComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-product
+  [title]="'Label'"
+  [label]="'Lorem ipsum pimentbus ardentis queimatuns est labiatuns'"
+></bs2-ds-card-product>
     `,
   }),
 };
@@ -175,20 +215,26 @@ export const Unavailable: Story = {
         code: `
 <!-- TYPESCRIPT -->
 <!--
-public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';
-public value: number = 0;
-public loader: boolean = false;
-public emitter(): void {
-  this.loader = true;
-  of(null)
-    .pipe(
-      delay(3000),
-      finalize(() => (this.loader = false))
-    )
-    .subscribe(() => {
-      this.template = "visible";
-      this.value = Math.floor(Math.random() * 1000);
-    });
+import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-card-product";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardProductComponent], ... })
+export class YourComponentComponent {
+  public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';
+  public value: number = 0;
+  public loader: boolean = false;
+  public emitter(): void {
+    this.loader = true;
+    of(null)
+      .pipe(
+        delay(3000),
+        finalize(() => (this.loader = false))
+      )
+      .subscribe(() => {
+        this.template = "visible";
+        this.value = Math.floor(Math.random() * 1000);
+      });
+  }
 }
 -->
 

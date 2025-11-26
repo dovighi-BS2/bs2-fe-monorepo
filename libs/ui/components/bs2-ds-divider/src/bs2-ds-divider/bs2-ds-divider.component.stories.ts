@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSDividerComponent } from './bs2-ds-divider.component';
+import { Bs2DSDividerComponent } from '@bs2/design-system/components/bs2-ds-divider';
 
 const meta: Meta<Bs2DSDividerComponent> = {
   component: Bs2DSDividerComponent,
@@ -40,4 +40,20 @@ export const Default: Story = {
   args: {
     space: 20,
   },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSDividerComponent } from "@bs2/design-system/components/bs2-ds-divider";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSDividerComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-divider [space]="space" />
+    `,
+  }),
 };

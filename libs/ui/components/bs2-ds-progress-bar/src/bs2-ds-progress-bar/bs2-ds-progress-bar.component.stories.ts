@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSProgressBarComponent } from './bs2-ds-progress-bar.component';
+import { Bs2DSProgressBarComponent } from '@bs2/design-system/components/bs2-ds-progress-bar';
 
 const meta: Meta<Bs2DSProgressBarComponent> = {
   component: Bs2DSProgressBarComponent,
@@ -45,4 +45,20 @@ export const Default: Story = {
     percent: 0,
     loop: false,
   },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSProgressBarComponent } from "@bs2/design-system/components/bs2-ds-progress-bar";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSProgressBarComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-progress-bar [percent]="percent" [loop]="loop" />
+    `,
+  }),
 };

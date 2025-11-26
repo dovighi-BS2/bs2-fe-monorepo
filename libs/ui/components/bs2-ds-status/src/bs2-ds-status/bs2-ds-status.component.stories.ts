@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSStatusComponent } from './bs2-ds-status.component';
+import { Bs2DSStatusComponent } from '@bs2/design-system/components/bs2-ds-status';
 
 const meta: Meta<Bs2DSStatusComponent> = {
   component: Bs2DSStatusComponent,
@@ -46,4 +46,20 @@ export const Default: Story = {
     status: 'neutral',
     text: 'Seu texto aqui',
   },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSStatusComponent } from "@bs2/design-system/components/bs2-ds-status";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSStatusComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-status [status]="status" [text]="text" />
+    `,
+  }),
 };

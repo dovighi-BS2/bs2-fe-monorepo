@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSTagComponent } from './bs2-ds-tag.component';
+import { Bs2DSTagComponent } from '@bs2/design-system/components/bs2-ds-tag';
 
 const meta: Meta<Bs2DSTagComponent> = {
   component: Bs2DSTagComponent,
@@ -54,4 +54,20 @@ export const Default: Story = {
     size: 'regular',
     text: 'Seu texto aqui',
   },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSTagComponent } from "@bs2/design-system/components/bs2-ds-tag";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSTagComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-tag [status]="status" [size]="size" [text]="text" />
+    `,
+  }),
 };

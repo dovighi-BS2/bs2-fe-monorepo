@@ -1,4 +1,4 @@
-import { Bs2DSCardBalanceComponent } from './bs2-ds-card-balance.component';
+import { Bs2DSCardBalanceComponent } from '@bs2/design-system/components/bs2-ds-card-balance';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { of } from 'rxjs';
 import { delay, finalize } from 'rxjs/operators';
@@ -61,12 +61,22 @@ export const Default: Story = {
   render: (args) => ({
     props: { ...args },
     template: `
-      <bs2-ds-card-balance
-        [balance]="balance"
-        [limit]="limit"
-        [template]="template"
-        [loader]="loader"
-      ></bs2-ds-card-balance>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-card-balance";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardBalanceComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-balance
+  [balance]="balance"
+  [limit]="limit"
+  [template]="template"
+  [loader]="loader"
+></bs2-ds-card-balance>
     `,
   }),
 };
@@ -74,10 +84,20 @@ export const Default: Story = {
 export const Visible: Story = {
   render: () => ({
     template: `
-      <bs2-ds-card-balance
-        [balance]="1000000000.12"
-        [limit]="3000000000.23"
-      ></bs2-ds-card-balance>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-card-balance";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardBalanceComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-balance
+  [balance]="1000000000.12"
+  [limit]="3000000000.23"
+></bs2-ds-card-balance>
     `,
   }),
 };
@@ -90,11 +110,21 @@ export const Hidden: Story = {
   },
   render: () => ({
     template: `
-      <bs2-ds-card-balance
-        [balance]="1000000000.12"
-        [limit]="3000000000.23"
-        [template]="'hidden'"
-      ></bs2-ds-card-balance>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-card-balance";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardBalanceComponent], ... })
+export class YourComponentComponent {}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-balance
+  [balance]="1000000000.12"
+  [limit]="3000000000.23"
+  [template]="'hidden'"
+></bs2-ds-card-balance>
     `,
   }),
 };
@@ -140,21 +170,27 @@ export const Unavailable: Story = {
         code: `
 <!-- TYPESCRIPT -->
 <!--
-public balance: number = 0;
-public limit: number = 0;
-public loader: boolean = false;
-public emitter(): void {
-  this.loader = true;
-  of(null)
-    .pipe(
-      delay(3000),
-      finalize(() => (this.loader = false))
-    )
-    .subscribe(() => {
-      this.template = "visible";
-      this.balance = Math.floor(Math.random() * 1000);
-      this.limit = Math.floor(Math.random() * 3000);
-    });
+import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-card-balance";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardBalanceComponent], ... })
+export class YourComponentComponent {
+  public balance: number = 0;
+  public limit: number = 0;
+  public loader: boolean = false;
+  public emitter(): void {
+    this.loader = true;
+    of(null)
+      .pipe(
+        delay(3000),
+        finalize(() => (this.loader = false))
+      )
+      .subscribe(() => {
+        this.template = "visible";
+        this.balance = Math.floor(Math.random() * 1000);
+        this.limit = Math.floor(Math.random() * 3000);
+      });
+  }
 }
 -->
 

@@ -13,7 +13,6 @@ import { CustomValidators } from '@bs2/design-system/validators';
 })
 export class Bs2DSChipsComponent implements OnInit {
   @Input() control: AbstractControl = new FormControl();
-  @Input() testId?: string = '';
 
   @Input() minSelectable?: number;
   @Input() maxSelectable?: number;

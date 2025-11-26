@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSScrollbarDirective } from './bs2-ds-scrollbar.directive';
+import { Bs2DSScrollbarDirective } from '@bs2/design-system/directives/bs2-ds-scrollbar';
 
 const meta: Meta<Bs2DSScrollbarDirective> = {
   component: Bs2DSScrollbarDirective,
@@ -31,6 +31,16 @@ type Story = StoryObj<Bs2DSScrollbarDirective>;
 export const Default: Story = {
   render: () => ({
     template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSScrollbarDirective } from "@bs2/design-system/directives/bs2-ds-scrollbar";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSScrollbarDirective], ... })
+export class YourComponentComponent {}
+-->
+
+    <!-- HTML -->
     <style>[bs2-ds-scrollbar] { width: 100%; height: 300px; overflow-y: auto; overflow-x: hidden; }</style>
     <div bs2-ds-scrollbar>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
@@ -55,6 +65,6 @@ export const Default: Story = {
         cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
         quis? <br /><br />
     </div>
-    `,
+    `.trim(),
   }),
 };
