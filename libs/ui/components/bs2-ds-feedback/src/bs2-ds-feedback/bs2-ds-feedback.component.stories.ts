@@ -1,44 +1,58 @@
-import { Bs2DSFeedbackService } from './bs2-ds-feedback.service';
-import { Bs2DSFeedbackComponent } from './bs2-ds-feedback.component';
 import { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Component, inject, Input } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Bs2DSFeedbackContainerComponent } from '../bs2-ds-feedback-container/bs2-ds-feedback-container.component';
+import {
+  Bs2DSFeedbackContainerComponent,
+  Bs2DSFeedbackComponent,
+  Bs2DSFeedbackService,
+} from '@bs2/design-system/components/bs2-ds-feedback';
 
 @Component({
-  selector: 'button-mock',
+  selector: 'mock-bs2-ds-feedback',
   template: `
     <bs2-ds-feedback-container />
     <p>Para fazer o uso do toast, é necessário usar a service Bs2DSFeedbackService.</p>
     <button
       bs2-ds-filled-button
       (click)="
-        feedbackService.add({ title: this.title, message: this.message, status: this.status, duration: this.duration })
+        bs2DSFeedbackService.add({
+          title: this.title,
+          message: this.message,
+          status: this.status,
+          duration: this.duration
+        })
       "
       aria-label="label"
     >
-      Abrir Toast
+      Abrir Feedback
     </button>
   `,
   standalone: true,
   imports: [Bs2DSFeedbackContainerComponent, Bs2DSFilledButtonDirective],
 })
 class MockBs2DSFeedbackComponent {
-  @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
   @Input() duration?: number;
   @Input() title = '';
   @Input() message = '';
 
-  public feedbackService = inject(Bs2DSFeedbackService);
+  public bs2DSFeedbackService = inject(Bs2DSFeedbackService);
 }
 
 const meta: Meta<MockBs2DSFeedbackComponent> = {
   component: MockBs2DSFeedbackComponent,
   title: 'Components/Feedback',
-  subcomponents: {
-    Bs2DSFeedbackComponent,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          Os componentes de feedback são elementos visuais projetados para comunicar ao usuário o status de ações, interações ou processos dentro da interface. Com indicadores de  sucesso, erro, alerta e informação. Esses componentes têm como objetivo fornecer respostas claras e imediatas ao usuário, garantindo que ele compreenda o impacto de suas ações e saiba como proceder em seguida.
+        `.trim(),
+      },
+    },
   },
   decorators: [
     moduleMetadata({
@@ -51,52 +65,31 @@ const meta: Meta<MockBs2DSFeedbackComponent> = {
         BrowserAnimationsModule,
       ],
     }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],
+    }),
   ],
   argTypes: {
     title: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
+      table: { type: { summary: 'string' } },
     },
     message: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
+      table: { type: { summary: 'string' } },
     },
     status: {
       control: 'select',
       options: ['info', 'attention', 'error', 'success'],
-      defaultValue: { summary: 'visible' },
-      table: {
-        type: {
-          summary: 'info | attention | error | success',
-        },
-      },
+      defaultValue: { summary: 'info' },
+      table: { type: { summary: "'info' | 'attention' | 'error' | 'success'" } },
     },
     duration: {
       defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'number | undefined',
-        },
-      },
-    },
-    testId: {
-      control: { type: 'text' },
-      defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
+      table: { type: { summary: 'number | undefined' } },
     },
   },
 };
@@ -111,10 +104,23 @@ export const Static: Story = {
   render: (args: MockBs2DSFeedbackComponent) => {
     return {
       template: `
-        <bs2-ds-feedback status='info' title='${args.title}' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='attention' title='${args.title}' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='error' title='${args.title}' message='${args.message}' /><br/>
-        <bs2-ds-feedback status='success' title='${args.title}' message='${args.message}' />
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSFeedbackComponent } from '@bs2/design-system/components/bs2-ds-feedback';
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSFeedbackComponent], ... })
+export class YourComponentComponent {
+    public title: string = 'Lorem ipsum dolor title';
+    public message: string = 'Lorem ipsum dolor message';
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-feedback status='info' title='${args.title}' message='${args.message}' /><br/>
+<bs2-ds-feedback status='attention' title='${args.title}' message='${args.message}' /><br/>
+<bs2-ds-feedback status='error' title='${args.title}' message='${args.message}' /><br/>
+<bs2-ds-feedback status='success' title='${args.title}' message='${args.message}' />
       `,
     };
   },
@@ -122,8 +128,30 @@ export const Static: Story = {
 
 export const Toast: Story = {
   args: {
-    title: 'Lorem ipsum dolor title',
-    message: 'Lorem ipsum dolor message',
-    status: 'success',
+    title: 'Título teste',
+    message: 'Mensagem teste',
+    duration: 5000,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSFeedbackContainerComponent, Bs2DSFeedbackService } from '@bs2/design-system/components/bs2-ds-feedback';
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSFeedbackContainerComponent, Bs2DSFeedbackService], ... })
+export class YourComponentComponent {
+  public bs2DSFeedbackService = inject(Bs2DSFeedbackService);
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-feedback-container />
+<button (click)="bs2DSFeedbackService.add({ title: 'Título teste', message: 'Mensagem teste', status: 'info', duration: 5000 })">Abrir Feedback</button>
+          `.trim(),
+      },
+    },
   },
 };

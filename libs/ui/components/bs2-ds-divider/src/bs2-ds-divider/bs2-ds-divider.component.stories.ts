@@ -49,7 +49,9 @@ import { Bs2DSDividerComponent } from "@bs2/design-system/components/bs2-ds-divi
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSDividerComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public space: number = 20;
+}
 -->
 
 <!-- HTML -->

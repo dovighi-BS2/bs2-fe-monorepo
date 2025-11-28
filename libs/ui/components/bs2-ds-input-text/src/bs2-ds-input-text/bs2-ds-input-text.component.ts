@@ -19,7 +19,6 @@ export class Bs2DSInputTextComponent {
   @Input() control = new FormControl();
   @Input() type = 'text';
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';

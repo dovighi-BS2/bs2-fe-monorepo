@@ -81,7 +81,14 @@ import { Bs2DSCardRatingComponent } from "@bs2/design-system/components/bs2-ds-c
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSCardRatingComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+  public control: FormControl = new FormControl(null);
+  public title: string = "Como você avalia nossa nova tela inicial?";
+  public from: number = 1;
+  public to: number = 5;
+  public firstText: string = "Muito Ruim";
+  public lastText: string = "Excelente";
+}
 -->
 
 <!-- HTML -->

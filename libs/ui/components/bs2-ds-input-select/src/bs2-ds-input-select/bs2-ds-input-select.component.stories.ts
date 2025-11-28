@@ -1,133 +1,140 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSInputSelectComponent } from './bs2-ds-input-select.component';
 
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 
-const options: Bs2DSInputSelectOption[] = [
-  { value: 1, text: 'Categoria 1' },
-  { value: 2, text: 'Categoria 2' },
-  { value: 3, text: 'Categoria 3' },
-  { value: 4, text: 'Categoria 4' },
-  { value: 5, text: 'Categoria 5' },
-];
-
 const meta: Meta<Bs2DSInputSelectComponent> = {
   component: Bs2DSInputSelectComponent,
   title: 'Form Components/InputSelect',
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.
+          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.
+        `.trim(),
+      },
+    },
+  },
+  decorators: [
+    moduleMetadata({
+      imports: [Bs2DSInputSelectComponent],
+    }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],
+    }),
+  ],
   argTypes: {
     control: {
       control: 'object',
       defaultValue: { summary: 'new FormControl()' },
     },
-    state: {
-      control: 'select',
-      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    id: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    testId: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    label: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    class: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    leftIcon: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    rightIcon: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: 'arrow-down' },
-    },
-    helperText: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    errorText: {
-      control: { type: 'text' },
-      description: 'Esta prop é para forçar algum erro que não esteja mapeado em CustomValidatorMessages',
-      defaultValue: { summary: '(vazio)' },
-    },
-    placeholder: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: 'Selecione uma opção' },
-    },
-    readOnly: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
-    },
     options: {
-      control: { type: 'text' },
-      description: 'obrigatório',
-      defaultValue: { summary: 'Bs2DSInputSelectOption[]' },
-    },
-    ariaLabel: {
-      control: { type: 'text' },
-      description: 'opcional',
-      defaultValue: { summary: '(vazio)' },
-    },
-    ariaRequired: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
-    },
-    ariaInvalid: {
-      control: { type: 'boolean' },
-      description: 'opcional',
-      defaultValue: { summary: 'false' },
+      control: { type: 'object' },
+      defaultValue: { summary: '[]' },
+      table: { type: { summary: 'Bs2DSInputSelectOption[]' } },
     },
     hideCheckbox: {
       control: { type: 'boolean' },
-      description: 'opcional',
       defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
+    },
+    state: {
+      control: 'select',
+      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: "'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'" } },
+    },
+    id: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    label: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    class: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    leftIcon: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    rightIcon: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    helperText: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    errorText: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    placeholder: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    readOnly: {
+      control: { type: 'boolean' },
+      defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
+    },
+    ariaLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    ariaRequired: {
+      control: { type: 'boolean' },
+      defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
+    },
+    ariaInvalid: {
+      control: { type: 'boolean' },
+      defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
     },
   },
 };
 export default meta;
 type Story = StoryObj<Bs2DSInputSelectComponent>;
 
-const form: FormGroup = new FormGroup({
-  categories: new FormControl(null, [CustomValidators.required]),
-});
-
-delete form['controls']['categories']['_parent'];
-
 export const Default: Story = {
   args: {
-    control: form.get('categories') as FormControl,
+    control: new FormControl(null, [CustomValidators.required]),
     state: 'default',
     id: 'categories',
-    testId: 'categories',
     label: 'Categorias',
-    class: 'custom_class',
+    class: '',
     leftIcon: '',
     rightIcon: 'arrow-down',
     helperText: 'Digite seu e-mail principal.',
     errorText: '',
     placeholder: 'Selecione uma opção',
     readOnly: false,
-    options,
+    options: [
+      { value: 1, text: 'Categoria 1' },
+      { value: 2, text: 'Categoria 2' },
+      { value: 3, text: 'Categoria 3' },
+      { value: 4, text: 'Categoria 4' },
+      { value: 5, text: 'Categoria 5' },
+    ],
     ariaLabel: '',
     ariaRequired: false,
     ariaInvalid: false,
@@ -138,7 +145,6 @@ export const Default: Story = {
       control: args.control,
       state: args.state,
       id: args.id,
-      testId: args.testId,
       label: args.label,
       class: args.class,
       leftIcon: args.leftIcon,
@@ -154,7 +160,59 @@ export const Default: Story = {
       hideCheckbox: args.hideCheckbox,
     },
     template: `
-      <bs2-ds-input-select [label]='label' [helperText]='helperText' [control]='control' [options]='options'/>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSInputTextComponent } from "@bs2/design-system/components/bs2-ds-input-text";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSInputTextComponent], ... })
+export class YourComponentComponent {
+  public control: FormControl = new FormControl(null, [CustomValidators.required]);
+  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';
+  public type: string = 'text';
+  public id: string = '';
+  public label: string = 'E-mail';
+  public class: string = '';
+  public leftIcon: string = '';
+  public rightIcon: string = '';
+  public helperText: string = 'Digite seu e-mail principal.';
+  public errorText: string = '';
+  public placeholder: string = 'Ex: joao.da.silva@gmail.com';
+  public readOnly: boolean = false;
+  public options: Bs2DSInputSelectOption[] = [
+    { value: 1, text: 'Categoria 1' },
+    { value: 2, text: 'Categoria 2' },
+    { value: 3, text: 'Categoria 3' },
+    { value: 4, text: 'Categoria 4' },
+    { value: 5, text: 'Categoria 5' },
+  ];
+  public ariaLabel: string = '';
+  public ariaRequired: boolean = false;
+  public ariaInvalid: boolean = false;
+  public hideCheckbox: boolean = false;
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-input-select
+  [control]="control"
+  [state]="state"
+  [type]="type"
+  [id]="id"
+  [label]="label"
+  [class]="class"
+  [leftIcon]="leftIcon"
+  [rightIcon]="rightIcon"
+  [helperText]="helperText"
+  [errorText]="errorText"
+  [placeholder]="placeholder"
+  [readOnly]="readOnly"
+  [options]="options"
+  [ariaLabel]="ariaLabel"
+  [ariaRequired]="ariaRequired"
+  [ariaInvalid]="ariaInvalid"
+  [hideCheckbox]="hideCheckbox"
+/>
     `,
   }),
 };

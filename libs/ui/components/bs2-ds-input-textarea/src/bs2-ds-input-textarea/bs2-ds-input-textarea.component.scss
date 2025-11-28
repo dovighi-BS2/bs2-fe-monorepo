@@ -30,6 +30,9 @@
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: var(--textarea_field__label_color);
   }
   &__feedback_max_length {

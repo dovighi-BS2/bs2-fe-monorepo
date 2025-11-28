@@ -8,7 +8,6 @@ import { Component, Input, OnInit, ElementRef, inject } from '@angular/core';
   styleUrl: './bs2-ds-feedback.component.scss',
 })
 export class Bs2DSFeedbackComponent implements OnInit {
-  @Input() testId? = '';
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
   @Input() duration?: number;
   @Input() title = '';
