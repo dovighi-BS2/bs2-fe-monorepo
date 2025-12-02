@@ -37,10 +37,6 @@
     font-weight: 400;
     margin-top: 4px;
     color: var(--select_field__feedback_text_color);
-
-    &:empty {
-      display: none;
-    }
   }
   &__wrapper {
     display: flex;

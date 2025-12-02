@@ -1,8 +1,6 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSInputSelectComponent } from './bs2-ds-input-select.component';
-
-import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Bs2DSInputSelectComponent } from '@bs2/design-system/components/bs2-ds-input-select';
+import { FormControl } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 
 const meta: Meta<Bs2DSInputSelectComponent> = {
@@ -33,6 +31,7 @@ const meta: Meta<Bs2DSInputSelectComponent> = {
     control: {
       control: 'object',
       defaultValue: { summary: 'new FormControl()' },
+      table: { type: { summary: 'FormControl' } },
     },
     options: {
       control: { type: 'object' },
@@ -141,31 +140,14 @@ export const Default: Story = {
     hideCheckbox: false,
   },
   render: (args) => ({
-    props: {
-      control: args.control,
-      state: args.state,
-      id: args.id,
-      label: args.label,
-      class: args.class,
-      leftIcon: args.leftIcon,
-      rightIcon: args.rightIcon,
-      helperText: args.helperText,
-      errorText: args.errorText,
-      placeholder: args.placeholder,
-      readOnly: args.readOnly,
-      options: args.options,
-      ariaLabel: args.ariaLabel,
-      ariaRequired: args.ariaRequired,
-      ariaInvalid: args.ariaInvalid,
-      hideCheckbox: args.hideCheckbox,
-    },
+    props: { ...args },
     template: `
 <!-- TYPESCRIPT -->
 <!--
-import { Bs2DSInputTextComponent } from "@bs2/design-system/components/bs2-ds-input-text";
+import { Bs2DSInputSelectComponent } from "@bs2/design-system/components/bs2-ds-input-select";
 import { Component } from '@angular/core';
 
-@Component({ imports: [Bs2DSInputTextComponent], ... })
+@Component({ imports: [Bs2DSInputSelectComponent], ... })
 export class YourComponentComponent {
   public control: FormControl = new FormControl(null, [CustomValidators.required]);
   public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';

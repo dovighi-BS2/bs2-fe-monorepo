@@ -2,17 +2,15 @@
 
 <div
   [id]="id"
-  [attr.data-test]="testId"
   class="
     {{ block }}
     {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
 "
 >
+  <div class="{{ block }}__feedback">{{ errorText || getErrors }}</div>
   @if(helperText){
   <div class="{{ block }}__helper">{{ helperText }}</div>
-  } @if(errorText || getErrors){
-  <div class="{{ block }}__feedback">{{ errorText || getErrors }}</div>
   }
   <div class="{{ block }}__wrapper">
     <div class="{{ block }}__left">

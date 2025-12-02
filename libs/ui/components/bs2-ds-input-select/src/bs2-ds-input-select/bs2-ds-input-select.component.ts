@@ -21,7 +21,6 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';

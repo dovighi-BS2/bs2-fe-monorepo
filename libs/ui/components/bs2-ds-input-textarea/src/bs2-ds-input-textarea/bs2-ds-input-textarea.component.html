@@ -1,22 +1,25 @@
 <div
   *ngIf="!!control"
-  [attr.data-test]="testId"
   class="
     bs2_ds_input_textarea
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
   "
 >
-  <div class="bs2_ds_input_textarea__feedback_wrapper">
-    @if(!hideErrors){
-    <span class="bs2_ds_input_textarea__feedback">
-      {{ errorText || getErrors }}
-    </span>
-    }
-    <div class="bs2_ds_input_textarea__feedback_right" *ngIf="!!maxLength">
+  <div class="bs2_ds_input_textarea__feedback_container">
+    <span class="bs2_ds_input_textarea__feedback_wrapper">
       <span class="bs2_ds_input_textarea__helper" *ngIf="!!helperText">{{ helperText }}</span>
-      <span class="bs2_ds_input_textarea__feedback_max_length">{{ control.value.length || 0 }} / {{ maxLength }}</span>
-    </div>
+      @if(!hideErrors){
+      <span class="bs2_ds_input_textarea__feedback">
+        {{ errorText || getErrors }}
+      </span>
+      }
+    </span>
+    <span class="bs2_ds_input_textarea__feedback_max_length">
+      @if(!!maxLength){
+      {{ control.value?.length || 0 }} / {{ maxLength }}
+      }
+    </span>
   </div>
   <div class="bs2_ds_input_textarea__wrapper">
     <div class="bs2_ds_input_textarea__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>

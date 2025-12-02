@@ -16,7 +16,7 @@ import { Bs2DSDatepicker } from './bs2-ds-datepicker.interface';
 import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
-import { CustomValidatorMessages, CustomValidators } from '@bs2/design-system/validators';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 @Component({
   selector: 'bs2-ds-datepicker',
@@ -31,7 +31,6 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';

@@ -20,7 +20,7 @@ import {
           title: this.title,
           message: this.message,
           status: this.status,
-          duration: this.duration
+          duration: 5000
         })
       "
       aria-label="label"
@@ -33,7 +33,6 @@ import {
 })
 class MockBs2DSFeedbackComponent {
   @Input() status: 'info' | 'attention' | 'error' | 'success' = 'info';
-  @Input() duration?: number;
   @Input() title = '';
   @Input() message = '';
 
@@ -87,10 +86,6 @@ const meta: Meta<MockBs2DSFeedbackComponent> = {
       defaultValue: { summary: 'info' },
       table: { type: { summary: "'info' | 'attention' | 'error' | 'success'" } },
     },
-    duration: {
-      defaultValue: { summary: '(vazio)' },
-      table: { type: { summary: 'number | undefined' } },
-    },
   },
 };
 export default meta;
@@ -103,6 +98,7 @@ export const Static: Story = {
   },
   render: (args: MockBs2DSFeedbackComponent) => {
     return {
+      props: { ...args },
       template: `
 <!-- TYPESCRIPT -->
 <!--
@@ -117,10 +113,10 @@ export class YourComponentComponent {
 -->
 
 <!-- HTML -->
-<bs2-ds-feedback status='info' title='${args.title}' message='${args.message}' /><br/>
-<bs2-ds-feedback status='attention' title='${args.title}' message='${args.message}' /><br/>
-<bs2-ds-feedback status='error' title='${args.title}' message='${args.message}' /><br/>
-<bs2-ds-feedback status='success' title='${args.title}' message='${args.message}' />
+<bs2-ds-feedback status='info' [title]='title' [message]='message' /><br/>
+<bs2-ds-feedback status='attention' [title]='title' [message]='message' /><br/>
+<bs2-ds-feedback status='error' [title]='title' [message]='message' /><br/>
+<bs2-ds-feedback status='success' [title]='title' [message]='message' />
       `,
     };
   },
@@ -130,7 +126,6 @@ export const Toast: Story = {
   args: {
     title: 'Título teste',
     message: 'Mensagem teste',
-    duration: 5000,
   },
   parameters: {
     docs: {

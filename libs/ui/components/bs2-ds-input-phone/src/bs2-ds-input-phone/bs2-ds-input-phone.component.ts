@@ -20,7 +20,6 @@ import { startWith } from 'rxjs/operators';
 })
 export class Bs2DSInputPhoneComponent implements OnInit {
   @Input() id = '';
-  @Input() testId = '';
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
