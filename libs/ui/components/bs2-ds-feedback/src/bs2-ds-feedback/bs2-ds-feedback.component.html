@@ -1,15 +1,15 @@
-@if(!isRemoved){
-<div class="feedback {{ status }}">
-  <div class="feedback__left">
-    <span class="feedback__icon {{ filteredIcon }}"></span>
-    <div class="feedback__text">
-      <span class="feedback__title">{{ title }}</span>
-      <span class="feedback__message">{{ message }}</span>
+@let block = "bs2_ds_feedback"; @if(!isRemoved){
+<div class="{{ block }} {{ status }}">
+  <div class="{{ block }}__left">
+    <span class="{{ block }}__icon {{ filteredIcon }}"></span>
+    <div class="{{ block }}__text">
+      <span class="{{ block }}__title">{{ title }}</span>
+      <span class="{{ block }}__message">{{ message }}</span>
     </div>
   </div>
   @if(hasClose){
-  <div class="feedback__right">
-    <span class="feedback__close icon icon-limpar" (click)="close()"></span>
+  <div class="{{ block }}__right">
+    <span class="{{ block }}__close icon icon-limpar" (click)="close()"></span>
   </div>
   }
 </div>

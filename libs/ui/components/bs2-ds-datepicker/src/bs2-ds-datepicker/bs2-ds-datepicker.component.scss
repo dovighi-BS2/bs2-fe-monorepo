@@ -1,13 +1,13 @@
 :host {
-  --date_picker__field_height: 48px;
+  --bs2_ds_datepicker__field_height: 48px;
 }
 
-.date_picker {
+.bs2_ds_datepicker {
   position: relative;
 
   &:focus-within,
   &.focused {
-    .date_picker__calendar {
+    .bs2_ds_datepicker__calendar {
       // border-color: var(--primary);
     }
   }
@@ -168,7 +168,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
-    top: calc(var(--date_picker__field_height) + 20px);
+    top: calc(var(--bs2_ds_datepicker__field_height) + 20px);
     transition: 0.5s;
   }
 }

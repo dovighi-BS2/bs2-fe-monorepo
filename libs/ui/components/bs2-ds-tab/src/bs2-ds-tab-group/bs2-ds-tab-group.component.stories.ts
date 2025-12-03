@@ -22,7 +22,7 @@ const meta: Meta<Bs2DSTabGroupComponent> = {
     }),
     (storyFunc) => ({
       ...storyFunc(),
-      styles: [...(storyFunc().styles || []), `:host { display: block; width: 576px; }`],
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],
     }),
   ],
   argTypes: {

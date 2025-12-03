@@ -15,7 +15,6 @@ export class Bs2DSInputTokenComponent implements OnInit {
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() helperText = '';

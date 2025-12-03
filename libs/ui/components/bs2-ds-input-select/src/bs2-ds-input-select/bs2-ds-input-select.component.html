@@ -1,9 +1,10 @@
+@let block = "bs2_ds_input_select";
+
 <div
-  *ngIf="!!control"
   [attr.id]="id"
   #selectInput
   class="
-    bs2_ds_input_select
+    {{ block }}
     {{ class }}
     {{ state }}
     {{ readOnly ? 'disabled' : '' }}
@@ -11,48 +12,48 @@
     {{ getErrors || errorText ? 'error' : '' }}
   "
 >
-  <select [multiple]="controlIsArray" class="bs2_ds_input_select__hidden_field" [formControl]="control">
+  <select [multiple]="controlIsArray" class="{{ block }}__hidden_field" [formControl]="control">
     <option *ngFor="let option of options">{{ option.text }}</option>
   </select>
   @if(!hideErrors){
-  <span class="bs2_ds_input_select__feedback">
+  <span class="{{ block }}__feedback">
     {{ errorText || getErrors }}
   </span>
   }
-  <span class="bs2_ds_input_select__helper" *ngIf="!!helperText">{{ helperText }}</span>
-  <div class="bs2_ds_input_select__wrapper">
-    <i class="bs2_ds_input_select__icon left {{ leftIcon }}" *ngIf="leftIcon"></i>
-    <i class="bs2_ds_input_select__icon right {{ rightIcon }}" *ngIf="rightIcon"></i>
+  <span class="{{ block }}__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <div class="{{ block }}__wrapper">
+    <i class="{{ block }}__icon left {{ leftIcon }}" *ngIf="leftIcon"></i>
+    <i class="{{ block }}__icon right {{ rightIcon }}" *ngIf="rightIcon"></i>
     <div
       #selectInputField
-      class="bs2_ds_input_select__field"
+      class="{{ block }}__field"
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
     >
-      <span class="bs2_ds_input_select__selected">
+      <span class="{{ block }}__selected">
         <img
           [src]="getSelectedImage()"
           *ngIf="getSelectedImage() && !controlIsArray"
-          class="bs2_ds_input_select__selected_image"
+          class="{{ block }}__selected_image"
         />
         <p>{{ getSelectedTexts() }}</p>
       </span>
     </div>
-    <div class="bs2_ds_input_select__option" #selectInputOption [tabindex]="0" role="listbox" cdkListbox>
+    <div class="{{ block }}__option" #selectInputOption [tabindex]="0" role="listbox" cdkListbox>
       <div
         *ngFor="let option of options"
-        class="bs2_ds_input_select__option_item {{ isSelected(option) ? 'selected' : '' }}"
+        class="{{ block }}__option_item {{ isSelected(option) ? 'selected' : '' }}"
         role="option"
         [cdkOption]="option.value"
         (keyup.enter)="selectByEnter(option)"
         (click)="selectByClick(option)"
       >
-        <span class="bs2_ds_input_select__option_checkbox" *ngIf="!hideCheckbox && controlIsArray"></span>
-        <img [src]="option.image" *ngIf="option.image" class="bs2_ds_input_select__img_flag" />
+        <span class="{{ block }}__option_checkbox" *ngIf="!hideCheckbox && controlIsArray"></span>
+        <img [src]="option.image" *ngIf="option.image" class="{{ block }}__img_flag" />
         <p>{{ option.text }}</p>
       </div>
     </div>
   </div>
-  <label *ngIf="label" [for]="id" class="bs2_ds_input_select__label">{{ label }}</label>
+  <label *ngIf="label" [for]="id" class="{{ block }}__label">{{ label }}</label>
 </div>

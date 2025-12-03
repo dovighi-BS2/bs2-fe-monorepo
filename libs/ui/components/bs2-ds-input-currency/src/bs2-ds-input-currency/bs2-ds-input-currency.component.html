@@ -1,4 +1,6 @@
-<div *ngIf="!!control" [attr.id]="id" class="bs2_ds_input_currency">
+@let block = "bs2_ds_input_currency";
+
+<div [attr.id]="id" class="{{ block }}">
   <bs2-ds-input-select
     [readOnly]="readOnly"
     [helperText]="helperText"
