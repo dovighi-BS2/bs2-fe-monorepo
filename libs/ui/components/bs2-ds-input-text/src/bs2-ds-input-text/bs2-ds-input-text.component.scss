@@ -1,0 +1,137 @@
+:host {
+  --text_field__field_gap: 16px;
+  --text_field__field_height: 48px;
+  --text_field__field_border_color: var(--neutral200);
+  --text_field__field_bg_color: var(--primary_white);
+  --text_field__field_text_color: var(--primary_text_dark);
+  --text_field__field_placeholder_color: var(--primary_text_dark);
+  --text_field__field_border_width: 1px;
+  --text_field__icon_width: 20px;
+  --text_field__icon_color: var(--primary);
+  --text_field__label_color: var(--neutral600);
+  --text_field__feedback_text_color: var(--feedback_error);
+}
+
+.bs2_ds_input_text {
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__helper {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    min-height: 15px;
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__icon {
+    width: var(--text_field__icon_width);
+    min-height: var(--text_field__icon_width);
+    font-size: 24px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &.left {
+      order: 1;
+      margin-right: calc((var(--text_field__icon_width)) * -1);
+      translate: var(--text_field__field_gap) 0px;
+
+      ~ .bs2_ds_input_text__field {
+        padding-left: calc(var(--text_field__icon_width) + var(--text_field__field_gap) + 8px);
+      }
+    }
+    &.right {
+      order: 3;
+      margin-left: calc((var(--text_field__icon_width) + var(--text_field__field_gap)) * -1);
+
+      ~ .bs2_ds_input_text__field {
+        padding-right: calc(var(--text_field__icon_width) + var(--text_field__field_gap) + 8px);
+      }
+    }
+  }
+  &__field {
+    width: 100%;
+    order: 2;
+    min-height: var(--text_field__field_height);
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 5px var(--text_field__field_gap);
+    border: none;
+    box-shadow: 0px 0px 0px var(--text_field__field_border_width) var(--text_field__field_border_color);
+    background-color: var(--text_field__field_bg_color);
+    color: var(--text_field__field_text_color);
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text_field__label_color);
+  }
+
+  // Theming
+  &:has(&__field:hover),
+  &.hovered {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral400);
+  }
+
+  &:has(&__field:focus),
+  &.focused {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--primary);
+    --text_field__field_border_color: var(--primary);
+  }
+
+  &.error {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--feedback_error);
+    --text_field__field_border_color: var(--feedback_error);
+    --text_field__icon_color: var(--feedback_error);
+    --text_field__feedback_text_color: var(--feedback_error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
+  &:has(&__field[disabled]),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    pointer-events: none;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral300);
+    --text_field__field_bg_color: var(--neutral100);
+    --text_field__field_text_color: var(--neutral400);
+    --text_field__icon_color: var(--neutral400);
+  }
+}

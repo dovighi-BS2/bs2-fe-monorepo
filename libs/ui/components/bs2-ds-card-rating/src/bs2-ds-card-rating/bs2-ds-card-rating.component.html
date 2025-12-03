@@ -1,0 +1,28 @@
+@if(!!control){
+<div class="review">
+  <div class="review__content">
+    <p class="review__title">{{ title }}</p>
+    <ul class="review__rate">
+      @for(rate of rates; track rate){
+      <li class="review__rate_item {{ control.value >= rate ? 'active' : '' }}">
+        <span class="review__rate_icon" (click)="setRate(rate)">
+          <svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M17.7422 1.23607L21.0569 11.4377C21.3246 12.2617 22.0926 12.8197 22.959 12.8197H33.6856L25.0076 19.1246C24.3066 19.6339 24.0133 20.5366 24.2811 21.3607L27.5958 31.5623L18.9178 25.2574C18.2168 24.7481 17.2676 24.7481 16.5666 25.2574L7.8886 31.5623L11.2033 21.3607C11.4711 20.5366 11.1777 19.6339 10.4768 19.1246L9.88898 19.9336L10.4768 19.1246L1.79874 12.8197H12.5254C13.3918 12.8197 14.1597 12.2617 14.4275 11.4377L17.7422 1.23607Z"
+              stroke-width="2"
+            />
+          </svg>
+        </span>
+      </li>
+      }
+    </ul>
+    <div class="review__text">
+      @if(firstText){
+      <span class="review__text_item">{{ firstText }}</span>
+      } @if(lastText){
+      <span class="review__text_item">{{ lastText }}</span>
+      }
+    </div>
+  </div>
+</div>
+}

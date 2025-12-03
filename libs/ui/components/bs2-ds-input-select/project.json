@@ -1,0 +1,19 @@
+{
+  "name": "bs2-ds-input-select",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/bs2-ds-input-select/src",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/bs2-ds-input-select"],
+      "options": {
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-input-select"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

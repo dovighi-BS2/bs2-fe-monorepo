@@ -1,0 +1,19 @@
+{
+  "name": "bs2-ds-loading-spinning",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui/directives/bs2-ds-loading-spinning/src",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}/directives/bs2-ds-loading-spinning"],
+      "options": {
+        "jestConfig": "libs/ui/jest.config.ts",
+        "testPathPattern": ["bs2-ds-loading-spinning"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

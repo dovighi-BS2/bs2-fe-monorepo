@@ -1,0 +1,24 @@
+@let block = 'bs2_ds_step_navigator_group';
+
+<div class="{{ block }}">
+  <div class="{{ block }}__top">
+    <ng-content />
+  </div>
+  <div class="{{ block }}__bottom">
+    <span class="{{ block }}__left">
+      <span class="{{ block }}__previous  {{ isFirst && !loop ? 'disabled' : '' }}" (click)="previous()">
+        <ng-content select="previous" />
+      </span>
+    </span>
+    <ul class="{{ block }}__list">
+      @for(item of items; track $index){
+      <li class="{{ block }}__list_item {{ item.isActive ? 'active' : '' }}" (click)="goTo($index)"></li>
+      }
+    </ul>
+    <span class="{{ block }}__right">
+      <span class="{{ block }}__next  {{ isLast && !loop ? 'disabled' : '' }}" (click)="next()">
+        <ng-content select="next" />
+      </span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div
+  *ngIf="!!control"
+  [attr.data-test]="testId"
+  class="
+    bs2_ds_input_text
+    {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
+    {{ control.disabled ? 'disabled' : '' }}
+  "
+>
+  @if(!hideErrors){
+  <span class="bs2_ds_input_text__feedback">
+    {{ errorText || getErrors }}
+  </span>
+  }
+  <span class="bs2_ds_input_text__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <div class="bs2_ds_input_text__wrapper">
+    <div class="bs2_ds_input_text__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
+    <div class="bs2_ds_input_text__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+    @if(!currencyMask){
+    <input
+      class="bs2_ds_input_text__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [mask]="mask"
+      [autocomplete]="autocomplete"
+      (click)="clickEmitter.emit()"
+      (keyup)="keyupEmitter.emit()"
+      [formControl]="control"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+    />
+    } @if(currencyMask){
+    <input
+      class="bs2_ds_input_text__field"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [readOnly]="readOnly"
+      [currencyMask]="mask"
+      [autocomplete]="autocomplete"
+      (click)="clickEmitter.emit()"
+      (keyup)="keyupEmitter.emit()"
+      [formControl]="control"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-required]="ariaRequired"
+      [attr.aria-invalid]="ariaInvalid"
+      [currencyMask]="currencyMask"
+    />
+    }
+  </div>
+  <label *ngIf="label" [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
+</div>

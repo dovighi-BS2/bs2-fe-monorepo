@@ -1,0 +1,15 @@
+<div *ngIf="!!control" [attr.id]="id" [attr.data-test]="testId" class="bs2_ds_input_currency">
+  <bs2-ds-input-select
+    [readOnly]="readOnly"
+    [helperText]="helperText"
+    [errorText]="errorText"
+    [control]="control"
+    [options]="countries"
+    [id]="id"
+    [testId]="testId"
+    [label]="label"
+    [hideCheckbox]="true"
+    [state]="state"
+    [placeholder]="placeholder"
+  ></bs2-ds-input-select>
+</div>

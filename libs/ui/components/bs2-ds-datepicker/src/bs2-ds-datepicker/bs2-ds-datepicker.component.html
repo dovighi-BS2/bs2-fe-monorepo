@@ -1,0 +1,146 @@
+<div
+  *ngIf="!!control"
+  [attr.data-test]="testId"
+  #datePickerRef
+  class="
+    date_picker
+    {{ direction }}
+    {{ class }}
+    {{ getErrors || errorText ? 'error' : '' }}
+    {{ isOpened() ? 'opened' : '' }}
+    {{ state }}
+    {{ controlToUser.disabled ? 'disabled' : '' }}
+    "
+>
+  <bs2-ds-input-text
+    [control]="controlToUser"
+    [id]="id"
+    name="date"
+    [state]="state"
+    [label]="label"
+    [leftIcon]="leftIcon"
+    [rightIcon]="rightIcon"
+    [helperText]="helperText"
+    [errorText]="errorText || getErrors"
+    [placeholder]="placeholder"
+    [readOnly]="readOnly"
+    [ariaLabel]="ariaLabel"
+    [ariaRequired]="ariaRequired"
+    [ariaInvalid]="ariaInvalid"
+    autocomplete="off"
+    mask="00/00/0000"
+    (clickEmitter)="dayPicker.open()"
+    (keyup)="handleInputChange()"
+  />
+  <input type="hidden" [formControl]="control" />
+  <div class="date_picker__calendar">
+    <ng-container *ngTemplateOutlet="dayPickerCalendar"></ng-container>
+    <ng-container *ngTemplateOutlet="monthPickerCalendar"></ng-container>
+    <ng-container *ngTemplateOutlet="yearPickerCalendar"></ng-container>
+  </div>
+</div>
+
+<ng-template #dayPickerCalendar>
+  <div class="date_picker__day_picker {{ activePickerType === 'day' ? 'active' : '' }}">
+    <div class="date_picker__top">
+      <div class="date_picker__top_left">
+        <span class="date_picker__title" (click)="dayPicker.goToYearPicker()">
+          {{ dayPicker.getSelectedMonthName()?.abbr }} {{ selectedYear }}
+        </span>
+      </div>
+      <div class="date_picker__top_right">
+        <span class="date_picker__previous icon icon-chevronvoltar" (click)="dayPicker.previousMonth()"></span>
+        <span class="date_picker__next icon icon-chevronprosseguir" (click)="dayPicker.nextMonth()"></span>
+      </div>
+    </div>
+    <div class="date_picker__body">
+      <div class="date_picker__weekday">
+        <span class="date_picker__weekday_item sunday">D</span>
+        <span class="date_picker__weekday_item">S</span>
+        <span class="date_picker__weekday_item">T</span>
+        <span class="date_picker__weekday_item">Q</span>
+        <span class="date_picker__weekday_item">Q</span>
+        <span class="date_picker__weekday_item">S</span>
+        <span class="date_picker__weekday_item saturday">S</span>
+      </div>
+      <div class="date_picker__day">
+        <span class="date_picker__day_item previous_month" *ngFor="let d of calendarPreviousMonth">{{
+          d | date : 'dd'
+        }}</span>
+        <span
+          class="
+            date_picker__day_item current_month
+            {{ dayPicker.isToday(d) ? 'current' : '' }}
+            {{ dayPicker.canActiveDay(d) ? 'active' : '' }}
+            {{ !isDaySelectable(d) ? 'disabled' : '' }}
+          "
+          *ngFor="let d of calendarMonth"
+          (click)="dayPicker.selectDate(d, 'click')"
+          >{{ d | date : 'dd' }}</span
+        >
+        <span class="date_picker__day_item next_month" *ngFor="let d of calendarNextMonth">{{ d | date : 'dd' }}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #monthPickerCalendar>
+  <div class="date_picker__month_picker  {{ activePickerType === 'month' ? 'active' : '' }}">
+    <div class="date_picker__top">
+      <div class="date_picker__top_left">
+        <span class="date_picker__title" (click)="monthPicker.goToDayPicker()">
+          {{ selectedYear }}
+        </span>
+      </div>
+      <div class="date_picker__top_right">
+        <span class="date_picker__previous icon icon-chevronvoltar" (click)="monthPicker.previousYear()"></span>
+        <span class="date_picker__next icon icon-chevronprosseguir" (click)="monthPicker.nextYear()"></span>
+      </div>
+    </div>
+    <div class="date_picker__body">
+      <div class="date_picker__month">
+        <span
+          class="date_picker__month_item
+          {{ month.number === selectedMonth ? 'active' : '' }}
+          {{ !isMonthSelectable(month.number) ? 'disabled' : '' }}
+          "
+          (click)="monthPicker.selectMonth(month.number)"
+          *ngFor="let month of calendarMonths"
+        >
+          {{ month.abbr }}
+        </span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #yearPickerCalendar>
+  <div class="date_picker__year_picker  {{ activePickerType === 'year' ? 'active' : '' }}">
+    <div class="date_picker__top">
+      <div class="date_picker__top_left">
+        <span class="date_picker__title" (click)="yearPicker.goToDayPicker()">
+          {{ yearPicker.getFirstAndLastYear() }}
+        </span>
+      </div>
+      <div class="date_picker__top_right">
+        <span class="date_picker__previous" (click)="yearPicker.previousYears()"> < </span>
+        <span class="date_picker__next" (click)="yearPicker.nextYears()">></span>
+      </div>
+    </div>
+    <div class="date_picker__body">
+      <div class="date_picker__year">
+        <span
+          class="
+            date_picker__year_item
+            {{ year === selectedYear ? 'active' : '' }}
+            {{ !isYearSelectable(year) ? 'disabled' : '' }}
+            "
+          *ngFor="let year of calendarYears"
+          (click)="yearPicker.selectYear(year)"
+        >
+          {{ year }}
+        </span>
+      </div>
+    </div>
+  </div>
+</ng-template>

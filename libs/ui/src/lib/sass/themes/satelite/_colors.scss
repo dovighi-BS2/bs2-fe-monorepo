@@ -1,0 +1,69 @@
+$themes: (
+  // PRIMARY
+  'primary': #173963,
+  'primary_text_dark': #0e223b,
+  'primary_text_bkg_light': #fafafa,
+  'primary_white': #ffffff,
+
+  // VARIANT
+  'variant100': #e8ebef,
+  'variant200': #b9c4d0,
+  'variant300': #7488a1,
+  'variant400': #2e4d73,
+  'variant500': #173963,
+  'variant600': #153359,
+  'variant700': #122e4f,
+  'variant800': #102845,
+  'variant900': #0e223b,
+
+  //NEUTRAL
+  'neutral100': #f5f5f5,
+  'neutral200': #eaeaea,
+  'neutral300': #bfbfbf,
+  'neutral400': #949494,
+  'neutral500': #696969,
+  'neutral600': #545454,
+  'neutral700': #222222,
+
+  // FEEDBACK
+  'feedback_error': #f22b29,
+  'feedback_error_tint': #fff2eb,
+  'feedback_success': #04a777,
+  'feedback_success_tint': #eaf8ee,
+  'feedback_attention': #f49d37,
+  'feedback_attention_tint': #fff7e7
+);
+
+// PRIMARY
+$primary: map-get($themes, primary);
+$primary_text_dark: map-get($themes, primary_text_dark);
+$primary_text_bkg_light: map-get($themes, primary_text_bkg_light);
+$primary_white: map-get($themes, primary_white);
+
+// VARIANT
+$variant100: map-get($themes, variant100);
+$variant200: map-get($themes, variant200);
+$variant300: map-get($themes, variant300);
+$variant400: map-get($themes, variant400);
+$variant500: map-get($themes, variant500);
+$variant600: map-get($themes, variant600);
+$variant700: map-get($themes, variant700);
+$variant800: map-get($themes, variant800);
+$variant900: map-get($themes, variant900);
+
+// NEUTRAL
+$neutral100: map-get($themes, neutral100);
+$neutral200: map-get($themes, neutral200);
+$neutral300: map-get($themes, neutral300);
+$neutral400: map-get($themes, neutral400);
+$neutral500: map-get($themes, neutral500);
+$neutral600: map-get($themes, neutral600);
+$neutral700: map-get($themes, neutral700);
+
+// FEEDBACK
+$feedback_error: map-get($themes, feedback_error);
+$feedback_error_tint: map-get($themes, feedback_error_tint);
+$feedback_success: map-get($themes, feedback_success);
+$feedback_success_tint: map-get($themes, feedback_success_tint);
+$feedback_attention: map-get($themes, feedback_attention);
+$feedback_attention_tint: map-get($themes, feedback_attention_tint);

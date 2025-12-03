@@ -1,0 +1,33 @@
+<div
+  [attr.data-test]="testId"
+  class="
+    bs2_ds_input_text
+    {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
+    {{ control.disabled ? 'disabled' : '' }}
+  "
+>
+  @if(helperText){
+  <span class="bs2_ds_input_text__helper">{{ helperText }}</span>
+  } @if(!hideErrors){
+  <span class="bs2_ds_input_text__feedback">
+    {{ errorText || getErrors }}
+  </span>
+  }
+  <div class="bs2_ds_input_text__wrapper" formArray="forms">
+    @for(item of form.controls; track $index;){
+    <input
+      #bs2DSInputToken
+      class="bs2_ds_input_text__field"
+      type="text"
+      maxlength="1"
+      size="1"
+      [readOnly]="readOnly"
+      [formControl]="getControlByItem(item)"
+      (input)="onInput($event, $index)"
+      (keyup)="onKeyUp($event, $index)"
+      (paste)="onPaste($event)"
+    />
+    }
+  </div>
+  <label [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
+</div>

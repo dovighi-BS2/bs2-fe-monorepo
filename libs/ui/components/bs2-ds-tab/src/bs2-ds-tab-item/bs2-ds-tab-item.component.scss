@@ -1,0 +1,9 @@
+:host {
+  min-width: 100%;
+  flex-basis: 100%;
+  padding-block: 16px;
+
+  &:empty {
+    display: none;
+  }
+}

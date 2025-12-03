@@ -1,0 +1,68 @@
+:host {
+  --input_phone__label_color: var(--neutral600);
+  --input_phone__feedback_text_color: var(--feedback_error);
+}
+
+.bs2_ds_input_phone {
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__helper {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--input_phone__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--input_phone__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__left {
+  }
+  &__right {
+    flex-grow: 1;
+  }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--input_phone__label_color);
+  }
+
+  &.error {
+    --input_phone__label_color: var(--feedback_error);
+    --input_phone__feedback_text_color: var(--feedback_error);
+  }
+
+  ::ng-deep {
+    bs2-ds-input-select .bs2_ds_input_select__field {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+
+      &:hover {
+        z-index: 1;
+      }
+    }
+    bs2-ds-input-text .bs2_ds_input_text__field {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+
+      &:hover,
+      &:focus-within {
+        z-index: 1;
+      }
+    }
+  }
+}

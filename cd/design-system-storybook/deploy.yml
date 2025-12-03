@@ -1,0 +1,12 @@
+app:
+    #{ambiente}#:
+        alias: bs2-frontend-design-system-storybook
+        registry: #{registry}#
+        img: bs2.frontend.designsystem.storybook
+        # custom_port: 80
+        front: 1
+        host_name: #{hostname}# #design-system-web-dev.bs2.com
+        replicas: 1
+        env:
+          ASPNETCORE_ENVIRONMENT: #{ASPNETCORE_ENVIRONMENT}#
+          API_ENDPOINT: #{API_ENDPOINT}#

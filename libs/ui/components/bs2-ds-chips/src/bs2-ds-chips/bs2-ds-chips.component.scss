@@ -1,0 +1,45 @@
+.chip {
+  --chip_primary: var(--primary);
+  --chip_text_color: var(--primary);
+  --chip_bg_color: var(--primary_white);
+  --chip_gap: 10px;
+
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--chip_gap);
+  padding: 0px;
+  margin: 0px;
+
+  &__item {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid var(--chip_primary);
+    color: var(--chip_text_color);
+    background-color: var(--chip_bg_color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      --chip_bg_color: var(--variant100);
+    }
+    &.selected {
+      --chip_bg_color: var(--primary);
+      --chip_text_color: var(--primary_white);
+    }
+    &.disabled,
+    &[disabled='true'] {
+      --chip_bg_color: var(--neutral200);
+      --chip_text_color: var(--neutral500);
+      --chip_primary: var(--neutral200);
+      cursor: not-allowed;
+    }
+  }
+}

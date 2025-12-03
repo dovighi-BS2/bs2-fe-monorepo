@@ -1,0 +1,119 @@
+:host {
+  --text_field__field_width: 32px;
+  --text_field__field_height: 40px;
+  --text_field__field_border_color: var(--neutral200);
+  --text_field__field_bg_color: var(--primary_white);
+  --text_field__field_text_color: var(--primary_text_dark);
+  --text_field__field_placeholder_color: var(--primary_text_dark);
+  --text_field__field_border_width: 1px;
+  --text_field__label_color: var(--neutral600);
+  --text_field__feedback_text_color: var(--feedback_error);
+}
+
+.bs2_ds_input_text {
+  width: max-content;
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__helper {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__label_color);
+
+    &:empty {
+      display: none;
+    }
+  }
+  &__feedback {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--text_field__feedback_text_color);
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__field {
+    width: 100%;
+    order: 2;
+    width: var(--text_field__field_width);
+    min-height: var(--text_field__field_height);
+    outline: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    box-shadow: 0px 0px 0px var(--text_field__field_border_width) var(--text_field__field_border_color);
+    background-color: var(--text_field__field_bg_color);
+    color: var(--text_field__field_text_color);
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    & + & {
+      margin-left: 4px;
+    }
+    &:hover,
+    &.hovered {
+      --text_field__field_border_width: 2px;
+      --text_field__label_color: var(--neutral600);
+      --text_field__field_border_color: var(--neutral400);
+    }
+
+    &:focus,
+    &.focused {
+      --text_field__field_border_width: 2px;
+      --text_field__label_color: var(--primary);
+      --text_field__field_border_color: var(--primary);
+    }
+  }
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text_field__label_color);
+  }
+
+  // Theming
+
+  &.hovered {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral400);
+  }
+
+  &.focused {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--primary);
+    --text_field__field_border_color: var(--primary);
+  }
+
+  &.error {
+    --text_field__field_border_width: 2px;
+    --text_field__label_color: var(--feedback_error);
+    --text_field__field_border_color: var(--feedback_error);
+    --text_field__feedback_text_color: var(--feedback_error);
+  }
+
+  &:has(&__field:not(:empty)),
+  &.filled {
+  }
+
+  &:has(&__field[readonly]),
+  &:has(&__field[readonly='true']),
+  &:has(&__field[disabled]),
+  &:has(&__field[disabled='true']),
+  &.disabled,
+  &.readonly {
+    pointer-events: none;
+    --text_field__label_color: var(--neutral600);
+    --text_field__field_border_color: var(--neutral300);
+    --text_field__field_bg_color: var(--neutral100);
+    --text_field__field_text_color: var(--neutral400);
+  }
+}
