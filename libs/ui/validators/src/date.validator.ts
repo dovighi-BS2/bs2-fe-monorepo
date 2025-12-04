@@ -1,27 +1,32 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CustomValidatorMessages } from './messages.validator';
+import { TranslationsConstantsBase } from '@bs2/design-system/translations';
+
+function customValidationsMessages() {
+  return TranslationsConstantsBase.instance.customValidatorMessages();
+}
 
 export const dateValidators = {
   isValidDate: (control: AbstractControl): ValidationErrors | null => {
-    if (control.value && !(control.value instanceof Date)) return { isValidDate: CustomValidatorMessages.date };
+    if (control.value && !(control.value instanceof Date)) return { isValidDate: customValidationsMessages().date };
     return null;
   },
   isDateBetween: (min: Date, max: Date) => {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) return null;
-      if (control.value.trim().length !== 10) return { isDateBetween: CustomValidatorMessages.date };
+      if (control.value.trim().length !== 10) return { isDateBetween: customValidationsMessages().date };
 
       const v = control.value.split('/');
       const value = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
 
       if (value?.valueOf() < min.valueOf() || value?.valueOf() > max.valueOf())
-        return { isDateBetween: CustomValidatorMessages.dateRangeInvalid };
+        return { isDateBetween: customValidationsMessages().dateRangeInvalid };
       return null;
     };
   },
   isValidDateToUser: (control: AbstractControl): ValidationErrors | null => {
     if (!control.value) return null;
-    if (control.value.trim().length !== 10) return { isValidDateToUser: CustomValidatorMessages.date };
+    if (control.value.trim().length !== 10) return { isValidDateToUser: customValidationsMessages().date };
     const v = control.value.split('/');
 
     // Para funcionar 100%, altera para [*T03:07:00.000Z]
@@ -35,12 +40,12 @@ export const dateValidators = {
     // Caso o usuário digite 31/02/2024 por exemplo, o new Date entende como 02/03/2024
     // Por isso é necessário comparar a veracidade das informações passadas
     if (d.getFullYear() !== _year || d.getMonth() !== _month || d.getDate() !== _day)
-      return { isValidDateToUser: CustomValidatorMessages.date };
+      return { isValidDateToUser: customValidationsMessages().date };
     return null;
   },
   isBs2DSDatePickerValidator: (controlToUser: AbstractControl) => {
     return (): ValidationErrors | null => {
-      if (controlToUser.invalid) return { isBs2DSDatePickerValidator: CustomValidatorMessages.date };
+      if (controlToUser.invalid) return { isBs2DSDatePickerValidator: customValidationsMessages().date };
       return null;
     };
   },

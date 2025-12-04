@@ -11,7 +11,7 @@ export function provideDesignSystemTranslations(): Provider[] {
       multi: true,
       useFactory: () => {
         const localeId = inject(LOCALE_ID);
-        setTranslationsConstantsInstance(localeId);
+        return () => setTranslationsConstantsInstance(localeId);
       },
     },
   ];

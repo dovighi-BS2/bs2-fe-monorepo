@@ -1,7 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSDatepickerComponent } from '@bs2/design-system/components/bs2-ds-datepicker';
 import { CustomValidators } from '@bs2/design-system/validators';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { setTranslationsConstantsInstance } from '@bs2/design-system/translations';
+
+setTranslationsConstantsInstance();
 
 const meta: Meta<Bs2DSDatepickerComponent> = {
   component: Bs2DSDatepickerComponent,
