@@ -6,28 +6,30 @@ import { isValidCpf } from './is-valid-cpf.utils';
 import { valueValidations } from './value';
 import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
-const customValidationsMessages = TranslationsConstantsBase.instance.customValidatorMessages();
+function customValidationsMessages() {
+  return TranslationsConstantsBase.instance.customValidatorMessages();
+}
 
 export const CustomValidators = {
   required: (control: AbstractControl): ValidationErrors | null => {
-    if ([undefined, null].includes(control.value)) return { required: customValidationsMessages.required };
+    if ([undefined, null].includes(control.value)) return { required: customValidationsMessages().required };
     if (Array.isArray(control.value) && (control.value || []).length <= 0)
-      return { required: customValidationsMessages.required };
+      return { required: customValidationsMessages().required };
 
-    if (String(control.value).trim().length <= 0) return { required: customValidationsMessages.required };
+    if (String(control.value).trim().length <= 0) return { required: customValidationsMessages().required };
 
     return null;
   },
   numeric: (control: AbstractControl): ValidationErrors | null => {
     if (String(control.value).trim().length <= 0 || isNaN(control.value))
-      return { required: customValidationsMessages.numeric };
+      return { required: customValidationsMessages().numeric };
 
     return null;
   },
   cnpj: (control: AbstractControl): ValidationErrors | null => {
     if (control.value && control.value != '') {
       if (!isValidCnpj(control.value)) {
-        return { cnpj: customValidationsMessages.cnpj };
+        return { cnpj: customValidationsMessages().cnpj };
       }
     }
     return null;
@@ -35,7 +37,7 @@ export const CustomValidators = {
   cpf: (control: AbstractControl): ValidationErrors | null => {
     if (control.value && control.value != '') {
       if (!isValidCpf(control.value)) {
-        return { cpf: customValidationsMessages.cpf };
+        return { cpf: customValidationsMessages().cpf };
       }
     }
     return null;
@@ -46,7 +48,7 @@ export const CustomValidators = {
       const regex = /^[1-9]{2}(9[1-9])[0-9]{3}[0-9]{4}$/;
 
       if (!regex.test(cellphone)) {
-        return { cellphone: customValidationsMessages.cellphone };
+        return { cellphone: customValidationsMessages().cellphone };
       }
     }
     return null;
@@ -59,7 +61,7 @@ export const CustomValidators = {
       const regexFix = /^[1-9]{2}[0-9]{4}[0-9]{4}$/;
 
       if (!regexCell.test(phone) && !regexFix.test(phone)) {
-        return { phone: customValidationsMessages.phone };
+        return { phone: customValidationsMessages().phone };
       }
     }
     return null;
@@ -70,7 +72,7 @@ export const CustomValidators = {
       const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
       if (!regex.test(value)) {
-        return { email: customValidationsMessages.email };
+        return { email: customValidationsMessages().email };
       }
     }
     return null;
@@ -80,7 +82,7 @@ export const CustomValidators = {
     const reg = /^[a-zA-Z0-9._]+$/g;
 
     if (!reg.test(name)) {
-      return { username: customValidationsMessages.username };
+      return { username: customValidationsMessages().username };
     }
     return null;
   },
@@ -88,7 +90,7 @@ export const CustomValidators = {
     return (control: AbstractControl): ValidationErrors | null => {
       if (control.parent && control.parent.get(controlKey)) {
         if (control?.value !== control.parent.get(controlKey)?.value) {
-          return { passwordCompare: customValidationsMessages.passwordCompare };
+          return { passwordCompare: customValidationsMessages().passwordCompare };
         }
         return null;
       }
@@ -101,7 +103,7 @@ export const CustomValidators = {
     const reg = /[a-z]/;
 
     if (!reg.test(value)) {
-      return { hasLowerCase: customValidationsMessages.hasLowercase };
+      return { hasLowerCase: customValidationsMessages().hasLowercase };
     }
 
     return null;
@@ -111,7 +113,7 @@ export const CustomValidators = {
     const reg = /[A-Z]/;
 
     if (!reg.test(value)) {
-      return { hasUpperCase: customValidationsMessages.hasUppercase };
+      return { hasUpperCase: customValidationsMessages().hasUppercase };
     }
 
     return null;
@@ -122,7 +124,7 @@ export const CustomValidators = {
     const reg = /[=^""><!#$%&'()*+,\-./:;?@[\\\]_`{|}~]/;
 
     if (!reg.test(value)) {
-      return { hasSpecialCharacters: customValidationsMessages.hasSpecialCharacters };
+      return { hasSpecialCharacters: customValidationsMessages().hasSpecialCharacters };
     }
 
     return null;
@@ -130,7 +132,7 @@ export const CustomValidators = {
   bs2DSInputPhone(mask: string) {
     return (control: AbstractControl): ValidationErrors | null => {
       if (`+${mask.replace(/\D/g, '')}`.length !== control.value.length)
-        return { bs2DSInputPhone: customValidationsMessages.bs2DSInputPhone };
+        return { bs2DSInputPhone: customValidationsMessages().bs2DSInputPhone };
       return null;
     };
   },

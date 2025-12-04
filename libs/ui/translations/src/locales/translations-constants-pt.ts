@@ -3,6 +3,30 @@ import { CustomValidatorMessages } from '../types/custom-validator.messages';
 
 export class TranslationsConstantsPt extends TranslationsConstantsBase {
   public customValidatorMessages(): CustomValidatorMessages {
-    throw new Error('Method not implemented.');
+    return {
+      required: 'Preenchimento obrigatório.',
+      maxLength: 'Máximo de @maxLength@ caracteres permitido.',
+      minLength: 'Mínimo de @minLength@ caracteres permitido.',
+      length: 'É necessario exatamente @length@ caracteres.',
+      maxValue: 'Valor máximo permitido de @maxValue@.',
+      minValue: 'Valor mínimo permitido de @minValue@.',
+      arrayMaxLength: 'Máximo de @arrayMaxLength@ itens selecionados.',
+      arrayMinLength: 'Mínimo de @arrayMinLength@ itens selecionados.',
+      arrayLength: 'É necessario @arrayLength@ itens selecionados.',
+      numeric: 'Apenas números permitidos.',
+      date: 'Data inválida.',
+      dateRangeInvalid: 'Data fora do limite permitido.',
+      cnpj: 'CNPJ inválido',
+      cpf: 'CPF inválido',
+      cellphone: 'Celular inválido',
+      phone: 'Telefone inválido',
+      email: 'E-mail inválido',
+      username: 'Usuário inválido',
+      passwordCompare: 'Senhas não conferem',
+      hasLowercase: 'Caracter em minúsculo obrigatório',
+      hasUppercase: 'Caracter em maiúsculo obrigatório',
+      hasSpecialCharacters: 'Caracter em especial obrigatório',
+      bs2DSInputPhone: 'Telefone inválido.',
+    };
   }
 }

@@ -4,6 +4,9 @@ import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-in
 import { FormControl } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 import { NgxMaskModule } from 'ngx-mask';
+import { setTranslationsConstantsInstance } from '@bs2/design-system/translations';
+
+setTranslationsConstantsInstance();
 
 const meta: Meta<Bs2DSInputTextComponent> = {
   component: Bs2DSInputTextComponent,
