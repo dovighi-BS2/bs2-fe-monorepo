@@ -56,7 +56,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
     if (!this.controlIsArray) {
       (document.activeElement as any).blur();
-      this.control.setValue(option.value, { emitEvent: false });
+      this.control.setValue(option.value);
     } else {
       const alreadyIn = (this.control.value || []).find((item: string) => item === option.value);
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
@@ -64,14 +64,11 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   }
 
   addSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue([...this.control.value, option.value], { emitEvent: false });
+    this.control.setValue([...this.control.value, option.value]);
   }
 
   removeSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue(
-      (this.control.value || []).filter((item: string) => item !== option.value),
-      { emitEvent: false }
-    );
+    this.control.setValue((this.control.value || []).filter((item: string) => item !== option.value));
   }
 
   selectByEnter(option: Bs2DSInputSelectOption) {

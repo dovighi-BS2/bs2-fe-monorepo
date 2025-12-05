@@ -6,8 +6,6 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 })
 export class Bs2DSOutlinedButtonDirective implements OnInit {
   @Input('bs2-ds-outlined-button') bs2DSOutlinedButton?: 'small' | 'medium' | 'large' | '';
-  @Input('aria-label') ariaLabel = '';
-  @Input('aria-disabled') ariaDisabled = '';
   @Input() tabindex = 0;
 
   constructor(public el: ElementRef) {
@@ -17,12 +15,6 @@ export class Bs2DSOutlinedButtonDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.ariaDisabled !== 'true' && !this.ariaLabel.trim().length)
-      throw new Error('insira o atributo [aria-label].');
-
-    if (this.ariaDisabled === 'true' && this.ariaLabel.trim().length)
-      throw new Error('Remova o atributo [aria-label].');
-
     this.bs2DSOutlinedButton && this.el.nativeElement.classList.add(this.bs2DSOutlinedButton);
   }
 }

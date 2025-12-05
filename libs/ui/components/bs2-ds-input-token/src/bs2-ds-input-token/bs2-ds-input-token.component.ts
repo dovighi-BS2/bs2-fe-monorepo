@@ -63,7 +63,7 @@ export class Bs2DSInputTokenComponent implements OnInit {
     for (let i = 0; i < this.amount; i++) value.push(this.form.at(i).value);
     for (let i = 0; i < this.amount; i++) if (this.form.at(i).touched) touchedCount++;
     if (touchedCount >= this.amount) this.control.markAllAsTouched();
-    this.control.setValue(value.join(''), { emitEvent: false });
+    this.control.setValue(value.join(''));
   }
 
   getControlByItem(item: AbstractControl): FormControl {

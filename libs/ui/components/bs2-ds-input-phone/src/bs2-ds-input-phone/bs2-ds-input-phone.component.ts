@@ -63,7 +63,7 @@ export class Bs2DSInputPhoneComponent implements OnInit {
       const code = this.codeControl.value;
       const phone = this.phoneControl.value;
       this.control.setValidators([CustomValidators.bs2DSInputPhone(`${code}${this.masks[code]}`)]);
-      this.control.setValue(`${code}${phone}`, { emitEvent: false });
+      this.control.setValue(`${code}${phone}`);
       this.control.markAllAsTouched();
     });
   }
