@@ -13,9 +13,9 @@
     "test:affected:main": "nx affected -t test",
     "create-entrypoint": "nx g bs2-entry-point",
     "package": "nx run-many -t build --projects=ui,compiled-plugins",
+    "publish": "nx run ui:publish",
     "commit": "git-cz",
-    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited",
-    "prepare": "husky && git config --local core.editor cat"
+    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
   "private": true,
   "dependencies": {
@@ -109,16 +109,5 @@
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.5.2"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "ng lint",
-      "ng test --browsers ChromeHeadless --watch=false",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --syntax scss",
-      "git add"
-    ]
   }
 }
