@@ -7,6 +7,8 @@ export class TranslationsConstantsZh extends TranslationsConstantsBase {
       required: '必填字段。',
       maxLength: '最多允许 @maxLength@ 个字符。',
       minLength: '最少需要 @minLength@ 个字符。',
+      fullName: '请至少填写名字和姓氏。',
+      onlyLetters: '姓名必须仅包含字母（不能有数字或特殊字符。',
       length: '必须正好 @length@ 个字符。',
       maxValue: '最大允许值为 @maxValue@。',
       minValue: '最小允许值为 @minValue@。',

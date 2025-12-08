@@ -20,6 +20,21 @@ export const CustomValidators = {
 
     return null;
   },
+  fullName: (control: AbstractControl): ValidationErrors | null => {
+      const value: string = control.value?.trim() || '';
+
+      const words = value.split(/\s+/);
+      if (words.length < 2) {
+        return { fullName: customValidationsMessages().fullName  };
+      }
+      const nameIsValid = words.every((word) => /^[A-Za-zÀ-ÖØ-öø-ÿ]+(-[A-Za-zÀ-ÖØ-öø-ÿ]+)?$/.test(word));
+      if (!nameIsValid) {
+        return { fullName: customValidationsMessages().onlyLetters };
+      }
+
+      return null;
+
+  },
   numeric: (control: AbstractControl): ValidationErrors | null => {
     if (String(control.value).trim().length <= 0 || isNaN(control.value))
       return { required: customValidationsMessages().numeric };
