@@ -4,6 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { fromEvent, Subscription } from 'rxjs';
+import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
 @Component({
   selector: 'bs2-ds-input-select',
@@ -27,7 +28,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   @Input() rightIcon = 'icon icon-chevronbaixo';
   @Input() helperText = '';
   @Input() errorText = '';
-  @Input() placeholder = 'Selecione uma opção';
+  @Input() placeholder = TranslationsConstantsBase.instance.placeholderMessages().selectOption;
   @Input() readOnly = false;
   @Input() options: Bs2DSInputSelectOption[] = [];
   @Input() hideCheckbox = false;
