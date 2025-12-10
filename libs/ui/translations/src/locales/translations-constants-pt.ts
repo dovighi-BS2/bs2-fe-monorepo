@@ -7,6 +7,8 @@ export class TranslationsConstantsPt extends TranslationsConstantsBase {
       required: 'Preenchimento obrigatório.',
       maxLength: 'Máximo de @maxLength@ caracteres permitido.',
       minLength: 'Mínimo de @minLength@ caracteres permitido.',
+      fullName: 'Informe pelo menos nome e sobrenome.',
+      onlyLetters: 'O nome deve conter apenas letras (sem números ou caracteres especiais).',
       length: 'É necessario exatamente @length@ caracteres.',
       maxValue: 'Valor máximo permitido de @maxValue@.',
       minValue: 'Valor mínimo permitido de @minValue@.',

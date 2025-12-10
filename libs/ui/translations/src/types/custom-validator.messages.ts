@@ -3,6 +3,8 @@ export interface CustomValidatorMessages {
   maxLength: string;
   minLength: string;
   length: string;
+  fullName:string;
+  onlyLetters:string;
   maxValue: string;
   minValue: string;
   arrayMaxLength: string;

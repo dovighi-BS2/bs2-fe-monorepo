@@ -7,6 +7,8 @@ export class TranslationsConstantsEn extends TranslationsConstantsBase {
       required: 'Required field.',
       maxLength: 'Maximum of @maxLength@ characters allowed.',
       minLength: 'Minimum of @minLength@ characters allowed.',
+      fullName: 'Please provide at least a first name and a last name.',
+      onlyLetters: 'The name must contain only letters (no numbers or special characters).',
       length: 'Exactly @length@ characters required.',
       maxValue: 'Maximum allowed value is @maxValue@.',
       minValue: 'Minimum allowed value is @minValue@.',
