@@ -1,8 +1,10 @@
-import { Bs2DSOrderDirective } from './bs2-ds-order/bs2-ds-order.directive';
-import { Bs2DSPushDirective } from './bs2-ds-push/bs2-ds-push.directive';
-import { Bs2DSOffsetDirective } from './bs2-ds-offset/bs2-ds-offset.directive';
-import { Bs2DSColumnDirective } from './bs2-ds-column/bs2-ds-column.directive';
-import { Bs2DSRowDirective } from './bs2-ds-row/bs2-ds-row.directive';
+import {
+  Bs2DSRowDirective,
+  Bs2DSOrderDirective,
+  Bs2DSPushDirective,
+  Bs2DSOffsetDirective,
+  Bs2DSColumnDirective,
+} from '@bs2/design-system/directives/bs2-ds-grid';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Component } from '@angular/core';
 
@@ -54,27 +56,32 @@ function getBreakpoints(columns: number[]) {
 }
 
 @Component({
-  selector: 'grid-mock',
+  selector: 'bs2-ds-grid-mock',
   imports: [Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSOffsetDirective, Bs2DSPushDirective, Bs2DSOrderDirective],
   template: ``,
   standalone: true,
 })
-class MockGridComponent {}
+class Bs2DSGridMockComponent {}
 
-const meta: Meta<MockGridComponent> = {
-  component: MockGridComponent,
+const meta: Meta<Bs2DSGridMockComponent> = {
+  component: Bs2DSGridMockComponent,
   title: 'Directives/Grid',
-  subcomponents: {
-    Bs2DSRowDirective,
-    Bs2DSColumnDirective,
-    Bs2DSOffsetDirective,
-    Bs2DSPushDirective,
-    Bs2DSOrderDirective,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          Os sistemas de grid são responsáveis por organizar e estruturar grupos de conteúdo na interface. Eles podem ser utilizados tanto para compor painéis administrativos complexos quanto para subdividir conjuntos de informações de forma consistente e responsiva.
+          Extremamente versáteis, permitem criar praticamente qualquer layout por meio de variações de colunas, offsets, espaçamentos, alinhamentos e ordenações — oferecendo flexibilidade para adaptar a estrutura a diferentes dispositivos e necessidades do projeto.
+        `.trim(),
+      },
+    },
   },
   decorators: [
     moduleMetadata({
       imports: [
-        MockGridComponent,
+        Bs2DSGridMockComponent,
         Bs2DSRowDirective,
         Bs2DSColumnDirective,
         Bs2DSOffsetDirective,
@@ -82,25 +89,39 @@ const meta: Meta<MockGridComponent> = {
         Bs2DSOrderDirective,
       ],
     }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: 100%; }`],
+    }),
   ],
   argTypes: {},
 };
 export default meta;
-type Story = StoryObj<MockGridComponent>;
+type Story = StoryObj<Bs2DSGridMockComponent>;
 
 export const TwelveColumn: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-      <h3>(Default Max Column:12) (Default Gap: 30px)</h3>
-      <div bs2-ds-row>
-        ${column(1, [12])}
-        ${column(2, [6])}
-        ${column(3, [4])}
-        ${column(4, [3])}
-        ${column(6, [2])}
-        ${column(12, [1])}
-      </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<h3>(Default Max Column:12) (Default Gap: 30px)</h3>
+<div bs2-ds-row>
+  ${column(1, [12])}
+  ${column(2, [6])}
+  ${column(3, [4])}
+  ${column(4, [3])}
+  ${column(6, [2])}
+  ${column(12, [1])}
+</div>
     `,
   }),
 };
@@ -108,31 +129,63 @@ export const TwelveColumn: Story = {
 export const Responsive: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-        <div bs2-ds-row gap='30px'>
-            <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
-            <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
-            <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
-            <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
-          </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row gap='30px'>
+  <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
+  <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
+  <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
+  <div [bs2-ds-column]="[12, 6, 4, 3]"><span class="box">${getBreakpoints([12, 6, 4, 3])}</span></div>
+</div>
     `,
   }),
 };
 
 export const CustomMaxColumnAndGap: Story = {
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        story: `
+          <p>
+            Exemplo usando (Max Column:16) (Gap: 10px)<br />
+            Atributo: [columns] pode ser no maximo 20. Caso precise de mais colunas, basta ir no arquivo bs2-ds-grid.directive.scss e mudar a variavel $maxColumns.
+            Atributo [gap] é uma string livre, pode ser qualquer numero em qualquer unidade de medida CSS.
+          </p>
+        `.trim(),
+      },
+    },
+  },
   render: () => ({
     template: `
-      ${boxStyle}
-      <h3>(Max Column:16) (Gap: 10px)</h3>
-      <p>Atributo: [columns] pode ser no maximo 20. Caso precise de mais colunas, basta ir no arquivo bs2-ds-grid.directive.scss e mudar a variavel $maxColumns.</p>
-      <p>Atributo [gap] é uma string livre, pode ser qualquer numero em qualquer unidade de medida CSS.</p>
-      <div bs2-ds-row columns='16' gap='10px'>
-        ${column(1, [16])}
-        ${column(2, [8])}
-        ${column(4, [4])}
-        ${column(8, [2])}
-        ${column(16, [1])}
-      </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row columns='16' gap='10px'>
+  ${column(1, [16])}
+  ${column(2, [8])}
+  ${column(4, [4])}
+  ${column(8, [2])}
+  ${column(16, [1])}
+</div>
     `,
   }),
 };
@@ -140,15 +193,25 @@ export const CustomMaxColumnAndGap: Story = {
 export const Nested: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-      <div bs2-ds-row>
-        <div [bs2-ds-column]="${JSON.stringify([6, 6])}">
-          <div bs2-ds-row>
-            ${column(2, [6, 6])}
-          </div>
-        </div>
-        ${column(1, [6, 6])}
-      </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row>
+  <div [bs2-ds-column]="${JSON.stringify([6, 6])}">
+    <div bs2-ds-row>
+      ${column(2, [6, 6])}
+    </div>
+  </div>
+  ${column(1, [6, 6])}
+</div>
     `,
   }),
 };
@@ -156,11 +219,21 @@ export const Nested: Story = {
 export const Offset: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-        <div bs2-ds-row gap='30px'>
-          ${column(1, [4], [0, 6, 3])}
-          ${column(1, [4], [1])}
-        </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSOffsetDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSOffsetDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row gap='30px'>
+  ${column(1, [4], [0, 6, 3])}
+  ${column(1, [4], [1])}
+</div>
     `,
   }),
 };
@@ -168,11 +241,21 @@ export const Offset: Story = {
 export const Push: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-        <div bs2-ds-row gap='30px'>
-          ${column(1, [4], [], [0, 6, 1])}
-          ${column(1, [1], [], [])}
-        </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSPushDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSPushDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row gap='30px'>
+  ${column(3, [4], [], [0, 6, 1])}
+  ${column(3, [4], [], [])}
+</div>
     `,
   }),
 };
@@ -180,11 +263,21 @@ export const Push: Story = {
 export const Order: Story = {
   render: () => ({
     template: `
-      ${boxStyle}
-        <div bs2-ds-row gap='10px'>
-          ${column(1, [4], [], [], [2, 1])}
-          ${column(1, [8], [], [], [1, 2])}
-        </div>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSOrderDirective } from "@bs2/design-system/directives/bs2-ds-grid";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSRowDirective, Bs2DSColumnDirective, Bs2DSOrderDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+${boxStyle}
+<div bs2-ds-row gap='10px'>
+  ${column(1, [4], [], [], [2, 1])}
+  ${column(1, [8], [], [], [1, 2])}
+</div>
     `,
   }),
 };
