@@ -7,14 +7,14 @@ COPY . .
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm cache clean --force
- 
+
 RUN npm config set strict-ssl false
 RUN npm --version
 ENV NODE_OPTIONS="--max-old-space-size=4096"
- 
- 
+
+
 RUN npm install -g @angular/cli nx
-RUN npm install 
+RUN npm install --force
 
 RUN npx nx run ui:build-storybook
 
