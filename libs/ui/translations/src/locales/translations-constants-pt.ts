@@ -1,7 +1,14 @@
 import { TranslationsConstantsBase } from '../translations-constants-base';
 import { CustomValidatorMessages } from '../types/custom-validator.messages';
+import { PlaceHolderMessages } from '../types/placeholder.messages';
 
 export class TranslationsConstantsPt extends TranslationsConstantsBase {
+  public override placeholderMessages(): PlaceHolderMessages{
+    return {
+      selectOption: 'Selecione uma opção',
+    };
+
+  }
   public customValidatorMessages(): CustomValidatorMessages {
     return {
       required: 'Preenchimento obrigatório.',

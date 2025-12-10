@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
 import { flags } from './bs2-ds-input-currency.component.enum';
+import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
 @Component({
   selector: 'bs2-ds-input-currency',
@@ -21,7 +22,7 @@ export class Bs2DSInputCurrencyComponent {
   @Input() rightIcon = 'icon icon-chevronbaixo';
   @Input() helperText = '';
   @Input() errorText = '';
-  @Input() placeholder = 'Selecione uma opção';
+  @Input() placeholder = TranslationsConstantsBase.instance.placeholderMessages().selectOption;
   @Input() readOnly = false;
 
   @Input() ariaLabel = '';

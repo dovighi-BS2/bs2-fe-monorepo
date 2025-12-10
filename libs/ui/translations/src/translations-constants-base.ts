@@ -1,4 +1,5 @@
 import { CustomValidatorMessages } from './types/custom-validator.messages';
+import { PlaceHolderMessages } from './types/placeholder.messages';
 
 export abstract class TranslationsConstantsBase {
   private static _instance: TranslationsConstantsBase;
@@ -12,4 +13,6 @@ export abstract class TranslationsConstantsBase {
   }
 
   public abstract customValidatorMessages(): CustomValidatorMessages;
+
+  public abstract placeholderMessages(): PlaceHolderMessages;
 }
