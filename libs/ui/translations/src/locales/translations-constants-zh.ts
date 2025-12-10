@@ -1,7 +1,14 @@
 import { TranslationsConstantsBase } from '../translations-constants-base';
 import { CustomValidatorMessages } from '../types/custom-validator.messages';
+import { PlaceHolderMessages } from '../types/placeholder.messages';
 
 export class TranslationsConstantsZh extends TranslationsConstantsBase {
+  public override placeholderMessages(): PlaceHolderMessages{
+    return {
+      selectOption: '请选择一个选项',
+    };
+
+  }
   public customValidatorMessages(): CustomValidatorMessages {
     return {
       required: '必填字段。',
