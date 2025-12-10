@@ -55,7 +55,10 @@ import { Bs2DSStatusComponent } from "@bs2/design-system/components/bs2-ds-statu
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSStatusComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public text: string = 'Seu Texto aqui';
+    public status: 'neutral' | 'success' | 'attention' | 'error' = 'neutral';
+}
 -->
 
 <!-- HTML -->

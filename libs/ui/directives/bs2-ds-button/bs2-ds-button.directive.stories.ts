@@ -1,73 +1,111 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';
-import { Bs2DSOutlinedButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button';
-import { Bs2DSFlatButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button';
-import { within } from '@storybook/test';
-import { Component, Input } from '@angular/core';
+import { Bs2DSFilledButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button";
+import { Bs2DSOutlinedButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button";
+import { Bs2DSFlatButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'button-mock',
+  selector: 'bs2-ds-button-mock',
   template: ``,
   standalone: true,
 })
-class MockButtonComponent {
-  @Input() ariaLabel = 'button';
-  @Input() tabindex = 0;
-}
+class Bs2DSButtonMockComponent {}
 
-const meta: Meta<MockButtonComponent> = {
-  component: MockButtonComponent,
+const meta: Meta<Bs2DSButtonMockComponent> = {
+  component: Bs2DSButtonMockComponent,
   title: 'Directives/Button',
-  subcomponents: {
-    Bs2DSFilledButtonDirective,
-    Bs2DSOutlinedButtonDirective,
-    Bs2DSFlatButtonDirective,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          Os botões desempenham um papel fundamental como componentes interativos que orientam os usuários em ações específicas de forma clara e intuitiva. Eles são projetados para serem visualmente distintos, com padrões de cores, tipografia e iconografia que facilitam a identificação rápida de sua função, como ações primárias, secundárias e de alerta.
+          Esses padrões garantem consistência visual e comportamental em toda a interface, apoiando na reduzição da carga cognitiva ao estabelecer uma hierarquia de interação que reforça a usabilidade e a experiência do usuário.
+        `.trim(),
+      },
+    },
   },
   decorators: [
     moduleMetadata({
       imports: [
-        MockButtonComponent,
+        Bs2DSButtonMockComponent,
         Bs2DSFilledButtonDirective,
         Bs2DSOutlinedButtonDirective,
         Bs2DSFlatButtonDirective,
       ],
     }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],
+    }),
   ],
-  argTypes: {
-    ariaLabel: {
-      control: { type: 'text' },
-    },
-    tabindex: {
-      control: { type: 'inline-radio' },
-      defaultValue: 0,
-      options: [0, -1],
-    },
-  },
 };
 export default meta;
-type Story = StoryObj<MockButtonComponent>;
+type Story = StoryObj<Bs2DSButtonMockComponent>;
 
 export const Filled: Story = {
-  render: (args) => ({
-    template: `<button bs2-ds-filled-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,
+  render: () => ({
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSFilledButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSFilledButtonDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+<style>button + button { margin-left: 10px; }</style>
+<button bs2-ds-filled-button>button</button>
+<button bs2-ds-filled-button="small">button</button>
+<button bs2-ds-filled-button="medium">button</button>
+<button bs2-ds-filled-button="large">button</button>
+    `,
   }),
 };
 
 export const Outlined: Story = {
-  render: (args) => ({
-    template: `<button bs2-ds-outlined-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,
+  render: () => ({
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSOutlinedButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSOutlinedButtonDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+<style>button + button { margin-left: 10px; }</style>
+<button bs2-ds-outlined-button>button</button>
+<button bs2-ds-outlined-button="small">button</button>
+<button bs2-ds-outlined-button="medium">button</button>
+<button bs2-ds-outlined-button="large">button</button>
+    `,
   }),
 };
 
 export const Flat: Story = {
-  render: (args) => ({
-    template: `<button bs2-ds-flat-button aria-label='${args.ariaLabel}' tabindex='${args.tabindex}'>button</button>`,
-  }),
-};
+  render: () => ({
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSFlatButtonDirective } from "@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button";
+import { Component } from '@angular/core';
 
-export const Default: Story = {
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/pagination works!/gi)).toBeTruthy();
-  },
+@Component({ imports: [Bs2DSFlatButtonDirective], ... })
+export class YourComponentComponent { }
+-->
+
+<!-- HTML -->
+<style>button + button { margin-left: 10px; }</style>
+<button bs2-ds-flat-button>button</button>
+<button bs2-ds-flat-button="small">button</button>
+<button bs2-ds-flat-button="medium">button</button>
+<button bs2-ds-flat-button="large">button</button>
+    `,
+  }),
 };

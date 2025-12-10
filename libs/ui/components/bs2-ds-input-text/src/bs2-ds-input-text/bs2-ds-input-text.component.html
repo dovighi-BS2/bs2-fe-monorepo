@@ -1,24 +1,24 @@
+@let block = "bs2_ds_input_text";
+
 <div
-  *ngIf="!!control"
-  [attr.data-test]="testId"
   class="
-    bs2_ds_input_text
+    {{ block }}
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
   "
 >
   @if(!hideErrors){
-  <span class="bs2_ds_input_text__feedback">
+  <span class="{{ block }}__feedback">
     {{ errorText || getErrors }}
   </span>
   }
-  <span class="bs2_ds_input_text__helper" *ngIf="!!helperText">{{ helperText }}</span>
-  <div class="bs2_ds_input_text__wrapper">
-    <div class="bs2_ds_input_text__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
-    <div class="bs2_ds_input_text__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+  <span class="{{ block }}__helper" *ngIf="!!helperText">{{ helperText }}</span>
+  <div class="{{ block }}__wrapper">
+    <div class="{{ block }}__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
+    <div class="{{ block }}__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
     @if(!currencyMask){
     <input
-      class="bs2_ds_input_text__field"
+      class="{{ block }}__field"
       [id]="id"
       [type]="type"
       [placeholder]="placeholder"
@@ -34,7 +34,7 @@
     />
     } @if(currencyMask){
     <input
-      class="bs2_ds_input_text__field"
+      class="{{ block }}__field"
       [id]="id"
       [type]="type"
       [placeholder]="placeholder"
@@ -51,5 +51,5 @@
     />
     }
   </div>
-  <label *ngIf="label" [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
+  <label *ngIf="label" [for]="id" class="{{ block }}__label">{{ label }}</label>
 </div>

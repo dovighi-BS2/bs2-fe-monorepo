@@ -16,8 +16,9 @@ export class Bs2DSInputCurrencyComponent {
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
+  @Input() leftIcon = '';
+  @Input() rightIcon = 'icon icon-chevronbaixo';
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = 'Selecione uma opção';

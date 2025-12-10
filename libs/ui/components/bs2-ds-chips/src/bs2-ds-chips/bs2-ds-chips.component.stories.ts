@@ -2,14 +2,6 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { FormControl } from '@angular/forms';
 import { Bs2DSChipsComponent, Bs2DSChipOption } from '@bs2/design-system/components/bs2-ds-chips';
 
-const options: Bs2DSChipOption[] = Array(5)
-  .fill(0)
-  .map((_, i) => ({
-    value: `item ${String(i + 1).padStart(2, '0')}`,
-    label: `item ${String(i + 1).padStart(2, '0')}`,
-    disabled: [3, 4, 5].includes(i),
-  }));
-
 const meta: Meta<Bs2DSChipsComponent> = {
   component: Bs2DSChipsComponent,
   title: 'Form Components/Chips Checkbox',
@@ -63,7 +55,13 @@ type Story = StoryObj<Bs2DSChipsComponent>;
 export const Default: Story = {
   args: {
     control: new FormControl([]),
-    options,
+    options: [
+      { label: 'Item 01' },
+      { label: 'Item 02' },
+      { label: 'Item 03', disabled: true },
+      { label: 'Item 04', disabled: true },
+      { label: 'Item 05' },
+    ] as Bs2DSChipOption[],
     minSelectable: 1,
     maxSelectable: 1,
   },
@@ -76,7 +74,102 @@ import { Bs2DSChipsComponent } from "@bs2/design-system/components/bs2-ds-chips"
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSChipsComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public control: FormControl = new FormControl([]);
+    public options: Bs2DSChipOption[] = [
+      { label: 'Item 01' },
+      { label: 'Item 02' },
+      { label: 'Item 03', disabled: true },
+      { label: 'Item 04', disabled: true },
+      { label: 'Item 05' },
+    ];
+    public minSelectable: number = 1;
+    public maxSelectable: number = 1;
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-chips
+  [control]="control"
+  [options]="options"
+  [minSelectable]="minSelectable"
+  [maxSelectable]="maxSelectable"
+/>
+    `,
+  }),
+};
+
+export const UsingArrayOfStringAsValueType: Story = {
+  name: 'Using Array of string as value type',
+  args: {
+    control: new FormControl([]),
+    options: ['Item 01', 'Item 02', 'Item 03', 'Item 04', 'Item 05'],
+    minSelectable: 1,
+    maxSelectable: 1,
+  },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSChipsComponent } from "@bs2/design-system/components/bs2-ds-chips";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSChipsComponent], ... })
+export class YourComponentComponent {
+    public control: FormControl = new FormControl([]);
+    public options: string[] = ["Item 01", "Item 02", "Item 03", "Item 04", "Item 05"];
+    public minSelectable: number = 1;
+    public maxSelectable: number = 1;
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-chips
+  [control]="control"
+  [options]="options"
+  [minSelectable]="minSelectable"
+  [maxSelectable]="maxSelectable"
+/>
+    `,
+  }),
+};
+
+export const UsingBs2DSChipOptionType: Story = {
+  name: 'Using Bs2DSChipOption Type',
+  args: {
+    control: new FormControl([]),
+    options: [
+      { label: 'Item 01' },
+      { label: 'Item 02' },
+      { label: 'Item 03', disabled: true },
+      { label: 'Item 04', disabled: true },
+      { label: 'Item 05' },
+    ] as Bs2DSChipOption[],
+    minSelectable: 1,
+    maxSelectable: 1,
+  },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSChipsComponent } from "@bs2/design-system/components/bs2-ds-chips";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSChipsComponent], ... })
+export class YourComponentComponent {
+    public control: FormControl = new FormControl([]);
+    public options: Bs2DSChipOption[] = [
+      { label: 'Item 01' },
+      { label: 'Item 02' },
+      { label: 'Item 03', disabled: true },
+      { label: 'Item 04', disabled: true },
+      { label: 'Item 05' },
+    ];
+    public minSelectable: number = 1;
+    public maxSelectable: number = 1;
+}
 -->
 
 <!-- HTML -->

@@ -1,23 +1,24 @@
+@let block = "bs2_ds_input_text";
+
 <div
-  [attr.data-test]="testId"
   class="
-    bs2_ds_input_text
+    {{ block }}
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
   "
 >
-  @if(helperText){
-  <span class="bs2_ds_input_text__helper">{{ helperText }}</span>
-  } @if(!hideErrors){
-  <span class="bs2_ds_input_text__feedback">
+  @if(!hideErrors){
+  <span class="{{ block }}__feedback">
     {{ errorText || getErrors }}
   </span>
+  } @if(helperText){
+  <span class="{{ block }}__helper">{{ helperText }}</span>
   }
-  <div class="bs2_ds_input_text__wrapper" formArray="forms">
+  <div class="{{ block }}__wrapper" formArray="forms">
     @for(item of form.controls; track $index;){
     <input
       #bs2DSInputToken
-      class="bs2_ds_input_text__field"
+      class="{{ block }}__field"
       type="text"
       maxlength="1"
       size="1"
@@ -29,5 +30,5 @@
     />
     }
   </div>
-  <label [for]="id" class="bs2_ds_input_text__label">{{ label }}</label>
+  <label [for]="id" class="{{ block }}__label">{{ label }}</label>
 </div>

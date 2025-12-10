@@ -92,7 +92,15 @@ import { Bs2DSCardProductComponent } from "@bs2/design-system/components/bs2-ds-
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSCardProductComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+  public loader: boolean = false;
+  public unavailableTitle: string = "";
+  public icon: string = "";
+  public title: string = "Crédito";
+  public label: string = "Limite disponível até";
+  public value: number = 50000;
+  public template: "visible" | "hidden" | "unavailable" = "visible";
+}
 -->
 
 <!-- HTML -->

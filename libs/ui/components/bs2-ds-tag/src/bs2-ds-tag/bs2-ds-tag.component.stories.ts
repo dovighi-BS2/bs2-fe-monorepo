@@ -63,7 +63,11 @@ import { Bs2DSTagComponent } from "@bs2/design-system/components/bs2-ds-tag";
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSTagComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public status: 'primary' | 'neutral' | 'success' | 'attention' | 'error' = 'neutral';
+    public size: 'regular' | 'small' = 'regular';
+    public string = 'Seu texto aqui';
+}
 -->
 
 <!-- HTML -->

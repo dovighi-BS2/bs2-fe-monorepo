@@ -33,7 +33,7 @@ const meta: Meta<Bs2DSCardBalanceComponent> = {
       control: 'select',
       options: ['visible', 'hidden', 'unavailable'],
       defaultValue: { summary: 'visible' },
-      table: { type: { summary: 'visible | hidden | unavailable' } },
+      table: { type: { summary: "'visible' | 'hidden' | 'unavailable'" } },
     },
     loader: {
       control: 'boolean',
@@ -55,7 +55,7 @@ export const Default: Story = {
   args: {
     balance: 1000000000.12,
     limit: 3000000000.23,
-    template: 'hidden',
+    template: 'visible',
     loader: false,
   },
   render: (args) => ({
@@ -67,7 +67,12 @@ import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSCardBalanceComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public balance: number = 1000000000.12;
+    public limit: number = 3000000000.23;
+    public template: 'visible' | 'hidden' | 'unavailable' = "visible";
+    public loader: boolean = false;
+}
 -->
 
 <!-- HTML -->

@@ -70,7 +70,12 @@ import { Bs2DSStepNavigatorComponent, Bs2DSStepNavigatorItemComponent } from "@b
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSStepNavigatorComponent, Bs2DSStepNavigatorItemComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+  public activatedIndex: number = 0;
+  public auto: boolean = false;
+  public loop: boolean = false;
+  public timer: number = 5000;
+}
 -->
 
 <!-- HTML -->

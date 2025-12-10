@@ -1,9 +1,11 @@
-<ul class="chip">
+@let block = "bs2_ds_chips";
+
+<ul class="{{ block }}">
   @for(item of _options; track item.value) {
   <li
     tabindex="1"
     class="
-      chip__item
+      {{ block }}__item
       {{ item.disabled ? 'disabled' : '' }}
       {{ isSelected(item) ? 'selected' : '' }}
     "

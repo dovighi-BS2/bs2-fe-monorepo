@@ -40,31 +40,31 @@ import { Component } from '@angular/core';
 export class YourComponentComponent {}
 -->
 
-    <!-- HTML -->
-    <style>[bs2-ds-scrollbar] { width: 100%; height: 300px; overflow-y: auto; overflow-x: hidden; }</style>
-    <div bs2-ds-scrollbar>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
-        cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
-        quis? <br /><br />
-    </div>
+<!-- HTML -->
+<style>[bs2-ds-scrollbar] { width: 100%; height: 300px; overflow-y: auto; overflow-x: hidden; }</style>
+<div bs2-ds-scrollbar>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus delectus debitis, corporis a ipsum
+    cupiditate totam asperiores nostrum consequatur animi, facere quisquam optio harum esse veritatis facilis non
+    quis? <br /><br />
+</div>
     `.trim(),
   }),
 };

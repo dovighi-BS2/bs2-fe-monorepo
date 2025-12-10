@@ -1,6 +1,6 @@
 :host {
-  --input_phone__label_color: var(--neutral600);
-  --input_phone__feedback_text_color: var(--feedback_error);
+  --bs2_ds_input_phone__label_color: var(--neutral600);
+  --bs2_ds_input_phone__feedback_text_color: var(--feedback_error);
 }
 
 .bs2_ds_input_phone {
@@ -11,21 +11,18 @@
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--input_phone__label_color);
+    color: var(--bs2_ds_input_phone__label_color);
 
     &:empty {
       display: none;
     }
   }
   &__feedback {
+    min-height: 15px;
     font-size: 10px;
     font-weight: 400;
     margin-top: 4px;
-    color: var(--input_phone__feedback_text_color);
-
-    &:empty {
-      display: none;
-    }
+    color: var(--bs2_ds_input_phone__feedback_text_color);
   }
   &__wrapper {
     display: flex;
@@ -38,12 +35,12 @@
   &__label {
     font-size: 12px;
     font-weight: 400;
-    color: var(--input_phone__label_color);
+    color: var(--bs2_ds_input_phone__label_color);
   }
 
   &.error {
-    --input_phone__label_color: var(--feedback_error);
-    --input_phone__feedback_text_color: var(--feedback_error);
+    --bs2_ds_input_phone__label_color: var(--feedback_error);
+    --bs2_ds_input_phone__feedback_text_color: var(--feedback_error);
   }
 
   ::ng-deep {
