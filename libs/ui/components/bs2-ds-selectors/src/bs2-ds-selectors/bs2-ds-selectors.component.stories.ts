@@ -1,37 +1,36 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSSelectorsComponent } from './bs2-ds-selectors.component';
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Bs2DSSelectorsComponent } from '@bs2/design-system/components/bs2-ds-selectors';
+import { FormControl } from '@angular/forms';
 
 const meta: Meta<Bs2DSSelectorsComponent> = {
   component: Bs2DSSelectorsComponent,
   title: 'Form Components/Selectors',
-  subcomponents: {},
+  parameters: {
+    layout: 'centered',
+    docs: {
+      autodocs: false,
+      description: {
+        component: `
+          Os campos seletores do tipo radio button, checkbox e switch são componentes essenciais para capturar preferências e escolhas do usuário em uma interface. O radio button permite uma única seleção dentro de um conjunto de opções mutuamente exclusivas, enquanto o checkbox possibilita a seleção de múltiplas opções simultâneas. Já o switch é usado para ativar ou desativar um parâmetro específico, um botão de alternância visualmente claro. Esses campos asseguram que as escolhas do usuário sejam intuitivas, rápidas e facilmente reconhecíveis na interface.
+        `.trim(),
+      },
+    },
+  },
   decorators: [
     moduleMetadata({
       imports: [Bs2DSSelectorsComponent],
     }),
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],
+    }),
   ],
   argTypes: {
-    testId: {
-      control: 'text',
-      defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
-    },
     type: {
       control: 'select',
       options: ['radio', 'checkbox', 'switch'],
       defaultValue: { summary: 'checkbox' },
-      table: {
-        type: {
-          summary: 'radio | checkbox | switch',
-        },
-      },
+      table: { type: { summary: 'radio | checkbox | switch' } },
     },
     control: {
       defaultValue: { summary: 'new FormControl()' },
@@ -46,45 +45,25 @@ const meta: Meta<Bs2DSSelectorsComponent> = {
     value: {
       control: 'text',
       defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'any',
-        },
-      },
+      table: { type: { summary: 'any' } },
     },
     isMain: {
       control: 'boolean',
       defaultValue: { summary: 'false' },
-      table: {
-        type: {
-          summary: 'boolean',
-        },
-      },
+      table: { type: { summary: 'boolean' } },
     },
     totalItemsCount: {
       control: 'number',
       defaultValue: { summary: '(vazio)' },
-      table: {
-        type: {
-          summary: 'number',
-        },
-      },
+      table: { type: { summary: 'number' } },
     },
     subject: {
       defaultValue: { summary: 'new Subject<any>()' },
-      table: {
-        type: {
-          summary: 'Subject<any>',
-        },
-      },
+      table: { type: { summary: 'Subject<any>' } },
     },
     emitter: {
       defaultValue: { summary: 'new EventEmitter<any>()' },
-      table: {
-        type: {
-          summary: 'Function',
-        },
-      },
+      table: { type: { summary: 'EventEmitter' } },
     },
   },
 };
@@ -115,8 +94,10 @@ export const Default: Story = {
 };
 
 export const Radio: Story = {
-  render: () => {
-    const control = new FormControl(null);
+  args: {
+    control: new FormControl(null),
+  },
+  render: (args) => {
     const options = [
       { id: 1, text: 'Banana' },
       { id: 2, text: 'Maça' },
@@ -124,20 +105,34 @@ export const Radio: Story = {
     ];
 
     return {
-      props: {
-        control,
-        options,
-      },
+      props: { ...args, options },
       template: `
-        <ng-container *ngFor="let item of options">
-          <bs2-ds-selectors
-            type="radio"
-            [control]="control"
-            [value]="item.id"
-          >
-            <ng-template>{{ item.text }}</ng-template>
-          </bs2-ds-selectors>
-        </ng-container>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSSelectorsComponent } from "@bs2/design-system/components/bs2-ds-selectors";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSSelectorsComponent], ... })
+export class YourComponentComponent {
+  public control: FormControl = new FormControl(null, [CustomValidators.required]);
+  public options = [
+    { id: 1, text: 'Banana' },
+    { id: 2, text: 'Maça' },
+    { id: 3, text: 'Uva' },
+  ];
+}
+-->
+
+<!-- HTML -->
+<ng-container *ngFor="let item of options">
+  <bs2-ds-selectors
+    type="radio"
+    [control]="control"
+    [value]="item.id"
+  >
+    <ng-template>{{ item.text }}</ng-template>
+  </bs2-ds-selectors>
+</ng-container>
       `,
     };
   },
@@ -158,32 +153,50 @@ export const Checkbox: Story = {
     };
 
     return {
-      props: {
-        control,
-        options,
-        emitter,
-      },
+      props: { control, options, emitter },
       template: `
-        <bs2-ds-selectors
-          type="checkbox"
-          [control]="control"
-          value="Todos"
-          [isMain]="true"
-          [totalItemsCount]="options.length"
-          (emitter)="emitter($event)"
-        >
-          <ng-template>Todos</ng-template>
-        </bs2-ds-selectors>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSSelectorsComponent } from "@bs2/design-system/components/bs2-ds-selectors";
+import { Component } from '@angular/core';
 
-        <ng-container *ngFor="let item of options">
-          <bs2-ds-selectors
-            type="checkbox"
-            [control]="control"
-            [value]="item.id"
-          >
-            <ng-template>{{ item.text }}</ng-template>
-          </bs2-ds-selectors>
-        </ng-container>
+@Component({ imports: [Bs2DSSelectorsComponent], ... })
+export class YourComponentComponent {
+  public control: FormControl = new FormControl(null, [CustomValidators.required]);
+  public options = [
+    { id: 1, text: 'Banana' },
+    { id: 2, text: 'Maça' },
+    { id: 3, text: 'Uva' },
+  ];
+
+  public emitter(): void {
+    if (this.control.value.length === this.options.length) return this.control.setValue([]);
+    if (this.control.value.length >= 0) return this.control.setValue(this.options.map((item) => item.id));
+  }
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-selectors
+  type="checkbox"
+  [control]="control"
+  value="Todos"
+  [isMain]="true"
+  [totalItemsCount]="options.length"
+  (emitter)="emitter($event)"
+>
+  <ng-template>Todos</ng-template>
+</bs2-ds-selectors>
+
+<ng-container *ngFor="let item of options">
+  <bs2-ds-selectors
+    type="checkbox"
+    [control]="control"
+    [value]="item.id"
+  >
+    <ng-template>{{ item.text }}</ng-template>
+  </bs2-ds-selectors>
+</ng-container>
       `,
     };
   },
@@ -210,26 +223,48 @@ export const Switch: Story = {
         emitter,
       },
       template: `
-        <bs2-ds-selectors
-          type="switch"
-          [control]="control"
-          value="Todos"
-          [isMain]="true"
-          [totalItemsCount]="options.length"
-          (emitter)="emitter($event)"
-        >
-          <ng-template>Todos</ng-template>
-        </bs2-ds-selectors>
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSSelectorsComponent } from "@bs2/design-system/components/bs2-ds-selectors";
+import { Component } from '@angular/core';
 
-        <ng-container *ngFor="let item of options">
-          <bs2-ds-selectors
-            type="switch"
-            [control]="control"
-            [value]="item.id"
-          >
-            <ng-template>{{ item.text }}</ng-template>
-          </bs2-ds-selectors>
-        </ng-container>
+@Component({ imports: [Bs2DSSelectorsComponent], ... })
+export class YourComponentComponent {
+  public control: FormControl = new FormControl(null, [CustomValidators.required]);
+  public options = [
+    { id: 1, text: 'Banana' },
+    { id: 2, text: 'Maça' },
+    { id: 3, text: 'Uva' },
+  ];
+
+  public emitter(): void {
+    if (this.control.value.length === this.options.length) return this.control.setValue([]);
+    if (this.control.value.length >= 0) return this.control.setValue(this.options.map((item) => item.id));
+  }
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-selectors
+  type="switch"
+  [control]="control"
+  value="Todos"
+  [isMain]="true"
+  [totalItemsCount]="options.length"
+  (emitter)="emitter($event)"
+>
+  <ng-template>Todos</ng-template>
+</bs2-ds-selectors>
+
+<ng-container *ngFor="let item of options">
+  <bs2-ds-selectors
+    type="switch"
+    [control]="control"
+    [value]="item.id"
+  >
+    <ng-template>{{ item.text }}</ng-template>
+  </bs2-ds-selectors>
+</ng-container>
       `,
     };
   },

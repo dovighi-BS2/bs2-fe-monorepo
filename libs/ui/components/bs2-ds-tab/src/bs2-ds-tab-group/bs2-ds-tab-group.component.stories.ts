@@ -22,7 +22,7 @@ const meta: Meta<Bs2DSTabGroupComponent> = {
     }),
     (storyFunc) => ({
       ...storyFunc(),
-      styles: [...(storyFunc().styles || []), `:host { display: block; width: 576px; }`],
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],
     }),
   ],
   argTypes: {
@@ -63,7 +63,11 @@ import { Bs2DSTabGroupComponent, Bs2DSTabItemComponent } from "@bs2/design-syste
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSTabGroupComponent, Bs2DSTabItemComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+  public align: 'start' | 'center' | 'end' = 'start';
+  public full: boolean = false;
+  public selectedTab: string = 'Tab 1';
+}
 -->
 
 <!-- HTML -->
@@ -93,7 +97,11 @@ import { Bs2DSTabGroupComponent, Bs2DSTabItemComponent } from "@bs2/design-syste
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSTabGroupComponent, Bs2DSTabItemComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+  public align: 'start' | 'center' | 'end' = 'start';
+  public full: boolean = false;
+  public selectedTab: string = 'Tab 1';
+}
 -->
 
 <!-- HTML -->

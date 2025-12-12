@@ -42,7 +42,7 @@ type Story = StoryObj<Bs2DSProgressBarComponent>;
 
 export const Default: Story = {
   args: {
-    percent: 0,
+    percent: 50,
     loop: false,
   },
   render: (args) => ({
@@ -54,7 +54,10 @@ import { Bs2DSProgressBarComponent } from "@bs2/design-system/components/bs2-ds-
 import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSProgressBarComponent], ... })
-export class YourComponentComponent {}
+export class YourComponentComponent {
+    public percent: number = 50;
+    public loop: boolean = false;
+}
 -->
 
 <!-- HTML -->

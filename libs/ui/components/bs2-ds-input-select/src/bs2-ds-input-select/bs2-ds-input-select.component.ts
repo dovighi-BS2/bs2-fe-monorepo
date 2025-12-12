@@ -4,6 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { fromEvent, Subscription } from 'rxjs';
+import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
 @Component({
   selector: 'bs2-ds-input-select',
@@ -21,14 +22,13 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
   @Input() rightIcon = 'icon icon-chevronbaixo';
   @Input() helperText = '';
   @Input() errorText = '';
-  @Input() placeholder = 'Selecione uma opção';
+  @Input() placeholder = TranslationsConstantsBase.instance.placeholderMessages().selectOption;
   @Input() readOnly = false;
   @Input() options: Bs2DSInputSelectOption[] = [];
   @Input() hideCheckbox = false;
@@ -57,7 +57,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
 
     if (!this.controlIsArray) {
       (document.activeElement as any).blur();
-      this.control.setValue(option.value, { emitEvent: false });
+      this.control.setValue(option.value);
     } else {
       const alreadyIn = (this.control.value || []).find((item: string) => item === option.value);
       alreadyIn ? this.removeSelected(option) : this.addSelected(option);
@@ -65,14 +65,11 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   }
 
   addSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue([...this.control.value, option.value], { emitEvent: false });
+    this.control.setValue([...this.control.value, option.value]);
   }
 
   removeSelected(option: Bs2DSInputSelectOption) {
-    this.control.setValue(
-      (this.control.value || []).filter((item: string) => item !== option.value),
-      { emitEvent: false }
-    );
+    this.control.setValue((this.control.value || []).filter((item: string) => item !== option.value));
   }
 
   selectByEnter(option: Bs2DSInputSelectOption) {

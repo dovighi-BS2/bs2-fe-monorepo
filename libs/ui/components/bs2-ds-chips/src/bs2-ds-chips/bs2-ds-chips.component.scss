@@ -1,13 +1,13 @@
-.chip {
-  --chip_primary: var(--primary);
-  --chip_text_color: var(--primary);
-  --chip_bg_color: var(--primary_white);
-  --chip_gap: 10px;
+.bs2_ds_chips {
+  --bs2_ds_chips_primary: var(--primary);
+  --bs2_ds_chips_text_color: var(--primary);
+  --bs2_ds_chips_bg_color: var(--primary_white);
+  --bs2_ds_chips_gap: 10px;
 
   list-style: none;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: var(--chip_gap);
+  gap: var(--bs2_ds_chips_gap);
   padding: 0px;
   margin: 0px;
 
@@ -20,25 +20,25 @@
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.5s;
-    border: 1px solid var(--chip_primary);
-    color: var(--chip_text_color);
-    background-color: var(--chip_bg_color);
+    border: 1px solid var(--bs2_ds_chips_primary);
+    color: var(--bs2_ds_chips_text_color);
+    background-color: var(--bs2_ds_chips_bg_color);
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover {
-      --chip_bg_color: var(--variant100);
+      --bs2_ds_chips_bg_color: var(--variant100);
     }
     &.selected {
-      --chip_bg_color: var(--primary);
-      --chip_text_color: var(--primary_white);
+      --bs2_ds_chips_bg_color: var(--primary);
+      --bs2_ds_chips_text_color: var(--primary_white);
     }
     &.disabled,
     &[disabled='true'] {
-      --chip_bg_color: var(--neutral200);
-      --chip_text_color: var(--neutral500);
-      --chip_primary: var(--neutral200);
+      --bs2_ds_chips_bg_color: var(--neutral200);
+      --bs2_ds_chips_text_color: var(--neutral500);
+      --bs2_ds_chips_primary: var(--neutral200);
       cursor: not-allowed;
     }
   }

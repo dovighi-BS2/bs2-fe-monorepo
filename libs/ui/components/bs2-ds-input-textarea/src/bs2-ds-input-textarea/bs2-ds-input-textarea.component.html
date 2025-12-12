@@ -1,30 +1,32 @@
+@let block = "bs2_ds_input_textarea";
+
 <div
-  *ngIf="!!control"
-  [attr.data-test]="testId"
   class="
-    bs2_ds_input_textarea
+    {{ block }}
     {{ class }} {{ getErrors || errorText ? 'error' : '' }} {{ state }}
     {{ control.disabled ? 'disabled' : '' }}
   "
 >
-  <div class="bs2_ds_input_textarea__feedback_wrapper">
-    <div class="bs2_ds_input_textarea__feedback_left">
+  <div class="{{ block }}__feedback_container">
+    <span class="{{ block }}__feedback_wrapper">
+      <span class="{{ block }}__helper" *ngIf="!!helperText">{{ helperText }}</span>
       @if(!hideErrors){
-      <span class="bs2_ds_input_textarea__feedback">
+      <span class="{{ block }}__feedback">
         {{ errorText || getErrors }}
       </span>
       }
-      <span class="bs2_ds_input_textarea__helper" *ngIf="!!helperText">{{ helperText }}</span>
-    </div>
-    <div class="bs2_ds_input_textarea__feedback_right" *ngIf="!!maxLength">
-      <span class="bs2_ds_input_textarea__feedback_max_length">{{ control.value.length || 0 }} / {{ maxLength }}</span>
-    </div>
+    </span>
+    <span class="{{ block }}__feedback_max_length">
+      @if(!!maxLength){
+      {{ control.value?.length || 0 }} / {{ maxLength }}
+      }
+    </span>
   </div>
-  <div class="bs2_ds_input_textarea__wrapper">
-    <div class="bs2_ds_input_textarea__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
-    <div class="bs2_ds_input_textarea__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+  <div class="{{ block }}__wrapper">
+    <div class="{{ block }}__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
+    <div class="{{ block }}__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
     <textarea
-      class="bs2_ds_input_textarea__field {{ resize ? 'resize' : '' }} {{ autosize ? 'autosize' : '' }}"
+      class="{{ block }}__field {{ resize ? 'resize' : '' }} {{ autosize ? 'autosize' : '' }}"
       [rows]="rows"
       [cdkTextareaAutosize]="autosize"
       [id]="id"
@@ -37,5 +39,5 @@
       [attr.aria-invalid]="ariaInvalid"
     ></textarea>
   </div>
-  <label *ngIf="label" [for]="id" class="bs2_ds_input_textarea__label">{{ label }}</label>
+  <label *ngIf="label" [for]="id" class="{{ block }}__label">{{ label }}</label>
 </div>

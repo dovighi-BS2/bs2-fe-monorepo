@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { CustomValidators } from '@bs2/design-system/validators';
 
 @Component({
   selector: 'bs2-ds-input-textarea',
@@ -11,12 +12,11 @@ import { TextFieldModule } from '@angular/cdk/text-field';
   styleUrl: './bs2-ds-input-textarea.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Bs2DSInputTextareaComponent {
+export class Bs2DSInputTextareaComponent implements OnInit {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
   @Input() id = '';
-  @Input() testId = '';
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
@@ -36,6 +36,10 @@ export class Bs2DSInputTextareaComponent {
   @Input() ariaInvalid = false;
 
   @Input() maxLength = 0;
+
+  ngOnInit(): void {
+    !!this.maxLength && this.control.addValidators([CustomValidators.maxLength(this.maxLength)]);
+  }
 
   get getErrors(): string {
     if (!this.control || this.control.untouched) return '';

@@ -20,7 +20,7 @@ stages:
   - template: templates/stages/pipeline-runNpm.yaml@templates
     parameters:
       azenvironment: 'default-noprd'
-      command: 'npm i -f && npm run publish:npm-bs2-design-system'
+      command: 'npm i -f && npm run publish'
 
   - template: templates/stages/pipeline-frontend.yaml@templates
     parameters:
