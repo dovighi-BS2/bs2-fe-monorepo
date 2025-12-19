@@ -17,10 +17,13 @@ variables:
   - group: 'InfraConfig-NOPRD'
 
 stages:
-  - template: templates/stages/pipeline-runNpm.yaml@templates
-    parameters:
-      azenvironment: 'default-noprd'
-      command: 'npm i --f && npm run package && npm publish --userconfig ./.npmrc.devops'
+  stage: PublishWithDevopsNpmrc
+  displayName: Publish azure on premise
+  jobs:
+   - job: PublishJob
+      displayName: Job de Publish (npm i + package + publish)
+      steps:
+        - script: npm i --force && npm run package
       
   - template: templates/stages/pipeline-runNpm.yaml@templates
     parameters:
