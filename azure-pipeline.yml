@@ -17,18 +17,34 @@ variables:
   - group: 'InfraConfig-NOPRD'
 
 stages:
-  - template: templates/stages/pipeline-runNpm.yaml@templates
-    parameters:
-      azenvironment: 'default-noprd'
-      command: 'npm i -f && npm run publish'
+  - stage: BuildAndPublishWithAltNpmrc
+    displayName: Build & Publish devops on premise
+    jobs:
+      - template: templates/stages/pipeline-runNpm.yaml@templates
+        parameters:
+          azenvironment: 'default-noprd'
+          command: >
+            npm i --force && npm run package && npm publish --userconfig ./.npmrc.devops
 
-  - template: templates/stages/pipeline-frontend.yaml@templates
-    parameters:
-      k8sTarget: "k8sOpen"
-      applications:
-        frontenddesignsystemstorybook:
-          deployYaml: 'design-system-storybook/deploy.yml'
-          dockerFile: 'Dockerfile.design-system-storybook'
-          dockerImageName: bs2.frontend.designsystem.storybook
-          variableGroupNames: ['bs2-frontend-design-system-storybook']
+  - stage: PublishDefaultFlow
+    displayName: Build & Publish cloud
+    jobs:
+      - template: templates/stages/pipeline-runNpm.yaml@templates
+        parameters:
+          azenvironment: 'default-noprd'
+          command: 'npm i -f && npm run publish'
+
+  - stage: DeployDesignSystemStorybook
+    displayName: Deploy Storybook
+    jobs:
+      - template: templates/stages/pipeline-frontend.yaml@templates
+        parameters:
+          k8sTarget: "k8sOpen"
+          applications:
+            frontenddesignsystemstorybook:
+              deployYaml: 'design-system-storybook/deploy.yml'
+              dockerFile: 'Dockerfile.design-system-storybook'
+              dockerImageName: bs2.frontend.designsystem.storybook
+              variableGroupNames: ['bs2-frontend-design-system-storybook']
+
 
