@@ -23,8 +23,7 @@ stages:
       - template: templates/stages/pipeline-runNpm.yaml@templates
         parameters:
           azenvironment: 'default-noprd'
-          command: >
-            npm i --force && npm run package && npm publish --userconfig ./.npmrc.devops
+          command: 'npm i --force && npm run package && npm publish --userconfig ./.npmrc.devops'
 
   - stage: PublishDefaultFlow
     displayName: Build & Publish cloud
