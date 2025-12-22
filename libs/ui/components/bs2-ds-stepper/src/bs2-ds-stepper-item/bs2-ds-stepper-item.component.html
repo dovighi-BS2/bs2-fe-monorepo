@@ -1,0 +1,40 @@
+@let block = "bs2_ds_stepper_item";
+
+<div class="{{ block }}">
+  <div
+    class="{{ block }}__step"
+    [ngClass]="{
+      default: isDefault,
+      done: isDone,
+      doing: isDoing,
+      error: isError
+    }"
+  >
+    @if (isDefault) {
+    <ng-content select="default">
+      <span class="{{ block }}__step_value default">{{ index }}</span>
+    </ng-content>
+    } @if (isDone) {
+    <ng-content select="done">
+      <i class="{{ block }}__step_value done icon-checked"></i>
+    </ng-content>
+    } @if(isDoing){
+    <ng-content select="doing">
+      <span class="{{ block }}__step_value doing">{{ index }}</span>
+    </ng-content>
+    } @if (isError) {
+    <ng-content select="error">
+      <i class="{{ block }}__step_value error icon-sair"></i>
+    </ng-content>
+    }
+  </div>
+  <ng-content select="label">
+    <h5 class="{{ block }}__label">{{ label }}</h5>
+  </ng-content>
+  <ng-content select="title">
+    <h4 class="{{ block }}__title">{{ title }}</h4>
+  </ng-content>
+  <ng-content select="description">
+    <p class="{{ block }}__description">{{ description }}</p>
+  </ng-content>
+</div>

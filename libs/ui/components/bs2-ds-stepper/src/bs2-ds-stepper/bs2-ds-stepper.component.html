@@ -1,0 +1,16 @@
+@let block = "bs2_ds_stepper";
+
+<ul class="{{ block }} {{ horizontal ? 'horizontal' : 'vertical' }}">
+  <ng-content>
+    @for (item of items; track $index){
+    <bs2-ds-stepper-item
+      [index]="$index"
+      [indexOfCurrent]="item.indexOfCurrent"
+      [step]="item.step"
+      [label]="item.label"
+      [title]="item.title"
+      [description]="item.description"
+    />
+    }
+  </ng-content>
+</ul>
