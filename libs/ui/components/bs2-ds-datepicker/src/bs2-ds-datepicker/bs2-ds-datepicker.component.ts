@@ -17,6 +17,7 @@ import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
 import { CustomValidators } from '@bs2/design-system/validators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'bs2-ds-datepicker',
@@ -198,6 +199,14 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
         this.isOpened.set(false);
       }
     });
+
+    this.controlToUser.valueChanges
+      .pipe(
+        distinctUntilChanged()
+      )
+      .subscribe(() => {
+        this.handleInputChange();
+      });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -215,6 +224,8 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const maskedDate = this.getMaskedDate();
     const d = maskedDate.split('/');
 
+    if (maskedDate.length !== 10) return;
+
     this.control.markAllAsTouched();
     this.controlToUser?.setValue(maskedDate);
 
@@ -222,7 +233,6 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       ? this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])))
       : this.control?.setValue(null);
 
-    if (this.controlToUser?.value.length !== 10) return;
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
   }
 
