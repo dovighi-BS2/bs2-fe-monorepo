@@ -1,5 +1,4 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { CustomValidatorMessages } from './messages.validator';
 import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
 function customValidationsMessages() {
@@ -14,12 +13,13 @@ export const dateValidators = {
   isDateBetween: (min: Date, max: Date) => {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) return null;
+      if (!min && !max) return null;
       if (control.value.trim().length !== 10) return { isDateBetween: customValidationsMessages().date };
 
       const v = control.value.split('/');
       const value = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
 
-      if (value?.valueOf() < min.valueOf() || value?.valueOf() > max.valueOf())
+      if (value?.valueOf() < min?.valueOf() || value?.valueOf() > max?.valueOf())
         return { isDateBetween: customValidationsMessages().dateRangeInvalid };
       return null;
     };
