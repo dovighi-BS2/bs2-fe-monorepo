@@ -10,9 +10,11 @@ export const dateValidators = {
     if (control.value && !(control.value instanceof Date)) return { isValidDate: customValidationsMessages().date };
     return null;
   },
-  isDateBetween: (min: Date, max: Date) => {
+  isDateBetween: (getMin: () => Date | null | undefined, getMax: () => Date | null | undefined) => {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) return null;
+      const min = getMin();
+      const max = getMax();
       if (!min && !max) return null;
       if (control.value.trim().length !== 10) return { isDateBetween: customValidationsMessages().date };
 

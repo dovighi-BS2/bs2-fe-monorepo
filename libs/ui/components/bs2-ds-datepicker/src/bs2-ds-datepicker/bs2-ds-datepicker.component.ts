@@ -179,7 +179,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     this.fillCalendar();
 
     this.formToUser.get('date').addValidators([CustomValidators.isValidDateToUser]);
-    this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(this.min, this.max)]);
+    this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(() => this.min, () => this.max)]);
 
     this.control.addValidators([
       CustomValidators.isValidDate,
@@ -212,6 +212,11 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     if ('disabled' in changes) {
       this.disabled ? this.controlToUser.disable() : this.controlToUser.enable();
       this.disabled ? this.control.disable() : this.control.enable();
+    }
+
+    if ('min' in changes || 'max' in changes) {
+      this.control.updateValueAndValidity();
+      this.controlToUser.updateValueAndValidity();
     }
   }
 
