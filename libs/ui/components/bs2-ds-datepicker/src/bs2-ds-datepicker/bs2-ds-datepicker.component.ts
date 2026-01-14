@@ -17,6 +17,7 @@ import { PickerType } from './bs2-ds-datepicker.enum';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
 import { CustomValidators } from '@bs2/design-system/validators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'bs2-ds-datepicker',
@@ -178,8 +179,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     this.fillCalendar();
 
     this.formToUser.get('date').addValidators([CustomValidators.isValidDateToUser]);
-    if (this.min && this.max)
-      this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(this.min, this.max)]);
+    this.formToUser.get('date').addValidators([CustomValidators.isDateBetween(() => this.min, () => this.max)]);
 
     this.control.addValidators([
       CustomValidators.isValidDate,
@@ -198,12 +198,25 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
         this.isOpened.set(false);
       }
     });
+
+    this.controlToUser.valueChanges
+      .pipe(
+        distinctUntilChanged()
+      )
+      .subscribe(() => {
+        this.handleInputChange();
+      });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('disabled' in changes) {
       this.disabled ? this.controlToUser.disable() : this.controlToUser.enable();
       this.disabled ? this.control.disable() : this.control.enable();
+    }
+
+    if ('min' in changes || 'max' in changes) {
+      this.control.updateValueAndValidity();
+      this.controlToUser.updateValueAndValidity();
     }
   }
 
@@ -215,6 +228,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const maskedDate = this.getMaskedDate();
     const d = maskedDate.split('/');
 
+
     this.control.markAllAsTouched();
     this.controlToUser?.setValue(maskedDate);
 
@@ -223,6 +237,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       : this.control?.setValue(null);
 
     if (this.controlToUser?.value.length !== 10) return;
+
     this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
   }
 

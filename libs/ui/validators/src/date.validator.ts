@@ -1,5 +1,4 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { CustomValidatorMessages } from './messages.validator';
 import { TranslationsConstantsBase } from '@bs2/design-system/translations';
 
 function customValidationsMessages() {
@@ -11,15 +10,18 @@ export const dateValidators = {
     if (control.value && !(control.value instanceof Date)) return { isValidDate: customValidationsMessages().date };
     return null;
   },
-  isDateBetween: (min: Date, max: Date) => {
+  isDateBetween: (getMin: () => Date | null | undefined, getMax: () => Date | null | undefined) => {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) return null;
+      const min = getMin();
+      const max = getMax();
+      if (!min && !max) return null;
       if (control.value.trim().length !== 10) return { isDateBetween: customValidationsMessages().date };
 
       const v = control.value.split('/');
       const value = new Date(`${v[2]}-${v[1]}-${v[0]}T03:00:00.000Z`);
 
-      if (value?.valueOf() < min.valueOf() || value?.valueOf() > max.valueOf())
+      if (value?.valueOf() < min?.valueOf() || value?.valueOf() > max?.valueOf())
         return { isDateBetween: customValidationsMessages().dateRangeInvalid };
       return null;
     };
@@ -45,7 +47,7 @@ export const dateValidators = {
   },
   isBs2DSDatePickerValidator: (controlToUser: AbstractControl) => {
     return (): ValidationErrors | null => {
-      if (controlToUser.invalid) return { isBs2DSDatePickerValidator: customValidationsMessages().date };
+      if (controlToUser.invalid) return { isBs2DSDatePickerValidator: Object.values(controlToUser?.errors || {})[0] };
       return null;
     };
   },

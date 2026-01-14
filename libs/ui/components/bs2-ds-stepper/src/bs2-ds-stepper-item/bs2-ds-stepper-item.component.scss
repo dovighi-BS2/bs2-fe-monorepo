@@ -1,0 +1,88 @@
+.bs2_ds_stepper_item {
+  min-height: 80px;
+  padding-block: 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 1px;
+    display: block;
+    background-color: var(--neutral300);
+    translate: 12px 0px;
+  }
+  &__step {
+    width: 24px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 400;
+    display: grid;
+    place-items: center;
+    position: absolute;
+
+    &.default {
+      background-color: var(--neutral200);
+      border: 1px solid var(--neutral400);
+      color: var(--neutral400);
+    }
+    &.done {
+      background-color: var(--feedback_success);
+      border: 1px solid var(--feedback_success);
+      color: var(--primary_white);
+    }
+    &.doing {
+      background-color: var(--primary);
+      border: 1px solid var(--primary);
+      color: var(--primary_white);
+    }
+    &.error {
+      background-color: var(--feedback_error);
+      border: 1px solid var(--feedback_error);
+      color: var(--primary_white);
+    }
+
+    i,
+    [class*='icon-'] {
+      font-size: 16px;
+      line-height: 0px;
+    }
+
+    & ~ * {
+      translate: 36px 0px;
+      width: calc(100% - 36px);
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+  &__label {
+    font-size: 10px;
+    font-weight: 600;
+    margin-block: 0px;
+    color: var(--primary_text_dark);
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-block: 0px;
+    color: var(--primary_text_dark);
+  }
+  &__description {
+    font-size: 12px;
+    font-weight: 400;
+    margin-block: 0px;
+    color: var(--neutral600);
+  }
+  :is(&__label, &__title, &__desc) + :is(&__label, &__title, &__desc) {
+    margin-top: 4px;
+  }
+}
