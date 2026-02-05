@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
 import { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';
 import { Bs2DSFlatButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button';
 import { Bs2DSOutlinedButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button';
+import { Bs2DSTooltipAction } from "./bs2-ds-tooltip-action.interface";
 
 @Component({
   selector: 'bs2-ds-tooltip-rich-mock',
@@ -12,8 +13,18 @@ import { Bs2DSOutlinedButtonDirective } from '@bs2/design-system/directives/bs2-
 })
 class MockTooltipComponent {
   @Input() position: 'top' | 'right' | 'bottom' | 'left' = 'top';
-  @Input() centered: boolean = false;
+  @Input() centered = false;
+
+  bs2DsTooltipTitle = 'Título do tooltip';
+  bs2DsTooltipDescription =
+    'Descrição do tooltip com mais detalhes sobre a ação.';
+
+  bs2DsTooltipActions: Bs2DSTooltipAction[] = [
+    { label: 'Confirmar', variant: 'primary' },
+    { label: 'Cancelar', variant: 'secondary' },
+  ];
 }
+
 
 const meta: Meta<MockTooltipComponent> = {
   component: MockTooltipComponent,
@@ -48,16 +59,25 @@ const meta: Meta<MockTooltipComponent> = {
     position: {
       control: 'select',
       options: ['top', 'right', 'bottom', 'left'],
-      defaultValue: { summary: 'top' },
-      table: { type: { summary: "'top' | 'right' | 'bottom' | 'left'" } },
     },
     centered: {
       control: 'boolean',
-      defaultValue: { summary: 'false' },
-      table: { type: { summary: 'boolean' } },
     },
+
+    bs2DsTooltipTitle: {
+      control: 'text',
+    },
+    bs2DsTooltipDescription: {
+      control: 'text',
+    },
+    bs2DsTooltipActions: {
+      control: 'object',
+      description: 'Array de ações: { label: string; variant: "primary"|"secondary"; onClick?: () => void }[]',
+    },
+
   },
 };
+
 export default meta;
 type Story = StoryObj<MockTooltipComponent>;
 
@@ -65,106 +85,138 @@ export const Default: Story = {
   args: {
     position: 'top',
     centered: false,
+    bs2DsTooltipTitle: 'Título do tooltip',
+    bs2DsTooltipDescription:
+      'Descrição do tooltip com mais detalhes sobre a ação. Descrição do tooltip com mais detalhes sobre a ação.',
+    bs2DsTooltipActions: [
+      {
+        "label": "Confirmar",
+        "variant": "primary"
+      }, {
+        "label": "Cancelar",
+        "variant": "secondary"
+      }
+    ],
   },
   render: (args) => ({
-    props: { ...args },
+    props: {
+      ...args,
+    },
     template: `
-<!-- TYPESCRIPT -->
-<!--
-import { Bs2DSTooltipRichDirective } from "@bs2/design-system/directives/bs2-ds-tooltip";
-import { Component } from '@angular/core';
+      <style>
+        button + button { margin-left: 10px; }
+      </style>
 
-@Component({ imports: [Bs2DSTooltipRichDirective], ... })
-export class YourComponentComponent {}
--->
+      <button
+        bs2-ds-filled-button
+        bs2-ds-tooltip-rich
+        [bs2DsTooltipTitle]="bs2DsTooltipTitle"
+        [bs2DsTooltipDescription]="bs2DsTooltipDescription"
+        [bs2DsTooltipActions]="bs2DsTooltipActions"
+        position="${args.position}"
+        ${args.centered ? 'centered' : ''}
+      >
+        ${args.position} position tooltip-rich!
+      </button>
 
-<!-- HTML -->
-<style>
-  button + button { margin-left: 10px; }
-</style>
-<ng-template #tooltipRichTemplate>
-  Conteúdo full dinamico!
-</ng-template>
+      <button
+        bs2-ds-flat-button
+        bs2-ds-tooltip-rich
+        [bs2DsTooltipTitle]="bs2DsTooltipTitle"
+        [bs2DsTooltipDescription]="bs2DsTooltipDescription"
+        [bs2DsTooltipActions]="bs2DsTooltipActions"
+        position="${args.position}"
+        ${args.centered ? 'centered' : ''}
+      >
+        ${args.position} position tooltip-rich!
+      </button>
 
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="${args.position}" ${args.centered ? 'centered' :''}>${args.position} position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="${args.position}" ${args.centered ? 'centered' :''}>${args.position} position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="${args.position}" ${args.centered ? 'centered' :''}>${args.position} position tooltip-rich!</button>
-<br>
-    `,
+      <button
+        bs2-ds-outlined-button
+        bs2-ds-tooltip-rich
+        [bs2DsTooltipTitle]="bs2DsTooltipTitle"
+        [bs2DsTooltipDescription]="bs2DsTooltipDescription"
+        [bs2DsTooltipActions]="bs2DsTooltipActions"
+        position="${args.position}"
+        ${args.centered ? 'centered' : ''}
+      >
+        ${args.position} position tooltip-rich!
+      </button>
+      `,
   }),
 };
+
+
 
 export const Positions: Story = {
   render: () => ({
     template: `
-<!-- TYPESCRIPT -->
-<!--
-import { Bs2DSTooltipRichDirective } from "@bs2/design-system/directives/bs2-ds-tooltip";
-import { Component } from '@angular/core';
+<style> button + button { margin-left: 10px; } </style>
 
-@Component({ imports: [Bs2DSTooltipRichDirective], ... })
-export class YourComponentComponent {}
--->
+<button bs2-ds-filled-button bs2-ds-tooltip-rich position="top"
+  [bs2DsTooltipTitle]="'Top'"
+  [bs2DsTooltipDescription]="'Tooltip posição top'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  top position tooltip-rich!
+</button>
 
-<!-- HTML -->
-<style>
-  button + button { margin-left: 10px; }
-</style>
-<ng-template #tooltipRichTemplate>
-  Conteúdo full dinamico!
-</ng-template>
+<button bs2-ds-filled-button bs2-ds-tooltip-rich position="right"
+  [bs2DsTooltipTitle]="'Right'"
+  [bs2DsTooltipDescription]="'Tooltip posição right'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  right position tooltip-rich!
+</button>
 
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="top">top position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="right">right position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="left">left position tooltip-rich!</button>
-<br><br>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="top">top position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="right">right position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="left">left position tooltip-rich!</button>
-<br><br>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="top">top position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="right">right position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" position="left">left position tooltip-rich!</button>
-<br>
-    `,
+<button bs2-ds-filled-button bs2-ds-tooltip-rich position="bottom"
+  [bs2DsTooltipTitle]="'Bottom'"
+  [bs2DsTooltipDescription]="'Tooltip posição bottom'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  bottom position tooltip-rich!
+</button>
+
+<button bs2-ds-filled-button bs2-ds-tooltip-rich position="left"
+  [bs2DsTooltipTitle]="'Left'"
+  [bs2DsTooltipDescription]="'Tooltip posição left'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  left position tooltip-rich!
+</button>
+`,
   }),
 };
+
 
 export const Centered: Story = {
   render: () => ({
     template: `
-<!-- TYPESCRIPT -->
-<!--
-import { Bs2DSTooltipRichDirective } from "@bs2/design-system/directives/bs2-ds-tooltip";
-import { Component } from '@angular/core';
-
-@Component({ imports: [Bs2DSTooltipRichDirective], ... })
-export class YourComponentComponent {}
--->
-
-<!-- HTML -->
-<ng-template #tooltipRichTemplate>
-  Conteúdo full dinamico!
-</ng-template>
 <style> button + button { margin-left: 10px; } </style>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="top">top position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="right">right position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-filled-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="left">left position tooltip-rich!</button>
-<br><br>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="top">top position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="right">right position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-flat-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="left">left position tooltip-rich!</button>
-<br><br>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="top">top position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="right">right position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="bottom">bottom position tooltip-rich!</button>
-<button bs2-ds-outlined-button [bs2-ds-tooltip-rich]="tooltipRichTemplate" centered position="left">left position tooltip-rich!</button>
-<br>
-    `,
+
+<button bs2-ds-filled-button bs2-ds-tooltip-rich centered position="top"
+  [bs2DsTooltipTitle]="'Top centered'"
+  [bs2DsTooltipDescription]="'Tooltip centralizado'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  top position tooltip-rich!
+</button>
+
+<button bs2-ds-filled-button bs2-ds-tooltip-rich centered position="right"
+  [bs2DsTooltipTitle]="'Right centered'"
+  [bs2DsTooltipDescription]="'Tooltip centralizado'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  right position tooltip-rich!
+</button>
+
+<button bs2-ds-filled-button bs2-ds-tooltip-rich centered position="bottom"
+  [bs2DsTooltipTitle]="'Bottom centered'"
+  [bs2DsTooltipDescription]="'Tooltip centralizado'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  bottom position tooltip-rich!
+</button>
+
+<button bs2-ds-filled-button bs2-ds-tooltip-rich centered position="left"
+  [bs2DsTooltipTitle]="'Left centered'"
+  [bs2DsTooltipDescription]="'Tooltip centralizado'"
+  [bs2DsTooltipActions]="bs2DsTooltipActions">
+  left position tooltip-rich!
+</button>
+`,
   }),
 };
