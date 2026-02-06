@@ -201,8 +201,8 @@ export class YourComponentComponent {
 export const MinMax: Story = {
   args: {
     control: new FormControl(null, [CustomValidators.required]),
-    min: new Date('2025-01-15T03:00:00.000Z'),
-    max: new Date('2025-01-30T03:00:00.000Z'),
+    min: new Date('2025-01-08'),
+    max: new Date('2026-02-08'),
     state: 'default',
     direction: 'left',
     id: '',

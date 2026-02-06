@@ -108,14 +108,17 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
       this.isOpened.set(undefined);
       this.selectedDate = date;
       this.selectedDay = date.getDate();
-      this.selectedMonth = date.getMonth() + 1;
-      this.selectedYear = date.getFullYear();
+      this.selectedMonth = date.getUTCMonth() + 1;
+      this.selectedYear = date.getUTCFullYear();
       this.controlToUser?.setValue(this.getFormatedDate(this.selectedDate));
       this.control?.setValue(this.selectedDate);
       this.fillCalendar();
     },
     isToday: (date: Date) => {
-      return `${this.getFormatedDate(date)}` === `${this.getFormatedDate(new Date())}`;
+      const now = new Date();
+      const today = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0, 0);
+      return this.getFormatedDate(date) === this.getFormatedDate(today);
+
     },
     canActiveDay: (date: Date) => {
       return `${this.getFormatedDate(date)}` === `${this.getFormatedDate(this.selectedDate)}`;
@@ -145,11 +148,9 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   };
   public yearPicker = {
     nextYears: () => {
-      // if (this.selectedYear >= this.max.getFullYear()) this.selectedYear = this.min.getFullYear();
       this.increaseCalendar(PickerType.YEAR);
     },
     previousYears: () => {
-      // if (this.selectedYear <= this.min.getFullYear()) this.selectedYear = this.max.getFullYear();
       return this.decreaseCalendar(PickerType.YEAR);
     },
     goToDayPicker: () => {
@@ -170,11 +171,16 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   };
 
   ngOnInit(): void {
+    this.min = new Date(this.min?.getUTCFullYear(), this.min?.getUTCMonth(), this.min?.getUTCDate(), 0, 0, 0, 0);
+    this.max = new Date(this.max?.getUTCFullYear(), this.max?.getUTCMonth(), this.max?.getUTCDate(), 0, 0, 0, 0);
     const today = new Date();
-    this.selectedDate = (this.max?.valueOf() || Infinity) > today.valueOf() ? today : this.max;
-    this.selectedYear = this.selectedDate.getFullYear();
-    this.selectedMonth = this.selectedDate.getMonth() + 1;
-    this.selectedDay = this.selectedDate.getDate();
+
+    this.selectedDate = (this.max?.valueOf() || Infinity) > today.valueOf() ?
+      new Date(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(), 0, 0, 0, 0) :
+      this.max;
+    this.selectedYear = this.selectedDate.getUTCFullYear();
+    this.selectedMonth = this.selectedDate.getUTCMonth() + 1;
+    this.selectedDay = this.selectedDate.getUTCDate();
 
     this.fillCalendar();
 
@@ -189,7 +195,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     if (typeof this.control.value === 'string') {
       this.controlToUser.setValue(this.control.value);
       this.handleInputChange();
-    } else if (this.control.value?.getDate()) {
+    } else if (this.control.value?.getUTCDate()) {
       this.dayPicker.selectDate(this.control.value, 'click');
     }
 
@@ -228,17 +234,17 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     const maskedDate = this.getMaskedDate();
     const d = maskedDate.split('/');
 
-
     this.control.markAllAsTouched();
+
     this.controlToUser?.setValue(maskedDate);
 
     maskedDate
-      ? this.control?.setValue(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])))
+      ? this.control?.setValue(new Date(Number(d[2]), Number(d[1]) - 1, Number(d[0]), 0, 0, 0, 0))
       : this.control?.setValue(null);
 
     if (this.controlToUser?.value.length !== 10) return;
 
-    this.dayPicker.selectDate(this.newDate(Number(d[2]), Number(d[1]), Number(d[0])), 'input');
+    this.dayPicker.selectDate(new Date(Number(d[2]), Number(d[1]) - 1, Number(d[0]), 0, 0, 0, 0), 'input');
   }
 
   getMaskedDate() {
@@ -323,13 +329,15 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     return date.valueOf() >= (this.min?.valueOf() || 0) && date.valueOf() <= (this.max?.valueOf() || Infinity);
   }
   isMonthSelectable(month: number) {
-    const date = this.newDate(this.selectedYear, month, 1).valueOf();
+    const date = new Date(Date.UTC(this.selectedYear, month - 1, 1)).valueOf(); // Cria a data diretamente em UTC
     return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
   }
+
   isYearSelectable(year: number) {
-    const date = this.newDate(year, 1, 1).valueOf();
+    const date = new Date(Date.UTC(year, 0, 1)).valueOf(); // Cria a data diretamente em UTC
     return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
   }
+
   getFormatedDate(date: Date): string {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -338,9 +346,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
     return `${day}/${month}/${year}`;
   }
   newDate(year: number, month: number, day: number) {
-    const _month = String(month).padStart(2, '0');
-    const _day = String(day).padStart(2, '0');
-    return new Date(`${year}-${_month}-${_day}T03:00:00.000Z`);
+    return new Date(year, month - 1, day, 0, 0, 0, 0)
   }
   modDays(date: Date, days: number, operation: 'minus' | 'plus' = 'plus') {
     if (operation === 'minus') return new Date(new Date(date).setDate(date.getDate() - days));
