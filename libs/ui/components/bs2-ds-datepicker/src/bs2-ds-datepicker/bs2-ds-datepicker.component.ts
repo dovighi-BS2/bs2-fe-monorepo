@@ -326,16 +326,24 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   isDaySelectable(date: Date) {
-    return date.valueOf() >= (this.min?.valueOf() || 0) && date.valueOf() <= (this.max?.valueOf() || Infinity);
+    const min = Number.isFinite(this.min?.valueOf() as number) ? this.min!.valueOf() : -Infinity;
+    const max = Number.isFinite(this.max?.valueOf() as number) ? this.max!.valueOf() : Infinity;
+    return date.valueOf() >= min && date.valueOf() <= max;
   }
   isMonthSelectable(month: number) {
-    const date = new Date(Date.UTC(this.selectedYear, month - 1, 1)).valueOf(); // Cria a data diretamente em UTC
-    return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
+    const start = Date.UTC(this.selectedYear, month - 1, 1);
+    const end = Date.UTC(this.selectedYear, month, 0, 23, 59, 59, 999);
+    const min = Number.isFinite(this.min?.valueOf() as number) ? this.min!.valueOf() : -Infinity;
+    const max = Number.isFinite(this.max?.valueOf() as number) ? this.max!.valueOf() : Infinity;
+    return start <= max && end >= min;
   }
 
   isYearSelectable(year: number) {
-    const date = new Date(Date.UTC(year, 0, 1)).valueOf(); // Cria a data diretamente em UTC
-    return date >= (this.min?.valueOf() || 0) && date <= (this.max?.valueOf() || Infinity);
+    const minYearVal = this.min?.getFullYear();
+    const maxYearVal = this.max?.getFullYear();
+    const minYear = Number.isFinite(minYearVal as number) ? (minYearVal as number) : -Infinity;
+    const maxYear = Number.isFinite(maxYearVal as number) ? (maxYearVal as number) : Infinity;
+    return year >= minYear && year <= maxYear;
   }
 
   getFormatedDate(date: Date): string {
