@@ -50,6 +50,7 @@ export class Bs2DSDatepickerComponent implements OnInit, OnDestroy, OnChanges {
   @Input() max?: Date;
   @Input() selectedDate?: Date;
   @Input() disabled = false;
+  @Input() isDate = false;
 
   public isOpened = signal(false);
 
