@@ -79,7 +79,7 @@
     "@storybook/addon-interactions": "8.6.11",
     "@storybook/angular": "8.6.11",
     "@storybook/core-server": "8.6.11",
-    "@storybook/test": "^8.3.6",
+    "@storybook/test": "8.6.11",
     "@storybook/test-runner": "0.22.0",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.8.0",
