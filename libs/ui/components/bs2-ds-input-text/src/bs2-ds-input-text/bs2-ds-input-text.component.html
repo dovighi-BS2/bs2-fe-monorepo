@@ -31,6 +31,7 @@
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
+      (keydown)="bloquearDigitacao($event)"
     />
     } @if(currencyMask){
     <input
