@@ -6,5 +6,8 @@
   },
   "assets": [
     { "input": "src/lib/sass", "glob": "**/*.scss", "output": "styles" }
+  ],
+  "allowedNonPeerDependencies": [
+    "ngx-currency"
   ]
 }
