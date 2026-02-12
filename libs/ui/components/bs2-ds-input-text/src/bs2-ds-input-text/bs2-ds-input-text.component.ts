@@ -31,7 +31,6 @@ export class Bs2DSInputTextComponent {
   @Input() mask = '';
   @Input() currencyMask?: object;
   @Input() hideErrors = false;
-  @Input() isDate = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -46,9 +45,4 @@ export class Bs2DSInputTextComponent {
     return errors[0];
   }
 
-  bloquearDigitacao(event: KeyboardEvent) {
-    if (this.isDate) {
-      event.preventDefault();
-    }
-  }
 }
