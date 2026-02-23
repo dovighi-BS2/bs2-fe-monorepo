@@ -7,8 +7,8 @@ import { NgxCurrencyDirective } from 'ngx-currency';
 @Component({
   selector: 'bs2-ds-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxCurrencyDirective, NgxMaskDirective],
-  providers: [provideNgxMask({ validation: false })],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, NgxCurrencyDirective],
+  providers: [provideNgxMask({ validation: false }), NgxCurrencyDirective],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
