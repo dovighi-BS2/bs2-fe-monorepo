@@ -14,7 +14,7 @@
   } @if(helperText){
   <span class="{{ block }}__helper">{{ helperText }}</span>
   }
-  <div class="{{ block }}__wrapper" formArray="forms">
+  <div class="{{ block }}__wrapper" formArrayName="forms">
     @for(item of form.controls; track $index;){
     <input
       #bs2DSInputToken
