@@ -1,0 +1,39 @@
+.bs2_ds_stepper {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+  &.horizontal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    ::ng-deep bs2-ds-stepper-item {
+      flex-grow: 1;
+      width: 100%;
+
+      .bs2_ds_stepper_item {
+        padding: 0px 12px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+
+        &:before {
+          top: 12px;
+          left: -12px;
+          width: 100%;
+          height: 1px;
+        }
+        &__step {
+          position: initial;
+          margin-bottom: 12px;
+
+          & ~ * {
+            translate: 0px 0px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

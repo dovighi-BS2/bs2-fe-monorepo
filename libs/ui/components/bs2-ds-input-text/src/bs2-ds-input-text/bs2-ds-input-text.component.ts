@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NgxCurrencyDirective } from 'ngx-currency';
 
 @Component({
   selector: 'bs2-ds-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskModule, NgxCurrencyDirective],
-  providers: [NgxMaskModule.forRoot({ validation: false }).providers],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, NgxCurrencyDirective],
+  providers: [provideNgxMask({ validation: false }), NgxCurrencyDirective],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,4 +44,5 @@ export class Bs2DSInputTextComponent {
     const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
+
 }

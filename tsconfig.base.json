@@ -4,7 +4,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -36,6 +36,7 @@
       "@bs2/design-system/components/bs2-ds-selectors": ["libs/ui/components/bs2-ds-selectors/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-status": ["libs/ui/components/bs2-ds-status/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-step-navigator": ["libs/ui/components/bs2-ds-step-navigator/src/index.ts"],
+      "@bs2/design-system/components/bs2-ds-stepper": ["libs/ui/components/bs2-ds-stepper/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tab": ["libs/ui/components/bs2-ds-tab/src/index.ts"],
       "@bs2/design-system/components/bs2-ds-tag": ["libs/ui/components/bs2-ds-tag/src/index.ts"],
       "@bs2/design-system/directives/bs2-ds-button-selector": [

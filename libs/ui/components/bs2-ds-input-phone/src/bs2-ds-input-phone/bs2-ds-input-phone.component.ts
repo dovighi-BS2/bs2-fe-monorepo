@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Bs2DSInputSelectComponent, Bs2DSInputSelectOption } from '@bs2/design-system/components/bs2-ds-input-select';
-import { NgxMaskModule } from 'ngx-mask';
+import { provideNgxMask } from 'ngx-mask';
 import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-input-text';
 import { flags } from '@bs2/design-system/components/bs2-ds-input-currency';
 import { combineLatest } from 'rxjs';
@@ -12,8 +12,8 @@ import { startWith } from 'rxjs/operators';
 @Component({
   selector: 'bs2-ds-input-phone',
   standalone: true,
-  imports: [CommonModule, Bs2DSInputTextComponent, Bs2DSInputSelectComponent, ReactiveFormsModule, NgxMaskModule],
-  providers: [NgxMaskModule.forRoot().providers],
+  imports: [CommonModule, Bs2DSInputTextComponent, Bs2DSInputSelectComponent, ReactiveFormsModule],
+  providers: [provideNgxMask()],
   templateUrl: './bs2-ds-input-phone.component.html',
   styleUrl: './bs2-ds-input-phone.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

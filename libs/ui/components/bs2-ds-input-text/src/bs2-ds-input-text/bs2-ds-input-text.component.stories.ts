@@ -3,7 +3,7 @@ import { Bs2DSInputTextComponent } from '@bs2/design-system/components/bs2-ds-in
 
 import { FormControl } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
-import { NgxMaskModule } from 'ngx-mask';
+import { provideNgxMask } from 'ngx-mask';
 import { setTranslationsConstantsInstance } from '@bs2/design-system/translations';
 
 setTranslationsConstantsInstance();
@@ -25,9 +25,10 @@ const meta: Meta<Bs2DSInputTextComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Bs2DSInputTextComponent, NgxMaskModule.forRoot()],
+      imports: [Bs2DSInputTextComponent],
+      providers: [provideNgxMask()],
     }),
-    (storyFunc) => ({
+    (storyFunc: any) => ({
       ...storyFunc(),
       styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],
     }),

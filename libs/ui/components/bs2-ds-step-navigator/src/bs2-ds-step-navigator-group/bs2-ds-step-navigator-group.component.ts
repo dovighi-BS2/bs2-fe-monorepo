@@ -1,4 +1,15 @@
-import { AfterViewInit, Component, ContentChildren, Input, OnDestroy, QueryList } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  QueryList,
+  SimpleChanges,
+} from '@angular/core';
 import { Bs2DSStepNavigatorItemComponent } from '../bs2-ds-step-navigator-item/bs2-ds-step-navigator-item.component';
 
 @Component({
@@ -43,7 +54,6 @@ export class Bs2DSStepNavigatorGroupComponent implements AfterViewInit, OnDestro
 
   public refresh(): void {
     for (const [index, item] of this.items.toArray().entries()) {
-      // debugger;
       item.isActive = this.activatedIndex === index;
     }
   }

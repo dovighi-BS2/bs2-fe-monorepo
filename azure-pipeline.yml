@@ -17,6 +17,14 @@ variables:
   - group: 'InfraConfig-NOPRD'
 
 stages:
+  stage: PublishWithDevopsNpmrc
+  displayName: Publish azure on premise
+  jobs:
+   - job: PublishJob
+      displayName: Job de Publish (npm i + package + publish)
+      steps:
+        - script: npm i --force && npm run package
+      
   - template: templates/stages/pipeline-runNpm.yaml@templates
     parameters:
       azenvironment: 'default-noprd'
@@ -31,4 +39,5 @@ stages:
           dockerFile: 'Dockerfile.design-system-storybook'
           dockerImageName: bs2.frontend.designsystem.storybook
           variableGroupNames: ['bs2-frontend-design-system-storybook']
+
 

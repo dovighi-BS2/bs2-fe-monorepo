@@ -1,13 +1,13 @@
 {
   "name": "@bs2/design-system",
-  "version": "1.0.10",
+  "version": "2.0.5",
   "sideEffects": false,
   "peerDependencies": {
-    "@angular/common": ">=18.0.0",
-    "@angular/core": ">=18.0.0",
-    "@angular/cdk": "^18.2.1",
-    "ngx-mask": "^14.2.4",
-    "ngx-currency": "^18.0.0",
+    "@angular/common": ">=21.0.0",
+    "@angular/core": ">=21.0.0",
+    "@angular/cdk": "^21.0.0",
+    "ngx-mask": "^21.0.1",
+    "ngx-currency": "^19.0.0",
     "rxjs": "~6.6.2"
   },
   "generators": "./compiled-plugins/generators.json",

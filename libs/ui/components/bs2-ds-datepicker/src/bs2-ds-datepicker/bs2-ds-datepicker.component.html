@@ -31,7 +31,6 @@
     autocomplete="off"
     mask="00/00/0000"
     (clickEmitter)="dayPicker.open()"
-    (keyup)="handleInputChange()"
   />
   <input type="hidden" [formControl]="control" />
   <div class="{{ block }}__calendar">
