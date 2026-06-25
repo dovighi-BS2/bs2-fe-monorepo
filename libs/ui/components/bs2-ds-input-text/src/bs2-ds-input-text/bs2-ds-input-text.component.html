@@ -27,11 +27,11 @@
       [autocomplete]="autocomplete"
       (click)="clickEmitter.emit()"
       (keyup)="keyupEmitter.emit()"
+      (input)="onInput($event)"
       [formControl]="control"
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
-      
     />
     } @if(currencyMask){
     <input
@@ -44,6 +44,7 @@
       [autocomplete]="autocomplete"
       (click)="clickEmitter.emit()"
       (keyup)="keyupEmitter.emit()"
+      (input)="onInput($event)"
       [formControl]="control"
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"

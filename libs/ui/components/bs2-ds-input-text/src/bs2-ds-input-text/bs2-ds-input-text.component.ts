@@ -31,6 +31,7 @@ export class Bs2DSInputTextComponent {
   @Input() mask = '';
   @Input() currencyMask?: object;
   @Input() hideErrors = false;
+  @Input() uppercase = false;
 
   @Input() ariaLabel = '';
   @Input() ariaRequired = false;
@@ -43,6 +44,16 @@ export class Bs2DSInputTextComponent {
     if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {});
     return errors[0];
+  }
+
+  public onInput(event: Event): void {
+    if (!this.uppercase) return;
+    const input = event.target as HTMLInputElement;
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    input.value = input.value.toUpperCase();
+    input.setSelectionRange(start, end);
+    this.control.setValue(input.value, { emitEvent: true });
   }
 
 }
