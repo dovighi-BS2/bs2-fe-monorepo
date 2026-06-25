@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NgxCurrencyDirective } from 'ngx-currency';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'bs2-ds-input-text',
@@ -13,7 +14,7 @@ import { NgxCurrencyDirective } from 'ngx-currency';
   styleUrl: './bs2-ds-input-text.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Bs2DSInputTextComponent {
+export class Bs2DSInputTextComponent implements OnChanges, OnDestroy {
   @Input() state?: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled';
 
   @Input() control = new FormControl();
@@ -40,20 +41,29 @@ export class Bs2DSInputTextComponent {
   @Output() clickEmitter = new EventEmitter();
   @Output() keyupEmitter = new EventEmitter();
 
+  private uppercaseSub?: Subscription;
+
   public get getErrors(): string {
     if (!this.control || this.control.untouched) return '';
     const errors = Object.values(this.control?.errors || {});
     return errors[0];
   }
 
-  public onInput(event: Event): void {
-    if (!this.uppercase) return;
-    const input = event.target as HTMLInputElement;
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
-    input.value = input.value.toUpperCase();
-    input.setSelectionRange(start, end);
-    this.control.setValue(input.value, { emitEvent: true });
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['uppercase'] || changes['control']) {
+      this.uppercaseSub?.unsubscribe();
+      if (this.uppercase) {
+        this.uppercaseSub = this.control.valueChanges.subscribe((value: string) => {
+          if (typeof value === 'string' && value !== value.toUpperCase()) {
+            this.control.setValue(value.toUpperCase(), { emitEvent: false });
+          }
+        });
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.uppercaseSub?.unsubscribe();
   }
 
 }

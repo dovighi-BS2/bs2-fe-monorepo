@@ -1,0 +1,21 @@
+<div style="padding: 2rem; display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <h3>Debug: bs2-ds-input-text</h3>
+
+  <bs2-ds-input-text
+    id="debug-normal"
+    label="Normal"
+    placeholder="Digite algo..."
+    [control]="debugControl"
+  />
+
+  <bs2-ds-input-text
+    id="debug-uppercase"
+    label="Uppercase"
+    placeholder="Será transformado em maiúsculas"
+    [control]="debugControl"
+    [uppercase]="true"
+  />
+
+  <p>Valor: {{ debugControl.value }}</p>
+  <p>Status: {{ debugControl.status }}</p>
+</div>
