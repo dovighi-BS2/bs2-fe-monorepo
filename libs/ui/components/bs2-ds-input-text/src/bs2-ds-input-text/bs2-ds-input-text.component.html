@@ -25,13 +25,13 @@
       [readOnly]="readOnly"
       [mask]="mask"
       [autocomplete]="autocomplete"
+      [style.text-transform]="uppercase ? 'uppercase' : null"
       (click)="clickEmitter.emit()"
       (keyup)="keyupEmitter.emit()"
       [formControl]="control"
       [attr.aria-label]="ariaLabel"
       [attr.aria-required]="ariaRequired"
       [attr.aria-invalid]="ariaInvalid"
-      
     />
     } @if(currencyMask){
     <input
@@ -42,6 +42,7 @@
       [readOnly]="readOnly"
       [currencyMask]="mask"
       [autocomplete]="autocomplete"
+      [style.text-transform]="uppercase ? 'uppercase' : null"
       (click)="clickEmitter.emit()"
       (keyup)="keyupEmitter.emit()"
       [formControl]="control"
