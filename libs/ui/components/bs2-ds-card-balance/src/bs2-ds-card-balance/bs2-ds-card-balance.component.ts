@@ -15,12 +15,24 @@ export class Bs2DSCardBalanceComponent {
   @Input() balance = 0;
   @Input() limit = 0;
   @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';
+  @Input() title = 'Saldo em conta';
+  @Input() unavailableTitle = 'Saldo indisponível no momento';
+  @Input() balanceLabel = 'Total investido';
+  @Input() buttonLabel = 'Atualizar';
+  @Input() actionLabel: string | null = null;
+  @Input() showIcon = false;
   @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() actionClick: EventEmitter<void> = new EventEmitter<void>();
 
   public Number = Number;
+  public balanceVisible = true;
 
   setTemplate(template: 'visible' | 'hidden' | 'unavailable') {
     this.template = template;
+  }
+
+  toggleBalanceVisibility(): void {
+    this.balanceVisible = !this.balanceVisible;
   }
 
   transform(value: number): string {

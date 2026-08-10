@@ -2,33 +2,52 @@
 
 <div class="{{ block }}" [bs2-ds-loading-spinning]="loader">
   @if(template === 'visible' && (!Number.isNaN(balance) && !Number.isNaN(limit))){
-  <ng-container *ngTemplateOutlet="visible"></ng-container>
+  <ng-container *ngTemplateOutlet="available"></ng-container>
   } @if(template === 'hidden' && (!Number.isNaN(balance) && !Number.isNaN(limit))){
-  <ng-container *ngTemplateOutlet="hidden"></ng-container>
+  <ng-container *ngTemplateOutlet="available"></ng-container>
   } @if(template === 'unavailable' || (!!Number.isNaN(balance) || !!Number.isNaN(limit))){
   <ng-container *ngTemplateOutlet="unavailable"></ng-container>
   }
 </div>
 
-<ng-template #visible>
-  <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">></span>
-  <p class="{{ block }}__title">Saldo em conta</p>
-  <p class="{{ block }}__balance">R$ {{ transform(Number(balance)) }}</p>
-  <p class="{{ block }}__limit">Saldo + Limite: {{ transform(Number(balance) + Number(limit)) }}</p>
-</ng-template>
-
-<ng-template #hidden>
-  <span class="{{ block }}__toggler" (click)="setTemplate('visible')">></span>
-  <p class="{{ block }}__title">Saldo em conta</p>
-  <p class="{{ block }}__balance">R$ ••••••</p>
-  <p class="{{ block }}__limit">Saldo + Limite: ••••••</p>
+<ng-template #available>
+  <div class="{{ block }}__header">
+    <p class="{{ block }}__title">{{ title }}</p>
+    @if(actionLabel) {
+    <span class="{{ block }}__action-label" (click)="actionClick.emit()" role="button" tabindex="0">{{ actionLabel }}</span>
+    } @else if(showIcon) {
+    <span class="{{ block }}__action-icon" (click)="actionClick.emit()" role="button" tabindex="0" aria-label="Ação">
+      <img src="/assets/icons/ico-arrow-right.svg" alt="" />
+    </span>
+    }
+  </div>
+  <p class="{{ block }}__balance-label">{{ balanceLabel }}</p>
+  <div class="{{ block }}__balance-row">
+    @if(balanceVisible) {
+    <p class="{{ block }}__balance">R$ {{ transform(Number(balance)) }}</p>
+    } @else {
+    <p class="{{ block }}__balance">R$ ••••••</p>
+    }
+    <span
+      class="{{ block }}__visibility-toggle"
+      (click)="toggleBalanceVisibility()"
+      tabindex="0"
+      [attr.aria-label]="balanceVisible ? 'Ocultar saldo' : 'Exibir saldo'"
+    >
+      @if(balanceVisible) {
+          <img src="/assets/icons/ico-view-off.svg" alt="Ocultar saldo" />
+      } @else {
+        <img src="/assets/icons/ico-view-on.svg" alt="Exibir saldo" />
+      }
+    </span>
+  </div>
 </ng-template>
 
 <ng-template #unavailable>
   <div class="{{ block }}__unavailable">
-    <p class="{{ block }}__title">Saldo indisponível no momento</p>
-    <button bs2-ds-flat-button class="{{ block }}__button" (click)="emitter?.emit()" aria-label="Atualizar saldo">
-      Atualizar
+    <p class="{{ block }}__title">{{ unavailableTitle }}</p>
+    <button bs2-ds-flat-button class="{{ block }}__button" (click)="emitter?.emit()" [attr.aria-label]="buttonLabel">
+      {{ buttonLabel }}
     </button>
   </div>
 </ng-template>

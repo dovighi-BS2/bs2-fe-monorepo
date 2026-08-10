@@ -24,6 +24,11 @@
           {
             "glob": "**/*",
             "input": "apps/app-angular-monorepo/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/ui/assets",
+            "output": "assets"
           }
         ],
         "styles": [
