@@ -21,6 +21,7 @@ export class Bs2DSCardBalanceComponent {
   @Input() buttonLabel = 'Atualizar';
   @Input() actionLabel: string | null = null;
   @Input() showIcon = false;
+  @Input() showLimit = true;
   @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionClick: EventEmitter<void> = new EventEmitter<void>();
 

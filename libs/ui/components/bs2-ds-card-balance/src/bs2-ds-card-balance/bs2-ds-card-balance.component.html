@@ -41,6 +41,9 @@
       }
     </span>
   </div>
+  @if(showLimit) {
+  <p class="{{ block }}__limit">Saldo + Limite: {{ transform(Number(balance) + Number(limit)) }}</p>
+  }
 </ng-template>
 
 <ng-template #unavailable>
