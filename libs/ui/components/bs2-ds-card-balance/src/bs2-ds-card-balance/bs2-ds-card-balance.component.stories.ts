@@ -27,8 +27,43 @@ const meta: Meta<Bs2DSCardBalanceComponent> = {
     }),
   ],
   argTypes: {
-    balance: { control: 'number', defaultValue: { summary: '0' } },
-    limit: { control: 'number', defaultValue: { summary: '0' } },
+    balance: { control: 'number', defaultValue: { summary: '0' }, table: { type: { summary: 'number' } } },
+    limit: { control: 'number', defaultValue: { summary: '0' }, table: { type: { summary: 'number' } } },
+    title: {
+      control: { type: 'text' },
+      defaultValue: { summary: 'Saldo em conta' },
+      table: { type: { summary: 'string' } },
+    },
+    balanceLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: 'Total investido' },
+      table: { type: { summary: 'string' } },
+    },
+    unavailableTitle: {
+      control: { type: 'text' },
+      defaultValue: { summary: 'Saldo indisponível no momento' },
+      table: { type: { summary: 'string' } },
+    },
+    buttonLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: 'Atualizar' },
+      table: { type: { summary: 'string' } },
+    },
+    actionLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string | null' } },
+    },
+    showIcon: {
+      control: 'boolean',
+      defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
+    },
+    showLimit: {
+      control: 'boolean',
+      defaultValue: { summary: 'true' },
+      table: { type: { summary: 'boolean' } },
+    },
     template: {
       control: 'select',
       options: ['visible', 'hidden', 'unavailable'],
@@ -45,6 +80,10 @@ const meta: Meta<Bs2DSCardBalanceComponent> = {
       defaultValue: { summary: 'new EventEmitter<boolean>()' },
       table: { type: { summary: 'EventEmitter<boolean>' } },
     },
+    actionClick: {
+      action: 'Evento de ação emitido pelo componente',
+      table: { type: { summary: 'EventEmitter<void>' } },
+    },
   },
 };
 export default meta;
@@ -55,6 +94,13 @@ export const Default: Story = {
   args: {
     balance: 1000000000.12,
     limit: 3000000000.23,
+    title: 'Saldo em conta',
+    balanceLabel: 'Total investido',
+    unavailableTitle: 'Saldo indisponível no momento',
+    buttonLabel: 'Atualizar',
+    actionLabel: null,
+    showIcon: false,
+    showLimit: true,
     template: 'visible',
     loader: false,
   },
@@ -70,6 +116,13 @@ import { Component } from '@angular/core';
 export class YourComponentComponent {
     public balance: number = 1000000000.12;
     public limit: number = 3000000000.23;
+    public title: string = "Saldo em conta";
+    public balanceLabel: string = "Total investido";
+    public unavailableTitle: string = "Saldo indisponível no momento";
+    public buttonLabel: string = "Atualizar";
+    public actionLabel: string | null = null;
+    public showIcon: boolean = false;
+    public showLimit: boolean = true;
     public template: 'visible' | 'hidden' | 'unavailable' = "visible";
     public loader: boolean = false;
 }
@@ -79,6 +132,13 @@ export class YourComponentComponent {
 <bs2-ds-card-balance
   [balance]="balance"
   [limit]="limit"
+  [title]="title"
+  [balanceLabel]="balanceLabel"
+  [unavailableTitle]="unavailableTitle"
+  [buttonLabel]="buttonLabel"
+  [actionLabel]="actionLabel"
+  [showIcon]="showIcon"
+  [showLimit]="showLimit"
   [template]="template"
   [loader]="loader"
 ></bs2-ds-card-balance>
