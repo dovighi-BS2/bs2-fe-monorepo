@@ -1,4 +1,4 @@
-import { Bs2DSCardProductComponent } from './bs2-ds-card-product.component';
+import { Bs2DSCardProductComponent } from '@bs2/design-system/components/bs2-ds-card-product';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { delay, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -27,11 +27,6 @@ const meta: Meta<Bs2DSCardProductComponent> = {
     }),
   ],
   argTypes: {
-    unavailableTitle: {
-      control: { type: 'text' },
-      defaultValue: { summary: '(vazio)' },
-      table: { type: { summary: 'string' } },
-    },
     icon: {
       control: { type: 'text' },
       defaultValue: { summary: '(vazio)' },
@@ -52,11 +47,31 @@ const meta: Meta<Bs2DSCardProductComponent> = {
       defaultValue: { summary: '(vazio)' },
       table: { type: { summary: 'number' } },
     },
+    unavailableTitle: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string' } },
+    },
+    buttonLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: 'Atualizar' },
+      table: { type: { summary: 'string' } },
+    },
+    actionLabel: {
+      control: { type: 'text' },
+      defaultValue: { summary: '(vazio)' },
+      table: { type: { summary: 'string | null' } },
+    },
+    showIcon: {
+      control: 'boolean',
+      defaultValue: { summary: 'false' },
+      table: { type: { summary: 'boolean' } },
+    },
     template: {
       control: 'select',
       options: ['visible', 'hidden', 'unavailable'],
       defaultValue: { summary: 'visible' },
-      table: { type: { summary: 'visible | hidden | unavailable' } },
+      table: { type: { summary: "'visible' | 'hidden' | 'unavailable'" } },
     },
     loader: {
       control: 'boolean',
@@ -68,6 +83,10 @@ const meta: Meta<Bs2DSCardProductComponent> = {
       defaultValue: { summary: 'new EventEmitter<boolean>()' },
       table: { type: { summary: 'EventEmitter<boolean>' } },
     },
+    actionClick: {
+      action: 'Evento de ação emitido pelo componente',
+      table: { type: { summary: 'EventEmitter<void>' } },
+    },
   },
 };
 export default meta;
@@ -75,13 +94,16 @@ type Story = StoryObj<Bs2DSCardProductComponent>;
 
 export const Default: Story = {
   args: {
-    loader: false,
-    unavailableTitle: '',
     icon: '',
     title: 'Crédito',
     label: 'Limite disponível até',
     value: 50000,
+    unavailableTitle: '',
+    buttonLabel: 'Atualizar',
+    actionLabel: null,
+    showIcon: false,
     template: 'visible',
+    loader: false,
   },
   render: (args) => ({
     props: { ...args },
@@ -93,25 +115,31 @@ import { Component } from '@angular/core';
 
 @Component({ imports: [Bs2DSCardProductComponent], ... })
 export class YourComponentComponent {
-  public loader: boolean = false;
-  public unavailableTitle: string = "";
   public icon: string = "";
   public title: string = "Crédito";
   public label: string = "Limite disponível até";
   public value: number = 50000;
-  public template: "visible" | "hidden" | "unavailable" = "visible";
+  public unavailableTitle: string = "";
+  public buttonLabel: string = "Atualizar";
+  public actionLabel: string | null = null;
+  public showIcon: boolean = false;
+  public template: 'visible' | 'hidden' | 'unavailable' = "visible";
+  public loader: boolean = false;
 }
 -->
 
 <!-- HTML -->
 <bs2-ds-card-product
-  [loader]="loader"
-  [unavailableTitle]="unavailableTitle"
   [icon]="icon"
   [title]="title"
   [label]="label"
   [value]="value"
+  [unavailableTitle]="unavailableTitle"
+  [buttonLabel]="buttonLabel"
+  [actionLabel]="actionLabel"
+  [showIcon]="showIcon"
   [template]="template"
+  [loader]="loader"
 ></bs2-ds-card-product>
     `,
   }),
