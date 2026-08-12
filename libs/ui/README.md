@@ -252,3 +252,18 @@ npx nx run ui:publish
 ## Documentação dos Componentes
 
 [Link Nx Compodoc](https://nx.dev/recipes/storybook/angular-storybook-compodoc)
+
+## Uso dos assets no projeto consumidor
+
+Quando a biblioteca for consumida via npm, o projeto consumidor precisa expor os assets da lib no build da aplicação para que caminhos como
+assets/icons/ico-view-on.svg funcionem corretamente.
+
+Adicione no angular.json do consumidor, dentro de build.options.assets:
+
+{
+  "glob": "**/*",
+  "input": "node_modules/@bs2/design-system/assets",
+  "output": "assets"
+}
+
+No build da lib, os assets são empacotados via ng-package.json e publicados no pacote npm em assets/.

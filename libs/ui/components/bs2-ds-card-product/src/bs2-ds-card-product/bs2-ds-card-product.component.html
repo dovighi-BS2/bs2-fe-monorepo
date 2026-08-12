@@ -21,7 +21,7 @@
       <span class="{{ block }}__action-label" (click)="actionClick.emit()" role="button" tabindex="0">{{ actionLabel }}</span>
       } @else if(showIcon) {
       <span class="{{ block }}__action-icon" (click)="actionClick.emit()" role="button" tabindex="0" aria-label="Ação">
-        <img src="/assets/icons/ico-arrow-right.svg" alt="" />
+        <img src="assets/icons/ico-arrow-right.svg" alt="" />
       </span>
       }
     </div>
@@ -43,9 +43,9 @@
       [attr.aria-label]="valueVisible ? 'Ocultar valor' : 'Exibir valor'"
     >
       @if(valueVisible) {
-        <img src="/assets/icons/ico-view-off.svg" alt="Ocultar valor" />
+        <img src="assets/icons/ico-view-off.svg" alt="Ocultar valor" />
       } @else {
-        <img src="/assets/icons/ico-view-on.svg" alt="Exibir valor" />
+        <img src="assets/icons/ico-view-on.svg" alt="Exibir valor" />
       }
     </span>
   </div>
