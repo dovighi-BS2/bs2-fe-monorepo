@@ -5,6 +5,7 @@
     "entryFile": "src/index.ts"
   },
   "assets": [
-    { "input": "src/lib/sass", "glob": "**/*.scss", "output": "styles" }
+    { "input": "src/lib/sass", "glob": "**/*.scss", "output": "styles" },
+    { "input": "./assets", "glob": "**/*", "output": "assets" }
   ]
 }
