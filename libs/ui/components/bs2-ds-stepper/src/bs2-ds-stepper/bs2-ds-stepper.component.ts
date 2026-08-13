@@ -7,6 +7,7 @@ import { Bs2DSStepperItemComponent } from '../bs2-ds-stepper-item/bs2-ds-stepper
   imports: [Bs2DSStepperItemComponent],
   templateUrl: './bs2-ds-stepper.component.html',
   styleUrl: './bs2-ds-stepper.component.scss',
+  host: { '[class.horizontal]': 'horizontal()' },
 })
 export class Bs2DSStepperComponent {
   private readonly _steps = contentChildren(Bs2DSStepComponent);

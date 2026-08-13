@@ -5,6 +5,13 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 const meta: Meta<Bs2DSStepperComponent> = {
   component: Bs2DSStepperComponent,
   title: 'Components/Stepper',
+  argTypes: {
+    horizontal: { control: 'boolean' },
+    gap: {
+      control: { type: 'number', min: 0, step: 8 },
+      if: { arg: 'horizontal', truthy: true },
+    },
+  },
   parameters: {
     layout: 'centered',
     docs: {
@@ -23,7 +30,7 @@ const meta: Meta<Bs2DSStepperComponent> = {
     }),
     (storyFunc) => ({
       ...storyFunc(),
-      styles: [...(storyFunc().styles || []), `:host { display: block; width: 400px; }`],
+      styles: [...(storyFunc().styles || []), `:host { display: block; min-width: 400px; }`],
     }),
   ],
 };
@@ -33,9 +40,11 @@ type Story = StoryObj<Bs2DSStepperComponent>;
 
 export const Vertical: Story = {
   name: 'Vertical (default)',
-  render: () => ({
+  args: { horizontal: false, gap: undefined },
+  render: (args) => ({
+    props: args,
     template: `
-<bs2-ds-stepper #stepper>
+<bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
     <div style="padding: 16px 0">
       <p>Conteúdo do passo 1</p>
@@ -62,9 +71,11 @@ export const Vertical: Story = {
 
 export const Horizontal: Story = {
   name: 'Horizontal with fixed gap',
-  render: () => ({
+  args: { horizontal: true, gap: 80 },
+  render: (args) => ({
+    props: args,
     template: `
-<bs2-ds-stepper #stepper [horizontal]="true" [gap]="80">
+<bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
     <div style="padding: 16px 0">
       <p>Conteúdo do passo 1</p>
@@ -91,9 +102,17 @@ export const Horizontal: Story = {
 
 export const HorizontalStretch: Story = {
   name: 'Horizontal stretch',
-  render: () => ({
+  decorators: [
+    (storyFunc) => ({
+      ...storyFunc(),
+      styles: [...(storyFunc().styles || []), `:host { display: block; width: 700px; }`],
+    }),
+  ],
+  args: { horizontal: true, gap: undefined },
+  render: (args) => ({
+    props: args,
     template: `
-<bs2-ds-stepper #stepper [horizontal]="true">
+<bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Passo 1">
     <div style="padding: 16px 0">
       <p>Conteúdo do passo 1</p>
@@ -120,9 +139,11 @@ export const HorizontalStretch: Story = {
 
 export const WithError: Story = {
   name: 'With error step',
-  render: () => ({
+  args: { horizontal: false, gap: undefined },
+  render: (args) => ({
+    props: args,
     template: `
-<bs2-ds-stepper #stepper>
+<bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
     <div style="padding: 16px 0">
       <p>Conteúdo do passo 1</p>

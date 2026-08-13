@@ -1,12 +1,25 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+:host(.horizontal) {
+  flex-direction: column;
+}
+
 .bs2_ds_stepper {
   margin: 0;
   padding: 0;
   list-style: none;
+  flex-shrink: 0;
 
   &.horizontal {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    column-gap: 24px;
+    --stepper-gap: 24px;
 
     bs2-ds-stepper-item {
       flex: 1;
@@ -20,4 +33,9 @@
       }
     }
   }
+}
+
+.bs2_ds_stepper__content {
+  flex: 1;
+  min-width: 0;
 }
