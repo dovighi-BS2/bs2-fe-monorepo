@@ -31,6 +31,13 @@ export class Bs2DSInputTokenComponent implements OnInit {
     for (let i = 0; i < this.amount; i++) this.form.push(this.fb.control(''));
   }
 
+  onKeyDown(event: KeyboardEvent) {
+    const target = event.target as HTMLInputElement;
+    if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      target.select();
+    }
+  }
+
   onInput(event: Event, index: number) {
     const target = event.target as HTMLInputElement;
     if (target.value && index + 1 < this.amount) {

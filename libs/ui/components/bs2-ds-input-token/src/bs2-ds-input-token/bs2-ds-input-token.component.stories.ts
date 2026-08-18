@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { Bs2DSInputTokenComponent } from '@bs2/design-system/components/bs2-ds-input-token';
+import { Bs2DSInputTokenComponent } from './bs2-ds-input-token.component';
 import { FormControl } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
 

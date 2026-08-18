@@ -592,16 +592,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: '',\r\n    title: 'Crédito',\r\n    label: 'Limite disponível até',\r\n    value: 50000,\r\n    unavailableTitle: '',\r\n    buttonLabel: 'Atualizar',\r\n    actionLabel: null,\r\n    showIcon: false,\r\n    template: 'visible',\r\n    loader: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public icon: string = \"\";\r\n  public title: string = \"Crédito\";\r\n  public label: string = \"Limite disponível até\";\r\n  public value: number = 50000;\r\n  public unavailableTitle: string = \"\";\r\n  public buttonLabel: string = \"Atualizar\";\r\n  public actionLabel: string | null = null;\r\n  public showIcon: boolean = false;\r\n  public template: 'visible' | 'hidden' | 'unavailable' = \"visible\";\r\n  public loader: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [icon]=\"icon\"\r\n  [title]=\"title\"\r\n  [label]=\"label\"\r\n  [value]=\"value\"\r\n  [unavailableTitle]=\"unavailableTitle\"\r\n  [buttonLabel]=\"buttonLabel\"\r\n  [actionLabel]=\"actionLabel\"\r\n  [showIcon]=\"showIcon\"\r\n  [template]=\"template\"\r\n  [loader]=\"loader\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -622,21 +612,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    title: 'Título padrão',\r\n    content: 'Texto do diálogo',\r\n    primaryText: 'Confirmar',\r\n    secondaryText: 'Cancelar',\r\n    showIcon: false,\r\n  },\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DsDialogComponent, DialogData } from '@bs2/design-system/components/bs2-ds-dialog';\r\nimport { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DsDialogComponent, Bs2DSFilledButtonDirective], ... })\r\nexport class YourComponentComponent {\r\n  dialog = inject(Dialog);\r\n  @ViewChild('iconTemplate', { static: true }) iconTemplate!: TemplateRef<any>;\r\n  public title: string = 'Título padrão';\r\n  public content: string = 'Texto do diálogo';\r\n  public primaryText: string = 'Confirmar';\r\n  public secondaryText: string = 'Cancelar';\r\n  public showIcon: boolean = false;\r\n\r\n  openDialog() {\r\n    this.dialog.open(Bs2DsDialogComponent, { data: {\r\n        title: this.title,\r\n        content: this.content,\r\n        primaryText: this.primaryText,\r\n        secondaryText: this.secondaryText,\r\n        showIcon: this.showIcon,\r\n    } as DialogData });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<button bs2-ds-filled-button (click)=\"openDialog()\">Abrir diálogo</button>\r\n        `,\r\n      }\r\n    }\r\n  }\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: '',\r\n    title: 'Crédito',\r\n    label: 'Limite disponível até',\r\n    value: 50000,\r\n    unavailableTitle: '',\r\n    buttonLabel: 'Atualizar',\r\n    actionLabel: null,\r\n    showIcon: false,\r\n    template: 'visible',\r\n    loader: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public icon: string = \"\";\r\n  public title: string = \"Crédito\";\r\n  public label: string = \"Limite disponível até\";\r\n  public value: number = 50000;\r\n  public unavailableTitle: string = \"\";\r\n  public buttonLabel: string = \"Atualizar\";\r\n  public actionLabel: string | null = null;\r\n  public showIcon: boolean = false;\r\n  public template: 'visible' | 'hidden' | 'unavailable' = \"visible\";\r\n  public loader: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [icon]=\"icon\"\r\n  [title]=\"title\"\r\n  [label]=\"label\"\r\n  [value]=\"value\"\r\n  [unavailableTitle]=\"unavailableTitle\"\r\n  [buttonLabel]=\"buttonLabel\"\r\n  [actionLabel]=\"actionLabel\"\r\n  [showIcon]=\"showIcon\"\r\n  [template]=\"template\"\r\n  [loader]=\"loader\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "file": "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl([]),\r\n    options: [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ] as Bs2DSChipOption[],\r\n    minSelectable: 1,\r\n    maxSelectable: 1,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSChipsComponent } from \"@bs2/design-system/components/bs2-ds-chips\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSChipsComponent], ... })\r\nexport class YourComponentComponent {\r\n    public control: FormControl = new FormControl([]);\r\n    public options: Bs2DSChipOption[] = [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ];\r\n    public minSelectable: number = 1;\r\n    public maxSelectable: number = 1;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-chips\r\n  [control]=\"control\"\r\n  [options]=\"options\"\r\n  [minSelectable]=\"minSelectable\"\r\n  [maxSelectable]=\"maxSelectable\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    title: 'Título padrão',\r\n    content: 'Texto do diálogo',\r\n    primaryText: 'Confirmar',\r\n    secondaryText: 'Cancelar',\r\n    showIcon: false,\r\n  },\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DsDialogComponent, DialogData } from '@bs2/design-system/components/bs2-ds-dialog';\r\nimport { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DsDialogComponent, Bs2DSFilledButtonDirective], ... })\r\nexport class YourComponentComponent {\r\n  dialog = inject(Dialog);\r\n  @ViewChild('iconTemplate', { static: true }) iconTemplate!: TemplateRef<any>;\r\n  public title: string = 'Título padrão';\r\n  public content: string = 'Texto do diálogo';\r\n  public primaryText: string = 'Confirmar';\r\n  public secondaryText: string = 'Cancelar';\r\n  public showIcon: boolean = false;\r\n\r\n  openDialog() {\r\n    this.dialog.open(Bs2DsDialogComponent, { data: {\r\n        title: this.title,\r\n        content: this.content,\r\n        primaryText: this.primaryText,\r\n        secondaryText: this.secondaryText,\r\n        showIcon: this.showIcon,\r\n    } as DialogData });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<button bs2-ds-filled-button (click)=\"openDialog()\">Abrir diálogo</button>\r\n        `,\r\n      }\r\n    }\r\n  }\r\n}"
             },
             {
                 "name": "Default",
@@ -652,6 +642,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl([]),\r\n    options: [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ] as Bs2DSChipOption[],\r\n    minSelectable: 1,\r\n    maxSelectable: 1,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSChipsComponent } from \"@bs2/design-system/components/bs2-ds-chips\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSChipsComponent], ... })\r\nexport class YourComponentComponent {\r\n    public control: FormControl = new FormControl([]);\r\n    public options: Bs2DSChipOption[] = [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ];\r\n    public minSelectable: number = 1;\r\n    public maxSelectable: number = 1;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-chips\r\n  [control]=\"control\"\r\n  [options]=\"options\"\r\n  [minSelectable]=\"minSelectable\"\r\n  [maxSelectable]=\"maxSelectable\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -662,11 +662,31 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    id: 'categories',\r\n    label: 'Categorias',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputSelectComponent } from \"@bs2/design-system/components/bs2-ds-input-select\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputSelectComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-currency\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    id: 'phone',\r\n    label: 'Telefone',\r\n    helperText: 'Digite seu telefone',\r\n    errorText: '',\r\n    readOnly: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputSelectComponent } from \"@bs2/design-system/components/bs2-ds-input-select\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputSelectComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public readOnly: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-phone\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [readOnly]=\"readOnly\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    type: 'text',\r\n    id: '',\r\n    label: 'E-mail',\r\n    class: '',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputTextComponent } from \"@bs2/design-system/components/bs2-ds-input-text\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputTextComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public class: string = '';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-text\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [class]=\"class\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -692,16 +712,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    type: 'text',\r\n    id: '',\r\n    label: 'E-mail',\r\n    class: '',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputTextComponent } from \"@bs2/design-system/components/bs2-ds-input-text\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputTextComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public class: string = '';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-text\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [class]=\"class\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -717,16 +727,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    percent: 50,\r\n    loop: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSProgressBarComponent } from \"@bs2/design-system/components/bs2-ds-progress-bar\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSProgressBarComponent], ... })\r\nexport class YourComponentComponent {\r\n    public percent: number = 50;\r\n    public loop: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-progress-bar [percent]=\"percent\" [loop]=\"loop\" />\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    id: 'categories',\r\n    label: 'Categorias',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputSelectComponent } from \"@bs2/design-system/components/bs2-ds-input-select\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputSelectComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-currency\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -762,21 +762,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTagComponent } from \"@bs2/design-system/components/bs2-ds-tag\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTagComponent], ... })\r\nexport class YourComponentComponent {\r\n    public status: 'primary' | 'neutral' | 'success' | 'attention' | 'error' = 'neutral';\r\n    public size: 'regular' | 'small' = 'regular';\r\n    public string = 'Seu texto aqui';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tag [status]=\"status\" [size]=\"size\" [text]=\"text\" />\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    align: 'start',\r\n    selectedTab: 'Tab 1',\r\n    full: false,\r\n  },\r\n  render: (args: Bs2DSTabGroupComponent) => {\r\n    return {\r\n      props: { ...args },\r\n      template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTabGroupComponent, Bs2DSTabItemComponent } from \"@bs2/design-system/components/bs2-ds-tab\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTabGroupComponent, Bs2DSTabItemComponent], ... })\r\nexport class YourComponentComponent {\r\n  public align: 'start' | 'center' | 'end' = 'start';\r\n  public full: boolean = false;\r\n  public selectedTab: string = 'Tab 1';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tab-group [align]='align' [full]='full' [selectedTab]='selectedTab'>\r\n  <bs2-ds-tab-item title='Tab 1'>Conteúdo Tab 1</bs2-ds-tab-item>\r\n  <bs2-ds-tab-item title='Tab 2'>Conteúdo Tab 2</bs2-ds-tab-item>\r\n  <bs2-ds-tab-item title='Tab 3'>Conteúdo Tab 3</bs2-ds-tab-item>\r\n</bs2-ds-tab-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTagComponent } from \"@bs2/design-system/components/bs2-ds-tag\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTagComponent], ... })\r\nexport class YourComponentComponent {\r\n    public status: 'primary' | 'neutral' | 'success' | 'attention' | 'error' = 'neutral';\r\n    public size: 'regular' | 'small' = 'regular';\r\n    public string = 'Seu texto aqui';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tag [status]=\"status\" [size]=\"size\" [text]=\"text\" />\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Default",
@@ -852,21 +852,21 @@
                 "name": "Hidden",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n  [template]=\"'hidden'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Hidden",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    balance: 1000000000.12,\r\n    limit: 3000000000.23,\r\n    template: 'hidden',\r\n  },\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardBalanceComponent } from \"@bs2/design-system/components/bs2-ds-card-balance\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardBalanceComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-balance\r\n  [balance]=\"1000000000.12\"\r\n  [limit]=\"3000000000.23\"\r\n  [template]=\"'hidden'\"\r\n></bs2-ds-card-balance>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Hidden",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n  [template]=\"'hidden'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Horizontal",
@@ -892,16 +892,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSCardProductComponent>",
-                "defaultValue": "{\r\n  component: Bs2DSCardProductComponent,\r\n  title: 'Components/Card Product',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O card de produto é o componente que agrupa informações relacionadas em um contêiner visual com espaçamento definido, sendo usado para organizar conteúdos como textos, imagens, links ou ações, destacando e estruturando informações de forma clara e acessível, facilitando a leitura e a interação. Os cards de produtos do Banco BS2 poderão exibir limites de oferta de crédito, total de boletos emitidos e outros,  podendo ser usados sempre que for necessário exibir detalhes relacionados a produtos, incluindo links para detalhes adicionais relativos aos produtos.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSCardProductComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 231px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    icon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    value: {\r\n      control: 'number',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    unavailableTitle: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    buttonLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'Atualizar' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    actionLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string | null' } },\r\n    },\r\n    showIcon: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    template: {\r\n      control: 'select',\r\n      options: ['visible', 'hidden', 'unavailable'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: { type: { summary: \"'visible' | 'hidden' | 'unavailable'\" } },\r\n    },\r\n    loader: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    emitter: {\r\n      action: 'Evento emitido pelo componente',\r\n      defaultValue: { summary: 'new EventEmitter<boolean>()' },\r\n      table: { type: { summary: 'EventEmitter<boolean>' } },\r\n    },\r\n    actionClick: {\r\n      action: 'Evento de ação emitido pelo componente',\r\n      table: { type: { summary: 'EventEmitter<void>' } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -922,31 +912,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSCardProductComponent>",
+                "defaultValue": "{\r\n  component: Bs2DSCardProductComponent,\r\n  title: 'Components/Card Product',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O card de produto é o componente que agrupa informações relacionadas em um contêiner visual com espaçamento definido, sendo usado para organizar conteúdos como textos, imagens, links ou ações, destacando e estruturando informações de forma clara e acessível, facilitando a leitura e a interação. Os cards de produtos do Banco BS2 poderão exibir limites de oferta de crédito, total de boletos emitidos e outros,  podendo ser usados sempre que for necessário exibir detalhes relacionados a produtos, incluindo links para detalhes adicionais relativos aos produtos.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSCardProductComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 231px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    icon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    value: {\r\n      control: 'number',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    unavailableTitle: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    buttonLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'Atualizar' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    actionLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string | null' } },\r\n    },\r\n    showIcon: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    template: {\r\n      control: 'select',\r\n      options: ['visible', 'hidden', 'unavailable'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: { type: { summary: \"'visible' | 'hidden' | 'unavailable'\" } },\r\n    },\r\n    loader: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    emitter: {\r\n      action: 'Evento emitido pelo componente',\r\n      defaultValue: { summary: 'new EventEmitter<boolean>()' },\r\n      table: { type: { summary: 'EventEmitter<boolean>' } },\r\n    },\r\n    actionClick: {\r\n      action: 'Evento de ação emitido pelo componente',\r\n      table: { type: { summary: 'EventEmitter<void>' } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSDialogMockComponent>",
                 "defaultValue": "{\r\n  title: 'Components/Dialog',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os modais de diálogo são elementos de interface que interrompem temporariamente a interação do usuário com a página principal para apresentar uma informação importante, solicitar uma ação específica ou coletar dados. Eles são como pequenas janelas que se sobrepõem ao conteúdo principal, exigindo que o usuário interaja com eles antes de continuar navegando e podem ter objetivos como informar algo ou solicitar ações específicas.\r\n          São caracterizados basicamente por isolar o conteúdo principal, focando a atenção do usuário na informação apresentada no modal, bloqueando a interação com outros elementos da página até que o modal seja fechado.\r\n\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSDialogMockComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],\r\n    }),\r\n  ],\r\n  component: Bs2DSDialogMockComponent,\r\n  argTypes: {\r\n    title: {\r\n      control: 'text',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    content: {\r\n      control: 'text',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    showIcon: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"boolean\" } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSChipsComponent>",
-                "defaultValue": "{\r\n  component: Bs2DSChipsComponent,\r\n  title: 'Form Components/Chips Checkbox',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os chips são componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como tags, categorias, seleções ou filtros, permitindo escolhas do usuário em espaços reduzidos.\r\n          Geralmente em formato retangular arredondado, podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa e eficiente e oferecem uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSChipsComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    options: {\r\n      control: 'object',\r\n      defaultValue: { summary: '[]' },\r\n      table: { type: { summary: 'Bs2DSChipOption[] | string[]' } },\r\n    },\r\n    maxSelectable: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    minSelectable: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MockBs2DSFeedbackComponent>",
-                "defaultValue": "{\r\n  component: MockBs2DSFeedbackComponent,\r\n  title: 'Components/Feedback',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os componentes de feedback são elementos visuais projetados para comunicar ao usuário o status de ações, interações ou processos dentro da interface. Com indicadores de  sucesso, erro, alerta e informação. Esses componentes têm como objetivo fornecer respostas claras e imediatas ao usuário, garantindo que ele compreenda o impacto de suas ações e saiba como proceder em seguida.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2DSFeedbackComponent,\r\n        Bs2DSFeedbackComponent,\r\n        Bs2DSFeedbackComponent,\r\n        Bs2DSFilledButtonDirective,\r\n        Bs2DSFeedbackContainerComponent,\r\n        BrowserAnimationsModule,\r\n      ],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    message: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    status: {\r\n      control: 'select',\r\n      options: ['info', 'attention', 'error', 'success'],\r\n      defaultValue: { summary: 'info' },\r\n      table: { type: { summary: \"'info' | 'attention' | 'error' | 'success'\" } },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -962,6 +942,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSChipsComponent>",
+                "defaultValue": "{\r\n  component: Bs2DSChipsComponent,\r\n  title: 'Form Components/Chips Checkbox',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os chips são componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como tags, categorias, seleções ou filtros, permitindo escolhas do usuário em espaços reduzidos.\r\n          Geralmente em formato retangular arredondado, podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa e eficiente e oferecem uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSChipsComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    options: {\r\n      control: 'object',\r\n      defaultValue: { summary: '[]' },\r\n      table: { type: { summary: 'Bs2DSChipOption[] | string[]' } },\r\n    },\r\n    maxSelectable: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    minSelectable: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -972,11 +962,41 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MockBs2DSFeedbackComponent>",
+                "defaultValue": "{\r\n  component: MockBs2DSFeedbackComponent,\r\n  title: 'Components/Feedback',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os componentes de feedback são elementos visuais projetados para comunicar ao usuário o status de ações, interações ou processos dentro da interface. Com indicadores de  sucesso, erro, alerta e informação. Esses componentes têm como objetivo fornecer respostas claras e imediatas ao usuário, garantindo que ele compreenda o impacto de suas ações e saiba como proceder em seguida.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MockBs2DSFeedbackComponent,\r\n        Bs2DSFeedbackComponent,\r\n        Bs2DSFeedbackComponent,\r\n        Bs2DSFilledButtonDirective,\r\n        Bs2DSFeedbackContainerComponent,\r\n        BrowserAnimationsModule,\r\n      ],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    message: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    status: {\r\n      control: 'select',\r\n      options: ['info', 'attention', 'error', 'success'],\r\n      defaultValue: { summary: 'info' },\r\n      table: { type: { summary: \"'info' | 'attention' | 'error' | 'success'\" } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSInputCurrencyComponent>",
+                "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: ``.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputCurrencyComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSInputPhoneComponent>",
                 "defaultValue": "{\r\n  component: Bs2DSInputPhoneComponent,\r\n  title: 'Form Components/InputPhone',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputPhoneComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSInputTextComponent>",
+                "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputTextComponent],\r\n      providers: [provideNgxMask()],\r\n    }),\r\n    (storyFunc: any) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'text' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -1002,16 +1022,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSInputTextComponent>",
-                "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputTextComponent],\r\n      providers: [provideNgxMask()],\r\n    }),\r\n    (storyFunc: any) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'text' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1027,16 +1037,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSProgressBarComponent>",
                 "defaultValue": "{\r\n  component: Bs2DSProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Tem a mesma função que o spinner, sendo um componente visual utilizado para indicar que um processo está em andamento, como o carregamento de uma página ou a execução de uma ação ou tarefa. Serve para fornecer feedback ao usuário, evitando incertezas sobre o status do sistema e melhorando a experiência ao criar uma sensação de progresso enquanto a tarefa é concluída.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSProgressBarComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSInputCurrencyComponent>",
-                "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: ``.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputCurrencyComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -1082,21 +1082,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<Bs2DSTagComponent>",
-                "defaultValue": "{\r\n  component: Bs2DSTagComponent,\r\n  title: 'Components/Tag',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Similar aos chips, em geral sao pequenos rótulos usados dentro ou próximo a outro componente de interface maior, representando um status, propriedade ou alguns outros metadados.\r\n          São componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como categorias, seleções, filtros ou sinalizar o cumprimento de um requisito, permitindo exibir as escolhas ou ações do usuário em espaços reduzidos. Podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa  e oferecendo uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSTagComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 100%; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\" } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'regular' | 'small'\" } },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs2DSTabGroupComponent>",
                 "defaultValue": "{\r\n  component: Bs2DSTabGroupComponent,\r\n  title: 'Components/Tabs',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Tabs são componentes de navegação que organizam conteúdo em diferentes seções, permitindo ao usuário alternar entre informações ou funcionalidades relacionadas sem sair da página atual. Facilitam a exploração de conteúdo agrupado, garantindo uma experiência limpa e estruturada.\r\n          Com padrões visuais consistentes, como indicadores de estado ativo, inativo e hover, as tabs guiam o usuário de forma clara, promovendo a usabilidade e o acesso rápido a informações segmentadas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSTabGroupComponent, Bs2DSTabItemComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    align: {\r\n      control: 'select',\r\n      options: ['start', 'center', 'end'],\r\n      defaultValue: { summary: 'start' },\r\n      table: { type: { summary: \"'start' | 'center' | 'end'\" } },\r\n    },\r\n    full: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: false },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    selectedTab: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Bs2DSTagComponent>",
+                "defaultValue": "{\r\n  component: Bs2DSTagComponent,\r\n  title: 'Components/Tag',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Similar aos chips, em geral sao pequenos rótulos usados dentro ou próximo a outro componente de interface maior, representando um status, propriedade ou alguns outros metadados.\r\n          São componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como categorias, seleções, filtros ou sinalizar o cumprimento de um requisito, permitindo exibir as escolhas ou ações do usuário em espaços reduzidos. Podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa  e oferecendo uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSTagComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 100%; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\" } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'regular' | 'small'\" } },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -1342,21 +1342,21 @@
                 "name": "Unavailable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    template: 'unavailable',\r\n    value: 0,\r\n    loader: false,\r\n    emitter: function () {\r\n      this.loader = true;\r\n\r\n      of(null)\r\n        .pipe(\r\n          delay(3000),\r\n          finalize(() => (this.loader = false))\r\n        )\r\n        .subscribe(() => {\r\n          this.template = 'visible';\r\n          this.value = Math.floor(Math.random() * 1000);\r\n        });\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n      <bs2-ds-card-product\r\n        [unavailableTitle]=\"'Unavailable title'\"\r\n        [title]=\"'Crédito'\"\r\n        [label]=\"'Limite disponível até'\"\r\n        [template]=\"template\"\r\n        [value]=\"value\"\r\n        [loader]=\"loader\"\r\n        (emitter)=\"emitter($event)\"\r\n      ></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';\r\n  public value: number = 0;\r\n  public loader: boolean = false;\r\n  public emitter(): void {\r\n    this.loader = true;\r\n    of(null)\r\n      .pipe(\r\n        delay(3000),\r\n        finalize(() => (this.loader = false))\r\n      )\r\n      .subscribe(() => {\r\n        this.template = \"visible\";\r\n        this.value = Math.floor(Math.random() * 1000);\r\n      });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [unavailableTitle]=\"'Unavailable title'\"\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [template]=\"template\"\r\n  [value]=\"value\"\r\n  [loader]=\"loader\"\r\n  (emitter)=\"emitter($event)\"\r\n></bs2-ds-card-product>\r\n          `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "Unavailable",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    template: 'unavailable',\r\n    loader: false,\r\n    balance: 0,\r\n    limit: 0,\r\n    emitter: function () {\r\n      this.loader = true;\r\n\r\n      of(null)\r\n        .pipe(\r\n          delay(3000),\r\n          finalize(() => (this.loader = false))\r\n        )\r\n        .subscribe(() => {\r\n          this.template = 'visible';\r\n          this.balance = Math.floor(Math.random() * 1000);\r\n          this.limit = Math.floor(Math.random() * 3000);\r\n        });\r\n    },\r\n  },\r\n\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n      <bs2-ds-card-balance\r\n        [balance]=\"balance\"\r\n        [limit]=\"limit\"\r\n        [template]=\"template\"\r\n        [loader]=\"loader\"\r\n        (emitter)=\"emitter($event)\"\r\n      ></bs2-ds-card-balance>\r\n    `,\r\n  }),\r\n\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardBalanceComponent } from \"@bs2/design-system/components/bs2-ds-card-balance\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardBalanceComponent], ... })\r\nexport class YourComponentComponent {\r\n  public balance: number = 0;\r\n  public limit: number = 0;\r\n  public loader: boolean = false;\r\n  public emitter(): void {\r\n    this.loader = true;\r\n    of(null)\r\n      .pipe(\r\n        delay(3000),\r\n        finalize(() => (this.loader = false))\r\n      )\r\n      .subscribe(() => {\r\n        this.template = \"visible\";\r\n        this.balance = Math.floor(Math.random() * 1000);\r\n        this.limit = Math.floor(Math.random() * 3000);\r\n      });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-balance\r\n  [balance]=\"balance\"\r\n  [limit]=\"limit\"\r\n  [template]=\"template\"\r\n  [loader]=\"loader\"\r\n  (emitter)=\"emitter($event)\"\r\n></bs2-ds-card-balance>\r\n          `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "Unavailable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    template: 'unavailable',\r\n    value: 0,\r\n    loader: false,\r\n    emitter: function () {\r\n      this.loader = true;\r\n\r\n      of(null)\r\n        .pipe(\r\n          delay(3000),\r\n          finalize(() => (this.loader = false))\r\n        )\r\n        .subscribe(() => {\r\n          this.template = 'visible';\r\n          this.value = Math.floor(Math.random() * 1000);\r\n        });\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n      <bs2-ds-card-product\r\n        [unavailableTitle]=\"'Unavailable title'\"\r\n        [title]=\"'Crédito'\"\r\n        [label]=\"'Limite disponível até'\"\r\n        [template]=\"template\"\r\n        [value]=\"value\"\r\n        [loader]=\"loader\"\r\n        (emitter)=\"emitter($event)\"\r\n      ></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';\r\n  public value: number = 0;\r\n  public loader: boolean = false;\r\n  public emitter(): void {\r\n    this.loader = true;\r\n    of(null)\r\n      .pipe(\r\n        delay(3000),\r\n        finalize(() => (this.loader = false))\r\n      )\r\n      .subscribe(() => {\r\n        this.template = \"visible\";\r\n        this.value = Math.floor(Math.random() * 1000);\r\n      });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [unavailableTitle]=\"'Unavailable title'\"\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [template]=\"template\"\r\n  [value]=\"value\"\r\n  [loader]=\"loader\"\r\n  (emitter)=\"emitter($event)\"\r\n></bs2-ds-card-product>\r\n          `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "UsingArrayOfStringAsValueType",
@@ -1382,21 +1382,21 @@
                 "name": "Visible",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
-                "name": "Visible",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardBalanceComponent } from \"@bs2/design-system/components/bs2-ds-card-balance\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardBalanceComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-balance\r\n  [balance]=\"1000000000.12\"\r\n  [limit]=\"3000000000.23\"\r\n></bs2-ds-card-balance>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
+                "name": "Visible",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "WithIcon",
@@ -1463,17 +1463,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSCardProductComponent>",
-                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSCardBalanceComponent>",
                 "file": "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts",
                 "deprecated": false,
@@ -1496,30 +1485,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSCardProductComponent>",
+                "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSDialogMockComponent>",
                 "file": "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSChipsComponent>",
-                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
-                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1540,6 +1518,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSChipsComponent>",
+                "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSDatepickerComponent>",
                 "file": "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts",
                 "deprecated": false,
@@ -1551,8 +1540,41 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
+                "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
+                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
                 "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1584,17 +1606,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-                "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSInputTokenComponent>",
                 "file": "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts",
                 "deprecated": false,
@@ -1608,17 +1619,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Bs2DSProgressBarComponent>",
                 "file": "libs/ui/components/bs2-ds-progress-bar/src/bs2-ds-progress-bar/bs2-ds-progress-bar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
-                "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1672,8 +1672,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSTagComponent>",
-                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                "rawtype": "StoryObj<Bs2DSTabGroupComponent>",
+                "file": "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1683,8 +1683,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Bs2DSTabGroupComponent>",
-                "file": "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts",
+                "rawtype": "StoryObj<Bs2DSTagComponent>",
+                "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2071,68 +2071,6 @@
                     "defaultValue": "{\r\n  // stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\r\n  stories: ['./../**/**/**/**/*.stories.@(js|jsx|ts|tsx|mdx)', './../**/*.stories.@(js|jsx|ts|tsx|mdx)'],\r\n  staticDirs: ['../public', { from: '../assets', to: '/assets' }],\r\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\r\n  framework: {\r\n    name: '@storybook/angular',\r\n    options: {},\r\n  },\r\n  docs: {\r\n    autodocs: true,\r\n    defaultName: 'Docs',\r\n  },\r\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: '',\r\n    title: 'Crédito',\r\n    label: 'Limite disponível até',\r\n    value: 50000,\r\n    unavailableTitle: '',\r\n    buttonLabel: 'Atualizar',\r\n    actionLabel: null,\r\n    showIcon: false,\r\n    template: 'visible',\r\n    loader: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public icon: string = \"\";\r\n  public title: string = \"Crédito\";\r\n  public label: string = \"Limite disponível até\";\r\n  public value: number = 50000;\r\n  public unavailableTitle: string = \"\";\r\n  public buttonLabel: string = \"Atualizar\";\r\n  public actionLabel: string | null = null;\r\n  public showIcon: boolean = false;\r\n  public template: 'visible' | 'hidden' | 'unavailable' = \"visible\";\r\n  public loader: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [icon]=\"icon\"\r\n  [title]=\"title\"\r\n  [label]=\"label\"\r\n  [value]=\"value\"\r\n  [unavailableTitle]=\"unavailableTitle\"\r\n  [buttonLabel]=\"buttonLabel\"\r\n  [actionLabel]=\"actionLabel\"\r\n  [showIcon]=\"showIcon\"\r\n  [template]=\"template\"\r\n  [loader]=\"loader\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "Hidden",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n  [template]=\"'hidden'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSCardProductComponent>",
-                    "defaultValue": "{\r\n  component: Bs2DSCardProductComponent,\r\n  title: 'Components/Card Product',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O card de produto é o componente que agrupa informações relacionadas em um contêiner visual com espaçamento definido, sendo usado para organizar conteúdos como textos, imagens, links ou ações, destacando e estruturando informações de forma clara e acessível, facilitando a leitura e a interação. Os cards de produtos do Banco BS2 poderão exibir limites de oferta de crédito, total de boletos emitidos e outros,  podendo ser usados sempre que for necessário exibir detalhes relacionados a produtos, incluindo links para detalhes adicionais relativos aos produtos.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSCardProductComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 231px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    icon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    value: {\r\n      control: 'number',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    unavailableTitle: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    buttonLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'Atualizar' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    actionLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string | null' } },\r\n    },\r\n    showIcon: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    template: {\r\n      control: 'select',\r\n      options: ['visible', 'hidden', 'unavailable'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: { type: { summary: \"'visible' | 'hidden' | 'unavailable'\" } },\r\n    },\r\n    loader: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    emitter: {\r\n      action: 'Evento emitido pelo componente',\r\n      defaultValue: { summary: 'new EventEmitter<boolean>()' },\r\n      table: { type: { summary: 'EventEmitter<boolean>' } },\r\n    },\r\n    actionClick: {\r\n      action: 'Evento de ação emitido pelo componente',\r\n      table: { type: { summary: 'EventEmitter<void>' } },\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "TextOnly",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Label'\"\r\n  [label]=\"'Lorem ipsum pimentbus ardentis queimatuns est labiatuns'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "Unavailable",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    template: 'unavailable',\r\n    value: 0,\r\n    loader: false,\r\n    emitter: function () {\r\n      this.loader = true;\r\n\r\n      of(null)\r\n        .pipe(\r\n          delay(3000),\r\n          finalize(() => (this.loader = false))\r\n        )\r\n        .subscribe(() => {\r\n          this.template = 'visible';\r\n          this.value = Math.floor(Math.random() * 1000);\r\n        });\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n      <bs2-ds-card-product\r\n        [unavailableTitle]=\"'Unavailable title'\"\r\n        [title]=\"'Crédito'\"\r\n        [label]=\"'Limite disponível até'\"\r\n        [template]=\"template\"\r\n        [value]=\"value\"\r\n        [loader]=\"loader\"\r\n        (emitter)=\"emitter($event)\"\r\n      ></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';\r\n  public value: number = 0;\r\n  public loader: boolean = false;\r\n  public emitter(): void {\r\n    this.loader = true;\r\n    of(null)\r\n      .pipe(\r\n        delay(3000),\r\n        finalize(() => (this.loader = false))\r\n      )\r\n      .subscribe(() => {\r\n        this.template = \"visible\";\r\n        this.value = Math.floor(Math.random() * 1000);\r\n      });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [unavailableTitle]=\"'Unavailable title'\"\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [template]=\"template\"\r\n  [value]=\"value\"\r\n  [loader]=\"loader\"\r\n  (emitter)=\"emitter($event)\"\r\n></bs2-ds-card-product>\r\n          `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "Visible",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2207,6 +2145,68 @@
                     "defaultValue": "{\r\n  component: Bs2DSCardRatingComponent,\r\n  title: 'Form Components/Card Rating',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O componente de avaliação (rating) com 5 estrelas é usado para capturar ou exibir uma pontuação baseada na experiência ou opinião do usuário. Ele permite que os usuários avaliem algo em uma escala visual de 1 a 5 estrelas, oferecendo um feedback claro e intuitivo. Sua função é facilitar a coleta e a apresentação de avaliações de forma rápida e compreensível.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSCardRatingComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: max-content; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    from: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    to: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '5' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    lastText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    firstText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
                 }
             ],
+            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    icon: '',\r\n    title: 'Crédito',\r\n    label: 'Limite disponível até',\r\n    value: 50000,\r\n    unavailableTitle: '',\r\n    buttonLabel: 'Atualizar',\r\n    actionLabel: null,\r\n    showIcon: false,\r\n    template: 'visible',\r\n    loader: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public icon: string = \"\";\r\n  public title: string = \"Crédito\";\r\n  public label: string = \"Limite disponível até\";\r\n  public value: number = 50000;\r\n  public unavailableTitle: string = \"\";\r\n  public buttonLabel: string = \"Atualizar\";\r\n  public actionLabel: string | null = null;\r\n  public showIcon: boolean = false;\r\n  public template: 'visible' | 'hidden' | 'unavailable' = \"visible\";\r\n  public loader: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [icon]=\"icon\"\r\n  [title]=\"title\"\r\n  [label]=\"label\"\r\n  [value]=\"value\"\r\n  [unavailableTitle]=\"unavailableTitle\"\r\n  [buttonLabel]=\"buttonLabel\"\r\n  [actionLabel]=\"actionLabel\"\r\n  [showIcon]=\"showIcon\"\r\n  [template]=\"template\"\r\n  [loader]=\"loader\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Hidden",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n  [template]=\"'hidden'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSCardProductComponent>",
+                    "defaultValue": "{\r\n  component: Bs2DSCardProductComponent,\r\n  title: 'Components/Card Product',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O card de produto é o componente que agrupa informações relacionadas em um contêiner visual com espaçamento definido, sendo usado para organizar conteúdos como textos, imagens, links ou ações, destacando e estruturando informações de forma clara e acessível, facilitando a leitura e a interação. Os cards de produtos do Banco BS2 poderão exibir limites de oferta de crédito, total de boletos emitidos e outros,  podendo ser usados sempre que for necessário exibir detalhes relacionados a produtos, incluindo links para detalhes adicionais relativos aos produtos.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSCardProductComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 231px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    icon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    title: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    value: {\r\n      control: 'number',\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    unavailableTitle: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    buttonLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'Atualizar' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    actionLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string | null' } },\r\n    },\r\n    showIcon: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    template: {\r\n      control: 'select',\r\n      options: ['visible', 'hidden', 'unavailable'],\r\n      defaultValue: { summary: 'visible' },\r\n      table: { type: { summary: \"'visible' | 'hidden' | 'unavailable'\" } },\r\n    },\r\n    loader: {\r\n      control: 'boolean',\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    emitter: {\r\n      action: 'Evento emitido pelo componente',\r\n      defaultValue: { summary: 'new EventEmitter<boolean>()' },\r\n      table: { type: { summary: 'EventEmitter<boolean>' } },\r\n    },\r\n    actionClick: {\r\n      action: 'Evento de ação emitido pelo componente',\r\n      table: { type: { summary: 'EventEmitter<void>' } },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "TextOnly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Label'\"\r\n  [label]=\"'Lorem ipsum pimentbus ardentis queimatuns est labiatuns'\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Unavailable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    template: 'unavailable',\r\n    value: 0,\r\n    loader: false,\r\n    emitter: function () {\r\n      this.loader = true;\r\n\r\n      of(null)\r\n        .pipe(\r\n          delay(3000),\r\n          finalize(() => (this.loader = false))\r\n        )\r\n        .subscribe(() => {\r\n          this.template = 'visible';\r\n          this.value = Math.floor(Math.random() * 1000);\r\n        });\r\n    },\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n      <bs2-ds-card-product\r\n        [unavailableTitle]=\"'Unavailable title'\"\r\n        [title]=\"'Crédito'\"\r\n        [label]=\"'Limite disponível até'\"\r\n        [template]=\"template\"\r\n        [value]=\"value\"\r\n        [loader]=\"loader\"\r\n        (emitter)=\"emitter($event)\"\r\n      ></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {\r\n  public template: 'visible' | 'hidden' | 'unavailable' = 'unavailable';\r\n  public value: number = 0;\r\n  public loader: boolean = false;\r\n  public emitter(): void {\r\n    this.loader = true;\r\n    of(null)\r\n      .pipe(\r\n        delay(3000),\r\n        finalize(() => (this.loader = false))\r\n      )\r\n      .subscribe(() => {\r\n        this.template = \"visible\";\r\n        this.value = Math.floor(Math.random() * 1000);\r\n      });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [unavailableTitle]=\"'Unavailable title'\"\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [template]=\"template\"\r\n  [value]=\"value\"\r\n  [loader]=\"loader\"\r\n  (emitter)=\"emitter($event)\"\r\n></bs2-ds-card-product>\r\n          `.trim(),\r\n      },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "Visible",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSCardProductComponent } from \"@bs2/design-system/components/bs2-ds-card-product\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSCardProductComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-card-product\r\n  [title]=\"'Crédito'\"\r\n  [label]=\"'Limite disponível até'\"\r\n  [value]=\"50000\"\r\n></bs2-ds-card-product>\r\n    `,\r\n  }),\r\n}"
+                }
+            ],
             "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2259,6 +2259,28 @@
                     "defaultValue": "{\r\n  args: {\r\n    title: 'Diálogo com Template',\r\n    content: 'Simulação de TemplateRef',\r\n    primaryText: 'Ok',\r\n    secondaryText: 'Cancelar',\r\n    showIcon: false,\r\n  },\r\n  parameters: {\r\n    docs: {\r\n      source: {\r\n        code: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DsDialogComponent, DialogData } from '@bs2/design-system/components/bs2-ds-dialog';\r\nimport { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DsDialogComponent, Bs2DSFilledButtonDirective], ... })\r\nexport class YourComponentComponent {\r\n  dialog = inject(Dialog);\r\n  @ViewChild('iconTemplate', { static: true }) iconTemplate!: TemplateRef<any>;\r\n\r\n  openDialog() {\r\n    this.dialog.open(Bs2DsDialogComponent, { data: {\r\n        title: 'Diálogo com Template',\r\n        content: 'Simulação de TemplateRef',\r\n        primaryText: 'Ok',\r\n        secondaryText: 'Cancelar',\r\n        showIcon: false,\r\n        iconTemplate: this.iconTemplate,\r\n    } as DialogData });\r\n  }\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<ng-template #iconTemplate>\r\n  <p style=\"font-size: 48px; margin: 0\">⚠️</p>\r\n</ng-template>\r\n\r\n<button bs2-ds-filled-button (click)=\"openDialog()\">Abrir diálogo</button>\r\n        `,\r\n      }\r\n    }\r\n  }\r\n}"
                 }
             ],
+            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSDividerComponent } from \"@bs2/design-system/components/bs2-ds-divider\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSDividerComponent], ... })\r\nexport class YourComponentComponent {\r\n    public space: number = 20;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-divider [space]=\"space\" />\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSDividerComponent>",
+                    "defaultValue": "{\r\n  component: Bs2DSDividerComponent,\r\n  title: 'Components/Divider',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O divider é um elemento visual usado para separar dois ou mais conteúdos. É um elemento de layout que pode separar diversos tipos de componentes como textos, listas ou grupos específicos de inputs ou outros componentes..\r\n          Eles ajudam a criar uma hierarquia visual coesa, aproveitasndo e organizando o uso do espaço espaço, melhorando a experiência do usuário.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSDividerComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '20' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n  },\r\n}"
+                }
+            ],
             "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2301,28 +2323,6 @@
                     "defaultValue": "{\r\n  name: 'Using Bs2DSChipOption Type',\r\n  args: {\r\n    control: new FormControl([]),\r\n    options: [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ] as Bs2DSChipOption[],\r\n    minSelectable: 1,\r\n    maxSelectable: 1,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSChipsComponent } from \"@bs2/design-system/components/bs2-ds-chips\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSChipsComponent], ... })\r\nexport class YourComponentComponent {\r\n    public control: FormControl = new FormControl([]);\r\n    public options: Bs2DSChipOption[] = [\r\n      { label: 'Item 01' },\r\n      { label: 'Item 02' },\r\n      { label: 'Item 03', disabled: true },\r\n      { label: 'Item 04', disabled: true },\r\n      { label: 'Item 05' },\r\n    ];\r\n    public minSelectable: number = 1;\r\n    public maxSelectable: number = 1;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-chips\r\n  [control]=\"control\"\r\n  [options]=\"options\"\r\n  [minSelectable]=\"minSelectable\"\r\n  [maxSelectable]=\"maxSelectable\"\r\n/>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    space: 20,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSDividerComponent } from \"@bs2/design-system/components/bs2-ds-divider\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSDividerComponent], ... })\r\nexport class YourComponentComponent {\r\n    public space: number = 20;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-divider [space]=\"space\" />\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-divider/src/bs2-ds-divider/bs2-ds-divider.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSDividerComponent>",
-                    "defaultValue": "{\r\n  component: Bs2DSDividerComponent,\r\n  title: 'Components/Divider',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          O divider é um elemento visual usado para separar dois ou mais conteúdos. É um elemento de layout que pode separar diversos tipos de componentes como textos, listas ou grupos específicos de inputs ou outros componentes..\r\n          Eles ajudam a criar uma hierarquia visual coesa, aproveitasndo e organizando o uso do espaço espaço, melhorando a experiência do usuário.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSDividerComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    space: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '20' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2355,6 +2355,28 @@
                     "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    min: new Date('2025-03-08'),\r\n    max: new Date('2026-02-08'),\r\n    state: 'default',\r\n    direction: 'left',\r\n    id: '',\r\n    label: 'Data de nascimento',\r\n    class: '',\r\n    leftIcon: '',\r\n    rightIcon: 'h',\r\n    helperText: 'Digite sua data de aniversário',\r\n    errorText: '',\r\n    placeholder: 'Ex: 31/01/2024',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n    disabled: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSDatepickerComponent } from \"@bs2/design-system/components/bs2-ds-datepicker\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSDatepickerComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public direction: 'left' | 'right' = 'left';\r\n  public id: string = '';\r\n  public label: string = 'Descrição';\r\n  public class: string = '';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = '';\r\n  public errorText: string = '';\r\n  public placeholder: string = '';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n  public min?: Date = new Date('2025-01-15T03:00:00.000Z');\r\n  public min?: Date = new Date('2025-01-30T03:00:00.000Z');\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-datepicker\r\n  [control]=\"control\"\r\n  [min]=\"min\"\r\n  [max]=\"max\"\r\n  [disabled]=\"disabled\"\r\n  [state]=\"state\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [class]=\"class\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
                 }
             ],
+            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    id: 'categories',\r\n    label: 'Categorias',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputSelectComponent } from \"@bs2/design-system/components/bs2-ds-input-select\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputSelectComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-currency\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSInputCurrencyComponent>",
+                    "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: ``.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputCurrencyComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
+                }
+            ],
             "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2375,6 +2397,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSInputPhoneComponent>",
                     "defaultValue": "{\r\n  component: Bs2DSInputPhoneComponent,\r\n  title: 'Form Components/InputPhone',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputPhoneComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    type: 'text',\r\n    id: '',\r\n    label: 'E-mail',\r\n    class: '',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputTextComponent } from \"@bs2/design-system/components/bs2-ds-input-text\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputTextComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public class: string = '';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-text\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [class]=\"class\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSInputTextComponent>",
+                    "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputTextComponent],\r\n      providers: [provideNgxMask()],\r\n    }),\r\n    (storyFunc: any) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'text' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-input-select/src/bs2-ds-input-select/bs2-ds-input-select.component.stories.ts": [
@@ -2421,28 +2465,6 @@
                     "defaultValue": "{\r\n  component: Bs2DSInputTextareaComponent,\r\n  title: 'Form Components/InputTextArea',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputTextareaComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n    },\r\n    autosize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    resize: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    rows: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '1' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    maxLength: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    type: 'text',\r\n    id: '',\r\n    label: 'E-mail',\r\n    class: '',\r\n    leftIcon: '',\r\n    rightIcon: '',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Ex: joao.da.silva@gmail.com',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputTextComponent } from \"@bs2/design-system/components/bs2-ds-input-text\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputTextComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public class: string = '';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-text\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [class]=\"class\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSInputTextComponent>",
-                    "defaultValue": "{\r\n  component: Bs2DSInputTextComponent,\r\n  title: 'Form Components/InputText',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Os campos de input text, select, dropdown e textarea são componentes essenciais para entrada de dados, permitindo aos usuários inserir, selecionar opções de forma intuitiva e acessível.\r\n          Normalmente usados em formulários, são projetados para manter a consistência visual, com tipografia legível, espaçamento adequado e indicadores visuais para estados como foco, erro e sucesso. Padrões de bordas, cores e mensagens auxiliares orientam a interação, oferecendo feedback claro e garantindo uma experiência de coleta de dados eficiente e fluida na interface, facilitando tanto escolhas simples quanto múltiplas.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputTextComponent],\r\n      providers: [provideNgxMask()],\r\n    }),\r\n    (storyFunc: any) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    type: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: 'text' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    class: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2485,28 +2507,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<Bs2DSProgressBarComponent>",
                     "defaultValue": "{\r\n  component: Bs2DSProgressBarComponent,\r\n  title: 'Components/Progress Bar',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Tem a mesma função que o spinner, sendo um componente visual utilizado para indicar que um processo está em andamento, como o carregamento de uma página ou a execução de uma ação ou tarefa. Serve para fornecer feedback ao usuário, evitando incertezas sobre o status do sistema e melhorando a experiência ao criar uma sensação de progresso enquanto a tarefa é concluída.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSProgressBarComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 312px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    percent: {\r\n      control: { type: 'number' },\r\n      defaultValue: { summary: '0' },\r\n      table: { type: { summary: 'number' } },\r\n    },\r\n    loop: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
-                }
-            ],
-            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    control: new FormControl(null, [CustomValidators.required]),\r\n    state: 'default',\r\n    id: 'categories',\r\n    label: 'Categorias',\r\n    leftIcon: '',\r\n    rightIcon: 'arrow-down',\r\n    helperText: 'Digite seu e-mail principal.',\r\n    errorText: '',\r\n    placeholder: 'Selecione uma opção',\r\n    readOnly: false,\r\n    ariaLabel: '',\r\n    ariaRequired: false,\r\n    ariaInvalid: false,\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSInputSelectComponent } from \"@bs2/design-system/components/bs2-ds-input-select\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSInputSelectComponent], ... })\r\nexport class YourComponentComponent {\r\n  public control: FormControl = new FormControl(null, [CustomValidators.required]);\r\n  public state: 'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled' = 'default';\r\n  public type: string = 'text';\r\n  public id: string = '';\r\n  public label: string = 'E-mail';\r\n  public leftIcon: string = '';\r\n  public rightIcon: string = '';\r\n  public helperText: string = 'Digite seu e-mail principal.';\r\n  public errorText: string = '';\r\n  public placeholder: string = 'Ex: joao.da.silva@gmail.com';\r\n  public readOnly: boolean = false;\r\n  public ariaLabel: string = '';\r\n  public ariaRequired: boolean = false;\r\n  public ariaInvalid: boolean = false;\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-input-currency\r\n  [control]=\"control\"\r\n  [state]=\"state\"\r\n  [type]=\"type\"\r\n  [id]=\"id\"\r\n  [label]=\"label\"\r\n  [leftIcon]=\"leftIcon\"\r\n  [rightIcon]=\"rightIcon\"\r\n  [helperText]=\"helperText\"\r\n  [errorText]=\"errorText\"\r\n  [placeholder]=\"placeholder\"\r\n  [readOnly]=\"readOnly\"\r\n  [ariaLabel]=\"ariaLabel\"\r\n  [ariaRequired]=\"ariaRequired\"\r\n  [ariaInvalid]=\"ariaInvalid\"\r\n/>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSInputCurrencyComponent>",
-                    "defaultValue": "{\r\n  component: Bs2DSInputCurrencyComponent,\r\n  title: 'Form Components/InputCurrency',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: ``.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSInputCurrencyComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 300px; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    control: {\r\n      control: 'object',\r\n      defaultValue: { summary: 'new FormControl()' },\r\n      table: { type: { summary: 'FormControl' } },\r\n    },\r\n    state: {\r\n      control: 'select',\r\n      options: ['default', 'hovered', 'focused', 'error', 'filled', 'disabled'],\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: \"'default' | 'hovered' | 'focused' | 'error' | 'filled' | 'disabled'\" } },\r\n    },\r\n    id: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    label: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    leftIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    rightIcon: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    helperText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    errorText: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    placeholder: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    readOnly: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaLabel: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n    ariaRequired: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n    ariaInvalid: {\r\n      control: { type: 'boolean' },\r\n      defaultValue: { summary: 'false' },\r\n      table: { type: { summary: 'boolean' } },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/components/bs2-ds-status/src/bs2-ds-status/bs2-ds-status.component.stories.ts": [
@@ -2563,28 +2563,6 @@
                     "defaultValue": "{\r\n  args: {\r\n    activatedIndex: 0,\r\n    timer: 5000,\r\n    loop: true,\r\n    auto: true,\r\n  },\r\n  render: (args: Bs2DSStepNavigatorGroupComponent) => {\r\n    return {\r\n      props: { ...args },\r\n      template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSStepNavigatorComponent, Bs2DSStepNavigatorItemComponent } from \"@bs2/design-system/components/bs2-ds-step-navigator\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSStepNavigatorComponent, Bs2DSStepNavigatorItemComponent], ... })\r\nexport class YourComponentComponent {}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-step-navigator-group [activatedIndex]='0' [timer]='5000' [loop]='true' [auto]='true'>\r\n  <span ngProjectAs='previous'>Voltar</span>\r\n  <span ngProjectAs='next'>Próximo</span>\r\n  <bs2-ds-step-navigator-item>\r\n    step 1\r\n  </bs2-ds-step-navigator-item>\r\n  <bs2-ds-step-navigator-item>\r\n    <bs2-ds-step-navigator-group [activatedIndex]='0' [timer]='1000' [loop]='true' [auto]='true'>\r\n      <span ngProjectAs='previous'>Voltar</span>\r\n      <span ngProjectAs='next'>Próximo</span>\r\n      <bs2-ds-step-navigator-item>\r\n        nested step 1\r\n      </bs2-ds-step-navigator-item>\r\n      <bs2-ds-step-navigator-item>\r\n        nested step 2\r\n      </bs2-ds-step-navigator-item>\r\n      <bs2-ds-step-navigator-item>\r\n        nested step 3\r\n      </bs2-ds-step-navigator-item>\r\n      <bs2-ds-step-navigator-item>\r\n        nested step 4\r\n      </bs2-ds-step-navigator-item>\r\n    </bs2-ds-step-navigator-group>\r\n  </bs2-ds-step-navigator-item>\r\n  <bs2-ds-step-navigator-item>\r\n    step 3\r\n  </bs2-ds-step-navigator-item>\r\n  <bs2-ds-step-navigator-item>\r\n    step 4\r\n  </bs2-ds-step-navigator-item>\r\n</bs2-ds-step-navigator-group>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
-            "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTagComponent } from \"@bs2/design-system/components/bs2-ds-tag\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTagComponent], ... })\r\nexport class YourComponentComponent {\r\n    public status: 'primary' | 'neutral' | 'success' | 'attention' | 'error' = 'neutral';\r\n    public size: 'regular' | 'small' = 'regular';\r\n    public string = 'Seu texto aqui';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tag [status]=\"status\" [size]=\"size\" [text]=\"text\" />\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<Bs2DSTagComponent>",
-                    "defaultValue": "{\r\n  component: Bs2DSTagComponent,\r\n  title: 'Components/Tag',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Similar aos chips, em geral sao pequenos rótulos usados dentro ou próximo a outro componente de interface maior, representando um status, propriedade ou alguns outros metadados.\r\n          São componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como categorias, seleções, filtros ou sinalizar o cumprimento de um requisito, permitindo exibir as escolhas ou ações do usuário em espaços reduzidos. Podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa  e oferecendo uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSTagComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 100%; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\" } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'regular' | 'small'\" } },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
-                }
-            ],
             "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts": [
                 {
                     "name": "Default",
@@ -2615,6 +2593,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    align: 'start',\r\n    selectedTab: 'Tab 1',\r\n    full: false,\r\n  },\r\n  render: (args: Bs2DSTabGroupComponent) => {\r\n    return {\r\n      props: { ...args },\r\n      template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTabGroupComponent, Bs2DSTabItemComponent } from \"@bs2/design-system/components/bs2-ds-tab\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTabGroupComponent, Bs2DSTabItemComponent], ... })\r\nexport class YourComponentComponent {\r\n  public align: 'start' | 'center' | 'end' = 'start';\r\n  public full: boolean = false;\r\n  public selectedTab: string = 'Tab 1';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tab-group [align]='align' [full]='full' [selectedTab]='selectedTab'>\r\n  <bs2-ds-tab-item title='Tab 1'>Conteúdo Tab 1</bs2-ds-tab-item>\r\n  <bs2-ds-tab-item title='Tab 2'>\r\n    Conteúdo Tab 2\r\n    <bs2-ds-tab-group>\r\n      <bs2-ds-tab-item title='Nested Tab 1'>Nested Conteúdo Tab 1</bs2-ds-tab-item>\r\n      <bs2-ds-tab-item title='Nested Tab 2'>Nested Conteúdo Tab 2</bs2-ds-tab-item>\r\n      <bs2-ds-tab-item title='Nested Tab 3'>Nested Conteúdo Tab 3</bs2-ds-tab-item>\r\n    </bs2-ds-tab-group>\r\n  </bs2-ds-tab-item>\r\n  <bs2-ds-tab-item title='Tab 3'>Conteúdo Tab 3</bs2-ds-tab-item>\r\n</bs2-ds-tab-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
+            "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    status: 'neutral',\r\n    size: 'regular',\r\n    text: 'Seu texto aqui',\r\n  },\r\n  render: (args) => ({\r\n    props: { ...args },\r\n    template: `\r\n<!-- TYPESCRIPT -->\r\n<!--\r\nimport { Bs2DSTagComponent } from \"@bs2/design-system/components/bs2-ds-tag\";\r\nimport { Component } from '@angular/core';\r\n\r\n@Component({ imports: [Bs2DSTagComponent], ... })\r\nexport class YourComponentComponent {\r\n    public status: 'primary' | 'neutral' | 'success' | 'attention' | 'error' = 'neutral';\r\n    public size: 'regular' | 'small' = 'regular';\r\n    public string = 'Seu texto aqui';\r\n}\r\n-->\r\n\r\n<!-- HTML -->\r\n<bs2-ds-tag [status]=\"status\" [size]=\"size\" [text]=\"text\" />\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Bs2DSTagComponent>",
+                    "defaultValue": "{\r\n  component: Bs2DSTagComponent,\r\n  title: 'Components/Tag',\r\n  parameters: {\r\n    layout: 'centered',\r\n    docs: {\r\n      autodocs: false,\r\n      description: {\r\n        component: `\r\n          Similar aos chips, em geral sao pequenos rótulos usados dentro ou próximo a outro componente de interface maior, representando um status, propriedade ou alguns outros metadados.\r\n          São componentes compactos e visualmente distintos com a função de agrupar, organizar e destacar pequenas unidades de informações como categorias, seleções, filtros ou sinalizar o cumprimento de um requisito, permitindo exibir as escolhas ou ações do usuário em espaços reduzidos. Podem incluir texto, ícones ou ambos, proporcionando uma experiência visual coesa  e oferecendo uma forma prática de condensar dados.\r\n        `.trim(),\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [Bs2DSTagComponent],\r\n    }),\r\n    (storyFunc) => ({\r\n      ...storyFunc(),\r\n      styles: [...(storyFunc().styles || []), `:host { display: block; width: 100%; }`],\r\n    }),\r\n  ],\r\n  argTypes: {\r\n    status: {\r\n      control: 'select',\r\n      options: ['primary', 'neutral', 'success', 'attention', 'error'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'primary' | 'neutral' | 'success' | 'attention' | 'error'\" } },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['regular', 'small'],\r\n      defaultValue: { summary: 'neutral' },\r\n      table: { type: { summary: \"'regular' | 'small'\" } },\r\n    },\r\n    text: {\r\n      control: { type: 'text' },\r\n      defaultValue: { summary: '(vazio)' },\r\n      table: { type: { summary: 'string' } },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "libs/ui/directives/bs2-ds-button-selector/src/bs2-ds-button-selector/bs2-ds-button-selector.directive.stories.ts": [
@@ -2803,19 +2803,6 @@
                     "kind": 184
                 }
             ],
-            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSCardProductComponent>",
-                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "libs/ui/components/bs2-ds-card-balance/src/bs2-ds-card-balance/bs2-ds-card-balance.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2842,6 +2829,19 @@
                     "kind": 184
                 }
             ],
+            "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSCardProductComponent>",
+                    "file": "libs/ui/components/bs2-ds-card-product/src/bs2-ds-card-product/bs2-ds-card-product.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2849,32 +2849,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSDialogMockComponent>",
                     "file": "libs/ui/components/bs2-ds-dialog/src/bs2-ds-dialog/bs2-ds-dialog.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSChipsComponent>",
-                    "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
-                    "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2894,6 +2868,19 @@
                     "kind": 184
                 }
             ],
+            "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSChipsComponent>",
+                    "file": "libs/ui/components/bs2-ds-chips/src/bs2-ds-chips/bs2-ds-chips.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "libs/ui/components/bs2-ds-datepicker/src/bs2-ds-datepicker/bs2-ds-datepicker.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2907,6 +2894,32 @@
                     "kind": 184
                 }
             ],
+            "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MockBs2DSFeedbackComponent>",
+                    "file": "libs/ui/components/bs2-ds-feedback/src/bs2-ds-feedback/bs2-ds-feedback.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
+                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
             "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2914,6 +2927,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSInputPhoneComponent>",
                     "file": "libs/ui/components/bs2-ds-input-phone/src/bs2-ds-input-phone/bs2-ds-input-phone.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSInputTextComponent>",
+                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2946,19 +2972,6 @@
                     "kind": 184
                 }
             ],
-            "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSInputTextComponent>",
-                    "file": "libs/ui/components/bs2-ds-input-text/src/bs2-ds-input-text/bs2-ds-input-text.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "libs/ui/components/bs2-ds-input-token/src/bs2-ds-input-token/bs2-ds-input-token.component.stories.ts": [
                 {
                     "name": "Story",
@@ -2979,19 +2992,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSProgressBarComponent>",
                     "file": "libs/ui/components/bs2-ds-progress-bar/src/bs2-ds-progress-bar/bs2-ds-progress-bar.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSInputCurrencyComponent>",
-                    "file": "libs/ui/components/bs2-ds-input-currency/src/bs2-ds-input-currency/bs2-ds-input-currency.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3050,19 +3050,6 @@
                     "kind": 184
                 }
             ],
-            "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<Bs2DSTagComponent>",
-                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts": [
                 {
                     "name": "Story",
@@ -3070,6 +3057,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Bs2DSTabGroupComponent>",
                     "file": "libs/ui/components/bs2-ds-tab/src/bs2-ds-tab-group/bs2-ds-tab-group.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Bs2DSTagComponent>",
+                    "file": "libs/ui/components/bs2-ds-tag/src/bs2-ds-tag/bs2-ds-tag.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
