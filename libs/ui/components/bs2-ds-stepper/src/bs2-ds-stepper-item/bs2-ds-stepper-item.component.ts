@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, computed, input } from '@angular/core';
-import { Bs2DSIconComponent } from '../../../bs2-ds-icon/src/bs2-ds-icon/bs2-ds-icon.component';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 
 @Component({
   selector: 'bs2-ds-stepper-item',
