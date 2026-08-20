@@ -79,9 +79,12 @@ describe('CustomValidators', () => {
   });
 
   it('username', () => {
-    const control = new FormControl<any>('valid_user.name123');
+    const control = new FormControl<any>('valid_user_name123');
     control.markAllAsTouched();
     expect(CustomValidators.username(control)).toBeNull();
+
+    control.setValue('invalid.user');
+    expect(CustomValidators.username(control)).toEqual({ username: CustomValidatorMessages.username });
 
     control.setValue('invalid user!');
     expect(CustomValidators.username(control)).toEqual({ username: CustomValidatorMessages.username });
