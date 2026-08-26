@@ -7,7 +7,7 @@ describe('Bs2DSStepperItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Bs2DSStepperItemComponent], // standalone component
+      imports: [Bs2DSStepperItemComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Bs2DSStepperItemComponent);
@@ -17,6 +17,97 @@ describe('Bs2DSStepperItemComponent', () => {
   it('deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('isError', () => {
+    it('deve retornar true quando hasError for true', () => {
+      fixture.componentRef.setInput('hasError', true);
+      expect(component.isError()).toBe(true);
+    });
+
+    it('deve retornar false quando hasError for false', () => {
+      fixture.componentRef.setInput('hasError', false);
+      expect(component.isError()).toBe(false);
+    });
+  });
+
+  describe('isDone', () => {
+    it('deve retornar true quando não há erro e indexOfCurrent > index', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 2);
+      expect(component.isDone()).toBe(true);
+    });
+
+    it('deve retornar false quando há erro', () => {
+      fixture.componentRef.setInput('hasError', true);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 2);
+      expect(component.isDone()).toBe(false);
+    });
+
+    it('deve retornar false quando indexOfCurrent <= index', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 2);
+      fixture.componentRef.setInput('indexOfCurrent', 2);
+      expect(component.isDone()).toBe(false);
+    });
+  });
+
+  describe('isDoing', () => {
+    it('deve retornar true quando não há erro e indexOfCurrent === index', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 1);
+      expect(component.isDoing()).toBe(true);
+    });
+
+    it('deve retornar false quando há erro', () => {
+      fixture.componentRef.setInput('hasError', true);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 1);
+      expect(component.isDoing()).toBe(false);
+    });
+
+    it('deve retornar false quando indexOfCurrent !== index', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 2);
+      expect(component.isDoing()).toBe(false);
+    });
+  });
+
+  describe('isDefault', () => {
+    it('deve retornar true quando não é done, doing nem error', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 2);
+      fixture.componentRef.setInput('indexOfCurrent', 1);
+      expect(component.isDefault()).toBe(true);
+    });
+
+    it('deve retornar false quando isDone for true', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 2);
+      expect(component.isDone()).toBe(true);
+      expect(component.isDefault()).toBe(false);
+    });
+
+    it('deve retornar false quando isDoing for true', () => {
+      fixture.componentRef.setInput('hasError', false);
+      fixture.componentRef.setInput('index', 1);
+      fixture.componentRef.setInput('indexOfCurrent', 1);
+      expect(component.isDoing()).toBe(true);
+      expect(component.isDefault()).toBe(false);
+    });
+
+    it('deve retornar false quando isError for true', () => {
+      fixture.componentRef.setInput('hasError', true);
+      expect(component.isError()).toBe(true);
+      expect(component.isDefault()).toBe(false);
+    });
+  });
+});
+
 
   describe('isError', () => {
     it('deve retornar true quando hasError for true', () => {
