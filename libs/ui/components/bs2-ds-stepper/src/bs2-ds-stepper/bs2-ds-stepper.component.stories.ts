@@ -1,5 +1,7 @@
 ﻿import { Bs2DSStepperComponent } from './bs2-ds-stepper.component';
 import { Bs2DSStepComponent } from '../bs2-ds-step/bs2-ds-step.component';
+import { Bs2DSFilledButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-filled-button';
+import { Bs2DSOutlinedButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-outlined-button';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
 const meta: Meta<Bs2DSStepperComponent> = {
@@ -26,7 +28,7 @@ const meta: Meta<Bs2DSStepperComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [Bs2DSStepperComponent, Bs2DSStepComponent],
+      imports: [Bs2DSStepperComponent, Bs2DSStepComponent, Bs2DSFilledButtonDirective, Bs2DSOutlinedButtonDirective],
     }),
     (storyFunc) => ({
       ...storyFunc(),
@@ -46,22 +48,22 @@ export const Vertical: Story = {
     template: `
 <bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 1</p>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Endereço">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 2</p>
-      <button (click)="stepper.prev()">Voltar</button>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Confirmação">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 3</p>
-      <button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
     </div>
   </bs2-ds-step>
 </bs2-ds-stepper>
@@ -77,22 +79,22 @@ export const Horizontal: Story = {
     template: `
 <bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 1</p>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Endereço">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 2</p>
-      <button (click)="stepper.prev()">Voltar</button>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Confirmação">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 3</p>
-      <button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
     </div>
   </bs2-ds-step>
 </bs2-ds-stepper>
@@ -114,22 +116,22 @@ export const HorizontalStretch: Story = {
     template: `
 <bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Passo 1">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 1</p>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Passo 2">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 2</p>
-      <button (click)="stepper.prev()">Voltar</button>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Passo 3">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 3</p>
-      <button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
     </div>
   </bs2-ds-step>
 </bs2-ds-stepper>
@@ -145,22 +147,22 @@ export const WithError: Story = {
     template: `
 <bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
   <bs2-ds-step title="Dados pessoais">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 1</p>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Endereço" [hasError]="true">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Este passo está com erro.</p>
-      <button (click)="stepper.prev()">Voltar</button>
-      <button (click)="stepper.next()">Próximo</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
     </div>
   </bs2-ds-step>
   <bs2-ds-step title="Confirmação">
-    <div style="padding: 16px 0">
+    <div style="padding: 16px 0; display: flex; gap: 8px">
       <p>Conteúdo do passo 3</p>
-      <button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
     </div>
   </bs2-ds-step>
 </bs2-ds-stepper>
