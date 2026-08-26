@@ -7,10 +7,10 @@
     <span class="{{ block }}__step_value">{{ index() + 1 }}</span>
     }
     @if (isDone()) {
-    <bs2-ds-icon class="{{ block }}__step_value" name="checked" aria-hidden="true" />
+    <bs2-ds-icon class="{{ block }}__step_value" name="checked" [color]="'var(--primary_text_bkg_light)'" aria-hidden="true" />
     }
     @if (isError()) {
-    <bs2-ds-icon class="{{ block }}__step_value" name="erro" aria-hidden="true" />
+    <bs2-ds-icon class="{{ block }}__step_value" name="erro" [color]="'var(--primary_text_bkg_light)'" aria-hidden="true" />
     }
   </div>
   @if (label()) {

@@ -18,7 +18,8 @@ export class Bs2DSIconRegistryService {
             const clean = svg
               .replace(/\s*width="[^"]*"/g, '')
               .replace(/\s*height="[^"]*"/g, '')
-              .replace(/fill="[^"]*"/g, 'fill="currentColor"');
+              .replace(/fill="[^"]*"/g, 'fill="currentColor"')
+              .replace(/<svg/, '<svg width="100%" height="100%"');
             return this.sanitizer.bypassSecurityTrustHtml(clean);
           }),
           shareReplay(1),
