@@ -16,7 +16,7 @@ export class Bs2DSIconComponent {
   private readonly registry = inject(Bs2DSIconRegistryService);
 
   readonly name = input.required<string>();
-  readonly color = input<string | null>(null);
+  readonly color = input<string | null>('var(--primary)');
   readonly size = input<string | number>(16);
 
   protected readonly resolvedSize = computed(() => {

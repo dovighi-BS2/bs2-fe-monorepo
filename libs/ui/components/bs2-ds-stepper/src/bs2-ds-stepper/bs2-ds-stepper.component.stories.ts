@@ -71,6 +71,49 @@ export const Vertical: Story = {
   }),
 };
 
+export const WithLabelAndDescription: Story = {
+  name: 'With label and description',
+  args: { horizontal: false, gap: undefined },
+  render: (args) => ({
+    props: args,
+    template: `
+<bs2-ds-stepper #stepper [horizontal]="horizontal" [gap]="gap">
+  <bs2-ds-step
+    label="Etapa 1"
+    title="Dados pessoais"
+    description="Informe seu nome, e-mail e documento para iniciar o cadastro."
+  >
+    <div style="padding: 16px 0; display: flex; gap: 8px">
+      <p>Conteúdo do passo 1</p>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
+    </div>
+  </bs2-ds-step>
+  <bs2-ds-step
+    label="Etapa 2"
+    title="Endereço"
+    description="Adicione o endereço de entrega e ponto de referência."
+  >
+    <div style="padding: 16px 0; display: flex; gap: 8px">
+      <p>Conteúdo do passo 2</p>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+      <button bs2-ds-filled-button (click)="stepper.next()">Próximo</button>
+    </div>
+  </bs2-ds-step>
+  <bs2-ds-step
+    label="Etapa 3"
+    title="Confirmação"
+    description="Revise os dados antes de finalizar a solicitação."
+  >
+    <div style="padding: 16px 0; display: flex; gap: 8px">
+      <p>Conteúdo do passo 3</p>
+      <button bs2-ds-outlined-button (click)="stepper.prev()">Voltar</button>
+    </div>
+  </bs2-ds-step>
+</bs2-ds-stepper>
+    `,
+  }),
+};
+
 export const Horizontal: Story = {
   name: 'Horizontal with fixed gap',
   args: { horizontal: true, gap: 80 },
