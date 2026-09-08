@@ -9,14 +9,7 @@
   position: relative;
 
   &::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 1px;
-    display: block;
-    background-color: var(--neutral300);
-    translate: 12px 0px;
+    display: none;
   }
   &__step {
     width: 24px;
@@ -50,9 +43,10 @@
     }
 
     i,
-    [class*='icon-'] {
-      font-size: 16px;
-      line-height: 0px;
+    [class*='icon-'],
+    svg {
+      width: 16px;
+      height: 16px;
     }
 
     & ~ * {
@@ -84,5 +78,67 @@
   }
   :is(&__label, &__title, &__desc) + :is(&__label, &__title, &__desc) {
     margin-top: 4px;
+  }
+}
+
+bs2-ds-stepper-item:not(.horizontal):not(:last-child) .bs2_ds_stepper_item__step::before {
+  content: '';
+  position: absolute;
+  top: 32px; // 24px circle + 8px gap
+  height: 40px;
+  width: 1px;
+  left: calc(50% - 0.5px);
+  background-color: var(--neutral300);
+  z-index: -1;
+}
+
+bs2-ds-stepper-item.horizontal {
+  position: relative;
+
+  .bs2_ds_stepper_item {
+    min-height: auto;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &::before {
+      display: none; // hide vertical connector
+    }
+
+    &__step {
+      position: relative;
+      margin-bottom: 8px;
+
+      & ~ * {
+        translate: 0 0;
+        width: 100%;
+      }
+    }
+  }
+
+  // Left half: from gap center to circle edge
+  &:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: calc(var(--stepper-gap, 0px) / -2);
+    right: calc(50% + 20px);
+    height: 1px;
+    background-color: var(--neutral300);
+    z-index: -1;
+  }
+
+  // Right half: from circle edge to gap center
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: calc(50% + 20px);
+    right: calc(var(--stepper-gap, 0px) / -2);
+    height: 1px;
+    background-color: var(--neutral300);
+    z-index: -1;
   }
 }

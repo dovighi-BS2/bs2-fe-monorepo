@@ -1,36 +1,25 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, ViewEncapsulation, computed, input } from '@angular/core';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 
 @Component({
   selector: 'bs2-ds-stepper-item',
-  standalone: true,
-  imports: [NgClass],
+  imports: [Bs2DSIconComponent],
   templateUrl: './bs2-ds-stepper-item.component.html',
   styleUrl: './bs2-ds-stepper-item.component.scss',
   encapsulation: ViewEncapsulation.None,
+  host: { '[class.horizontal]': 'horizontal()' },
 })
 export class Bs2DSStepperItemComponent {
-  @Input() public step: string;
-  @Input() public label: string;
-  @Input() public title: string;
-  @Input() public description: string;
-  @Input() public hasError: boolean = false;
-  @Input() public index: number = 0;
-  @Input() public indexOfCurrent: number = -1;
+  public readonly label = input<string>();
+  public readonly title = input<string>();
+  public readonly description = input<string>();
+  public readonly hasError = input<boolean>(false);
+  public readonly index = input<number>(0);
+  public readonly indexOfCurrent = input<number>(-1);
+  public readonly horizontal = input<boolean>(false);
 
-  public get isDefault(): boolean {
-    return !this.isDone && !this.isDoing && !this.isError;
-  }
-
-  public get isDone(): boolean {
-    return !this.isError && this.indexOfCurrent > this.index;
-  }
-
-  public get isDoing(): boolean {
-    return !this.isError && this.indexOfCurrent === this.index;
-  }
-
-  public get isError(): boolean {
-    return this.hasError;
-  }
+  public readonly isError = computed(() => this.hasError());
+  public readonly isDone = computed(() => !this.isError() && this.indexOfCurrent() > this.index());
+  public readonly isDoing = computed(() => !this.isError() && this.indexOfCurrent() === this.index());
+  public readonly isDefault = computed(() => !this.isDone() && !this.isDoing() && !this.isError());
 }

@@ -57,6 +57,11 @@
             "glob": "**/*",
             "input": "./components/bs2-ds-input-select/assets/images/flags",
             "output": "./assets/images/"
+          },
+          {
+            "glob": "**/*",
+            "input": "./assets/icons",
+            "output": "./assets/icons/"
           }
         ]
       },
@@ -84,6 +89,11 @@
             "glob": "**/*",
             "input": "./components/bs2-ds-input-select/assets/images/flags",
             "output": "./assets/images/"
+          },
+          {
+            "glob": "**/*",
+            "input": "./assets/icons",
+            "output": "./assets/icons/"
           }
         ]
       },

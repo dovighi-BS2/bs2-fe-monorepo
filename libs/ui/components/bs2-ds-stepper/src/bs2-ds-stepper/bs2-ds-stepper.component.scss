@@ -1,39 +1,41 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+:host(.horizontal) {
+  flex-direction: column;
+}
+
 .bs2_ds_stepper {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   list-style: none;
+  flex-shrink: 0;
 
   &.horizontal {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
+    column-gap: 24px;
+    --stepper-gap: 24px;
 
-    ::ng-deep bs2-ds-stepper-item {
-      flex-grow: 1;
-      width: 100%;
+    bs2-ds-stepper-item {
+      flex: 1;
+    }
 
-      .bs2_ds_stepper_item {
-        padding: 0px 12px;
-        display: grid;
-        place-items: center;
-        text-align: center;
+    &.fixed-gap {
+      column-gap: var(--stepper-gap);
 
-        &:before {
-          top: 12px;
-          left: -12px;
-          width: 100%;
-          height: 1px;
-        }
-        &__step {
-          position: initial;
-          margin-bottom: 12px;
-
-          & ~ * {
-            translate: 0px 0px;
-            width: 100%;
-          }
-        }
+      bs2-ds-stepper-item {
+        flex: none;
       }
     }
   }
+}
+
+.bs2_ds_stepper__content {
+  flex: 1;
+  min-width: 0;
 }

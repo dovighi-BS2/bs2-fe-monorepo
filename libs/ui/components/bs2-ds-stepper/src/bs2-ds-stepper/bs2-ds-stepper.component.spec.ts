@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { QueryList } from '@angular/core';
 import { Bs2DSStepperComponent } from './bs2-ds-stepper.component';
-import { Bs2DSStepperItemComponent } from '../bs2-ds-stepper-item/bs2-ds-stepper-item.component';
 
 describe('Bs2DSStepperComponent', () => {
   let component: Bs2DSStepperComponent;
@@ -14,7 +12,42 @@ describe('Bs2DSStepperComponent', () => {
 
     fixture = TestBed.createComponent(Bs2DSStepperComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
+
+  it('deve criar o componente', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('Valores padrão', () => {
+    it('deve iniciar com currentIndex em 0', () => {
+      expect(component.currentIndex()).toBe(0);
+    });
+
+    it('deve iniciar com horizontal false', () => {
+      expect(component.horizontal()).toBe(false);
+    });
+
+    it('deve iniciar com gap null', () => {
+      expect(component.gap()).toBeNull();
+    });
+  });
+
+  describe('next()', () => {
+    it('não deve ultrapassar o número de steps', () => {
+      component.next();
+      expect(component.currentIndex()).toBe(0);
+    });
+  });
+
+  describe('prev()', () => {
+    it('não deve ir abaixo de 0', () => {
+      component.prev();
+      expect(component.currentIndex()).toBe(0);
+    });
+  });
+});
+
 
   it('deve criar o componente', () => {
     expect(component).toBeTruthy();
