@@ -2,6 +2,9 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { Bs2DSInputTokenComponent } from '@bs2/design-system/components/bs2-ds-input-token';
 import { FormControl } from '@angular/forms';
 import { CustomValidators } from '@bs2/design-system/validators';
+import { setTranslationsConstantsInstance } from '@bs2/design-system/translations';
+
+setTranslationsConstantsInstance();
 
 const meta: Meta<Bs2DSInputTokenComponent> = {
   component: Bs2DSInputTokenComponent,

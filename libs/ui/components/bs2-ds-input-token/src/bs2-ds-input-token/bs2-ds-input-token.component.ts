@@ -38,13 +38,12 @@ export class Bs2DSInputTokenComponent implements OnInit {
     }
     this.returnValue();
   }
-  onKeyUp(event: KeyboardEvent, index: number) {
-    const target = event.currentTarget as HTMLInputElement;
-    if (!target.value && event.key === 'Backspace' && index) {
+
+  onKeydown(event: KeyboardEvent, index: number) {
+    const target = event.target as HTMLInputElement;
+    if (event.key === 'Backspace' && !target.value && index > 0) {
+      event.preventDefault();
       this.bs2DSInputToken.toArray()[index - 1].nativeElement.focus();
-      this.returnValue();
-    } else {
-      this.onInput(event, index);
     }
   }
 
