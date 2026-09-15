@@ -1,4 +1,5 @@
-import { Component, ElementRef, inject, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AbstractControl, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
@@ -24,11 +25,25 @@ export class Bs2DSInputTokenComponent implements OnInit {
   @Input() hideErrors = false;
 
   public fb = inject(FormBuilder);
+  private destroyRef = inject(DestroyRef);
   public form: FormArray;
 
   ngOnInit(): void {
     this.form = this.fb.array([]);
     for (let i = 0; i < this.amount; i++) this.form.push(this.fb.control(''));
+
+    this.control.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => this.syncFromControl(value));
+  }
+
+  private syncFromControl(value: string | null) {
+    const current = this.form.controls.map((c) => c.value).join('');
+    if (current === (value ?? '')) return;
+    const chars = value ? [...value] : [];
+    this.form.controls.forEach((c, i) => c.setValue(chars[i] ?? '', { emitEvent: false }));
+    if (!value) {
+      this.form.controls.forEach((c) => c.markAsUntouched());
+      this.bs2DSInputToken.first?.nativeElement.focus();
+    }
   }
 
   onInput(event: Event, index: number) {
