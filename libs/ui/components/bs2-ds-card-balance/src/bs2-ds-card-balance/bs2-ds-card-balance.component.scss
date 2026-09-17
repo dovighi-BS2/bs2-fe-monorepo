@@ -12,13 +12,15 @@
     flex-direction: column;
     justify-content: center;
   }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &__toggler {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     border-radius: 50px;
-    position: absolute;
-    top: 12px;
-    right: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
