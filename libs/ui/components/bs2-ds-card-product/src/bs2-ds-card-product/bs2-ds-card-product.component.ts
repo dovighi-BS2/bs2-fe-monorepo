@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 import { Bs2DSFlatButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button';
 import { Bs2DSLoadingSpinningDirective } from '@bs2/design-system/directives/bs2-ds-loading-spinning';
 
 @Component({
   selector: 'bs2-ds-card-product',
   standalone: true,
-  imports: [CommonModule, Bs2DSFlatButtonDirective, Bs2DSLoadingSpinningDirective],
+  imports: [CommonModule, Bs2DSFlatButtonDirective, Bs2DSLoadingSpinningDirective, Bs2DSIconComponent],
   templateUrl: './bs2-ds-card-product.component.html',
   styleUrl: './bs2-ds-card-product.component.scss',
 })

@@ -5,6 +5,7 @@
   min-height: 112px;
   padding: 12px 16px;
   border-radius: 8px;
+  background-color: var(--primary_white);
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 
   &:has(&__unavailable) {
