@@ -12,7 +12,7 @@ export class Bs2DSIconRegistryService {
   get(name: string): Observable<SafeHtml> {
     if (!this.cache.has(name)) {
       const request = this.http
-        .get(`/assets/icons/${name}.svg`, { responseType: 'text' })
+        .get(`assets/icons/${name}.svg`, { responseType: 'text' })
         .pipe(
           map(svg => {
             const clean = svg
