@@ -24,6 +24,26 @@ describe('CustomValidators', () => {
     expect(CustomValidators.required(control)).toBeNull();
   });
 
+  it('cpfOrCnpj', () => {
+    const control = new FormControl<any>('');
+
+    expect(CustomValidators.cpfOrCnpj(control)).toBeNull();
+
+    control.setValue('529.982.247-25');
+    expect(CustomValidators.cpfOrCnpj(control)).toBeNull();
+
+    control.setValue('11.222.333/0001-81');
+    expect(CustomValidators.cpfOrCnpj(control)).toBeNull();
+
+    control.setValue('12.ABC.345/01DE-35');
+    expect(CustomValidators.cpfOrCnpj(control)).toBeNull();
+
+    control.setValue('529.982.247-26');
+    expect(CustomValidators.cpfOrCnpj(control)).toEqual({
+      cpfOrCnpj: CustomValidatorMessages.cpfOrCnpj,
+    });
+  });
+
   it('numeric', () => {
     const control = new FormControl<any>('');
     control.markAllAsTouched();

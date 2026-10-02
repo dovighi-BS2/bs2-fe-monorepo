@@ -21,18 +21,18 @@ export const CustomValidators = {
     return null;
   },
   fullName: (control: AbstractControl): ValidationErrors | null => {
-      const value: string = control.value?.trim() || '';
+    const value: string = control.value?.trim() || '';
 
-      const words = value.split(/\s+/);
-      if (words.length < 2) {
-        return { fullName: customValidationsMessages().fullName  };
-      }
-      const nameIsValid = words.every((word) => /^[A-Za-zÀ-ÖØ-öø-ÿ]+(-[A-Za-zÀ-ÖØ-öø-ÿ]+)?$/.test(word));
-      if (!nameIsValid) {
-        return { fullName: customValidationsMessages().onlyLetters };
-      }
+    const words = value.split(/\s+/);
+    if (words.length < 2) {
+      return { fullName: customValidationsMessages().fullName };
+    }
+    const nameIsValid = words.every((word) => /^[A-Za-zÀ-ÖØ-öø-ÿ]+(-[A-Za-zÀ-ÖØ-öø-ÿ]+)?$/.test(word));
+    if (!nameIsValid) {
+      return { fullName: customValidationsMessages().onlyLetters };
+    }
 
-      return null;
+    return null;
 
   },
   numeric: (control: AbstractControl): ValidationErrors | null => {
@@ -56,6 +56,21 @@ export const CustomValidators = {
       }
     }
     return null;
+  },
+  cpfOrCnpj: (control: AbstractControl): ValidationErrors | null => {
+    const value = String(control.value ?? '').trim().toUpperCase();
+
+    if (!value) return null;
+
+    const normalizedValue = value.replace(/[\s.\-/]/g, '');
+    const isCpf = /^\d{11}$/.test(normalizedValue);
+    const isCnpj = /^[A-Z0-9]{14}$/.test(normalizedValue);
+
+    if ((isCpf && isValidCpf(normalizedValue)) || (isCnpj && isValidCnpj(normalizedValue))) {
+      return null;
+    }
+
+    return { cpfOrCnpj: customValidationsMessages().cpfOrCnpj };
   },
   cellphone: (control: AbstractControl): ValidationErrors | null => {
     if (control.value && control.value != '') {

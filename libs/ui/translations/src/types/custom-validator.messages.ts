@@ -15,6 +15,7 @@ export interface CustomValidatorMessages {
   dateRangeInvalid: string;
   cnpj: string;
   cpf: string;
+  cpfOrCnpj: string;
   cellphone: string;
   phone: string;
   email: string;
