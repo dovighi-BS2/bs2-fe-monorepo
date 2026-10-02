@@ -122,7 +122,7 @@ export const Default: Story = {
     label: 'Categorias',
     class: '',
     leftIcon: '',
-    rightIcon: 'arrow-down',
+    rightIcon: 'ico-chevron-baixo',
     helperText: 'Digite seu e-mail principal.',
     errorText: '',
     placeholder: 'Selecione uma opção',

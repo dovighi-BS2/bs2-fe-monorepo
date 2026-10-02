@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NgxCurrencyDirective } from 'ngx-currency';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'bs2-ds-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, NgxCurrencyDirective],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, NgxCurrencyDirective, Bs2DSIconComponent],
   providers: [provideNgxMask({ validation: false }), NgxCurrencyDirective],
   templateUrl: './bs2-ds-input-text.component.html',
   styleUrl: './bs2-ds-input-text.component.scss',
@@ -40,6 +41,8 @@ export class Bs2DSInputTextComponent implements OnChanges, OnDestroy {
 
   @Output() clickEmitter = new EventEmitter();
   @Output() keyupEmitter = new EventEmitter();
+  @Output() leftIconClick = new EventEmitter<void>();
+  @Output() rightIconClick = new EventEmitter<void>();
 
   private uppercaseSub?: Subscription;
 

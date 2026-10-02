@@ -22,8 +22,22 @@
   }
   <span class="{{ block }}__helper" *ngIf="!!helperText">{{ helperText }}</span>
   <div class="{{ block }}__wrapper">
-    <i class="{{ block }}__icon left {{ leftIcon }}" *ngIf="leftIcon"></i>
-    <i class="{{ block }}__icon right {{ rightIcon }}" *ngIf="rightIcon"></i>
+    <div class="{{ block }}__icon left" *ngIf="leftIcon">
+      <bs2-ds-icon
+        [name]="leftIcon"
+        [size]="'var(--bs2_ds_input_select__icon_width)'"
+        [color]="'var(--bs2_ds_input_select__icon_color)'"
+        aria-hidden="true"
+      />
+    </div>
+    <div class="{{ block }}__icon right" *ngIf="rightIcon">
+      <bs2-ds-icon
+        [name]="rightIcon"
+        [size]="'var(--bs2_ds_input_select__icon_width)'"
+        [color]="'var(--bs2_ds_input_select__icon_color)'"
+        aria-hidden="true"
+      />
+    </div>
     <div
       #selectInputField
       class="{{ block }}__field"

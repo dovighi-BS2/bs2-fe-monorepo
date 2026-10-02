@@ -5,11 +5,12 @@ import { CdkListboxModule } from '@angular/cdk/listbox';
 import { Bs2DSInputSelectOption } from './bs2-ds-input-select.interface';
 import { fromEvent, Subscription } from 'rxjs';
 import { TranslationsConstantsBase } from '@bs2/design-system/translations';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 
 @Component({
   selector: 'bs2-ds-input-select',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CdkListboxModule],
+  imports: [CommonModule, ReactiveFormsModule, CdkListboxModule, Bs2DSIconComponent],
   templateUrl: './bs2-ds-input-select.component.html',
   styleUrl: './bs2-ds-input-select.component.scss',
 })
@@ -25,7 +26,7 @@ export class Bs2DSInputSelectComponent implements AfterViewInit, OnDestroy {
   @Input() label = '';
   @Input() class = '';
   @Input() leftIcon = '';
-  @Input() rightIcon = 'icon icon-chevronbaixo';
+  @Input() rightIcon = 'ico-chevron-baixo';
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() placeholder = TranslationsConstantsBase.instance.placeholderMessages().selectOption;

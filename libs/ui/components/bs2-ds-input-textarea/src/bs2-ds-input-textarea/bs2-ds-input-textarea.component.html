@@ -23,8 +23,22 @@
     </span>
   </div>
   <div class="{{ block }}__wrapper">
-    <div class="{{ block }}__icon left {{ leftIcon }}" *ngIf="leftIcon"></div>
-    <div class="{{ block }}__icon right {{ rightIcon }}" *ngIf="rightIcon"></div>
+    <div class="{{ block }}__icon left" *ngIf="leftIcon">
+      <bs2-ds-icon
+        [name]="leftIcon"
+        [size]="'var(--bs2_ds_input_textarea__icon_width)'"
+        [color]="'var(--bs2_ds_input_textarea__icon_color)'"
+        aria-hidden="true"
+      />
+    </div>
+    <div class="{{ block }}__icon right" *ngIf="rightIcon">
+      <bs2-ds-icon
+        [name]="rightIcon"
+        [size]="'var(--bs2_ds_input_textarea__icon_width)'"
+        [color]="'var(--bs2_ds_input_textarea__icon_color)'"
+        aria-hidden="true"
+      />
+    </div>
     <textarea
       class="{{ block }}__field {{ resize ? 'resize' : '' }} {{ autosize ? 'autosize' : '' }}"
       [rows]="rows"
