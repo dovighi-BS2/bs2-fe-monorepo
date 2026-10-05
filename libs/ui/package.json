@@ -1,6 +1,6 @@
 {
   "name": "@bs2/design-system",
-  "version": "2.0.9-beta-ib-pf.17",
+  "version": "2.0.10",
   "sideEffects": false,
   "peerDependencies": {
     "@angular/common": "^21.2.4",
