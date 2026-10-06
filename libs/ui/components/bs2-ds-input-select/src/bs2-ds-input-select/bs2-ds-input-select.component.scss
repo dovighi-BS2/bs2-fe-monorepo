@@ -50,6 +50,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 
     &.left {
       order: 1;
@@ -199,6 +200,7 @@
 
   // Theming
   &:has(&__field:hover),
+  &:has(&__icon:hover),
   &.hovered {
     --bs2_ds_input_select__field_border_width: 2px;
     --bs2_ds_input_select__label_color: var(--neutral600);
