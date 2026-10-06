@@ -32,6 +32,10 @@
     font-weight: 400;
     margin-top: 4px;
     color: var(--bs2_ds_input_text__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
   }
   &__wrapper {
     display: flex;
