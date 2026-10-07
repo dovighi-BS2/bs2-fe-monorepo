@@ -1,7 +1,8 @@
 @let block = "bs2_ds_feedback"; @if(!isRemoved){
 <div class="{{ block }} {{ status }}">
   <div class="{{ block }}__left">
-    <span class="{{ block }}__icon {{ filteredIcon }}"></span>
+    <bs2-ds-icon class="{{ block }}__icon" [name]="filteredIcon" [color]="'var(--bs2_ds_feedback_status)'" [size]="20"
+      aria-hidden="true" />
     <div class="{{ block }}__text">
       <span class="{{ block }}__title">{{ title }}</span>
       <span class="{{ block }}__message">{{ message }}</span>
@@ -9,7 +10,7 @@
   </div>
   @if(hasClose){
   <div class="{{ block }}__right">
-    <span class="{{ block }}__close icon icon-limpar" (click)="close()"></span>
+    <bs2-ds-icon class="{{ block }}__close" name="ico-limpar" [size]="20" (click)="close()" aria-hidden="true" />
   </div>
   }
 </div>
