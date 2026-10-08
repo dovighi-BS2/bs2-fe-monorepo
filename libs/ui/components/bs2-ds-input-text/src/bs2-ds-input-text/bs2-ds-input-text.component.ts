@@ -30,6 +30,9 @@ export class Bs2DSInputTextComponent implements OnChanges, OnDestroy {
   @Input() placeholder = '';
   @Input() autocomplete = '';
   @Input() readOnly = false;
+  @Input() maxLength?: number;
+  @Input() minLength?: number;
+  @Input() pattern = '';
   @Input() mask = '';
   @Input() currencyMask?: object;
   @Input() hideErrors = false;
