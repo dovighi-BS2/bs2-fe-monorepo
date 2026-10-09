@@ -40,6 +40,11 @@ const meta: Meta<Bs2DSCardBalanceComponent> = {
       defaultValue: { summary: 'false' },
       table: { type: { summary: 'boolean' } },
     },
+    showLimit: {
+      control: 'boolean',
+      defaultValue: { summary: 'true' },
+      table: { type: { summary: 'boolean' } },
+    },
     emitter: {
       action: 'Evento emitido pelo componente',
       defaultValue: { summary: 'new EventEmitter<boolean>()' },
@@ -57,6 +62,7 @@ export const Default: Story = {
     limit: 3000000000.23,
     template: 'visible',
     loader: false,
+    showLimit: true,
   },
   render: (args) => ({
     props: { ...args },
@@ -72,6 +78,7 @@ export class YourComponentComponent {
     public limit: number = 3000000000.23;
     public template: 'visible' | 'hidden' | 'unavailable' = "visible";
     public loader: boolean = false;
+    public showLimit: boolean = true;
 }
 -->
 
@@ -81,6 +88,45 @@ export class YourComponentComponent {
   [limit]="limit"
   [template]="template"
   [loader]="loader"
+  [showLimit]="showLimit"
+></bs2-ds-card-balance>
+    `,
+  }),
+};
+
+export const WithoutLimit: Story = {
+  args: {
+    balance: 1000000000.12,
+    limit: 3000000000.23,
+    template: 'visible',
+    loader: false,
+    showLimit: false,
+  },
+  render: (args) => ({
+    props: { ...args },
+    template: `
+<!-- TYPESCRIPT -->
+<!--
+import { Bs2DSCardBalanceComponent } from "@bs2/design-system/components/bs2-ds-card-balance";
+import { Component } from '@angular/core';
+
+@Component({ imports: [Bs2DSCardBalanceComponent], ... })
+export class YourComponentComponent {
+    public balance: number = 1000000000.12;
+    public limit: number = 3000000000.23;
+    public template: 'visible' | 'hidden' | 'unavailable' = "visible";
+    public loader: boolean = false;
+    public showLimit: boolean = false;
+}
+-->
+
+<!-- HTML -->
+<bs2-ds-card-balance
+  [balance]="balance"
+  [limit]="limit"
+  [template]="template"
+  [loader]="loader"
+  [showLimit]="showLimit"
 ></bs2-ds-card-balance>
     `,
   }),

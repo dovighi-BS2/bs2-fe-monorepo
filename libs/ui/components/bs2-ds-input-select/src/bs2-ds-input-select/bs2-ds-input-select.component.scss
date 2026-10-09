@@ -45,12 +45,12 @@
   &__icon {
     width: var(--bs2_ds_input_select__icon_width);
     min-height: var(--bs2_ds_input_select__icon_width);
-    font-size: 24px;
-    color: var(--primary);
+    color: var(--bs2_ds_input_select__icon_color);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 
     &.left {
       order: 1;
@@ -200,6 +200,7 @@
 
   // Theming
   &:has(&__field:hover),
+  &:has(&__icon:hover),
   &.hovered {
     --bs2_ds_input_select__field_border_width: 2px;
     --bs2_ds_input_select__label_color: var(--neutral600);

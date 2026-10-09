@@ -27,6 +27,7 @@ export class TranslationsConstantsZh extends TranslationsConstantsBase {
       dateRangeInvalid: '日期超出允许范围。',
       cnpj: 'CNPJ 无效',
       cpf: 'CPF 无效',
+      cpfOrCnpj: 'CPF/CNPJ 无效',
       cellphone: '手机号无效',
       phone: '电话号码无效',
       email: '邮箱无效',

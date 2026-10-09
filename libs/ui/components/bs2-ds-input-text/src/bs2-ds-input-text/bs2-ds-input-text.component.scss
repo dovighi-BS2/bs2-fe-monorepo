@@ -32,6 +32,10 @@
     font-weight: 400;
     margin-top: 4px;
     color: var(--bs2_ds_input_text__feedback_text_color);
+
+    &:empty {
+      display: none;
+    }
   }
   &__wrapper {
     display: flex;
@@ -39,12 +43,12 @@
   &__icon {
     width: var(--bs2_ds_input_text__icon_width);
     min-height: var(--bs2_ds_input_text__icon_width);
-    font-size: 24px;
-    color: var(--primary);
+    color: var(--bs2_ds_input_text__icon_color);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 
     &.left {
       order: 1;

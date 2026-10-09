@@ -14,7 +14,7 @@
   } @if(helperText){
   <span class="{{ block }}__helper">{{ helperText }}</span>
   }
-  <div class="{{ block }}__wrapper" formArrayName="forms">
+  <div class="{{ block }}__wrapper">
     @for(item of form.controls; track $index;){
     <input
       #bs2DSInputToken
@@ -25,7 +25,7 @@
       [readOnly]="readOnly"
       [formControl]="getControlByItem(item)"
       (input)="onInput($event, $index)"
-      (keyup)="onKeyUp($event, $index)"
+      (keydown)="onKeydown($event, $index)"
       (paste)="onPaste($event)"
     />
     }

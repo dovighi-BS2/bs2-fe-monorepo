@@ -11,17 +11,29 @@
 </div>
 
 <ng-template #visible>
-  <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">></span>
-  <p class="{{ block }}__title">Saldo em conta</p>
+  <div class="{{ block }}__header">
+    <p class="{{ block }}__title">Saldo em conta</p>
+    <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">
+      <bs2-ds-icon name="ico-view-on" [size]="24" aria-hidden="true" />
+    </span>
+  </div>
   <p class="{{ block }}__balance">R$ {{ transform(Number(balance)) }}</p>
+  @if(showLimit){
   <p class="{{ block }}__limit">Saldo + Limite: {{ transform(Number(balance) + Number(limit)) }}</p>
+  }
 </ng-template>
 
 <ng-template #hidden>
-  <span class="{{ block }}__toggler" (click)="setTemplate('visible')">></span>
-  <p class="{{ block }}__title">Saldo em conta</p>
+  <div class="{{ block }}__header">
+    <p class="{{ block }}__title">Saldo em conta</p>
+    <span class="{{ block }}__toggler" (click)="setTemplate('visible')">
+      <bs2-ds-icon name="ico-view-off" [size]="24" aria-hidden="true" />
+    </span>
+  </div>
   <p class="{{ block }}__balance">R$ ••••••</p>
+  @if(showLimit){
   <p class="{{ block }}__limit">Saldo + Limite: ••••••</p>
+  }
 </ng-template>
 
 <ng-template #unavailable>

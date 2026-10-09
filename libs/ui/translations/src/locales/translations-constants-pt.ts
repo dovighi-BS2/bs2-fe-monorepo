@@ -27,6 +27,7 @@ export class TranslationsConstantsPt extends TranslationsConstantsBase {
       dateRangeInvalid: 'Data fora do limite permitido.',
       cnpj: 'CNPJ inválido',
       cpf: 'CPF inválido',
+      cpfOrCnpj: 'CPF/CNPJ inválido',
       cellphone: 'Celular inválido',
       phone: 'Telefone inválido',
       email: 'E-mail inválido',

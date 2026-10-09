@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, ElementRef, inject } from '@angular/core';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 
 @Component({
   selector: 'bs2-ds-feedback',
   standalone: true,
-  imports: [],
+  imports: [Bs2DSIconComponent],
   templateUrl: './bs2-ds-feedback.component.html',
   styleUrl: './bs2-ds-feedback.component.scss',
 })
@@ -32,13 +33,13 @@ export class Bs2DSFeedbackComponent implements OnInit {
 
     switch (this.status) {
       case 'info':
-        return 'icon icon-informacao';
+        return 'ico-informacao';
       case 'attention':
-        return 'icon icon-erro';
+        return 'ico-alerta';
       case 'error':
-        return 'icon icon-sair';
+        return 'ico-erro';
       case 'success':
-        return 'icon icon-checked';
+        return 'ico-checked';
       default:
         return this.icon;
     }

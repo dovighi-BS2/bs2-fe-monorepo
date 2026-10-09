@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 import { Bs2DSFlatButtonDirective } from '@bs2/design-system/directives/bs2-ds-button/bs2-ds-flat-button';
 import { Bs2DSLoadingSpinningDirective } from '@bs2/design-system/directives/bs2-ds-loading-spinning';
 
 @Component({
   selector: 'bs2-ds-card-balance',
   standalone: true,
-  imports: [CommonModule, Bs2DSFlatButtonDirective, Bs2DSLoadingSpinningDirective],
+  imports: [CommonModule, Bs2DSFlatButtonDirective, Bs2DSLoadingSpinningDirective, Bs2DSIconComponent],
   templateUrl: './bs2-ds-card-balance.component.html',
   styleUrl: './bs2-ds-card-balance.component.scss',
 })
@@ -14,7 +15,8 @@ export class Bs2DSCardBalanceComponent {
   @Input() loader = false;
   @Input() balance = 0;
   @Input() limit = 0;
-  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'visible';
+  @Input() showLimit = true;
+  @Input() template: 'visible' | 'hidden' | 'unavailable' = 'hidden';
   @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public Number = Number;

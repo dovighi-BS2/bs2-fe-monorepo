@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { CustomValidators } from '@bs2/design-system/validators';
+import { Bs2DSIconComponent } from '@bs2/design-system/components/bs2-ds-icon';
 
 @Component({
   selector: 'bs2-ds-input-textarea',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextFieldModule],
+  imports: [CommonModule, ReactiveFormsModule, TextFieldModule, Bs2DSIconComponent],
   templateUrl: './bs2-ds-input-textarea.component.html',
   styleUrl: './bs2-ds-input-textarea.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

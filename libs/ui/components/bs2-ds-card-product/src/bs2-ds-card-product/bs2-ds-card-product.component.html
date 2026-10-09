@@ -19,7 +19,9 @@
       <p class="{{ block }}__title">{{ title }}</p>
     </div>
     <div class="{{ block }}__top_right">
-      <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">></span>
+      <span class="{{ block }}__toggler" (click)="setTemplate('hidden')">
+        <bs2-ds-icon name="ico-chevron-prosseguir" [size]="24" aria-hidden="true" />
+      </span>
     </div>
   </div>
   @if(label){
@@ -38,7 +40,9 @@
       <p class="{{ block }}__title">{{ title }}</p>
     </div>
     <div class="{{ block }}__top_right">
-      <span class="{{ block }}__toggler" (click)="setTemplate('visible')">></span>
+      <span class="{{ block }}__toggler" (click)="setTemplate('visible')">
+        <bs2-ds-icon name="ico-chevron-prosseguir" [size]="24" aria-hidden="true" />
+      </span>
     </div>
   </div>
   @if(label){

@@ -62,6 +62,8 @@ export class YourComponentComponent { }
 <button bs2-ds-filled-button="small">button</button>
 <button bs2-ds-filled-button="medium">button</button>
 <button bs2-ds-filled-button="large">button</button>
+<button bs2-ds-filled-button icon="ico-checked" iconPosition="left">button</button>
+<button bs2-ds-filled-button icon="ico-checked" iconPosition="right">button</button>
     `,
   }),
 };
@@ -84,6 +86,8 @@ export class YourComponentComponent { }
 <button bs2-ds-outlined-button="small">button</button>
 <button bs2-ds-outlined-button="medium">button</button>
 <button bs2-ds-outlined-button="large">button</button>
+<button bs2-ds-outlined-button icon="ico-checked" iconPosition="left">button</button>
+<button bs2-ds-outlined-button icon="ico-checked" iconPosition="right">button</button>
     `,
   }),
 };
@@ -106,6 +110,8 @@ export class YourComponentComponent { }
 <button bs2-ds-flat-button="small">button</button>
 <button bs2-ds-flat-button="medium">button</button>
 <button bs2-ds-flat-button="large">button</button>
+<button bs2-ds-flat-button icon="ico-checked" iconPosition="left">button</button>
+<button bs2-ds-flat-button icon="ico-checked" iconPosition="right">button</button>
     `,
   }),
 };
